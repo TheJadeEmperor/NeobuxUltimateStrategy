@@ -1,0 +1,67 @@
+<?
+if($_GET['action'] == 'forgot') {
+    $boxTitle = 'Forgot Password';
+    $buttonSubmit = '<input type="submit" class="btn danger" name="forgot" value="Reset Password" />';
+}
+else {
+    $boxTitle = 'Members Area Login';
+    $buttonSubmit = '<input type="submit" class="btn danger" value="Login Now" />';
+}
+
+?>
+
+<center><h2><?=$businessName?><br />Members Area</h2><br />
+<font face="arial" color="red"><b><?=$msg?></b></font>
+
+<form method="POST">
+    <table class="moduleBlue" cellspacing="2" width="380px">
+        <tr>
+            <th colspan="2"><h1><?=$boxTitle?></h1></th>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><br />
+                <table width="320px">
+                    <tr>
+                        <td>Username </td>
+                        <td><input type="text" name="username" class="activeField" size=28 value="<?=$_POST['username']?>"></td>
+                    </tr>
+                    <tr>
+                        <?
+                        if($_GET['action'] == 'forgot') {                                
+                        ?>
+                            <td>Email</td><td><input type="text" name="email" class="activeField" size="28" /></td>
+                        <?
+                        }
+                        else {
+                        ?>
+                            <td>Password </td><td><input type="password" name="password" class="activeField" size="28" /></td>
+                        <? 
+                        }
+                        ?>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2"><br />
+                            <?=$buttonSubmit?>
+                            <input type="reset" value="Clear" class="btn danger" />
+                            <input type="hidden" name="login" value="Y"><br /><br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="left"><a href="?action=forgot">Forgot Password</a></td>
+            <td align="right"><a href="<?=$dir?>members">Login</a></td>
+        </tr>
+    </table>
+</form>
+
+<p>&nbsp;</p>
+
+<h2>What is the members area?</h2></center>
+
+<p>Log in to download the latest copy of <?=$businessName?> products, as well as update your profile 
+    and download bonuses. If you made a purchase and you're unable to log in, please contact our support helpdesk below.<br />
+    <a href="mailto:<?=$adminEmail?>"><?=$adminEmail?></a></p>
+
+<p>&nbsp;</p>

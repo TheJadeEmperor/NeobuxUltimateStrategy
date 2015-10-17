@@ -1,0 +1,449 @@
+<?php
+function outsideLink($url) {
+    return '<a href="'.$url.'" target="_blank">'.$url.'</a>';
+}
+
+$imgDir = $dir.'images/sales/';
+$memberDir = $dir.'members/images/';
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$businessName?> Members Area</title>
+<meta name="description" content="<?=$description?>" />
+<meta name="keywords" content="<?=$keywords?>" />
+<style type="text/css">
+p, li {
+    font-size: 18px; 
+    font-family: Georgia; 
+    line-height: 1.35;
+}
+
+.subheadline {
+    background:url(<?=$imgDir?>highlight.png) repeat-y center top;
+    font:italic 20px Arial, Helvetica, sans-serif;
+    margin:0 0 20px;
+    text-align:center;
+    color: black;
+}
+
+.headline {
+    font-size: 34px; 
+}
+
+.ps {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px; 
+}
+
+a {
+    text-decoration: none;
+    color: blue; 
+}
+
+a:hover {
+    text-decoration: underline;
+    color: purple; 
+}
+
+h1 {
+    text-align: center; }
+
+h2 {
+    margin: 30px;
+    color: #C4002D;
+    text-align: center;  }
+	
+h3 {
+    font-size: 22px;
+    font-family: Georgia, Geneva, sans-serif;
+}
+
+table {
+    font-size: 18px; 
+    font-family: Georgia; 
+    line-height: 1.35;
+}
+
+th {
+    font-weight: bold;
+}
+
+.gray {	
+    margin: 30px; 
+    text-align: center; 
+    font-size: 22px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #666;
+}
+
+.textBox {
+    padding: 15px;
+    background-color: #FFC;
+    border: 2px solid #800000;
+}
+
+.textBox p {
+    font: normal 12px Arial;
+}
+
+.textBox h2 {
+    margin: 0px;
+    font-size: 22px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #600;
+    text-align: center;
+    font-weight: bold;
+}
+
+.checkList {
+    margin-left: 2px;
+    list-style-image: url(<?=$imgDir?>check.png);
+    font-family: Georgia;
+}
+
+.crossList{
+    list-style-image:url(<?=$imgDir?>cross.jpg);
+    font-family: Georgia;
+}
+
+.neobux {
+    list-style-image:url(<?=$memberDir?>neobux.png);
+    font-family: Georgia;
+}
+
+.strong { font-weight:bold; }
+.red { color:#c13100; }
+.note {
+    color:#767676;
+    font:normal 11px Arial, Helvetica, sans-serif;
+    margin:15px auto 0;
+}
+
+.darkred {
+    color: #800000;
+}
+
+text .activeField{
+    border: 1px solid #000000;
+    background: #FFFFFF;
+}
+
+.activeField:hover {
+    background: #FFFF99;
+}
+
+.clickable {
+    text-align: center;
+    border: 1px solid black;
+}
+	
+.clickable:hover {
+    border: 1px solid white;
+}
+
+.joinForm {
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 0px; 
+    text-align: left;
+}
+
+.joinForm p {
+    margin: 4px;
+    font-size: 18px;
+}
+
+.joinForm th, .joinForm h2 {
+    margin-top: 0px; 
+    text-align: center; 
+    padding: 5px;
+    background: #12649b;
+    color: #ffffff;
+}
+
+.joinForm td {
+    padding: 5px; 
+}
+
+.line { 
+    background:url(<?=$imgDir?>line.gif) no-repeat; 
+    height:1px; 
+    margin:0 auto; 
+    width:690px; 
+}
+
+.addToCart {
+    text-decoration: underline; 
+    font-size: 36px;
+    color: blue;
+} 
+
+.moduleBlue {
+    font-family: Tahoma, Geneva, sans-serif;
+    border: solid 1px #531d2a;
+    text-align: left;
+    background: #eeeeee;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.moduleBlue h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    display: block;
+    padding: 0.5em 0;
+    background: #12649b;
+    color: #ffffff;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.moduleBlue div {
+    padding: 5px 10px;
+}
+
+#language{
+    margin: 0px 0px 20px 0px; 
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+}
+
+#content {
+    width: 800px;
+    padding: 10px 20px;
+    -webkit-box-shadow: 0 0 5px 20px #fff;
+    -moz-box-shadow: 0 0 5px 20px #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 1px;
+    margin: 27px auto;
+    box-shadow: 0 0 5px 20px #fff;
+    background: #fff; 
+}
+
+.bonusBox {
+    border: 1px solid gray;
+    padding: 20px;
+    width: 300px;
+}
+
+/* menu */
+#menuContainer {
+    text-align: center;
+    top: 0;
+    width: 100%;
+/*    position: fixed; */
+    background-color: #0000A0;
+    padding: 5px;
+    margin: 0px; 
+    height: 130px;
+}
+
+#menuh {
+    width: 860px;
+    margin: 0px auto; 
+    font-size: small;
+    font-family: arial, helvetica, sans-serif;
+    background-color: #0000A0; /* purple */
+}
+		
+#menuh a {
+    text-align: center;
+    display: block;
+    border: 1px solid #0000A0;
+    white-space:nowrap;
+    margin:0;
+    padding: 5px 15px 5px 15px;
+    font-weight: 700; 
+    font-size: 14px;
+}
+	
+#menuh a:link, #menuh a:visited, #menuh a:active {
+    color: white;
+    background-color: #0000A0; /* purple */
+}
+	
+#menuh a:hover {
+    color: white;
+    background-color: #668CFF;	 
+    text-decoration:none;
+}	
+	
+#menuh a.top_parent, #menuh a.top_parent:hover { /* attaches down-arrow to all top-parents */
+    background-image: url(../images/admin/navdown_white.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+	
+#menuh a.parent, #menuh a.parent:hover {	/* attaches side-arrow to all parents */
+    background-image: url(../images/admin/nav_white.gif);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+#menuh ul {
+    list-style:none;
+    margin: 0px auto; 	
+    padding: 0;
+    float: left; 
+    /*border: 1px solid white;*/
+}
+
+#menuh li {	
+    text-align: left;
+    position:relative;
+    min-height: 1px;		/* Sophie Dennis contribution for IE7 */
+    vertical-align: bottom;		/* Sophie Dennis contribution for IE7 */
+}
+
+#menuh ul ul {
+    border: 1px solid white; 
+    text-align: left;
+    position:absolute;
+    z-index:500;
+    top:auto;
+    display:none;
+}
+
+#menuh ul ul li a {
+    padding: 10px;
+    text-align: left;
+    font-weight: 100;
+}
+
+#menuh ul ul ul {
+    top: 0;
+    left: 100%;
+}
+
+div#menuh li:hover {
+    cursor: pointer;
+    z-index: 100;
+}
+
+div#menuh li:hover ul ul,
+div#menuh li li:hover ul ul,
+div#menuh li li li:hover ul ul,
+div#menuh li li li li:hover ul ul {	
+    display: none;
+}
+
+div#menuh li:hover ul,
+div#menuh li li:hover ul,
+div#menuh li li li:hover ul,
+div#menuh li li li li:hover ul {
+    display: block;
+}
+/* End CSS Drop Down Menu */
+#eXTReMe {
+    display: none; 
+}
+</style>
+<link href="<?=$dir?>include/css/buttons.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="<?=$dir?>include/js/jquery.js"></script>
+<script type="text/javascript" src="<?=$dir?>include/js/popup.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6094683-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<?php
+if(isset($u['id']) && $affmenu == true)
+{
+?>
+<div id="menuContainer">
+    <img src="../images/members/memArea.png" />
+    
+    <div id="menuh">
+        <ul>    
+            <li>
+                <a href="./?action=affcenter" title="Main">Members Home</a>
+            </li>
+        </ul>
+        <ul>    
+            <li>
+                <a href="./?action=chapter1" title="Chapters" class="top_parent">Chapters</a>
+                <ul>
+                    <li><a href="./?action=chapter1">Chapter 1</a></li>
+                    <li><a href="./?action=chapter2">Chapter 2</a></li>
+                    <li><a href="./?action=chapter3">Chapter 3</a></li>
+                    <li><a href="./?action=chapter4">Chapter 4</a></li>
+                    <li><a href="./?action=chapter5">Chapter 5</a></li>
+                    <li><a href="./?action=chapter6-7">Chapter 6 & 7</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>    
+            <li>
+                <a href="./?action=video1" title="Videos" class="top_parent">NUS Videos</a>
+                <ul>
+                    <li><a href="./?action=video1">Videos 1 - Modules 1 to 3</a></li>
+                    <li><a href="./?action=video2">Videos 2 - Modules 4 to 5</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>    
+            <li>
+                <a href="./?action=chapter3#directReferrals" title="Direct Referrals" class="top_parent">Referrals</a>
+                <ul>
+                    <li><a href="./?action=chapter3#directReferrals">Referrals</a></li>
+                    <li><a href="./?action=forums">*PTC Forums</a></li>
+                    <li><a href="./?action=download-videos">*Download Videos</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul>    
+            <li>
+                <a href="./?action=download-bonus" title="Bonuses">Bonuses</a>
+            </li>
+        </ul>
+        <ul>
+            <li><a href="./?action=details">Update Profile</a></li> 
+        </ul>
+        <ul>
+            <li>
+                <a href="./?action=logout">Logout</a>
+            </li>
+        </ul>
+
+    </div>
+</div>	
+<p>&nbsp; </p>
+<?
+}
+?>
+
+<div id="content">
+    <center>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'es,de,fi,fr,el,id',
+            gaTrack: true,
+            gaId: 'UA-29416561-1',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'language');
+    }
+    </script>
+    <div id="language"></div>
+    </center>
+    
+    <br />
