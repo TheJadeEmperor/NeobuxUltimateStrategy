@@ -373,13 +373,66 @@ text .input {
     margin-top: -9px;
 }
 
+#bannerSmall {
+    display: none;
+}
+
+
+#blogMenu ul {
+    list-style: none;	
+}
+
+
+
+
+#blogMenu li {
+    display: inline; 
+}
+
+#blogMenu a {
+    float: left;
+    width: 79px;
+    height: 32px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.menu span {
+    position: absolute; 
+    text-align: center;
+    padding-top: 12px;
+    width: 125px;
+/*    border: 1px solid black;*/
+}
+
+#blogMenu a img {
+    margin-top: 0px;
+    
+}
+
+#blogMenu a:hover span {
+    height: 32px;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
 @media (max-width: 768px) {
-    #rightCol {
+    #rightCol, .sidebar {
         display: none;
     }
     
-    #banner {
+    #bannerBig {
         display: none;
+    }
+    
+    #bannerSmall {
+        display: block;
     }
     
     #header { 
@@ -393,4 +446,13 @@ text .input {
     #mainContent {
         width: 720px;
     }   
+    
+    .menu img {
+        width: 100px;
+        height: 40px;
+    }
+     
+    .menu span {
+        width: 100px;
+    }
 }

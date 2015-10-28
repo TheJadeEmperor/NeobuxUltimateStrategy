@@ -224,34 +224,34 @@ else //no affiliate, payee is admin
     $paidToEmail = $paypalEmail;
 }
 
-if(false) //debug
-{
+if(false) { //debug
     echo 'path: '.$path.'<br>
     productID: '.$productID.'<br>
     userID: '.$userID.' <br>
     paidToEmail: '.$paidToEmail;
     exit;
 }
+
 $action = $_GET[action];
 
-switch($action)
-{
-case 'order':
-    if($itemPrice == 0) //free gift product
-       $fileName = 'download.html';
-    else
-       $fileName = $dir.'templates/order.html'; 
-    break;
-case 'oto':
-    $fileName = $dir.'templates/otoOrder.html';
-    break;
-case 'download':
-    $fileName = $dir.'templates/download.php';
-    break;      
-case 'posts':
-    $templateHeader = $val['blogHeader'];
-    $templateFooter = $val['blogFooter'];  
-    $fileName = 'blog/index.php';
+switch($action) {
+    case 'order':
+        if($itemPrice == 0) //free gift product
+           $fileName = 'download.html';
+        else
+           $fileName = $dir.'templates/order.html'; 
+        break;
+    case 'oto':
+        $fileName = $dir.'templates/otoOrder.html';
+        break;
+    case 'download':
+        $fileName = $dir.'templates/download.php';
+        break;      
+    case 'posts':
+        $templateHeader = $val['blogHeader'];
+        $templateFooter = $val['blogFooter'];  
+        $fileName = 'blog/index.php';
+        $meta = postMetaTags($_GET['p']);     
     break;  
 default:
     $keywords = $p['keywords'];
@@ -261,13 +261,12 @@ default:
     $pageView = '/'.$path;
     
     //blog post
-    if($_GET[p])
-    {
+    if($_GET['p']) {
         $templateHeader = $val['blogHeader'];
         $templateFooter = $val['blogFooter'];   
         $fileName = 'blog/post.php';
-        $meta = postMetaTags($_GET[p]);     
-        $pageView = '/?p='.$_GET[p];
+        $meta = postMetaTags($_GET['p']);     
+        $pageView = '/?p='.$_GET['p'];
     }    
     
     //custom site pages 

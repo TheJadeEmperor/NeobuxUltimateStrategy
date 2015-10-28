@@ -87,7 +87,7 @@ while($p = mysql_fetch_assoc($resP)) {
                     <input type=hidden name="confirmLandingURL" value="<?=$confirmLandingURL?>">
                 </form>
 		
-		<p><span class="note">We hate spam and will never sell your email address to others. 
+                <p><span class="note">We hate spam and will never sell your email address <br />to others. 
                         All opt-ins are completely optional.</span></p>
 		 
             </td>

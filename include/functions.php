@@ -51,33 +51,31 @@ function downloadLink($url)
     exit;
 }
 
-function postMetaTags($url)
-{
-	global $context; 
-	$conn = $context[conn]; 
-	
-	$sel = 'select * from posts where url="'.$url.'" limit 1'; 
-	$res = mysql_query($sel, $conn) or die(mysql_error()); 
-	$p = mysql_fetch_assoc($res); 
-    
-    if(mysql_num_rows($res) > 0)
-    {	
-    	$meta = array(
-    	'title' => stripslashes($p['subject']), 
-    	'tags' => stripslashes($p['tags']), 
-    	'desc' => stripslashes($p['subject']), 
-    	);
-    }
-    else 
-    {
-        $meta = array(
+function postMetaTags($url) {
+    global $context; 
+    $conn = $context[conn]; 
+
+     $meta = array(
         'title' => 'NUS Blog',
         'tags' => 'NUS blog',
         'desc' => 'NUS blog'
-        );
+    );
+    
+    
+    $sel = 'select * from posts where url="'.$url.'" limit 1'; 
+    $res = mysql_query($sel, $conn) or die(mysql_error()); 
+    $p = mysql_fetch_assoc($res); 
+    
+    if(mysql_num_rows($res) > 0) {	
+    	$meta = array(
+            'title' => stripslashes($p['subject']), 
+            'tags' => stripslashes($p['tags']), 
+            'desc' => stripslashes($p['subject']), 
+    	);
+        echo '1';
     }
-	
-	return $meta; 	
+   
+    return $meta; 	
 }
 
 function sendWelcomeEmail($id, $conn)

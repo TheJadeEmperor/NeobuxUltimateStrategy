@@ -14,7 +14,6 @@ tmp/
 local.properties
 .classpath
 .settings/
-.backup/
 
 # External tool builders
 .externalToolBuilders/

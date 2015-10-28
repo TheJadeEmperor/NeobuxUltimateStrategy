@@ -38,51 +38,51 @@ $confirmLandingURL = $redirLink.$referralLink;
         $_SESSION['popUp'] = 1;
     }
     ?>
-    </script> 
+    </script>
     <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script><script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 </head>
 <body>
-<!--<script type="text/javascript" src="//www.hellobar.com/hellobar.js"></script>
 
-<script type="text/javascript">
-    new HelloBar(53343,75815);
-</script>-->
+    <div class="sidebar"><br />
+    <center>
+        <span class="st_twitter_vcount" displayText="Tweet"></span>
+        <span class="st_email_vcount" displayText="Email"></span>
+        <span class="st_facebook_vcount" displayText="Facebook"></span>
+        <span class="st_fblike_vcount" st_title="<?=$subject?>" st_url="<?=$postLink?>" displayText="share"></span>
+    </center>
+    </div>
 
-<div class="sidebar"><br />
-<center>
-    <span class="st_twitter_vcount" displayText="Tweet"></span>
-    <span class="st_email_vcount" displayText="Email"></span>
-    <span class="st_facebook_vcount" displayText="Facebook"></span>
-    <span class="st_fblike_vcount" st_title="<?=$subject?>" st_url="<?=$postLink?>" displayText="share"></span>
-</center>
-</div>
-
-<div id="wrapper">
-    <img src="images/sales/nusLogo3.png" />
-    <div id="header">	
-	<div id="nav">
-	<ul>
-            <li id="button5"><a href="./?action=posts" title="NUS Posts">Posts</a></li>
-            <li id="button1"><a href="./?p=neobux-referral-guide" title="Neobux Guide">Guide</a></li>
-            <li id="button2"><a href="./?p=neobux-tips-make-money-neobux" title="Neobux Tips">Basic Tips</a></li>
-            <li id="button4"><a href="./?p=neobux-direct-referrals" title="Neobux Direct Referrals">Referrals</a></li>
-            <li id="button1"><a href="./?p=recycling-strategy" title="Neobux Recycling Strategy">Recycling</a></li>
-            <li id="button3"><a href="./?p=best-paying-ptc-sites" title="PTC Sites">PTC Sites</a></li>	
-	</ul>
-        </div><!-- menu -->
-    </div><!-- header -->
+    <div id="wrapper">
+        <img src="images/sales/nusLogo3.png" />
+        <div id="header">	
+            <div id="nav">
+            <ul class="buttons">
+                <li id="button5"><a href="./?action=posts" title="NUS Posts">Posts</a></li>
+                <li id="button1"><a href="./?p=neobux-referral-guide" title="Neobux Guide">Guide</a></li>
+                <li id="button2"><a href="./?p=neobux-tips-make-money-neobux" title="Neobux Tips">Basic Tips</a></li>
+                <li id="button4"><a href="./?p=neobux-direct-referrals" title="Neobux Direct Referrals">Referrals</a></li>
+                <li id="button1"><a href="./?p=recycling-strategy" title="Neobux Recycling Strategy">Recycling</a></li>
+                <li id="button3"><a href="./?p=best-paying-ptc-sites" title="PTC Sites">PTC Sites</a></li>	
+            </ul>
+            </div><!-- menu -->
+        </div><!-- header -->
 	
-<div id="container">
+    <div id="container">
     <center>
     
-    <div id="banner">
-        <a href="<?=$referralLink?>" title="Clixsense Scam"><img src="http://csstatic.com/banners/clixsense_gpt728x90a.png" alt="Clixsense Scam" width="728px" /></a>
-    </div>
-    
-    <br /><br />
+        <div id="bannerBig">
+            <a href="<?=$referralLink?>" title="Clixsense Scam"><img src="http://csstatic.com/banners/clixsense_gpt728x90a.png" alt="Clixsense Scam" width="728px" /></a>
+        </div>
 
-    <table width="960px" border="0">
-    <tr valign="top">
-        <td align="left" width="680px">
-            <div id="mainContent">
+        <div id="bannerSmall">
+            <a href="<?=$referralLink?>" title="Clixsense Scam"><img src="http://csstatic.com/banners/clixsense_gpt468x60a.png" alt="Clixsense Scam" /></a>
+        </div>
+
+        <br /><br />
+
+        <table width="960px" border="0">
+        <tr valign="top">
+            <td align="left" width="680px">
+                <div id="mainContent">
