@@ -17,8 +17,8 @@ body {
 
 <center>
 <table width="450px" cellpadding="10" style="border: 1px solid black; font-size: 12px;">
-<tr valign="middle">
-<td align="center">
+    <tr valign="middle">
+        <td align="center">
 	<p>Thank you for subscribing to our newsletters</p>
 	<p>Remember to check your inbox for a confirmation email</p>
 	<p><b>** Now Redirecting You to "<?=$url?>" **</b></p>
@@ -26,8 +26,8 @@ body {
 	<p>Please wait...</p>
 	
 	<img src="images/waiting.gif" alt="Waiting">
-</td>
-</tr>
+        </td>
+    </tr>
 </table>
 
 
@@ -38,4 +38,5 @@ body {
 <p><img src="images/splash/confirm.jpg" alt="Confirm subscription" border="1"/></p>
 
 </center>
-</body></html>
+</body>
+</html>
