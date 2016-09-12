@@ -179,14 +179,12 @@ if($_POST['dl']) { //download files
                         <ul class="dropdown-menu">
                             <li><a href="<?=$adir?>sqlQuery.php">MySQL Query</a></li>
                             <li><a href="<?=$adir?>sqlDatabase.php">View Database</a></li>
-                            <li><a href="<?=$adir?>install.php">Install Script</a></li>
                         </ul>
                     </li>
                     <? } ?>
                     <li class="dropdown">    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">SEO Tools<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="parent">Sitemap</a></li>
                             <li><a href="<?=$adir?>sitemap.php" target="_blank">Generate Sitemap</a></li>
                             <li><a href="<?=$adir?>sitemap.xml" target="_blank">View Sitemap</a></li>
                             <li class="divider"></li>

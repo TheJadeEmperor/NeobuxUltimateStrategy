@@ -184,3 +184,8 @@ http://www.tinyurl.com/subscribe-ptc-newsletter</p>
 <p>They key to making this work is to make your message not look like spam. Remember the concept of soft selling? That’s what you need to do. </p>
 
 <p>Also, put the newly formatted URL of your capture page in the message. </p>
+
+
+<p>&nbsp;</p>
+
+<p align="center"><a href="./?action=chapter6-7">Next Chapter</a> >> </p>

@@ -1,14 +1,16 @@
 <?php
 date_default_timezone_set('America/New_York'); 
 $imgDir = 'images/splash/';
-$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://neobuxultimatestrategy.com';
 $landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://www.clixsense.com/?3373459';
 
+$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://TheEmperor.gtrader.cpa.clicksure.com';
+
+
 if($_GET['e']) { //email address passed in url
-    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET[e].'" class="textField">';
+    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET['e'].'" class="textField">';
 }
 else {
-        $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField">';
+    $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField">';
 }
 
 $timer = '
@@ -37,7 +39,6 @@ $subscribeButton = '<button type="submit" value="Submit" id="submit" name="subsc
 <meta name="description" content="Make $20 to $30 a day with our free neobux ebook - get the neobux ultimate strategy today!" />
 <link href="<?=$dir?>include/css/splash.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
-@charset "utf-8";
 h1 {
     letter-spacing: 0px; 
     font-weight:bold; 

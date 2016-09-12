@@ -145,8 +145,8 @@ if (strcmp ($res, "VERIFIED") == 0) {
                         'itemName' => $itemName,
                         'itemNumber' => $itemNumber,
                         'amount' => $paymentAmount, 
-                        'purchased' => 'now()',
-                        'expires' => 'now()',
+                        'purchased' => date('Y-m-d H:i:s', time()),
+                        'expires' => date('Y-m-d H:i:s', time()),
                         'firstName' => $firstName, 
                         'lastName' => $lastName, 
                         'payerEmail' => $payerEmail,
@@ -174,7 +174,7 @@ if (strcmp ($res, "VERIFIED") == 0) {
     }
 }
 else { //bad transaction   
-    //notify admins of problem
+    //notify admin of problem
     $headers = "From: ".$adminEmail."\n";
     $headers .= "Content-type: text/html;";
     $subject = 'Problem with Order: '.$businessName;

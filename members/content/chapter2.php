@@ -37,17 +37,36 @@ of your success. Direct referrals tend to be more reliable than rented referrals
 <p>We say that because in a traffic exchange, you only 15 to 30 seconds to get people’s attention. So you need to make those 15 to 30 seconds count. They need to see what your offer is at a glance, because if they are not interested, they will move on, and you will lose them forever. For best results, advertise your capture page. For more info on capture pages, please see the following chapters.  </p>
 
 
-<h2>2a. Use Downline Builders</h2>
+<h2>2a. PTC Forums & Referral Exchange Forums</h2>
 
-<p>A second option for getting direct referrals is to use Downline Builders, aka Team Builders. In a nutshell, this is how a downline builder works. You and I make a contract; you join site A as my referral, and I will join site B as your referral. The contract is effectively so as long as we are both active; either one of us can cancel the contract if the terms are broken. </p>
+<p>A second option for getting free referrals is to do PTC Exchange Forums. These forums are made of like minded people like you, who want to get referrals, but do not want to spend money.</p>
 
-<p>What downline builders do we recommend?</p>
+<p>It's a place where people can share their favorite sites and make "deals" with one another. You join my site, I will join yours. The idea is "You scratch my back and I scratch your back."</p>
+ 
+<p align="center"><b>Examples of Good Posts</b></p>
 
-<p><a href='http://www.downlinerefs.com/?ref=theemperor' target='_blank'>Downlinerefs.com</a> has a large user base, and that means a lot of potential referrals for you. At the beginning, you will need some credits in order to promote your site. There are 2 ways to earn credits: by joining other sites (fulfilling a contract) and by paying for credits.  </p>
+<center><img src="images/post1.jpg" class="clickable" /></center>
 
-<center><a href='http://www.downlinerefs.com/?ref=theemperor' target='_blank'><img src='http://www.downlinerefs.com/images/banner1.png'></a></center>
 
-<p>At first it may seem like you are doing more work to achieve some results, but it is actually a good incentive to get people to be clicking daily. Plus, when someone has already clicked for 20 to 30 days, they are “obligated” to continue clicking, since they are used to the site. </p> 
+<p>This person mentions that he's online a lot - which means he'll be an active user. It is a very key ingredient to get people to make deals with you. Who'd you rather make a deal with - someone who is <b>active</b>, or someone who is <b>not?</b> Also note that this person uses the same username for all programs, so that managing many sites is easier.</p>
+
+<center><img src="images/post2.jpg" class="clickable" /></center>
+
+<p>This person clearly knows what he's doing. He has a list of sites that he wants to join, and a list of
+sites that he wants referrals for. The list is neat and organized and easy to read. </p>
+
+<p>Here's some general rules for posting: 
+<ul>
+    <li>Use a compelling subject line -- making it eye catching and unique from all the other posts. </li>
+
+    <li>Be brief and straight to the point. State that your intention is to be active in any site you join. List all your sites one by one.</li>
+
+    <li>Put your favorite site at the top of the list, followed by second favorite, in decreasing order of preference. Use banners in your posts to get people's attention.  </li>
+    <li>State that you are going to be active. Everybody likes active referrals. </li>
+
+</ul>
+</p>
+
 
 <p>&nbsp;</p>
 

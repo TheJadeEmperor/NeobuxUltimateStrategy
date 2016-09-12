@@ -4,7 +4,7 @@ $imgDir = 'images/splash/';
 $landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://neobuxultimatestrategy.com';
 
 if($_GET['e']) { //email address passed in url
-    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET[e].'" class="textField">';
+    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET['e'].'" class="textField">';
 }
 else {
     $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField">';

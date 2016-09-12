@@ -5,7 +5,7 @@
 
 <p>To advertise other PTC sites, we recommend using banner advertising on none other than Neobux. That’s right, Neobux has millions of members and counting. That's a lot of daily traffic! </p>
 
-<p>Send an email to advertisements@neobux.com, inquiring about banner advertising. They will reply with an email that looks like this: </p>
+<p>Send an email to <a href="mailto:advertisements@neobux.com">advertisements@neobux.com</a>, inquiring about banner advertising. They will reply with an email that looks like this: </p>
 
 <p>&nbsp;</p>
 
@@ -126,9 +126,6 @@ budgets of all sizes.
 
 <p align="center"><b>Buy Referrals</b></p>
 
-<p>NeobuxReferrals.org<br />
-<?=outsideLink('http://neobuxreferrals.org/'); ?>
-</p>
 
 <p>NeobuxReferrals.org lets you get referrals for free, if you follow their instructions. For
 	more details visit their site.</p>

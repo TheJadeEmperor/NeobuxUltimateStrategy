@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /admin
 Disallow: .backup
+Disallow: /admin
+Disallow: /images
+Disallow: /include
+Disallow: /members

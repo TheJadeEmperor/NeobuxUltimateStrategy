@@ -261,3 +261,7 @@ You need to write engaging and interesting content. People are suckers for free 
 3. Give free information<br />
 4. The bigger your list, the more referrals you get
 </p>
+
+<p>&nbsp;</p>
+
+<p align="center"><a href="./?action=chapter5">Next Chapter</a> >> </p>

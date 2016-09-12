@@ -220,10 +220,10 @@ Per day = $0.25<br />
 
 <p>There are 2 renting strategies for golden members. One way is the fast but expensive way, and the other is the slow but cheap way. </p>
 
-<p>Strategy A: Each week, buy a 100 referral pack and renew them to 90 days until you have 1000 referrals. Recycle any referral that does not click after 5 days.
+<p><b>Strategy A</b>: Each week, buy a 100 referral pack and renew them to 90 days until you have 1000 referrals. Recycle any referral that does not click after 5 days.
 </p>
 
-<p>Strategy B: Each week buy a 3 referral pack and renew them to 90 days. Recycle after 4 days inactivity. Its simple and efficient. With this you should get an average of about 1 click per referral. 
+<p><b>Strategy B</b>: Each week buy a 3 referral pack and renew them to 90 days. Recycle after 4 days inactivity. Its simple and efficient. With this you should get an average of about 1 click per referral. 
 </p>
 
 <p>Projected earnings</p>

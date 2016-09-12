@@ -1,9 +1,9 @@
 <?php
 /*
 +---------------------------------------------------------------------
-| v1.0
-| Copyright 2011-2012 Sales Page Machine. 
-| All Rights Reserved
+| v2.0
+| Copyright 2012-2016 Sales Page Machine. 
+| Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
 | person other than the original purchaser is a violation
@@ -81,17 +81,18 @@ if(is_int(strpos(__FILE__, 'C:\\'))) //localhost
     if(is_int(strrpos($path, '?')))
         $path = '';
 }
-else //live website
-{
+else { //live website
+
     list($crap, $path) = explode('//', $url);    
     list($crap, $path) = explode('/', $path); 
-    $path = str_replace('index.php', '', $path);
+    $path = str_replace('index.php', '', $path); //get the current path
     
     if(is_int(strrpos($path, '?')))
         $path = '';
 }
-//directory to the root  
-if($path == '' || $_GET[p]) //already at the root
+
+//relative path to the root  
+if($path == '' || $_GET['p']) //already at the root
     $dir = '';    
 else  //not at the root
     $dir = '../'; 
@@ -108,24 +109,24 @@ if($p = mysql_fetch_assoc($resP))
 {
     //product vars
     $productID = $p['id'];
-    $itemName = $p[itemName];
-    $itemPrice = $p[itemPrice];
-    $itemNumber = $p[itemNumber];
-    $keywords = $p[keywords];
-    $description = $p[description]; 
+    $itemName = $p['itemName'];
+    $itemPrice = $p['itemPrice'];
+    $itemNumber = $p['itemNumber'];
+    $keywords = $p['keywords'];
+    $description = $p['description']; 
     
     //download vars
-    $expires = $p[expires];
-    $oto = $p[oto]; 
-    $otoName = $p[otoName];
-    $otoPrice = $p[otoPrice];
-    $otoNumber = $p[otoNumber];
-    $download = $p[download]; 
-    $upsellID = $p[upsellID];
+    $expires = $p['expires'];
+    $oto = $p['oto']; 
+    $otoName = $p['otoName'];
+    $otoPrice = $p['otoPrice'];
+    $otoNumber = $p['otoNumber'];
+    $download = $p['download']; 
+    $upsellID = $p['upsellID'];
 
     //affiliate vars
-    $affProgram = $p[affProgram];
-    $salesPercent = $p[salesPercent]; 
+    $affProgram = $p['affProgram'];
+    $salesPercent = $p['salesPercent']; 
 
     //template vars 
     $templateHeader = $p['header']; 
@@ -159,9 +160,8 @@ if($p = mysql_fetch_assoc($resP))
     }
 }
 
-if($_POST[dl])
-{
-    $item =  $_POST[url];
+if($_POST['dl']) {
+    $item =  $_POST['url'];
     
     header("Content-Type: application/octet-stream");
     header("Content-Transfer-Encoding: binary");
@@ -175,54 +175,8 @@ if($_POST[dl])
     exit;
 }
 
-if($_GET[e])
-    $_GET[r] = $_GET[e]; 
-
-//referral views
-if($_GET[r] || $_COOKIE[sponsor])//check for cookie, set as affiliate
-{
-    if(empty($_GET[r]))
-        $selU = 'select * from users where id="'.$_COOKIE[sponsor].'"';
-    else
-        $selU = 'select * from users where username="'.$_GET[r].'"';
-    $resU = mysql_query($selU, $conn) or die(mysql_error());
-
-    $u = mysql_fetch_assoc($resU);
-    $userID = $u[id]; 
-    $affiliateEmail = $u[paypal];    
-    
-    $cookieExpire = time() + 60*60*24*30*12; //expires after 1 year
-    setcookie("sponsor", $userID, $cookieExpire);
-    setcookie("productID", $productID, $cookieExpire);     
-
-    //update aff stats    
-    updateAffStats($userID, $productID); 
-    
-    $sel = 'select * from affstats where userID="'.$_COOKIE[sponsor].'" and productID="'.$productID.'"'; 
-    $aff = mysql_fetch_assoc(mysql_query($sel, $conn));
-  
-    //default payee is the admin
-    $paidToEmail = $paypalEmail; 
-    
-    //determine who gets paid 
-    if($salesPercent == 100) //give away product 
-    {
-        $paidToEmail = $affiliateEmail; 
-    }
-    else if($salesPercent > 0) //commissions is set
-    {   //formula for affiliate sales
-        $decimal = bcdiv($aff[salesPaid], $aff[sales], 3) * 100;
-        
-        if($decimal <= $salesPercent)  //affiliate gets paid
-        {
-            $paidToEmail = $affiliateEmail; 
-        }  
-    }  
-}
-else //no affiliate, payee is admin
-{
-    $paidToEmail = $paypalEmail;
-}
+$paidToEmail = $paypalEmail;
+$action = $_GET['action'];
 
 if(false) { //debug
     echo 'path: '.$path.'<br>
@@ -231,8 +185,6 @@ if(false) { //debug
     paidToEmail: '.$paidToEmail;
     exit;
 }
-
-$action = $_GET[action];
 
 switch($action) {
     case 'order':
@@ -294,18 +246,12 @@ if(file_exists($templateFooter))
 include($templateFooter);   
 
 //track pageviews
-if($pageView)
-{
-    if($_GET[r])
-        $pageView = '/'.$path;
-    
-    if(isset($_COOKIE[lastView])) //raw views
-    {
+if($pageView) {
+    if(isset($_COOKIE['lastView'])) { //raw views
         $upd = 'update pageviews set rawViews=rawViews+1 where page="'.$pageView.'"';
         $res = mysql_query($upd) or die(mysql_error());      
     }
-    else //unique views
-    {
+    else { //unique views
         $upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
         $res = mysql_query($upd) or die(mysql_error());      
     }

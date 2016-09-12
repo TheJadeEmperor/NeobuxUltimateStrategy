@@ -52,7 +52,7 @@ if($action == 'forums' || $action == 'download-videos') {
     $productID = 3;
 
     $selS = 'select *, date_format(purchased, "%m/%d/%y") as purchased from sales where
-        (payerEmail="'.$_SESSION['login']['paypal'].'") and productID="'.$productID.'"'; 
+        (payerEmail="'.$_SESSION['login']['paypal'].'") and productID="'.$productID.'";'; 
     $resS = mysql_query($selS) or die(mysql_error());
 
     if(mysql_num_rows($resS) == 0) { // not a customer 

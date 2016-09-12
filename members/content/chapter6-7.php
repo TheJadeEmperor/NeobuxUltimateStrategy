@@ -79,6 +79,4 @@
 <p>Good luck and happy earnings! </p>
 
 <p>Sincerely, </p>
-<p>Benjamin Louie<br />
-Neobux Ultimate Strategy<br />
-admin@bestpayingsites.com</p>
+<p>Benjamin Louie</p>

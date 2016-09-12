@@ -20,10 +20,6 @@ PTC websites or your other business websites. </p>
 <p>Money Maker Group<br />
      <?=outsideLink('http://www.moneymakergroup.com/forums.html'); ?>
 </p>
- 
-<p>PTC Hangout<br />
-     <?=outsideLink('http://www.ptchangout.com/forum'); ?>
-</p>
 
 <p>Emoney Space<br />
      <?=outsideLink('http://www.emoneyspace.com/forum'); ?>

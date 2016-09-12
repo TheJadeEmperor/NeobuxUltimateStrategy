@@ -58,7 +58,7 @@ if($_POST['login']) {
                     
             $_SESSION['login'] = $u;
             
-            if($u[status] == 'B') { //check if user is banned
+            if($u['status'] == 'B') { //check if user is banned
                 $_SESSION['error'] = 'Unable to login - You have been banned from our system <br />
                 If you feel this is in error, please contact our support desk';    
             }
@@ -141,7 +141,6 @@ else { //not logged in
     }
 }
 
-//echo 'xxxx1';
 if(file_exists($templateHeader))
 include($templateHeader);
 
