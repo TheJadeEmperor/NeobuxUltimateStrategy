@@ -3,9 +3,6 @@ date_default_timezone_set('America/New_York');
 $imgDir = 'images/splash/';
 $landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://www.clixsense.com/?3373459';
 
-$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://TheEmperor.gtrader.cpa.clicksure.com';
-
-
 if($_GET['e']) { //email address passed in url
     $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET['e'].'" class="textField">';
 }
