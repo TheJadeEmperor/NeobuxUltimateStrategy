@@ -3,12 +3,6 @@ date_default_timezone_set('America/New_York');
 $imgDir = 'images/splash/';
 $landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=http://www.clixsense.com/?3373459';
 
-if($_GET['e']) { //email address passed in url
-    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET['e'].'" class="textField">';
-}
-else {
-    $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField">';
-}
 
 $timer = '
     <script language="JavaScript">
@@ -26,7 +20,9 @@ $timer = '
 $preHeadline = '<h2 class="subheadline"><span class="strong red">Warning: </span>
     This offer will expire in '.$timer.'... </h2>';
 
-$subscribeButton = '<button type="submit" value="Submit" id="submit" name="subscribe" class="link button"></button>';
+$emailField = '<input type=text id="af-submit-image-1132928913" name="email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField">';
+
+$subscribeButton = '<button type="submit" value="Submit" id="af-submit-image-1132928913" name="subscribe" class="link button"></button>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -244,24 +240,29 @@ function ExitPage()
     <h3 class="red">Get Your Free Neobux Report</h3>
     <h4>Your referrals are waiting for you!</h4>
     
-    <form method="post" onsubmit="NoExitPage=true;" action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
-
+    <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl" onsubmit="NoExitPage=true;">
+ 
     <div class="infoWrap">
-    <?=$emailField?>
+        <?=$emailField?>       
     </div>
-    
+        
     <div class="buttonWrap">
-	<?=$subscribeButton?>
+	<?=$subscribeButton?>   
     </div>
+
     
-    <input type=hidden class="input" id="da_name" name="da_name" value="PTC User">
-    <input type=hidden name="da_cust1" value="<?=$page?>" />
-    <input type=hidden name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
-    <input type=hidden name="da_cust3" value="<?=$_GET['campaign']?>" />
-    <input type=hidden name="trwvid" value="theemperor">
-    <input type=hidden name="series" value="nusnewsletter">
-    <input type=hidden name="subscrLandingURL" value="<?=$landingURL?>">
-    <input type=hidden name="confirmLandingURL" value="<?=$landingURL?>">
+    <input id="awf_field-86327868" type="hidden" name="name" value="PTC User" />
+    <input type="hidden" name="meta_web_form_id" value="1167904321" />
+    <input type="hidden" name="meta_split_id" value="" />
+    <input type="hidden" name="listname" value="awlist4450530" />
+    <input type="hidden" name="redirect" value="<?=$landingURL?>" id="redirect_4f0f7ec6e3622cf872bed62baf3fe381" />
+
+    <input type="hidden" name="meta_adtracking" value="My_Web_Form" />
+    <input type="hidden" name="meta_message" value="1" />
+    <input type="hidden" name="meta_required" value="name,email" />
+
+    <input type="hidden" name="meta_tooltip" value="" />
+
     </form>
 </div><!-- form -->
 
@@ -282,7 +283,7 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 
 <table>
 <tr valign="top">
-	<td width="160px"></td>
+    <td width="160px"></td>
 	<td align="left">
 
 <p><a href="#form"><img src="images/testimony/facebook1.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
@@ -291,7 +292,7 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 
 <p><a href="#form"><img src="images/testimony/facebook3.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
 	</td>
-</tr>
+    </tr>
 </table>
 
 <h4>Your fellow Neobux users have already stated they got a lot of value out of it. <br />
