@@ -1,8 +1,8 @@
 <?php 
 $imgDir = 'images/splash/'; 
 $redirLink = 'http://neobuxultimatestrategy.com/redirect.php?action='; 
-$subscrLandingURL = $redirLink.'http://neobuxultimatestrategy.com/basics';
-$confirmLandingURL = $redirLink.'http://neobuxultimatestrategy.com/basics';
+$subscrLandingURL = $redirLink.'basics';
+$confirmLandingURL = $redirLink.'basics';
 ?>
 <!DOCTYPE html>
 <html>

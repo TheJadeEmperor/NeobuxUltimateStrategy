@@ -12,8 +12,8 @@ $imgDir = 'images/blog/';
 $useHTMLFile = true; 
 $referralLink = 'http://www.clixsense.com/?3373459&blog'; 
 $redirLink = 'http://neobuxultimatestrategy.com/redirect.php?action='; 
-$subscrLandingURL = $redirLink.$referralLink;
-$confirmLandingURL = $redirLink.$referralLink; 
+$subscrLandingURL = $redirLink.'clixsense';
+$confirmLandingURL = $redirLink.'clixsense'; 
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">

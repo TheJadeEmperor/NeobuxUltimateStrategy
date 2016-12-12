@@ -31,8 +31,8 @@
             <input type=hidden name="da_cust2" value="">
             <input type=hidden name="trwvid" value="theemperor">
             <input type=hidden name="series" value="nusnewsletter">
-            <input type=hidden name="subscrLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=http://neobuxultimatestrategy.com/basics">
-            <input type=hidden name="confirmLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=http://neobuxultimatestrategy.com/basics">
+            <input type=hidden name="subscrLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=basics">
+            <input type=hidden name="confirmLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=basics">
             </form>
             
             <br />

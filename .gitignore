@@ -1,3 +1,8 @@
+# Sensitive files
+include/config.php
+nbproject/
+backup/
+
 #################
 ## Eclipse
 #################
