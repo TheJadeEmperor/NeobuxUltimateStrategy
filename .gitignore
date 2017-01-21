@@ -222,3 +222,4 @@ pip-log.txt
 .backup/faq.html
 .backup/freereport.html
 .backup/index.html
+include/config.php
