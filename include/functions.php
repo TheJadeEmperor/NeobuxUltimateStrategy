@@ -37,8 +37,7 @@
 
 ###############################################################*/
 
-function downloadLink($url)
-{
+function downloadLink($url) {
 	header("Content-Type: application/octet-stream");
 	header("Content-Transfer-Encoding: binary");
 	header("Content-Description: File Transfer");
@@ -78,8 +77,7 @@ function postMetaTags($url) {
     return $meta; 	
 }
 
-function sendWelcomeEmail($id, $conn)
-{
+function sendWelcomeEmail($id, $conn) {
 	global $context;
 	
 	$selP = 'select * from products where id="'.$id.'"';
@@ -120,7 +118,7 @@ function sendWelcomeEmail($id, $conn)
 	$message = str_replace($var, $val, $e[message]);
 	$subject = str_replace($var, $val, $e[subject]);
 
-	$headers = "From: ".$context[adminEmail]."\n";
+	$headers = "From: ".$context['adminEmail']."\n";
 	$headers .= "Content-type: text/html;";		
 	
 	mail($adminEmail, $subject, $email, $headers);
@@ -128,8 +126,7 @@ function sendWelcomeEmail($id, $conn)
 }
 
 
-function sendDownloadEmail($id, $conn)
-{
+function sendDownloadEmail($id, $conn) {
     global $context; 
     
     $selP = 'select * from products where id="'.$id.'"';
@@ -206,12 +203,11 @@ function sendDownloadEmail($id, $conn)
 }
 
 
-function showPost($url)
-{
+function showPost($url) {
 	global $conn; 
 	
 	//general settings
-	$websiteURL = 'http://www.networkstring.com';
+	$websiteURL = 'http://neobuxultimatestrategy.com';
 	
 	//get post details
 	$sel = 'select *, date_format(postedOn, "%m/%d/%Y %h:%i %p") as postedOn, p.id as id, u.id as uid 
@@ -256,8 +252,7 @@ function showPost($url)
 	return $postContent; 
 }
 
-function showMenu($menu)
-{
+function showMenu($menu) {
 	$extraMenu = '<div class="adminMenu" title="'.$menu[bar][title].'">
 	<a href="'.$menu[bar][link].'"><h2>'.$menu[bar][title].'</h2></a><ul id="menu">';
 	
@@ -289,13 +284,11 @@ function showMenu($menu)
  * )
  */
 
-function embedYoutubeVideo($options)
-{
+function embedYoutubeVideo($options) {
 	return '<iframe width="'.$options['width'].'" height="'.$options['height'].'" src="'.$options['src'].'?'.$options['options'].'" frameborder="0" allowfullscreen></iframe>';
 }
 
-function shortenText($text, $limit)
-{
+function shortenText($text, $limit) {
 	//$limit = number of characters you want to display
 	$new = $text.' ';
 	$new = substr($new, 0, $limit);
@@ -306,8 +299,7 @@ function shortenText($text, $limit)
 }//function
 
 //format mysql fields
-function formatFields($row)
-{
+function formatFields($row) {
     foreach($row as $fld => $val)
     {
         $val = stripslashes($val);
@@ -316,8 +308,7 @@ function formatFields($row)
     return $row; 
 }
 
-function randomChar()
-{
+function randomChar() {
 	$letters = array(1 => "a", "b", "c", "d", "e", "f", "g", "h" ,"i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z","A", "B", "C", "D", "E", "F", "G", "H" ,"I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","0","1","2","3","4","5","6","7","8","9");
 	$index = Key($letters);
 	$element = Current($letters);
@@ -327,8 +318,7 @@ function randomChar()
 }
 
 //create random hash
-function genString($number)
-{
+function genString($number) {
 	for ($i = 0; $i < $number; $i++)
 	{
 	    $hash = $hash.(randomChar());
