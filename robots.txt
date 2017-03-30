@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: .backup
 Disallow: /admin
 Disallow: /images
 Disallow: /include
-Disallow: /members
+Disallow: /templates
