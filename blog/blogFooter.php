@@ -64,13 +64,13 @@ while($p = mysql_fetch_assoc($resP)) {
         <tr>
             <td align="center">
         
-		<h1>Get 1000+ Downlines Using Our System!</h1>
-	
-		<p class="note"><input type=checkbox checked>Yes, please subscribe me and send 
-                    me a copy of the <br><b>free Neobux Basics eBook!</b></p>
-		
-		<br />
-		<form method=post action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+				<h1>Get 1000+ Downlines Using Our System!</h1>
+			
+				<p class="note"><input type=checkbox checked>Yes, please subscribe me and send 
+							me a copy of the <br><b>free Neobux Basics eBook!</b></p>
+				
+				<br />
+				<form method=post action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
     
                     <input type=text class="input" size="25" id="da_email" name="da_email" value="Your Email Address"
                     onclick="if(this.value=='Your Email Address') this.value='';">
@@ -91,7 +91,7 @@ while($p = mysql_fetch_assoc($resP)) {
                         All opt-ins are completely optional.</span></p>
 		 
             </td>
-	</tr>
+		</tr>
 	</table>
 	</div>
 	</center>
@@ -109,17 +109,9 @@ while($p = mysql_fetch_assoc($resP)) {
 	
 	<br /><br />
         
-	<!--
-	<div class="moduleBlue"><h1>Video Testimonials</h1><div>
 
-        <iframe width="300" height="230" src="http://www.youtube.com/embed/Wu5LwJ5wQYQ" frameborder="0" allowfullscreen></iframe>
-	</div></div>
-	-->	
-        
-        
-
-        <div class="moduleBlue"><h1>Current Products </h1>
-            <div>
+	<div class="moduleBlue"><h1>Current Products </h1>
+		<div>
 
             <p><b>Neobux Basics</b></p>
             <p>To get this free ebook just sign up to our newsletter.</p>
@@ -138,34 +130,39 @@ while($p = mysql_fetch_assoc($resP)) {
         
         <br /><br />
 		
-        <div class="moduleBlue"><h1>Neobux Ultimate Strategy</h1><div>
-        <center>
-            <p><a href="./"><img src="./images/sales/nus.jpg" title="Neobux Ultimate Strategy" width="150px" /></a> </p>
-            <p>Make $20 to $30 a day with Neobux </p>
-        </center>
-	    </div></div>
-	   
+        <div class="moduleBlue"><h1>Neobux Ultimate Strategy</h1>
+			<div>
+			<center>
+				<p><a href="./"><img src="./images/sales/nus.jpg" title="Neobux Ultimate Strategy" width="150px" /></a> </p>
+				<p>Make $20 to $30 a day with Neobux </p>
+			</center>
+			</div>
+		</div>
+		   
 	    <br /><br />
         
-        <div class="moduleBlue"><h1>NUS Video Course</h1><div>
+        <div class="moduleBlue"><h1>NUS Video Course</h1>
+		<div>
         <center>
             <p><a href="./"><img src="./images/guide/cd.jpg" title="NUS Video Course" width="180px" /></a> </p>
             <p>The Neobux Ultimate Strategy <br />in video format</p>
         </center>
-        </div></div>
+        </div>
+		</div>
         
         <br /><br />
        
-        <div class="moduleBlue"><h1>Recommended Sites</h1><div>
+        <div class="moduleBlue"><h1>Recommended Sites</h1>
+		<div>
             <p><a href="http://vector.me" title="Free Clipart" target="_blank">Free Clipart</a></p>
 
-            <p><a href="http://pp-booster-system.com" target="_blank">Paypal Booster</a></p>
+            <p><a href="http://bestpayingsites.com/ppbooster" target="_blank">Paypal Booster</a></p>
             
             <p><a href="http://bestpayingsites.com/" target="_blank">Email Profit System</a></p>
                 
-            <p><a href="http://www.neobux.com/forum/?/15/229319/Thanks-to-Neobux-Ultimate-Strategy/" target="_blank">Neobux Forum 1</a></p>
+            <p><a href="http://www.neobux.com/forum/?/15/229319/Thanks-to-Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 1</a></p>
             
-            <p><a href="http://www.neobux.com/forum/?/7/213100/Neobux-Ultimate-Strategy/" target="_blank">Neobux Forum 2</a></p>            
+            <p><a href="http://www.neobux.com/forum/?/7/213100/Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 2</a></p>            
         </div>
         </div>
 	</td>
@@ -177,7 +174,7 @@ while($p = mysql_fetch_assoc($resP)) {
     <div class="footer">
         <p>Copyright &copy; <?=date('Y', time())?> NUS Blog - All rights reserved</p>
 
-        <div id="eXTReMe"><a href="http://extremetracking.com/open?login=richptc">
+        <div id="eXTReMe"><a href="http://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
         <img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
         height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
         <script type="text/javascript"><!--

@@ -50,7 +50,7 @@ $confirmLandingURL = $redirLink.'clixsense';
         <span class="st_twitter_vcount" displayText="Tweet"></span>
         <span class="st_email_vcount" displayText="Email"></span>
         <span class="st_facebook_vcount" displayText="Facebook"></span>
-        <span class="st_fblike_vcount" st_title="<?=$subject?>" st_url="<?=$postLink?>" displayText="share"></span>
+        <!--<span class="st_fblike_vcount" st_title="<?=$meta['title']?>" st_url="<?=$postLink?>" displayText="share"></span>-->
     </center>
     </div>
 
