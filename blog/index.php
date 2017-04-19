@@ -9,7 +9,7 @@ $perPage = 10;
 
 $numPages = ceil($totalPosts / $perPage);  
 
-$lastPost = $_GET[page] * $perPage; 
+$lastPost = $_GET['page'] * $perPage; 
 $firstPost = $lastPost - ($perPage);
 
 if($firstPost < 0)

@@ -284,7 +284,7 @@ text .input {
 .sidebar {
     left: 0;
     top: 35%;
-    height: 266px;
+    height: 320px;
     width: 60px;
     position: fixed;
     padding: 5px 10px 5px 5px;
@@ -297,6 +297,11 @@ text .input {
     -moz-border-radius:10px;
     -khtml-border-radius:10px;
     -webkit-border-radius:10px;
+}
+
+.fb_iframe_widget {
+	margin-top: 5px;
+	width: 60px;
 }
 
 .checkList {

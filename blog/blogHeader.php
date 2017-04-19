@@ -6,6 +6,10 @@ function popUpWindow($dir) {
 setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:480,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
 }
 
+$url = $_GET['p']; 
+$websiteURL = $val['websiteURL']; 
+$postLink = $websiteURL.'/'.$url;
+
 //blog options
 $popUp = 1;
 $imgDir = 'images/blog/';   
@@ -23,6 +27,9 @@ $confirmLandingURL = $redirLink.'clixsense';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="<?=$meta['tags']?>">
     <meta name="description" content="<?=$meta['desc']?>">
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="<?=$meta['title']?>" />
+	
     <link rel="stylesheet" href="include/css/blog.css" type="text/css" />
     <link rel="stylesheet" href="include/css/popup.css" type="text/css" />
     <script type="text/javascript" src="include/js/jquery.js"></script>
@@ -42,6 +49,7 @@ $confirmLandingURL = $redirLink.'clixsense';
     <script type="text/javascript">var switchTo5x=true;</script>
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
+
 </head>
 <body>
 
@@ -50,7 +58,7 @@ $confirmLandingURL = $redirLink.'clixsense';
         <span class="st_twitter_vcount" displayText="Tweet"></span>
         <span class="st_email_vcount" displayText="Email"></span>
         <span class="st_facebook_vcount" displayText="Facebook"></span>
-        <!--<span class="st_fblike_vcount" st_title="<?=$meta['title']?>" st_url="<?=$postLink?>" displayText="share"></span>-->
+        <span class="st_fblike_vcount" st_title="<?=$meta['title']?>" st_url="<?=$postLink?>" displayText="share"></span>
     </center>
     </div>
 
