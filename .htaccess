@@ -9,7 +9,6 @@ RewriteRule . /index.php [L]
 RewriteOptions inherit
 RewriteEngine On
 
-RewriteRule neobux-guide /?p=neobux-referral-guide [L,R=301] 
 RewriteRule /?p=neobux-guide /?p=neobux-referral-guide [L,R=301]
 RewriteRule ^video-course$ /video/ [L,R=301]
 RewriteRule ^video-course/$ /video/ [L,R=301]
