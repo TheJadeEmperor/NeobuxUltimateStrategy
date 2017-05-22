@@ -79,4 +79,4 @@
 <p>Good luck and happy earnings! </p>
 
 <p>Sincerely, </p>
-<p>Benjamin Louie</p>
+<p>Benjamin Louie<br />Neobux Ultimate Strategy</p>

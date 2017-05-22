@@ -127,11 +127,6 @@ budgets of all sizes.
 <p align="center"><b>Buy Referrals</b></p>
 
 
-<p>NeobuxReferrals.org lets you get referrals for free, if you follow their instructions. For
-	more details visit their site.</p>
-
-<hr />
-
 <p>New Paying Sites<br />
 <?=outsideLink('http://www.newpayingsites.com'); ?>
 </p>
@@ -156,15 +151,6 @@ budgets of all sizes.
 
 <p>Best PTC Paying is a banner advertising site. Their rates are affordable, and you can pay
 	daily, weekly, or monthly.</p>
-
-<hr />
-
-<p>Neobux Referrals<br />
-<?=outsideLink('http://wannacredit.com/neobux.html'); ?> 
-</p>
-
-<p>This is a referral buying service where you pay a one time fee and get a set number of referrals.
-    At the time of writing, their rate is $32 for one day of exposure.</p>
 
 
 <p>&nbsp;</p>

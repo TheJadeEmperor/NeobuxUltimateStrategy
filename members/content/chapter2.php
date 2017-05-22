@@ -37,7 +37,7 @@ of your success. Direct referrals tend to be more reliable than rented referrals
 <p>We say that because in a traffic exchange, you only 15 to 30 seconds to get people’s attention. So you need to make those 15 to 30 seconds count. They need to see what your offer is at a glance, because if they are not interested, they will move on, and you will lose them forever. For best results, advertise your capture page. For more info on capture pages, please see the following chapters.  </p>
 
 
-<h2>2a. PTC Forums & Referral Exchange Forums</h2>
+<h2>2b. PTC Forums & Referral Exchange Forums</h2>
 
 <p>A second option for getting free referrals is to do PTC Exchange Forums. These forums are made of like minded people like you, who want to get referrals, but do not want to spend money.</p>
 
