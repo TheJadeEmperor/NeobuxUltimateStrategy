@@ -120,9 +120,7 @@ h3 {
 }
 
 .checkList li {
-    /*padding-top: 5px;*/
     margin-bottom: 5px;
-    
 }
 
 p, li {
@@ -301,7 +299,6 @@ text .input {
 
 .fb_iframe_widget {
 	margin-top: 5px;
-	width: 60px;
 }
 
 .checkList {

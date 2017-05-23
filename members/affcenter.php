@@ -164,19 +164,4 @@ $memAreaContent = stripslashes($memAreaContent);
 
 <p>&nbsp;</p>
 
-
-<center>
-    <table>
-    <tr>
-        <td>
-            <a href="http://bestpayingsites.com/?action=surveys-neobux&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/surveys/surveys300x250.gif" /></a>
-        </td>
-        <td width="70px"></td>
-        <td>
-            <a href="http://bestpayingsites.com/?action=translate&campaign=upsell" target="_blank"><img src="http://bestpayingsites.com/images/banners/translate/translate1.gif" /></a>
-        </td>
-    </tr>
-    </table>
-</center>
-
 <p>&nbsp;</p>
