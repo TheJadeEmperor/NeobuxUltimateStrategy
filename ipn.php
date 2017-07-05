@@ -192,10 +192,10 @@ else { //bad transaction
         $message .= $var.': '.$_POST[$var].'<br>';
     }
 
-    $message .= '<p>This is an automatically generated message. Please do not respond to this message.</p>';
-    mail($adminEmail, $subject, $message, $headers);
+    //$message .= '<p>This is an automatically generated message. Please do not respond to this message.</p>';
+    //mail($adminEmail, $subject, $message, $headers);
     
-    $stringData = "Problem with order\n";
+    $stringData = "Problem with order\n".$message;
     fwrite($fh, $stringData);
     
     $downloadLink = './?action=thankyou';
