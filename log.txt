@@ -3977,3 +3977,131 @@ timestamp: 06/22/2017 12:38 pm
 Problem with order
 timestamp: 06/24/2017 03:34 am
 
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 06/25/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 06/25/2017 01:34 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 06/28/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 06/28/2017 04:28 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 07/02/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 07/02/2017 04:25 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 07/09/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 07/09/2017 02:22 am
+
+downloadLink: http://neobuxultimatestrategy.com/?action=download&id=6KB19595KS751353C
+paymentStatus: Completed
+payerEmail: mcmisc3@gmail.com
+itemNumber: 4207077
+timestamp: 07/15/2017 09:13 pm
+
+downloadLink: http://neobuxultimatestrategy.com/?action=download&id=6KB19595KS751353C
+paymentStatus: Completed
+payerEmail: mcmisc3@gmail.com
+itemNumber: 4207077
+timestamp: 07/15/2017 09:14 pm
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 07/16/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 07/16/2017 01:28 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 07/23/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 07/23/2017 02:42 am
+
+downloadLink: http://neobuxultimatestrategy.comminisite/?action=download&id=8C614237N0056312D
+paymentStatus: Completed
+payerEmail: jerseygeorge@comcast.net
+itemNumber: 47004700
+timestamp: 07/29/2017 11:55 pm
+
+downloadLink: http://neobuxultimatestrategy.comminisite/?action=download&id=8C614237N0056312D
+paymentStatus: Completed
+payerEmail: jerseygeorge@comcast.net
+itemNumber: 47004700
+timestamp: 07/29/2017 11:59 pm
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 07/30/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 07/30/2017 05:26 am
+
+downloadLink: http://neobuxultimatestrategy.comminisite/?action=download&id=0YR68451LC424713L
+paymentStatus: Completed
+payerEmail: gcanada168@gmail.com
+itemNumber: 47004700
+timestamp: 08/02/2017 08:23 am
+
+downloadLink: http://neobuxultimatestrategy.comminisite/?action=download&id=0YR68451LC424713L
+paymentStatus: Completed
+payerEmail: gcanada168@gmail.com
+itemNumber: 47004700
+timestamp: 08/02/2017 08:24 am
+
+downloadLink: http://neobuxultimatestrategy.com/?action=download&id=5W852531Y8588601P
+paymentStatus: Completed
+payerEmail: johnnagel461@gmail.com
+itemNumber: 4207077
+timestamp: 08/02/2017 09:53 am
+
+downloadLink: http://neobuxultimatestrategy.com/?action=download&id=5W852531Y8588601P
+paymentStatus: Completed
+payerEmail: johnnagel461@gmail.com
+itemNumber: 4207077
+timestamp: 08/02/2017 09:53 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/03/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/03/2017 05:30 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/04/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/04/2017 12:02 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/08/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/08/2017 10:52 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/10/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/10/2017 12:44 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/10/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/10/2017 11:02 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/10/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/10/2017 04:00 pm
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/13/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/13/2017 01:52 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/13/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/13/2017 04:21 am
+
+Problem with order
+<p>The following information was sent from paypal: <br>
+    Date: 08/17/2017<br>
+    Referrer: <br>txn_type: <br>first_name: <br>last_name: <br>mc_currency: <br>residence_country: <br>payer_email: <br>payer_id: <br>reattempt: <br>address_name: <br>address_city: <br>receiver_email: <br>business: <br>payment_status: <br>amount3: <br>mc_amount3: <br><p>This is an automatically generated message. Please do not respond to this message.</p>timestamp: 08/17/2017 12:05 am
+
