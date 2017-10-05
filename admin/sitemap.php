@@ -40,6 +40,22 @@ if($_POST[includeProducts])
     }
 }
 
+
+if($_POST['includePages']) {
+    $selP = 'SELECT * FROM memberpages order by url';
+	$resP = mysql_query($selP, $conn) or die(mysql_error());
+    
+    while($p = mysql_fetch_assoc($resP))
+    {
+        //echo $p['url'];
+        $sitemap[$p['url']] = array(
+            'loc' => $websiteURL.'/?action='.$p['url'],
+            'lastmod' => $today,
+            'changefreq' => 'weekly',
+            'priority' => '1'); 
+    }
+}
+
 foreach($sitemap as $loc => $val) {
     $xmlContent .= '
 <url>
@@ -75,6 +91,10 @@ Sitemap Options
 <tr>
     <td>Include products</td>
     <td><input type=checkbox name=includeProducts /></td>
+</tr>
+<tr>
+    <td>Include pages</td>
+    <td><input type=checkbox name=includePages /></td>
 </tr>
 <tr>
     <td colspan=2 align=center>

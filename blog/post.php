@@ -54,7 +54,11 @@ if(mysql_num_rows($res) > 0) {
     
     $postLink = 'http://neobuxultimatestrategy.com/?p='.$url;
     
-    echo '<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'">
+    echo '<header class="major">
+		<h2>'.$p['subject'].'</h2>
+	</header>
+	
+	<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'">
     <h1>'.$p['subject'].'</h1></a> 
 
     <p>By <a href="#">Admin</a> on '.$p['postedOn'].'</p>
