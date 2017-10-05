@@ -10,22 +10,22 @@ $res = mysql_query($sel, $conn) or die(mysql_error());
 if(mysql_num_rows($res) > 0) {
     $p = mysql_fetch_assoc($res);
 
-    $postID = $p[id]; 
-    $p[post] = stripslashes($p[post]);
-    $p[subject] = stripslashes($p[subject]);
+    $postID = $p['id']; 
+    $p['post'] = stripslashes($p['post']);
+    $p['subject'] = stripslashes($p['subject']);
     $postLink = $websiteURL.'/'.$url;
 
-    if($p[subject]=='')
-        $p[subject] = '[No Subject]';
+    if($p['subject']=='')
+        $p['subject'] = '[No Subject]';
 
-    if($p[post]=='')
-        $p[post] = '[No content]';
+    if($p['post']=='')
+        $p['post'] = '[No content]';
 
     $keywords = explode(', ', $p[tags]);
     $tagArray = array();
 	
     foreach($keywords as $piece) {
-            array_push($tagArray, '<b><a href="./?p='.$url.'" title="'.$piece.'">'.$piece.'</a></b>'); 
+		array_push($tagArray, '<li><b><a class="button special" href="./?p='.$url.'" title="'.$piece.'">'.$piece.'</a></b></li>'); 
     }
 
     $tags = implode(', ', $tagArray); 
@@ -55,11 +55,11 @@ if(mysql_num_rows($res) > 0) {
     $postLink = 'http://neobuxultimatestrategy.com/?p='.$url;
     
     echo '<header class="major">
-		<h2>'.$p['subject'].'</h2>
+		<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'"><h2>'.$p['subject'].'</h2></a>
 	</header>
 	
-	<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'">
-    <h1>'.$p['subject'].'</h1></a> 
+	<!--<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'">
+    <h1>'.$p['subject'].'</h1></a>-->
 
     <p>By <a href="#">Admin</a> on '.$p['postedOn'].'</p>
 
@@ -82,13 +82,15 @@ if(mysql_num_rows($res) > 0) {
 
     <table width="100%" id="comments">
 	<tr valign="top">
-	<td align="left"><p>Tags: '.$tags.' </p></td>
-	<td align="right" width="150px"><p>Comments ('.$num.') </p></td>
+	<td align="left"> 
+		<p><ul class="actions">'.$tags.'</ul></p>
+	</td>
+		<td align="right" width="150px"><p>Comments ('.$num.') </p></td>
 	</tr>
 	</table> 
 	<p>&nbsp;</p>'; 
 
-    echo $_SESSION[msg]; 
+    echo $_SESSION['msg']; 
 }
 else {
     echo 'No post by that title exists'; 
