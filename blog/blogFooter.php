@@ -10,7 +10,7 @@ while($p = mysql_fetch_assoc($resP)) {
 	</section><!--leftContent-->
 	<section class="sidebar">
 		
-		<img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" />
+		<a href="#optin"><img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" /></a>
 		
 		<p>&nbsp;</p>
 		
@@ -21,9 +21,9 @@ while($p = mysql_fetch_assoc($resP)) {
 		<p>&nbsp;</p>
 
 		<h1>Recent Posts</h1>
-			<?=$recentPosts?>
-			<center><p><a href="./?action=posts">Show all posts</a></p></center>
-		
+		<?=$recentPosts?>
+		<center><p><a href="./?action=posts">Show all posts</a></p></center>
+	
 		
 		<p>&nbsp;</p>
 
