@@ -1,3 +1,41 @@
+
+<footer class="orderForm" id="optin">
+	<section id="ebookCover">
+		<img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" />
+	</section>
+	<section id="signUpForm">
+		<h1>Get Your Free Neobux Report!</h1>
+            <p>Just Enter Your Email Address Below </p>
+            <form method=post action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+            <table align="center" cellpadding="1">
+            <tr>
+                <td align="left"></td>
+                <td><input type=text id="da_email" name="da_email" class="input" size="25" 
+                value="Enter your email" onclick="if(this.value=='Enter your email') this.value=''" />
+                </td>
+            </tr><tr>
+                <td colspan="2" align="center">
+                
+                    <input type="image" src="images/sales/getAccessNow.png" name="subscribe" width="200px"  
+                    title="Subscribe Now!"></td>
+            </tr>
+            </table>
+            
+            <input type=hidden id="da_name" name="da_name" value="PTC User">
+            <input type=hidden name="da_cust1" value="blog post" />
+            <input type=hidden name="da_cust2" value="">
+            <input type=hidden name="trwvid" value="theemperor">
+            <input type=hidden name="series" value="nusnewsletter">
+            <input type=hidden name="subscrLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=basics">
+            <input type=hidden name="confirmLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=basics">
+            </form>
+            
+            <br />
+            <span class="note">We hate spam and will never sell your email address to others. </span>
+	</section>
+</footer>
+
+		
 		</div>
 			</div>
 				</section>
@@ -7,8 +45,8 @@
 					<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<h2>Aliquam sed mauris</h2>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
+							<h2>About the Neobux Ultimate Strategy</h2>
+							<p>The NUS is the ultimate strategy that will help earn an income from Neobux and all PTC sites. You will get unlimited direct referrals and never be frustrated again!</p>
 							<ul class="actions">
 								<li><a href="./" class="button">Learn More</a></li>
 							</ul>
@@ -16,13 +54,14 @@
 						<section>
 							<h2>NUS Contact Info</h2> 
 							
-							
 							<dl class="alt">
 								<dt>URL </dt>
 								<dd><a href="./?action=posts" title="<?=$businessName?> Blog">Home</a> &bull; 
-									<a href="./" title="<?=$businessName?>">Get The NUS</a> &bull; 
-									<a href="./members" title="<?=$businessName?>">Members Login &bull; 
-									<a href="./?action=faq" title="<?=$businessName?>">FAQ</a></dd>
+									<a href="./?action=faq" title="<?=$businessName?> FAQ">FAQ</a> &bull; 
+									<a href="./?action=terms" title="<?=$businessName?> Terms">Terms</a> &bull;
+									<a href="./?action=privacy" title="<?=$businessName?> Privacy">Privacy</a> &bull;				
+									<a href="./members" title="<?=$businessName?> Members Login">Members Login 
+								</dd>
 								<dt>Links</dt>
 								<dd><a href="http://bestpayingsites.com/ppbooster" title="Paypal Booster">Paypal Booster</a> &bull; 
 								<a href="http://bestpayingsites.com/" title="Email Profit System">Email Profit System</a>

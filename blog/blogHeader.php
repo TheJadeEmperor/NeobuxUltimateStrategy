@@ -57,11 +57,9 @@ $confirmLandingURL = $redirLink.'clixsense';
 		<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 		<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
+		
 	</head>
 	<body>
-	
-	
-    
 		<!-- Wrapper -->
 		<div id="wrapper">
 

@@ -71,7 +71,6 @@ function postMetaTags($url) {
             'tags' => stripslashes($p['tags']), 
             'desc' => stripslashes($p['subject']), 
     	);
-        echo '1';
     }
    
     return $meta; 	

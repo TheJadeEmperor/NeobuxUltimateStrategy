@@ -28,23 +28,9 @@ if(mysql_num_rows($res) > 0) {
 		array_push($tagArray, '<li><b><a class="button special" href="./?p='.$url.'" title="'.$piece.'">'.$piece.'</a></b></li>'); 
     }
 
-    $tags = implode(', ', $tagArray); 
+    $tags = implode(' ', $tagArray); 
 
-    //get comments
-    $selC = 'select *, date_format(c.postedOn, "%m/%d/%Y %h:%i %p") as postedOn from comments c 
-    left join users u on c.postedBy=u.id where replyID="'.$postID.'"';
-    $resC = mysql_query($selC, $conn) or die(mysql_error());
-
-    $num = mysql_num_rows($resC); 
-
-    while($c = mysql_fetch_assoc($resC))
-    {
-        $c[post] = stripslashes($c[post]);
-        $c[subject] = stripslashes($c[subject]);
-
-        $contentComments .= '<div style="border: 1px solid gray; padding: 10px; background-color: #efefef;">'.$c[post].'
-        <div style="text-align: right">By <a href="#">'.$c[username].'</a> on '.$c[postedOn].'</div></div><br>';
-    }
+	$num = 0;
 }
 
 
@@ -56,13 +42,15 @@ if(mysql_num_rows($res) > 0) {
     
     echo '<header class="major">
 		<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'"><h2>'.$p['subject'].'</h2></a>
+	<p>By <a href="#">Admin</a> on '.$p['postedOn'].'</p>
+
+	<span class="st_twitter_vcount" displayText="Tweet"></span>
+    <span class="st_email_vcount" displayText="Email"></span>
+    <span class="st_facebook_vcount" displayText="Facebook"></span>
+    <span class="st_sharethis_vcount" displayText="ShareThis"></span>
+    <span class="st_fblike_vcount" st_title="'.$subject.'" st_url="'.$postLink.'" displayText="share"></span>
 	</header>
 	
-	<!--<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'">
-    <h1>'.$p['subject'].'</h1></a>-->
-
-    <p>By <a href="#">Admin</a> on '.$p['postedOn'].'</p>
-
     <p>&nbsp;</p>'; 
 
 

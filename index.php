@@ -2,7 +2,7 @@
 /*
 +---------------------------------------------------------------------
 | v2.0
-| Copyright 2012-2016 Sales Page Machine. 
+| Copyright 2012-2017 Sales Page Machine. 
 | Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
@@ -18,48 +18,17 @@
 +---------------------------------------------------------------------
 */
 
-function updateAffStats($userID, $productID)
-{
-    global $conn; 
-    
-    //check for affiliate stats
-    $selAS = 'select * from affstats where userID="'.$userID.'" and productID="'.$productID.'"';
-    $resAS = mysql_query($selAS, $conn) or die(mysql_error()); 
-    $a = mysql_fetch_assoc($resAS);  
-    
-    if(mysql_num_rows($resAS) == 0) //insert affiliate clicks
-    {
-        $insAS = 'insert into affstats (userID, productID, uniqueClicks, rawClicks, sales, salesPaid) values 
-        ("'.$userID.'", "'.$productID.'", "1", "1", "0", "0")';
-        mysql_query($insAS) or die(mysql_error());
-    }
-    else //update affiliate clicks
-    {
-        if(isset($_COOKIE[sponsor])) //cookie is set, not a unique click
-            $cond = 'rawClicks=rawClicks+1';
-        else //no cookie set, new visitor
-            $cond = 'uniqueClicks=uniqueClicks+1, rawClicks=rawClicks+1';
-            
-        $updS = 'update affstats set '.$cond.'
-           where userID="'.$userID.'" and productID="'.$productID.'"';
-        mysql_query($updS) or die(mysql_error());
-    }        
-}
 
-function curPageURL() 
-{
+function curPageURL() {
     $pageURL = 'http';
-    if ($_SERVER["HTTPS"] == "on") 
-    {
+    if ($_SERVER["HTTPS"] == "on") {
         $pageURL .= "s";
     }
     $pageURL .= "://";
-    if ($_SERVER["SERVER_PORT"] != "80") 
-    {
+    if ($_SERVER["SERVER_PORT"] != "80") {
         $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
     } 
-    else 
-    {
+    else {
         $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
     }
     return $pageURL;
@@ -72,8 +41,8 @@ session_start();
  * the path is "prod" */
 $url = curPageURL();  
 
-if(is_int(strpos(__FILE__, 'C:\\'))) //localhost
-{
+if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
+
     list($crap, $path) = explode('//', $url);
     list($crap, $crap, $path) = explode('/', $path); 
     $path = str_replace('index.php', '', $path); 
@@ -105,8 +74,7 @@ include($dir.'include/spmSettings.php');
 $selP = 'select * from products where folder="'.$path.'"';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
-if($p = mysql_fetch_assoc($resP))
-{
+if($p = mysql_fetch_assoc($resP)) {
     //product vars
     $productID = $p['id'];
     $itemName = $p['itemName'];
@@ -137,8 +105,8 @@ if($p = mysql_fetch_assoc($resP))
     $ipnURL = $val[websiteURL].'/ipn.php';
     $cancelURL = $val[websiteURL];
    
-    if($oto == 'Y') //one time offer
-    {
+    if($oto == 'Y') { //one time offer
+    
         $selO = 'select * from products where id="'.$upsellID.'"';
         $resO = mysql_query($selO, $conn) or die(mysql_error());
         $o = mysql_fetch_assoc($resO);
@@ -225,10 +193,8 @@ default:
     $selM = 'select * from memberpages order by url';
     $resM = mysql_query($selM, $conn) or die(mysql_error());
     
-    while($m = mysql_fetch_assoc($resM))
-    {
-        if($action == $m['url'])
-        {
+    while($m = mysql_fetch_assoc($resM)) {
+        if($action == $m['url']) {
             $templateHeader = $m['header'];
             $templateFooter = $m['footer'];
             $fileName = $m['file'];
@@ -258,4 +224,4 @@ if($pageView) {
     setcookie('lastView', date('m/d/Y', time()));
 }
 
-mysql_close($conn);  ?>
+mysql_close($conn); ?>
