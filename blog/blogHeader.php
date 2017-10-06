@@ -1,7 +1,27 @@
+<?php
+function popUpWindow($dir) {
+    return '
+    var seconds = 15; 
+    var milliseconds = seconds * 1000; 
+setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:480,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
+}
+
+$url = $_GET['p']; 
+$websiteURL = $val['websiteURL']; 
+$postLink = $websiteURL.'/'.$url;
+
+//blog options
+$popUp = 1;
+$imgDir = 'images/blog/';   
+$useHTMLFile = true; 
+$referralLink = 'http://www.clixsense.com/?3373459&blog'; 
+$redirLink = 'http://neobuxultimatestrategy.com/redirect.php?action='; 
+$subscrLandingURL = $redirLink.'clixsense';
+$confirmLandingURL = $redirLink.'clixsense'; 
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		<title><?=$meta['title']?></title>
@@ -12,12 +32,12 @@
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="<?=$meta['title']?>" />
 		
+		<link rel="stylesheet" href="include/css/popup.css" type="text/css" />
+
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="blog/assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		
-		<link rel="stylesheet" href="include/css/popup.css" type="text/css" />
 		
 		<script type="text/javascript" src="include/js/jquery.js"></script>
 		<script type="text/javascript" src="include/js/popup.js"></script>
@@ -39,7 +59,9 @@
 
 	</head>
 	<body>
-
+	
+	
+    
 		<!-- Wrapper -->
 		<div id="wrapper">
 
@@ -57,9 +79,9 @@
 				<ul>
 					<li><a href="./?action=posts" title="NUS Posts">All Posts</a></li>
 					<li><a href="./?p=neobux-tips-make-money-neobux" title="Neobux Tips">Basic Tips</a></li>
-					<li><a href="./?p=neobux-direct-referrals" title="Neobux Direct Referrals">Referrals</a></li>
-					<li><a href="./?p=recycling-strategy" title="Neobux Recycling Strategy">Recycling</a></li>
-					<li><a href="./?p=best-paying-ptc-sites" title="PTC Sites">PTC Sites</a></li>	
+					<li><a href="./?p=neobux-direct-referrals" title="Neobux Direct Referrals">Neobux Referrals</a></li>
+					<li><a href="./?p=recycling-strategy" title="Neobux Recycling Strategy">Recycling Strategy</a></li>
+					<li><a href="./?p=best-paying-ptc-sites" title="Best PTC Sites">PTC Sites</a></li>	
 				</ul>
 			</nav>
 

@@ -3340,7 +3340,7 @@
 					font-size: 0.9em;
 				}
 
-		@media screen and (max-width: 736px) {
+		@media screen and (max-width: 500px) {
 
 			#nav {
 				display: none;
@@ -3373,7 +3373,7 @@
 		}
 
 		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
-			color: #636363;
+			color: #000;
 		}
 
 		#main blockquote {
@@ -3799,3 +3799,7 @@
 			}
 
 		}
+		
+#eXTReMe {
+	display: none;
+}
