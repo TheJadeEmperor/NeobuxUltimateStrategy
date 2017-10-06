@@ -42,7 +42,7 @@ if(mysql_num_rows($res) > 0) {
     
     echo '<header class="major">
 		<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'"><h2>'.$p['subject'].'</h2></a>
-	<p>By <a href="#">Admin</a> on '.$p['postedOn'].'</p>
+	<p>By <a href="./">Admin</a> on '.$p['postedOn'].'</p>
 
 	<span class="st_twitter_vcount" displayText="Tweet"></span>
     <span class="st_email_vcount" displayText="Email"></span>

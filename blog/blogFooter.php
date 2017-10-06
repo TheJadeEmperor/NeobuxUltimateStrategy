@@ -1,3 +1,34 @@
+<?
+$selP = 'SELECT * FROM posts WHERE status <> "I" ORDER BY postedOn DESC LIMIT 10';
+$resP = mysql_query($selP, $conn) or die(mysql_error());
+
+while($p = mysql_fetch_assoc($resP)) {
+    $recentPosts .= '<p align="left"><a href="./?p='.$p['url'].'">'.shortenText($p['subject'], 35).'</a></p>'; 
+}
+?>
+
+	</section><!--leftContent-->
+	<section class="sidebar">
+		
+		<img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" />
+		
+		<p>&nbsp;</p>
+		
+		<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+			<fb:like-box href="http://www.facebook.com/NeobuxUltimateStrategy" width="320" show_faces="true"    
+			border_color="gray" stream="false" header="true"></fb:like-box>
+		
+		<p>&nbsp;</p>
+
+		<h1>Recent Posts</h1>
+			<?=$recentPosts?>
+			<center><p><a href="./?action=posts">Show all posts</a></p></center>
+		
+		
+		<p>&nbsp;</p>
+
+	</section><!--sidebar-->
+</footer>
 
 <footer class="orderForm" id="optin">
 	<section id="ebookCover">

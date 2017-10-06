@@ -4,7 +4,7 @@ $resC = mysql_query($selC, $conn) or die(mysql_error());
 
 $c = mysql_fetch_assoc($resC); 
 
-$totalPosts = $c[count];
+$totalPosts = $c['count'];
 $perPage = 10; 
 
 $numPages = ceil($totalPosts / $perPage);  
@@ -27,14 +27,14 @@ order by postedOn desc limit '.$firstPost.', 10';
 $res = mysql_query($sel, $conn) or die(mysql_error());
 
 while($p = mysql_fetch_assoc($res)) {
-    $id = $p[id]; 
-    $subject = stripslashes($p[subject]); 
-    $published = $p[published]; 
+    $id = $p['id']; 
+    $subject = stripslashes($p['subject']); 
+    $published = $p['published']; 
 	
     $postContent .= '<table>
 	<tr valign="top">
             <td>
-		<a href="./?p='.$p[url].'"><h3>'.$subject.'</h3></a><p>By <a href="">Admin</a>
+		<a href="./?p='.$p['url'].'"><h3>'.$subject.'</h3></a><p>By <a href="./">Admin</a>
 		<br>Published on '.$published.'</p>
             </td>
 	</tr>
@@ -62,4 +62,5 @@ for($n = 1; $n <= $numPages; $n++) {
     </table>
     </div>
 </center>
-<div class="clr"></div>
+
+<p>&nbsp;</p>

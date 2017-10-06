@@ -3568,11 +3568,11 @@
 			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 		}
 
-		#main table tbody tr {
+		#main .table tbody tr {
 			border-color: #dddddd;
 		}
 
-			#main table tbody tr:nth-child(2n + 1) {
+			#main .table tbody tr:nth-child(2n + 1) {
 				background-color: rgba(222, 222, 222, 0.25);
 			}
 
@@ -3804,12 +3804,22 @@
 	display: none;
 }
 
-.content {
+.bothSides {
+	display: flex;
+	justify-content: center;
+}
+
+.leftContent, .sidebar {
+	display: inline-block;
+}
+
+.leftContent p, .leftContent li {
 	text-align: left;
 }
 
-#main h2, #main img {
+.sidebar {
 	text-align: center;
+	margin-left: 25px;
 }
 
 .orderForm {
@@ -3837,4 +3847,49 @@
 			display: block;
 			text-align: center;
 		}
+		
+		.bothSides {
+			display: block;
+		}
 	}
+	
+
+.pagination {
+    float: none; 
+    height: 36px;
+    margin: auto;
+}
+
+.pagination ul {
+    float: left;
+    margin: 0;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+}
+
+.pagination li {
+    display:inline;
+}
+
+.pagination .next a {
+    background-color: #ececec;
+}
+
+.pagination a {
+    float: left;
+    padding: 0 18px;
+    line-height: 34px;
+    border-right: 1px solid;
+    border-right-color: #ddd;
+    border-right-color: rgba(0, 0, 0, 0.15); 
+    text-decoration: none;
+}
+
+.pagination a:hover, .pagination .active a {
+    background-color: #c7eefe;
+}

@@ -90,3 +90,6 @@ $confirmLandingURL = $redirLink.'clixsense';
 				<section id="intro" class="main">
 					<div class="spotlight">
 						<div class="content">
+						
+							<footer class="bothSides">
+								<section class="leftContent">

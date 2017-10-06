@@ -3,6 +3,10 @@ body {
     padding: 0;
 }
 
+.tcontent {
+	color: #000;
+}
+
 .strong { 
     font-weight:bold; 
 }

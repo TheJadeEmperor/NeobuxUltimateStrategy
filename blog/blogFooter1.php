@@ -102,6 +102,7 @@ while($p = mysql_fetch_assoc($resP)) {
         border_color="gray" stream="false" header="true"></fb:like-box>
     
 	<br /><br />
+
 	<div class="moduleBlue"><h1>Recent Posts</h1><div>
 		<?=$recentPosts?>
 		<center><p><a href="./?action=posts">Show all posts</a></p></center>
