@@ -10,10 +10,12 @@ while($p = mysql_fetch_assoc($resP)) {
 	</section><!--leftContent-->
 	<section class="sidebar">
 		
+		<!-- ebook cover -->
 		<a href="#optin"><img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" /></a>
 		
 		<p>&nbsp;</p>
 		
+		<!-- facebook app -->
 		<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
 			<fb:like-box href="http://www.facebook.com/NeobuxUltimateStrategy" width="320" show_faces="true"    
 			border_color="gray" stream="false" header="true"></fb:like-box>
@@ -24,8 +26,61 @@ while($p = mysql_fetch_assoc($resP)) {
 		<?=$recentPosts?>
 		<center><p><a href="./?action=posts">Show all posts</a></p></center>
 	
-		
 		<p>&nbsp;</p>
+		
+	
+		<h1>Current Products </h1>
+		
+		<div style="text-align: left">
+            <p><b>Neobux Basics</b></p>
+            <p>To get this free ebook just sign up to our newsletter.</p>
+
+            <p><b><a href="./">Neobux Ultimate Strategy</a></b></p>
+
+            <p>The ultimate strategy guide to making money with Neobux, comes in PDF format and 
+            video tutorials. </p>
+
+            <p><b><a href="./minisite">PTC Mini-Sites</a></b></p>
+
+            <p>Get your own PTC website for a fraction of the cost of regular websites</p>
+		</div>
+		
+		<div class="moduleBlue"><h2>Neobux Ultimate Strategy</h2>
+			<div>
+			<center>
+				<p><a href="./"><img src="./images/sales/nus.jpg" title="Neobux Ultimate Strategy" width="150px" /></a> </p>
+				<p>Make $20 to $30 a day with Neobux </p>
+			</center>
+			</div>
+		</div>
+		   
+	    <br /><br />
+        
+        <div class="moduleBlue"><h2>NUS Video Course</h2>
+		<div>
+        <center>
+            <p><a href="./"><img src="./images/guide/cd.jpg" title="NUS Video Course" width="180px" /></a> </p>
+            <p>The Neobux Ultimate Strategy <br />in video format</p>
+        </center>
+        </div>
+		</div>
+        
+        <br /><br />
+       
+        <div class="moduleBlue"><h2>Recommended Sites</h2>
+		<div style="text-align: left; margin-left: 100px">
+            <p><a href="http://vector.me" title="Free Clipart" target="_blank">Free Clipart</a></p>
+
+            <p><a href="http://bestpayingsites.com/ppbooster" target="_blank">Paypal Booster</a></p>
+            
+            <p><a href="http://bestpayingsites.com/" target="_blank">Email Profit System</a></p>
+                
+            <p><a href="http://www.neobux.com/forum/?/15/229319/Thanks-to-Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 1</a></p>
+            
+            <p><a href="http://www.neobux.com/forum/?/7/213100/Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 2</a></p>            
+        </div>
+        </div>
+        
 
 	</section><!--sidebar-->
 </footer>
