@@ -28,6 +28,18 @@ while($p = mysql_fetch_assoc($resP)) {
 	
 		<p>&nbsp;</p>
 		
+		
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- NUS Blog 300x250 -->
+		<ins class="adsbygoogle"
+			 style="display:inline-block;width:300px;height:250px"
+			 data-ad-client="ca-pub-9979225970120201"
+			 data-ad-slot="1377147856"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		
+		<p>&nbsp;</p>
 	
 		<h1>Current Products </h1>
 		
@@ -156,14 +168,14 @@ while($p = mysql_fetch_assoc($resP)) {
 								<dd><a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></dd>
 							</dl>
 							<ul class="icons">
-								<li><a href="https://www.facebook.com/NeobuxUltimateStrategy" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
-								<li><a href="https://www.instagram.com/confucius.philosopher/" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
-								<li><a href="http://youtube.com" class="icon fa-youtube-play alt"><span class="label">Youtube</span></a></li>
-								<li><a href="http://extremetracking.com/open?login=richptc" class="icon fa-globe alt">
+								<li><a href="https://www.facebook.com/NeobuxUltimateStrategy" class="icon fa-facebook alt" target="_BLANK"><span class="label">Facebook</span></a></li>
 								
+								<li><a href="https://www.instagram.com/confucius.philosopher/" class="icon fa-instagram alt" target="_BLANK"><span class="label">Instagram</span></a></li>
 								
+								<li><a href="https://plus.google.com/u/0/+NeobuxUltimateStrategy" class="icon fa-google-plus alt" target="_BLANK"><span class="label">Google+</span></a></li>
 								
-								</a></li>
+								<li><a href="http://extremetracking.com/open?login=richptc" class="icon fa-globe alt" target="_BLANK"></a></li>
+								
 							</ul>
 						</section>
 						<p class="copyright">&copy; Benjamin Louie <a href="http://benjaminlouie.com">BL Web Solutions</a>.</p>

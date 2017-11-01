@@ -3,7 +3,7 @@ function popUpWindow($dir) {
     return '
     var seconds = 15; 
     var milliseconds = seconds * 1000; 
-setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:480,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
+setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:525,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
 }
 
 $url = $_GET['p']; 
@@ -90,6 +90,19 @@ $confirmLandingURL = $redirLink.'clixsense';
 				<section id="intro" class="main">
 					<div class="spotlight">
 						<div class="content">
+						
+							<center>
+							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							
+							<!-- NUS Blog header banner -->
+							<ins class="adsbygoogle"
+								 style="display:inline-block;width:728px;height:90px"
+								 data-ad-client="ca-pub-9979225970120201"
+								 data-ad-slot="9405907618"></ins>
+							<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+							</center>
 						
 							<footer class="bothSides">
 								<section class="leftContent">
