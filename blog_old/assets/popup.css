@@ -1,0 +1,91 @@
+body {
+    margin: 0; 	
+    padding: 0;
+}
+
+.tcontent {
+	color: #000;
+}
+
+.strong { 
+    font-weight:bold; 
+}
+
+.red { 
+    color:#c13100; 
+}
+
+.subheadline {
+    background: url(../../images/splash/highlight.png) repeat-y center top;
+    font: italic 20px Arial, Helvetica;
+    margin: 0px !important;
+    padding: 5px;
+    text-align: center;
+    color: black;
+}
+
+input.button { 
+    margin: 1px 0; 
+    font: bold 1em Arial, Sans-serif;
+    padding: 1px 3px; 
+    color: #333;
+    border: solid 1px #b7b7b7;
+    background: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+    background: -moz-linear-gradient(top,  #fff,  #ededed);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+
+input.button:hover {
+    background: #ededed;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+    background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+
+input.button:active {
+    color: #999;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+    background: -moz-linear-gradient(top,  #ededed,  #fff);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+.tbox {
+    position: absolute; 
+    display: none; 
+    padding: 14px 17px; 
+    z-index: 900;
+}
+
+.tinner {
+    padding: 10px; 
+    background: #fff url(../../images/admin/loadingBox.png) no-repeat 50% 50%;  
+    border:10px solid #e3e3e3;
+}
+
+.tmask {
+    position: absolute; 
+    display:none; 
+    top:0px; 
+    left:0px; 
+    height:100%; 
+    width:100%; 
+    background:#000; 
+    z-index:800
+}
+
+.tclose  {
+    position: absolute; 
+    top:0px; 
+    right:0px; 
+    width:30px; 
+    height:30px; 
+    cursor:pointer; 
+    background:url(../../images/admin/close.png) no-repeat;
+}
+
+.note {
+    color: #767676;
+    font: normal 11px Arial, Helvetica, sans-serif;
+    margin: 15px auto 0;
+}

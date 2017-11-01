@@ -30,10 +30,10 @@ $confirmLandingURL = $redirLink.'clixsense';
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="<?=$meta['title']?>" />
 	
-    <link rel="stylesheet" href="include/css/blog.css" type="text/css" />
-    <link rel="stylesheet" href="include/css/popup.css" type="text/css" />
-    <script type="text/javascript" src="include/js/jquery.js"></script>
-    <script type="text/javascript" src="include/js/popup.js"></script>
+    <link rel="stylesheet" href="blog_old/assets/blog.css" type="text/css" />
+    <link rel="stylesheet" href="blog_old/assets/popup.css" type="text/css" />
+    <script type="text/javascript" src="blog_old/assets/jquery.js"></script>
+    <script type="text/javascript" src="blog_old/assets/popup.js"></script>
     <script type="text/javascript">
     function linkTo(url) {
         window.open(url);
