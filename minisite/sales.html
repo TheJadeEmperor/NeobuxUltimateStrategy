@@ -1,4 +1,4 @@
-<?
+<?php
 $date = date('m/d/Y', time() + 86400 );
 
 $specialDiscount = '
@@ -471,9 +471,20 @@ hosting space, the offer is over, and this page will be shut down. </p>
     <a href="?action=order"><img src="<?=$imgDir?>orderNow.png" border="0" alt="Order Now" 
             title="Order Now" /></a>
     <br /><br />
-    <i><font size=2 color="white">Secure Payments<br>Made Through PayPal</font></i>
+    <i><font size=2 color="white">Secure Payments<br />Made Through PayPal</font></i>
     <br /><br />
 </div>
+
+<p>&nbsp;</p>
+
+<form action="https://bitpay.com/checkout" method="post" >
+	<input type="hidden" name="action" value="checkout" />
+	<input type="hidden" name="posData" value="" />
+	<input type="hidden" name="data" value="/EyuHsRpRmG75IfWHVezjh7mofS8eMCb6ZUU6GcbEifCnEm0UgmnU7ImCcrp7oidqRlaqeqGKN2xB8YUFPXaEXj7kEsKcg0SiP0l+RXVhbPIRwx8aaA14du4aUpP8J+VQuT2Pmf9khK1YDrh9mu9nCw1skTEm1M1AfVYMwYZ66m5ja7cxT10NVl7YkR+Q4QvANZyAWxOutlfBiboOxAyLhsYnYJNag8J/ohYN/Jaxhw03DknA6VkTi1s7Dh7zbNEsc8kQZVwPMMkwlWI3vO44Z4XQdPV/VuVipH3iz56gz8=" />
+	<input type="image" src="https://bitpay.com/img/button-large.png" border="0" name="submit" alt="BitPay, the easy way to pay with bitcoins." >
+</form>
+<i><font size="2" color="grey">Secure Payments Made Through Bitcoin</font></i>	
+
 </center>
 
 <p>&nbsp;</p>
