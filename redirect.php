@@ -1,6 +1,9 @@
 <?php
 
 switch($_GET['url']) {
+	case 'cryptofarm':
+		$url = 'http://cryptofarmer.com/?ref=TheEmperor';
+		break;
 	case 'clixsense':
 		$url = 'http://www.clixsense.com/?3373459';
 		break;
