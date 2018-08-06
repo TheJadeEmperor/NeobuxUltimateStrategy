@@ -46,17 +46,20 @@
 
 <center>
 
-     <table>
-        <tr>
-            <td>
-                <a href="https://www.binance.com/?ref=16350875" target="_blank"><img src="./images/clixsense/binance-banner.gif" height="250px" /></a>
-            </td>
-            <td width="70px"></td>
-            <td>
-                <a href="http://www.clixsense.com/?3373459&upsell" target="_blank"><img src="./images/clixsense/clixsense_300x250.png" border="0"></a>
-            </td>
-        </tr>
-    </table>
+
+
+	<?php
+		mysql_select_db('codegeas_cc');
+		
+		$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
+		$resA = mysql_query($selA, $conn) or die(mysql_error());
+
+		
+		if($ad = mysql_fetch_assoc($resA)) {
+			echo $ad['content'];
+		}
+	?>
+
 	
 	
 </center>
