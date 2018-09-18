@@ -362,7 +362,7 @@ div.transbox p {
 }
 </style>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script type="text/javascript" src="include/js/popup.js"></script>
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -380,9 +380,9 @@ div.transbox p {
 <?
 if($popUp)
 {
-	if($_SESSION[popUp] < 1)
+	if($_SESSION['popUp'] < 1)
 		echo popUpWindow(); 
-	$_SESSION[popUp] = 1;
+	$_SESSION['popUp'] = 1;
 }
 ?>
 </script>
@@ -406,6 +406,7 @@ function ExitPage() {
 </script>
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+
 <script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 </head>
 
