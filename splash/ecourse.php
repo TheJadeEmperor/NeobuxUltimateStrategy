@@ -263,7 +263,7 @@ button.link:hover {
     <h3>Get Your Free PTC Report </h3>
     <h4 class="red">Your referrals are waiting for you! </h4>
     
-    <form method="post" onsubmit="NoExitPage=true;" action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+    <form method="post" onsubmit="NoExitPage=true;" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
     <div class="infoWrap">
         <?=$emailField?>
@@ -293,7 +293,7 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 </div><!-- wrapper -->
 
 <div id="eXTReMe"><a href="http://extremetracking.com/open?login=richptc">
-<img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
+<img src="https://t1.extreme-dm.com/i.gif" style="border: 0;"
 height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
 <script type="text/javascript"><!--
 EXref="";top.document.referrer?EXref=top.document.referrer:EXref=document.referrer;//-->
@@ -305,7 +305,7 @@ EXb=EXs.colorDepth:EXb=EXs.pixelDepth;EXsrc="src";
 navigator.javaEnabled()==1?EXjv="y":EXjv="n";
 EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
 EXref?EXref=EXref:EXref=EXd.referrer;
-EXd.write("<img "+EXsrc+"=http://e1.extreme-dm.com",
+EXd.write("<img "+EXsrc+"=https://e1.extreme-dm.com",
 "/"+EXvsrv+".g?login="+EXlogin+"&amp;",
 "jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
 "l="+escape(EXref)+" height=1 width=1>");//-->
