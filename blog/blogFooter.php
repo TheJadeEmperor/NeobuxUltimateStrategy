@@ -1,4 +1,4 @@
-<?
+<?php
 $selP = 'SELECT * FROM posts WHERE status <> "I" ORDER BY postedOn DESC LIMIT 10';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
@@ -16,8 +16,8 @@ while($p = mysql_fetch_assoc($resP)) {
 		<p>&nbsp;</p>
 		
 		<!-- facebook app -->
-		<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-			<fb:like-box href="http://www.facebook.com/NeobuxUltimateStrategy" width="320" show_faces="true"    
+		<div id="fb-root"></div><script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+			<fb:like-box href="https://www.facebook.com/NeobuxUltimateStrategy" width="320" show_faces="true"    
 			border_color="gray" stream="false" header="true"></fb:like-box>
 		
 		<p>&nbsp;</p>
@@ -104,7 +104,7 @@ while($p = mysql_fetch_assoc($resP)) {
 	<section id="signUpForm">
 		<h1>Get Your Free Neobux Report!</h1>
             <p>Just Enter Your Email Address Below </p>
-            <form method=post action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+            <form method=post action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
             <table align="center" cellpadding="1">
             <tr>
                 <td align="left"></td>
@@ -183,18 +183,9 @@ while($p = mysql_fetch_assoc($resP)) {
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-			
+	
 			<div id="eXTReMe"><a href="http://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
-			<img src="http://t1.extreme-dm.com/i.gif" style="border: 0;"
+			<img src="https://t1.extreme-dm.com/i.gif" style="border: 0;"
 			height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
 			<script type="text/javascript"><!--
 			EXref="";top.document.referrer?EXref=top.document.referrer:EXref=document.referrer;//-->
@@ -206,12 +197,12 @@ while($p = mysql_fetch_assoc($resP)) {
 			navigator.javaEnabled()==1?EXjv="y":EXjv="n";
 			EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
 			EXref?EXref=EXref:EXref=EXd.referrer;
-			EXd.write("<img "+EXsrc+"=http://e1.extreme-dm.com",
+			EXd.write("<img "+EXsrc+"=https://e1.extreme-dm.com",
 			"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
 			"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
 			"l="+escape(EXref)+" height=1 width=1>");//-->
 			</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
-			src="http://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
+			src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
 			</div></noscript></div>
 			
 	</body>

@@ -33,19 +33,15 @@ $confirmLandingURL = $redirLink.'clixsense';
 	<meta property="og:title" content="<?=$meta['title']?>" />
 	
 	<link rel="stylesheet" href="include/css/popup.css" type="text/css" />
+	<link rel="stylesheet" href="include/blog/assets/css/blog.css" type="text/css" />
 
-	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-	<link rel="stylesheet" href="blog/assets/css/main.css" />
-	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	
 	<script type="text/javascript" src="include/js/jquery.js"></script>
 	<script type="text/javascript" src="include/js/popup.js"></script>
 	<script type="text/javascript">
 	function linkTo(url) {
 		window.open(url);
 	}
-	<?
+	<?php
 	if($popUp) {
 		if($_SESSION['popUp'] < 1)
 			echo popUpWindow($dir); 
@@ -54,10 +50,9 @@ $confirmLandingURL = $redirLink.'clixsense';
 	?>
 	</script>
 	<script type="text/javascript">var switchTo5x=true;</script>
-	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
-	
 </head>
 <body>
 	<!-- Wrapper -->

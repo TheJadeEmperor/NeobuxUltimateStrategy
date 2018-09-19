@@ -1,18 +1,16 @@
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-
 RewriteOptions inherit
+Options +SymLinksIfOwnerMatch
 RewriteEngine On
 
-RewriteRule /?p=neobux-guide /?p=neobux-referral-guide [L,R=301]
-RewriteRule ^video-course$ /video/ [L,R=301]
-RewriteRule ^video-course/$ /video/ [L,R=301]
-RewriteRule ^video/$ http://neobuxultimatestrategy.com [L,R=301]
+<ifModule mod_security.c>
+SecFilterEngine Off
+SecFilterScanPOST Off
+</ifModule>
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301] 
+
+RewriteRule ^blog http://neobuxultimatestrategy.com/?action=posts [L,R=301]
 
 ErrorDocument 400 /images/
 ErrorDocument 401 /images/
