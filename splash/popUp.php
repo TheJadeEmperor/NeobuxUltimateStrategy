@@ -47,7 +47,7 @@ $confirmLandingURL = $redirLink.'basics';
             </td>
             <td align="center">
                 <img src="<?=$imgDir?>redArrow.gif">
-                <form method="post" action="http://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+                <form method="post" action="httpS://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
                 <table>
                     <tr valign="top">

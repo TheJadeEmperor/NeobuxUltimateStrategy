@@ -87,10 +87,11 @@ $confirmLandingURL = $redirLink.'clixsense';
 					<div class="content">
 					
 						<center>
-
+							<!-- NUS Blog - mobile ad for header -->
+							<!--
 							<div class="mobile">
 							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- NUS Blog - mobile ad for header -->
+						
 							<ins class="adsbygoogle"
 								 style="display:block"
 								 data-ad-client="ca-pub-9979225970120201"
@@ -100,7 +101,8 @@ $confirmLandingURL = $redirLink.'clixsense';
 							(adsbygoogle = window.adsbygoogle || []).push({});
 							</script>
 							</div>
-						 
+							-->
+							
 						<br />
 						</center>
 					
