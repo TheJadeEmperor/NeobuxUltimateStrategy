@@ -14,8 +14,8 @@ $postLink = $websiteURL.'/'.$url;
 $popUp = 1;
 $imgDir = 'images/blog/';   
 $useHTMLFile = true; 
-$referralLink = 'http://www.clixsense.com/?3373459&blog'; 
-$redirLink = 'http://neobuxultimatestrategy.com/redirect.php?action='; 
+$referralLink = 'https://www.clixsense.com/?3373459&blog'; 
+$redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
 $subscrLandingURL = $redirLink.'clixsense';
 $confirmLandingURL = $redirLink.'clixsense'; 
 ?>
@@ -60,7 +60,7 @@ $confirmLandingURL = $redirLink.'clixsense';
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<span class="logo"><img src="blog/images/logo.svg" alt="" /></span>
+			<span class="logo"><img src="include/blog/images/logo.svg" alt="" /></span>
 			<h1>Neobux Ultimate Strategy 3.0</h1>
 			<p>The ultimate strategy to make money from Neobux and PTC sites<br />
 				Contact us at our <a href="mailto:<?=$supportEmail?>">support email address</a>

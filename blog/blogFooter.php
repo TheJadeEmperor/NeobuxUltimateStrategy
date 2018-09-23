@@ -81,15 +81,15 @@ while($p = mysql_fetch_assoc($resP)) {
        
         <div class="moduleBlue"><h2>Recommended Sites</h2>
 		<div style="text-align: left; margin-left: 100px">
-            <p><a href="http://vector.me" title="Free Clipart" target="_blank">Free Clipart</a></p>
+            <p><a href="https://vector.me" title="Free Clipart" target="_blank">Free Clipart</a></p>
 
-            <p><a href="http://bestpayingsites.com/ppbooster" target="_blank">Paypal Booster</a></p>
+            <p><a href="https://bestpayingsites.com/ppbooster" target="_blank">Paypal Booster</a></p>
             
-            <p><a href="http://bestpayingsites.com/" target="_blank">Email Profit System</a></p>
+            <p><a href="https://bestpayingsites.com/" target="_blank">Email Profit System</a></p>
                 
-            <p><a href="http://www.neobux.com/forum/?/15/229319/Thanks-to-Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 1</a></p>
+            <p><a href="https://www.neobux.com/forum/?/15/229319/Thanks-to-Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 1</a></p>
             
-            <p><a href="http://www.neobux.com/forum/?/7/213100/Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 2</a></p>            
+            <p><a href="https://www.neobux.com/forum/?/7/213100/Neobux-Ultimate-Strategy/" target="_blank" rel="nofollow">Neobux Forum 2</a></p>            
         </div>
         </div>
         
@@ -124,8 +124,8 @@ while($p = mysql_fetch_assoc($resP)) {
             <input type=hidden name="da_cust2" value="">
             <input type=hidden name="trwvid" value="theemperor">
             <input type=hidden name="series" value="nusnewsletter">
-            <input type=hidden name="subscrLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=basics">
-            <input type=hidden name="confirmLandingURL" value="http://neobuxultimatestrategy.com/redirect.php?url=basics">
+            <input type=hidden name="subscrLandingURL" value="https://neobuxultimatestrategy.com/redirect.php?url=basics">
+            <input type=hidden name="confirmLandingURL" value="https://neobuxultimatestrategy.com/redirect.php?url=basics">
             </form>
             
             <br />
@@ -161,8 +161,8 @@ while($p = mysql_fetch_assoc($resP)) {
 									<a href="./members" title="<?=$businessName?> Members Login">Members Login 
 								</dd>
 								<dt>Links</dt>
-								<dd><a href="http://bestpayingsites.com/ppbooster" title="Paypal Booster">Paypal Booster</a> &bull; 
-								<a href="http://bestpayingsites.com/" title="Email Profit System">Email Profit System</a>
+								<dd><a href="https://bestpayingsites.com/ppbooster" title="Paypal Booster">Paypal Booster</a> &bull; 
+								<a href="https://bestpayingsites.com/" title="Email Profit System">Email Profit System</a>
 								</dd>
 								<dt>Email</dt>
 								<dd><a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></dd>
@@ -174,17 +174,17 @@ while($p = mysql_fetch_assoc($resP)) {
 								
 								<li><a href="https://plus.google.com/u/0/+NeobuxUltimateStrategy" class="icon fa-google-plus alt" target="_BLANK"><span class="label">Google+</span></a></li>
 								
-								<li><a href="http://extremetracking.com/open?login=richptc" class="icon fa-globe alt" target="_BLANK"></a></li>
+								<li><a href="https://extremetracking.com/open?login=richptc" class="icon fa-globe alt" target="_BLANK"></a></li>
 								
 							</ul>
 						</section>
-						<p class="copyright">&copy; Benjamin Louie <a href="http://benjaminlouie.com">BL Web Solutions</a>.</p>
+						<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com">BL Web Solutions</a>.</p>
 					</footer>
 
 			</div>
 
 	
-			<div id="eXTReMe"><a href="http://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
+			<div id="eXTReMe"><a href="https://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
 			<img src="https://t1.extreme-dm.com/i.gif" style="border: 0;"
 			height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
 			<script type="text/javascript"><!--

@@ -38,7 +38,7 @@ if(mysql_num_rows($res) > 0) {
     
     $subject = $p['subject']; 
     
-    $postLink = 'http://neobuxultimatestrategy.com/?p='.$url;
+    $postLink = 'https://neobuxultimatestrategy.com/?p='.$url;
     
     echo '<header class="major">
 		<a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'"><h2>'.$p['subject'].'</h2></a>
