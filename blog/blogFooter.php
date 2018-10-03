@@ -80,7 +80,7 @@ while($p = mysql_fetch_assoc($resP)) {
         <br /><br />
        
         <div class="moduleBlue"><h2>Recommended Sites</h2>
-		<div style="text-align: left; margin-left: 100px">
+		<div style="text-align: left;">
             <p><a href="https://vector.me" title="Free Clipart" target="_blank">Free Clipart</a></p>
 
             <p><a href="https://bestpayingsites.com/ppbooster" target="_blank">Paypal Booster</a></p>
