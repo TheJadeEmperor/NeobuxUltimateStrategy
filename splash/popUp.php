@@ -18,33 +18,12 @@ $confirmLandingURL = $redirLink.'basics';
     <table>
         <tr valign="top">
             <td>
-                <div id="media">
-                    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="480" height="380" id="csSWF">
-                    <param name="movie" value="nus/controller.swf" />
-                    <param name="quality" value="best" />
-                    <param name="bgcolor" value="#1a1a1a" />
-                    <param name="allowfullscreen" value="true" />
-                    <param name="scale" value="showall" />
-                    <param name="allowscriptaccess" value="always" />
-                    <param name="flashvars" value="autostart=false&thumb=images/sales/nus2.png&thumbscale=45&showendscreen=false&color=0x1A1A1A,0x1A1A1A" />
-                        <!--[if !IE]>-->
-                        <object type="application/x-shockwave-flash" data="splash/controller.swf" width="480" height="380">
-                        <param name="quality" value="best" />
-                        <param name="bgcolor" value="#1a1a1a" />
-                        <param name="allowfullscreen" value="true" />
-                        <param name="scale" value="showall" />
-                        <param name="allowscriptaccess" value="always" />
-                        <param name="flashvars" value="autostart=false&thumb=images/sales/nus2.png&thumbscale=200&showendscreen=false&color=0x1A1A1A,0x1A1A1A" />
-                        <!--<![endif]-->
+				<video width="480" height="380" autoplay>
+				<source src="splash/mod1.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+				</video>
 
-                        <div id="noUpdate">
-                            <p>The Camtasia Studio video content presented here requires a more recent version of the Adobe Flash Player. If you are you using a browser with JavaScript disabled please enable it now. Otherwise, please update your version of the free Flash Player by <a href="http://www.adobe.com/go/getflashplayer">downloading here</a>.</p>
-                        </div>
-                        
-                        </object><!--[if !IE]>-->
-                    </object><!--<![endif]-->
-                </div>
-            </td>
+		   </td>
             <td align="center">
                 <img src="<?=$imgDir?>redArrow.gif">
                 <form method="post" action="httpS://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
