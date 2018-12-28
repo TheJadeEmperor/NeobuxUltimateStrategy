@@ -36,34 +36,30 @@
 <p><b>Graphics splash pages</b><br />
 Graphics based splash pages have very little sales copy on them, but rather, they engage the viewer with impressive graphics and call to action items. There is usually an ebook cover with the title of the ebook, and the opt-in form is a box that is clearly defined. Often there will be a giant “subscribe now” or “join us” button in the opt in form.</p>
 
+<p align="center"><img src="images/splash_graphics.png" width="500px" /></p>
+
 <p><b>Video splash pages</b><br />
 This is a splash page that shows a video on the left hand side, which is designed to create desire, causing the viewer to fill in the opt-in form on the right hand side. Usually the video plays automatically when the page is loaded. </p>
 
-<p>Examples of video splash pages:</p>
+<p>Example of video splash page:</p>
 
-<p>ULaunch Formula <br />
-http://infinitybux.ulaunchformula.com/signup.php</p>
+<p align="center"><img src="images/splash_video.png" width="530px" /></p>
 
 
 <p><b>Hidden video splash pages</b><br />
-The hidden video splash page is a type of video splash page with a twist: the video is not shown. It is just a teaser image to get to get you to sign up. Once you sign up, then the video will be shown to you.
-Examples of hidden video splash pages: </p>
+The hidden video splash page is a type of video splash page with a twist: the video is not shown. It is just a teaser image to get to get you to sign up. Once you sign up, then the video will be shown to you.</p>
+<p>Example of hidden video splash page: </p>
 
-<p>The Tao of Badass<br />
-http://www.thetaoofbadass.com/special</p>
-
-<p>Lucrative List Secrets <br />
-http://www.lucrativelistsecrets.com/free-training</p>
+<p align="center"><img src="images/splash_hidden_video.png" width="530px" /></p>
 
 
 <p><b>Sales page squeeze page hybrids</b></p>
 
 <p>This is a combination of a splash page and a sales page combined into one page. The splash page is featured at the top, and it has all the elements of a video squeeze page. But if you scroll below that, there will be sales copy, convincing the viewer to buy something, and of course, there is an order button at the bottom.</p>
 
-<p>Examples of squeeze page hybrids: </p>
+<p>Example of squeeze page hybrid: </p>
 
-<p>GVO<br />
-http://martinp234.hostthenprofit.com</p>
+<p align="center"><img src="images/splash_hybrid.png" width="530px" /></p>
 
 
 <p align="center"><b>Web hosting</b></p>

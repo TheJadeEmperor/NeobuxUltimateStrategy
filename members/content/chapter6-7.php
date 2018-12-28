@@ -6,8 +6,9 @@
 
 <p>When you get your own mini-site, this is the link that you’d advertise in various places. Because we have only a few seconds to get the prospect’s attention, a mini-site catch their eye. Your colorful banners will get the prospect’s attention, and they can see everything in one glance. They will choose which sites to join, and who knows, maybe they will join more than one.</p>
 
+<h2>Features at a glance</h2>
 <p>
-	<ul>Features at a glance
+	<ul>
  	<li>Small One Time Fee & Free Hosting</li>
  	<li>Promote All Your Sites with Your Own Unique URL </li>
  	<li>Unlimited Lifetime Updates for Free</li>
