@@ -78,26 +78,15 @@ while($p = mysql_fetch_assoc($resP)) {
 }
 
 
-$selS = 'select id from sales where payerEmail="'.$_SESSION[login][paypal].'"'; 
+$selS = 'select id from sales where payerEmail="'.$_SESSION['login']['paypal'].'"'; 
 $resS = mysql_query($selS) or die(mysql_error());
 
 //echo mysql_num_rows($resS);
-if(mysql_num_rows($resS) == 0) // not a customer
-{
+if(mysql_num_rows($resS) == 0) { // not a customer
+
     echo '<meta http-equiv="refresh" content="1;url=./?action=logout">';
 }
 
-
-//members area content
-$selMC = 'select * from settings where opt="memAreaContent"';
-$resMC = mysql_query($selMC) or die(mysql_query());
-
-$mc = mysql_fetch_assoc($resMC);
-
-$memAreaContent = $mc['setting'];
-$memAreaContent = stripslashes($memAreaContent);    
-
-//echo $memAreaContent; 
 ?>
 <h1>Members Home</h1>
 <hr color="#25569a" size="4" />
