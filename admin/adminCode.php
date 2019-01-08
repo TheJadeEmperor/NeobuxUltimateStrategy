@@ -158,8 +158,7 @@ if($_POST['dl']) { //download files
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Users<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>userList.php">Affiliate List</a></li>
-                            <li><a href="<?=$adir?>userSearch.php">Affiliate Search</a></li>
+                            <li><a href="<?=$adir?>userSearch.php">Search Users</a></li>
                             <li><a href="<?=$adir?>custSearch.php">Search Customers</a></li>
                         </ul>
                     </li>

@@ -205,24 +205,6 @@ if($msg)
     	
     	<p>&nbsp;</p>
     	
-        <div class="moduleBlue"><h1>Affiliate Details</h1>
-        <div>
-            <table>
-            <tr>
-                <td>Affiliate ID: </td>        
-                <td><a href="updateProfile.php?id=<?=$s[affiliate]?>"><?=$s[affiliate]?></a></td>
-            </tr>
-            <tr>
-                <td>Affiliate Username: </td>
-                <td><a href="updateProfile.php?id=<?=$s[affiliate]?>"><?=$affUser[username]?></a></td>                        
-            </tr>
-            <tr>
-                <td>Paid To Email: </td>
-                <td><?=$s[paidTo]?></td>
-            </tr>
-            </table>
-        </div>
-        </div>
     </td>
 </tr>
 </table>
