@@ -180,19 +180,7 @@ else {      //upsell is disabled
         
     </td>
     <td width="20px"></td>
-    <td>
-        <div class="moduleBlue"><h1>Members Area Custom Content</h1>
-        <div class="moduleBody">
-        <center>
-            <textarea name=memAreaContent rows=20 cols=45><?=$memOptions['memAreaContent']?></textarea>
-            <br /><br />
-            <input type=submit name=update value=" Update Members Area " />
-        
-        </center>
-        </div>
-        </div>
-        
-    </td>
+    
 </tr>
 </table>
 </form>
