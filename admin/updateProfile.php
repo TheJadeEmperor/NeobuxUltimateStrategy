@@ -1,6 +1,6 @@
 <?php
 include('adminCode.php');
-
+/*
 function affstats($userID)
 {
     $selU = 'select * from affstats where userID="'.$userID.'"';
@@ -36,6 +36,9 @@ function affstats($userID)
     
     return $affstats; 
 }
+
+*/
+
 
 //delete user
 if($_POST[deleteUser])
@@ -126,14 +129,8 @@ while($p = mysql_fetch_assoc($resP))
         $affContent .= '<p>'.$websiteURL.'/'.$p[folder].'/?r='.$u[username].'</p>';    
 }
 
-//affiliate stats
-$selA = 'select * from affstats where userID="'.$userID.'"';
-$resA = mysql_query($selA) or die(mysql_error()); 
 
-if(mysql_num_rows($resA) > 0)
-{
-    $disDel = 'disabled';
-}
+//$disDel = 'disabled';
 
 
 if(!empty($msg))
@@ -194,31 +191,15 @@ echo $msg;
 </div>
 
 <p>&nbsp;</p>
-
-<div class="moduleBlue"><h1>Affiliate Links</h1>
-<div class="moduleBody">
-    <?=$affContent?>
-</div>
-</div>
-
 <p>&nbsp;</p>
 
-<div class="moduleBlue"><h1>Affiliate Stats</h1>
-<div class="moduleBody">
-<? echo affstats($userID);  ?>   <br /><br />
-
-<a href="affSales.php?id=<?=$userID?>">View affiliate sales</a> 
-</div>
-</div>
-
-<p>&nbsp;</p>
 
 <div class="moduleBlue"><h1>Delete User</h1>
 <div class="moduleBody">
-    <div title="header=[Delete User] body=[You can only delete a user that has 0 clicks and 0 sales] ">
+    <div title="header=[Delete User] body=[Delete a user from the users table, will not affect sales records]">
 	<center>
 	
-	<form method=post>
+	<form method="post">
     <img src="<?=$helpImg?>" />     
     <input type=submit name=deleteUser <?=$disDel?> onclick="confirm ('Are you sure?')"/></div>
     <input type=hidden name=deleteID value="<?=$userID?>" />

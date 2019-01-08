@@ -259,37 +259,6 @@ else {
 
 <p>&nbsp;</p>
 
-<div class=moduleBlue><h1>Affiliate Program Info</h1>
-<div class="moduleBody">
-    <table>
-    <tr valign=top>
-    	<td>Enable Affiliate Program? *</td>
-    	<td><select class="activeField" name=affProgram>
-    		<option <?=$aff[Y]?> value="Y">Yes</option>
-    		<option <?=$aff[N]?> value="N">No</option></select>
-    	</td>
-    </tr><tr valign=top>
-    	<td>Affiliate Commissions</td>
-    	<td><select <?=$affProgramDis?> <?=$fieldClass?> name=salesPercent>
-    	<option <?=$aPercent[25]?> value="25">25%</option>
-    	<option <?=$aPercent[33]?> value="33">33%</option>
-    	<option <?=$aPercent[50]?> value="50">50%</option>
-    	<option <?=$aPercent[66]?> value="66">66%</option>
-    	<option <?=$aPercent[75]?> value="75">75%</option>
-    	<option <?=$aPercent[100]?> value="100">100%</option>
-    	</select>
-    	</td>
-    </tr>	
-    <tr>
-        <td>Show this product in affiliate center? </td>
-            <td><select <?=$affProgramDis?> <?=$fieldClass?> name=affcenter>
-            <option <?=$affcenter[Y]?> value="Y">Yes</option>
-            <option <?=$affcenter[N]?> value="N">No</option></select>
-        </td>
-    
-    </tr>
-    </table>
-</div></div>
 <p>&nbsp;</p>
 
 <div class=moduleBlue><h1>Upsell Product</h1>
