@@ -29,7 +29,7 @@ while($p = mysql_fetch_assoc($res)) {
 ?>
 
 <form method="POST">
-<table class=moduleBlue cellspacing=0 cellpadding=2>
+<table class="moduleBlue" cellpadding="2">
     <tr>
         <th>Post ID </th>
         <th>Subject</th>
@@ -37,10 +37,10 @@ while($p = mysql_fetch_assoc($res)) {
         <th>View</th>
         <th>Delete</th>
     </tr>
-<?=$theList?>
+	<?=$theList?>
     <tr>
         <td></td>
-        <td><input type=submit name=delete value="Delete Post" onclick="return confirm('** Deletions are irreversible. Are you sure you want to proceed? **');">        
+        <td colspan="4"><input type=submit name=delete value="Delete Post" onclick="return confirm('** Deletions are irreversible. Are you sure you want to proceed? **');" />        
         </td>
     </tr>
 </table>
