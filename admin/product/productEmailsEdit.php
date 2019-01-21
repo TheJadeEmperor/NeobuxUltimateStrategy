@@ -3,16 +3,15 @@ $adir = '../';
 include($adir.'adminCode.php');
 $tableName = 'emails';
 
-$id = $_GET[id];
-$type = $_GET[type];
+$id = $_GET['id'];
+$type = $_GET['type'];
 
-if($_POST[save])
-{
+if($_POST['save']) {
 	$opt = array(
 	'tableName' => $tableName, 
 	'dbFields' => array(
-		'subject' => $_POST[subject],
-		'message' => $_POST[message]
+		'subject' => $_POST['subject'],
+		'message' => $_POST['message']
 	),
 	'cond' => ' where productID="'.$id.'" and type="'.$type.'"'
 	); 
@@ -21,7 +20,7 @@ if($_POST[save])
 }
 
 //get product info
-$selP = 'select * from products where id="'.$id.'"';
+$selP = 'SELECT * from products WHERE id="'.$id.'"';
 $resP = mysql_query($selP, $conn) or die(mysql_error()); 
 
 $p = mysql_fetch_assoc($resP); 
@@ -34,6 +33,12 @@ $opt = array(
 $allEmails = dbSelect($opt); 
 
 $e = $allEmails[0];
+
+$typeDisplay = array(
+	'download' => 'Download',
+	'welcome' => 'Welcome' 
+); 
+
 
  
 $properties = 'class="activeField" size=60'; 
@@ -90,7 +95,7 @@ if (document.location.protocol == 'file:') {
 </script> 
 
 
-<div class="moduleBlue"><h1>Emails for Product "<?=$p[itemName]?>"</h1>
+<div class="moduleBlue"><h1>Emails for Product "<?=$p['itemName']?>"</h1>
 <div class="moduleBody">
     <p><a href="?id=<?=$id?>&type=download">Download Email</a> &nbsp; 
     <a href="?id=<?=$id?>&type=welcome">Welcome Affiliate</a> </p>
@@ -98,26 +103,29 @@ if (document.location.protocol == 'file:') {
 
 <br />
  
-<div class="moduleBlue"><h1>Edit Email </h1><div>
-<form method=post>
+<div class="moduleBlue"><h1>Edit Email Template</h1><div>
+<form method="POST">
 <table>
 <tr><tr>
-	<td>Download Email </td>
+	<td colspan="2" align="center">
+		<h3><?php echo $typeDisplay[$type] ?> Email Template </h3>
+	</td>
 </tr>
-	<td>Subject Line</td><td><input <?=$properties?> name=subject value="<?=$e[subject]?>"></td>
-</tr> <tr>
+	<td>Subject Line</td>
+	<td><input <?=$properties?> name="subject" value="<?=$e['subject']?>"></td>
+</tr><tr>
 	<td>Message Body</td>
 </tr><tr>
-	<td colspan=2><textarea name=message rows=25 cols=70 id=elm1><?=$e[message]?></textarea></td>
+	<td colspan=2><textarea name="message" rows="25" cols="70" id="elm1"><?=$e['message']?></textarea></td>
 </tr><tr>
-	<td align=center colspan=2><input type=submit name=save value=" Save Changes ">
-	<a href="previewEmail.php?id=<?=$e[id]?>">
-		<input type=button name=preview value=" Preview Email "></a></td>
+	<td align="center" colspan="2"><input type="submit" name="save" value=" Save Changes ">
+	<a href="previewEmail.php?id=<?=$e['id']?>">
+		<input type="button" name="preview" value=" Preview Email "></a></td>
 </tr>
 </table>
 </form>
 </div>	
 </div>
 
-<?
-include('adminFooter.php');  ?>
+<?php
+include($adir.'adminFooter.php');  ?>
