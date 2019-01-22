@@ -32,6 +32,17 @@ if($_POST['dl']) { //download files
     downloadLink($url); 
     exit; 
 }
+
+
+$prod = array(); 
+
+$selP = 'SELECT id, itemName FROM products'; 
+$resP = mysql_query($selP, $conn) or die(mysql_error());
+
+while($p = mysql_fetch_assoc($resP)) {
+	$prod[] = $p;
+}
+		
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -106,6 +117,7 @@ if($_POST['dl']) { //download files
             moz-border-radius: 6px 0 6px 6px;
             webkit-border-radius: 6px 0 6px 6px;
         }
+		
         .navbar .nav, .navbar .nav > li {
             float:none;
             display:inline-block;
@@ -143,16 +155,38 @@ if($_POST['dl']) { //download files
                             <li><a href="<?=$adir?>memberArea.php">Members Area</a></li>
                             <li><a href="<?=$adir?>sitePages.php">Site Pages</a></li>
                             <li><a href="<?=$adir?>pageviews.php">Pageviews</a></li>
+							
+							<li class="divider"></li>
+							
                             <li><a href="<?=$adir?>postNew.php">New Post</a></li>
                             <li><a href="<?=$adir?>postAll.php">All Posts</a></li>
+							<li><a href="<?=$adir?>pages/blogOptions.php">Blog Options</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
                             <li><a href="<?=$adir?>product/productAll.php">All Products</a></li>
                             <li><a href="<?=$adir?>product/productNew.php">New Product</a></li>
                             <li><a href="<?=$adir?>product/productEmailsList.php">Product Emails</a></li>
+							
+							<li class="divider"></li>
+							
+							<?php
+							foreach($prod as $p) {
+															
+								echo '<li class="dropdown-submenu">
+								<a tabindex="-1" href="'.$adir.'product/productNew.php?id='.$p['id'].'">'.$p['itemName'].'</a>
+									<ul class="dropdown-menu">
+										<li>
+										<a href="'.$adir.'product/productDownloads.php?id='.$p['id'].'">Purchase Downloads</a></li>
+										<li><a href="'.$adir.'product/productEmailsEdit.php?id='.$p['id'].'&type=download"</a>Download Email</li>
+										<li><a href="'.$adir.'product/productEmailsEdit.php?id='.$p['id'].'&type=welcome">Welcome Email</a></li>
+									</ul>
+								</li>';
+							}
+							?>
+							
                         </ul>
                     </li>                    
                     <li class="dropdown">
@@ -174,23 +208,22 @@ if($_POST['dl']) { //download files
                     if($devSite) {
                     ?>
                     <li class="dropdown">    
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developer Tools<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dev & SEO<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>sqlQuery.php">MySQL Query</a></li>
-                            <li><a href="<?=$adir?>sqlDatabase.php">View Database</a></li>
-                        </ul>
-                    </li>
-                    <? } ?>
-                    <li class="dropdown">    
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SEO Tools<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>sitemap.php" target="_blank">Generate Sitemap</a></li>
-                            <li><a href="<?=$adir?>sitemap.xml" target="_blank">View Sitemap</a></li>
+                            <li><a href="<?=$adir?>dev/sqlQuery.php">MySQL Query</a></li>
+                            <li><a href="<?=$adir?>dev/sqlDatabase.php">View Database</a></li>
+							
+							<li class="divider"></li>
+							
+							<li><a href="<?=$adir?>dev/sitemap.php" target="_blank">Generate Sitemap</a></li>
+                            <li><a href="<?=$adir?>dev/sitemap.xml" target="_blank">View Sitemap</a></li>
                             <li class="divider"></li>
                             <li><a href="https://www.google.com/webmasters/tools/" target="_blank">Webmaster Tools</a></li>
                             <li><a href="https://www.google.com/analytics/web/" target="_blank">Google Analytics</a></li>
                         </ul>
-                   </li>
+                    </li>
+                    <? } ?>
+                   
                 </ul>
             </div>
         </div>
@@ -198,7 +231,7 @@ if($_POST['dl']) { //download files
 <table>
 <tr valign="top">
     <td align="left">
-    	<?
+    	<?php
         $selU = 'SELECT COUNT(*) AS totalUsers FROM users';
         $resU = mysql_query($selU, $conn) or die(mysql_error());
         $stat = mysql_fetch_assoc($resU); 

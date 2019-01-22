@@ -1,5 +1,6 @@
 <?php
-include('adminCode.php'); 
+$adir = '../';
+include($adir.'adminCode.php');
 $dbList = array($dbName);
 
 $rows = 10;
