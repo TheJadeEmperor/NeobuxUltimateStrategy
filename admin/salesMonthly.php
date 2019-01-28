@@ -1,8 +1,7 @@
 <?php
 include('adminCode.php');
 
-function getSales($whichMonth) 
-{
+function getSales($whichMonth) {
     global $conn; 
     $selR = 'select sum(amount) as revenue, date_format(purchased, "%m/%Y") as purchased from sales where purchased like "%'.$whichMonth.'%"';
     

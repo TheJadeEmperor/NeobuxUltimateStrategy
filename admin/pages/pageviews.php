@@ -1,5 +1,6 @@
-<?
-include('adminCode.php');
+<?php
+$adir = '../';
+include($adir.'adminCode.php');
 
 if($_POST['reset'])
 { 

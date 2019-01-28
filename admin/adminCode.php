@@ -152,14 +152,14 @@ while($p = mysql_fetch_assoc($resP)) {
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Site Content <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>memberArea.php">Members Area</a></li>
-                            <li><a href="<?=$adir?>sitePages.php">Site Pages</a></li>
-                            <li><a href="<?=$adir?>pageviews.php">Pageviews</a></li>
+                            <li><a href="<?=$adir?>pages/memberArea.php">Members Area</a></li>
+                            <li><a href="<?=$adir?>pages/sitePages.php">Site Pages</a></li>
+                            <li><a href="<?=$adir?>pages/pageviews.php">Pageviews</a></li>
 							
 							<li class="divider"></li>
 							
-                            <li><a href="<?=$adir?>postNew.php">New Post</a></li>
-                            <li><a href="<?=$adir?>postAll.php">All Posts</a></li>
+                            <li><a href="<?=$adir?>pages/postNew.php">New Post</a></li>
+                            <li><a href="<?=$adir?>pages/postAll.php">All Posts</a></li>
 							<li><a href="<?=$adir?>pages/blogOptions.php">Blog Options</a></li>
                         </ul>
                     </li>
