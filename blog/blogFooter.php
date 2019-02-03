@@ -29,12 +29,14 @@ while($p = mysql_fetch_assoc($resP)) {
 		<p>&nbsp;</p>
 		
 		
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- NUS Blog 300x250 -->
+		 
+		<!-- 300x250 Ad -->
 		<ins class="adsbygoogle"
-			 style="display:inline-block;width:300px;height:250px"
+			 style="display:block"
 			 data-ad-client="ca-pub-9979225970120201"
-			 data-ad-slot="1377147856"></ins>
+			 data-ad-slot="7019403373"
+			 data-ad-format="auto"
+			 data-full-width-responsive="true"></ins>
 		<script>
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
