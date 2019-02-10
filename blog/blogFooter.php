@@ -28,20 +28,6 @@ while($p = mysql_fetch_assoc($resP)) {
 	
 		<p>&nbsp;</p>
 		
-		
-		 
-		<!-- 300x250 Ad -->
-		<ins class="adsbygoogle"
-			 style="display:block"
-			 data-ad-client="ca-pub-9979225970120201"
-			 data-ad-slot="7019403373"
-			 data-ad-format="auto"
-			 data-full-width-responsive="true"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-		
-		<p>&nbsp;</p>
 	
 		<h1>Current Products </h1>
 		
