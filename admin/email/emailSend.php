@@ -88,6 +88,7 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
 
 		$mail = new PHPMailer();
 		$mail->IsSMTP();         // send via SMTP
+		$mail->SMTPSecure = 'ssl';
 		$mail->Host     = $host; // SMTP servers
 		$mail->SMTPAuth = true;     // turn on SMTP authentication
 		$mail->Username = $username;  // SMTP username
@@ -103,8 +104,7 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
 		$mail->Body     =  $sendEmailBody;
 		$mail->AltBody  =  $sendEmailBody;
 		
-        if($isOptOut)
-        {
+        if($isOptOut) {
             echo '<i>Message was <b>not</b> sent - user opted out of emails</i><br />';    
         }
         else 
