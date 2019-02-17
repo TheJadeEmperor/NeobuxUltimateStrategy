@@ -1,4 +1,32 @@
 <?php
+function chitika_leaderboard() {
+	
+	echo '<script type="text/javascript">
+	  ( function() {
+		if (window.CHITIKA === undefined) { window.CHITIKA = { "units" : [] }; };
+		var unit = {"calltype":"async[2]","publisher":"TheJadeEmperor","width":728,"height":90,"sid":"Chitika Default"};
+		var placement_id = window.CHITIKA.units.length;
+		window.CHITIKA.units.push(unit);
+		document.write(\'<div id="chitikaAdBlock-\' + placement_id + \'"></div>\');
+	}());
+	</script>
+	<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>';
+} 
+
+function chitika_sidebar() {
+	echo '
+	<script type="text/javascript">
+	  ( function() {
+		if (window.CHITIKA === undefined) { window.CHITIKA = { \'units\' : [] }; };
+		var unit = {"calltype":"async[2]","publisher":"TheJadeEmperor","width":300,"height":250,"sid":"Chitika Default"};
+		var placement_id = window.CHITIKA.units.length;
+		window.CHITIKA.units.push(unit);
+		document.write(\'<div id="chitikaAdBlock-\' + placement_id + \'"></div>\');
+	}());
+	</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>';
+}
+
 function popUpWindow($dir) {
     return '
     var seconds = 15; 
@@ -53,6 +81,12 @@ $confirmLandingURL = $redirLink.'clixsense';
 	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
+	<style>
+		#chitika_leaderboard {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+	</style>
 </head>
 <body>
 	<!-- Wrapper -->
@@ -84,6 +118,12 @@ $confirmLandingURL = $redirLink.'clixsense';
 			<!-- Introduction -->
 			<section id="intro" class="main">
 				<div class="spotlight">
+					
 					<div class="content">
+					
+						<div id="chitika_leaderboard">
+						<?php chitika_leaderboard() ?>	
+						</div> 
+						
 						<footer class="bothSides">
 							<section class="leftContent">

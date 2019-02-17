@@ -15,13 +15,11 @@ while($p = mysql_fetch_assoc($resP)) {
 		
 		<p>&nbsp;</p>
 		
-		<!-- facebook app -->
-		<div id="fb-root"></div><script src="https://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-			<fb:like-box href="https://www.facebook.com/NeobuxUltimateStrategy" width="320" show_faces="true"    
-			border_color="gray" stream="false" header="true"></fb:like-box>
+		<?php chitika_sidebar(); ?>
 		
 		<p>&nbsp;</p>
-
+		
+	
 		<h1>Recent Posts</h1>
 		<?=$recentPosts?>
 		<center><p><a href="./?action=posts">Show all posts</a></p></center>
@@ -81,7 +79,7 @@ while($p = mysql_fetch_assoc($resP)) {
         </div>
         </div>
         
-
+		<p>&nbsp;</p>
 	</section><!--sidebar-->
 </footer>
 
