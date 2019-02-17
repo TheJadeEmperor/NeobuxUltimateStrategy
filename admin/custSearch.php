@@ -262,19 +262,23 @@ function updateSaleDB () {
 }
 
 function fillSalesForm (salesID) {
-    //alert(salesID);
-    $.ajax({ 
-        type        : 'POST',
-        url         : '<?=$sale_read?>', 
-        data        : 'id='+salesID,
-        success     : function(data) {
-            data = $.parseJSON(data);
-            $.each(data, function(name, value) {
-                //console.log(name+' '+value);
-                $('#'+name).val(value);
-            });          
-        }
-    });
+	console.log('salesID'+salesID);
+	$.ajax({ 
+		type        : 'POST',
+		url         : '<?=$sale_read?>', 
+		data        : 'id='+salesID,
+		success     : function(data) {
+			data = $.parseJSON(data);
+			console.log('data'+data);
+			$.each(data, function(name, value) {
+				console.log(name+' '+value);
+				
+				if(name == 'id') $('#sale_id').val(value);
+				
+				$('#'+name).val(value);
+			});          
+		}
+	});
 }
 
 function closeDialog () {
