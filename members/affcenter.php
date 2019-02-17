@@ -10,7 +10,7 @@ while($p = mysql_fetch_assoc($resP)) {
     $itemName = $p['itemName']; 
     $productID = $p['id'];
     
-    $selS = 'select *, date_format(purchased, "%m/%d/%y") as purchased from sales where
+	$selS = 'select *, date_format(purchased, "%m/%d/%y") as purchased from sales where
     (payerEmail="'.$_SESSION['login']['paypal'].'") and productID="'.$p['id'].'"'; 
     $resS = mysql_query($selS) or die(mysql_error());
 

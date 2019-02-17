@@ -7,6 +7,11 @@ include($dir.'include/spmSettings.php');
 session_start();
 
 
+if($_POST['dl']) {
+    downloadLink($_POST['url']); exit;
+}
+
+
 if(is_int(strpos(__FILE__, 'C:\\'))) {//localhost
     error_reporting(E_ALL ^ E_NOTICE);
 }
@@ -14,10 +19,6 @@ else { //live website
     error_reporting(0);
 }
 
-
-if($_POST['dl']) {
-    downloadLink($_POST['url']);
-}
 
 
 $templateHeader = $val['memHeader'];
