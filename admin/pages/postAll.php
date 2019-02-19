@@ -23,7 +23,7 @@ while($p = mysql_fetch_assoc($res)) {
         <td><a href="postNew.php?id='.$pID.'">'.$pID.'</a>
         </td><td><a href="postNew.php?id='.$pID.'">'.shortenText($subject, 30).'</a></td>
         <td>'.$p['postedTime'].'</td>
-        <td><a href="'.$websiteURL.'?p='.$p['url'].'" target="_blank" >View</a></td>
+        <td><a href="'.$dir.'?p='.$p['url'].'" target="_blank" >View</a></td>
         <td><input type=checkbox name="id[]" value="'.$pID.'"> </td>
     </tr>';
 }

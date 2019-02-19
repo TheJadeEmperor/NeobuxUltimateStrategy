@@ -82,6 +82,14 @@ $confirmLandingURL = $redirLink.'clixsense';
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
 	<style>
+		.referralProof {
+			max-width: 600px;
+		}
+		
+		.stButton .stBubble {
+			height: 29px !important;
+		}
+		
 		#chitika_leaderboard {
 			text-align: center;
 			margin-bottom: 40px;

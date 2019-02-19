@@ -1,0 +1,19 @@
+<?
+$imgDir = $dir.'images/guide/payments/';
+
+$referralProof = array(
+	'clixsensePayment2015-1.png' => 'Clixsense Payment Proof - Results of the Neobux Ultimate Strateegy',
+	'clixsensePayment2015-2.png' => 'A $128.97 Payment from Clixsense',
+	'clixsensePayment2016-1.png' => 'A $19.72 Payment from Clixsenses',
+	'clixsensePayment2016-2.png' => 'Another Payment from Clixsense',
+	'clixsensePayment2016-2.png' => 'My BuxP Army Grew to Over 1600!',
+	'clixsensePayment2019-1.jpg' => 'Clixsense pays its members by check',
+	'clixsensePayments.jpg' => 'Lots of Payments from Clixsense',
+	'neobuxPaymentA.png' => 'A $156.06 Payment from Neobux',
+);
+
+foreach ($referralProof as $ss => $caption) {
+	echo '<h2>'.$caption.'</h2>
+	<p><a href="'.$imgDir.$ss.'" target="_BLANK"><img src="'.$imgDir.$ss.'" alt="'.$caption.'" class="referralProof" /></a></p>';
+}
+?>

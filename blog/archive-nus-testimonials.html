@@ -1,0 +1,35 @@
+<?
+$imgDir = $dir.'images/testimony/';
+
+$referralProof = array(
+	'email.jpg' => 'A satisfied customer',
+	'facebook1.jpg' => 'Facebook testimonial for the PTC Newsletters',
+	'facebook2.jpg' => 'Another Facebook testimonial for the PTC Newsletters',
+	'facebook3.jpg' => 'More testimonials for the PTC Newsletters',
+	'facebook4.jpg' => 'Facebook testimonial for the PTC Newsletters',
+	'facebook5.jpg' => 'Yet another testimonial for the PTC Newsletters',
+	'facebook6.jpg' => 'Facebook testimonial for the PTC Newsletters',
+	'facebook7.jpg' => 'Do you see a pattern here?',
+	'news1.jpg' => 'A person who took adavantage of our free materials',
+	'news2.jpg' => 'A person who took adavantage of our free materials',
+	'news3.jpg' => 'A person who took adavantage of our free materials',
+	'news4.jpg' => 'A person who took adavantage of our free materials',
+	'news5.jpg' => 'A person who took adavantage of our free materials',
+	'news6.jpg' => 'We are in this help people like you who are struggling',
+	'news7.jpg' => 'A person who took adavantage of our free materials',
+	'news8.jpg' => 'Sometimes it\'s the simple words that have the most impact',
+	'news9.jpg' => 'A testimonial for the PTC Newsletter and the NUS',
+	'product1.jpg' => 'Testimonal for the NUS Video Course',
+	'forum1.jpg' => 'Testimonal for the NUS Video Course',
+	'forum2.jpg' => 'Testimonal for the NUS Video Course',
+	'forum3.jpg' => 'Testimonal for the NUS Video Course',
+	'forum4.jpg' => 'Testimonal for the NUS Video Course',
+	'forum5.jpg' => 'Testimonal for the NUS Video Course',
+
+);
+
+foreach ($referralProof as $ss => $caption) {
+	echo '<h2>'.$caption.'</h2>
+	<p><a href="'.$imgDir.$ss.'" target="_BLANK"><img src="'.$imgDir.$ss.'" alt="'.$caption.'" class="referralProof" /></a></p>';
+}
+?>

@@ -73,7 +73,6 @@ if(mysql_num_rows($res) > 0) {
 	<td align="left"> 
 		<p><ul class="actions">'.$tags.'</ul></p>
 	</td>
-		<td align="right" width="150px"><p>Comments ('.$num.') </p></td>
 	</tr>
 	</table> 
 	<p>&nbsp;</p>'; 
