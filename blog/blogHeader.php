@@ -40,7 +40,8 @@ $postLink = $websiteURL.'/'.$url;
 
 //blog options
 $popUp = 1;
-$imgDir = 'images/blog/';   
+$imgDir = 'images/blog/'; 
+$imgBlog = $dir.'images/guide/';  
 $useHTMLFile = true; 
 $referralLink = 'https://www.clixsense.com/?3373459&blog'; 
 $redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
@@ -82,7 +83,7 @@ $confirmLandingURL = $redirLink.'clixsense';
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
 	<style>
-		.referralProof {
+		img, img.referralProof {
 			max-width: 600px;
 		}
 		
