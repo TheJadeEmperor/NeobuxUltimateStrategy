@@ -82,6 +82,15 @@ $confirmLandingURL = $redirLink.'clixsense';
 	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
+	
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-9979225970120201",
+		enable_page_level_ads: true
+	  });
+	</script>
+	
 	<style>
 		img, img.referralProof {
 			max-width: 600px;
