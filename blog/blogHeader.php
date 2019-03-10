@@ -42,6 +42,7 @@ $postLink = $websiteURL.'/'.$url;
 $popUp = 1;
 $imgDir = 'images/blog/'; 
 $imgBlog = $dir.'images/guide/';  
+$X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
 $useHTMLFile = true; 
 $referralLink = 'https://www.clixsense.com/?3373459&blog'; 
 $redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
