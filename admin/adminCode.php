@@ -159,7 +159,7 @@ while($p = mysql_fetch_assoc($resP)) {
 							<li class="divider"></li>
 							
                             <li><a href="<?=$adir?>pages/postNew.php">New Post</a></li>
-                            <li><a href="<?=$adir?>pages/postAll.php">All Posts</a></li>
+                            <li><a href="<?=$adir?>pages/postList.php">All Posts</a></li>
 							<li><a href="<?=$adir?>pages/blogOptions.php">Blog Options</a></li>
                         </ul>
                     </li>

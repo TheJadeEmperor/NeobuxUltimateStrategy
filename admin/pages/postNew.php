@@ -2,27 +2,23 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_POST[save]) //insert into db 
-{
+if($_POST['save']) { //insert into db 
+
     $url = addslashes($_POST[url]);
     
     //error checking
-    if($_POST['subject'] == '')
-    {
+    if($_POST['subject'] == '') {
         $msg .= '* Subject line is required <br />';
     }
     
-    if($_POST['url'] == '')
-    {
+    if($_POST['url'] == '') {
         $msg .= '* URL is required <br />';
     }
     
-    if($msg)
-    {
-        $msg = '<font color=red><b>Please fix the following errors: <br />'.$msg.'</b></font>';
+    if($msg) {
+        $msg = '<font color="red"><b>Please fix the following errors: <br />'.$msg.'</b></font>';
     }
-    else 
-    {
+    else {
         $dbFields = array(
             'subject' => '"'.addslashes($_POST['subject']).'"', 
             'post' => '"'.addslashes($_POST['elm1']).'"',
@@ -31,7 +27,8 @@ if($_POST[save]) //insert into db
             'tags' => '"'.addslashes($_POST['tags']).'"', 
             'url' => '"'.addslashes($_POST['url']).'"',
             'status' => '"'.$_POST['status'].'"',
-            'useHTMLFile' => '"'.$_POST['useHTMLFile'].'"'
+            'useHTMLFile' => '"'.$_POST['useHTMLFile'].'"',
+			'HTMLFileName' => '"'.$_POST['HTMLFileName'].'"'
         );
     
         $fields = $values = array();
@@ -65,18 +62,19 @@ if($_POST[save]) //insert into db
         echo '<meta http-equiv="refresh" content="1;url=postNew.php?id='.$postID.'">';
     }
 }
-else if($_POST[update])
-{
+else if($_POST['update']) {
 	$opt = array(
 		'tableName' => 'posts',	
 		'dbFields' => array(
 			'subject' => $_POST['subject'], 
 			'post' => $_POST['elm1'],
 			'postedBy' => $_SESSION['login']['id'], 
+			'postedOn' => $_POST['postedOn'], 
 			'tags' => $_POST['tags'], 
 			'url' => $_POST['url'],
 			'status' => $_POST['status'],
-			'useHTMLFile' => $_POST['useHTMLFile']
+			'useHTMLFile' => $_POST['useHTMLFile'],
+			'HTMLFileName' => $_POST['HTMLFileName'],
 		),
 		'cond' => 'where id="'.$_GET[id].'"'
 	);
@@ -85,8 +83,7 @@ else if($_POST[update])
 		$msg = 'Post has been updated.'; 
 }
 
-if($_GET[id])
-{
+if($_GET['id']) {
 	$opt = array(
 	'tableName' => 'posts',
 	'cond' => 'where id="'.$_GET[id].'"'); 
@@ -104,8 +101,7 @@ $statusChoice = array(
 'A' => 'Active',
 'I' => 'Inactive');
 
-foreach($statusChoice as $sta => $dis)
-{
+foreach($statusChoice as $sta => $dis) {
     $pick = '';
     if($p[status] == $sta)
         $pick = 'selected';
@@ -116,110 +112,64 @@ foreach($statusChoice as $sta => $dis)
 if($p['useHTMLFile'] == 'on')
     $useHTMLChecked = 'checked';
 
-
+$postURL = $dir.'?p='.$p['url'];
 ?>
-<!-- TinyMCE -->
-<script type="text/javascript" src="<?=$tinyMCE?>"></script>
-<script type="text/javascript">
-	tinyMCE.init({
-		// General options
-		mode : "textareas",
-		theme : "advanced",
-		plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave",
-
-		// Theme options
-		theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-		theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-		theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-		theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft",
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_toolbar_align : "left",
-		theme_advanced_statusbar_location : "bottom",
-		theme_advanced_resizing : true,
-
-		// Example content CSS (should be your site CSS)
-		content_css : "css/content.css",
-
-		// Drop lists for link/image/media/template dialogs
-		template_external_list_url : "lists/template_list.js",
-		external_link_list_url : "lists/link_list.js",
-		external_image_list_url : "lists/image_list.js",
-		media_external_list_url : "lists/media_list.js",
-
-		// Style formats
-		style_formats : [
-			{title : 'Bold text', inline : 'b'},
-			{title : 'Red text', inline : 'span', styles : {color : '#ff0000'}},
-			{title : 'Red header', block : 'h1', styles : {color : '#ff0000'}},
-			{title : 'Example 1', inline : 'span', classes : 'example1'},
-			{title : 'Example 2', inline : 'span', classes : 'example2'},
-			{title : 'Table styles'},
-			{title : 'Table row 1', selector : 'tr', classes : 'tablerow1'}
-		],
-
-		// Replace values for the template plugin
-		template_replace_values : {
-			username : "Some User",
-			staffid : "991234"
-		}
-	});
-</script>
-<!-- /TinyMCE -->
-<script type="text/javascript">
-if (document.location.protocol == 'file:') {
-	alert("The examples might not work properly on the local file system due to security settings in your browser. Please use a real webserver.");
-}
-</script> 
-</head>
-<body>
 
 <form method="post">
-<div class="moduleBlue" style="width: 720px;"><h1>Add / Edit Post</h1>
+<div class="moduleBlue" style="width: 720px;"><h1>Add or Update Post</h1>
 <div class="moduleBody">
     <?=$msg?>
 <table>
 	<tr>	
-		<td> Subject: </td>
-		<td><input class="activeField" name=subject size=80 value="<?=$p[subject]?>"></td>
+		<td width="150px"> subject: </td>
+		<td><input class="activeField" name="subject" size="75" value="<?=$p['subject']?>"></td>
 	</tr><tr>
-		<td> Post URL: </td>
-		<td><input class="activeField" name=url size=80 value="<?=$p[url]?>"></td>
+		<td> url: </td>
+		<td><input class="activeField" name="url" size="75" value="<?=$p['url']?>"><br />
+		<a href="<?=$postURL?>" target="_BLANK"><?=$postURL?></a>
+		</td>
 	</tr><tr>
-		<td> Tags: </td>
-		<td><input class="activeField" name=tags size=80 value="<?=$p[tags]?>"></td>
+		<td> tags: </td>
+		<td>
+			<textarea rows="2" cols="60" name="tags"><?=$p['tags']?></textarea>
+		</td>
 	</tr>
 	<tr>
-	    <td> Status: </td>
+		<td> postedBy: </td>
+		<td>
+			<input class="activeField" name="url" size="57" value="<?=$p['postedBy']?>">
+		</td>
+	</tr>
+	<tr>
+		<td> postedOn: </td>
+		<td>
+			<input class="activeField" name="postedOn" size="57" value="<?=$p['postedOn']?>">
+		</td>
+	</tr>
+	<tr>
+	
+	
+	    <td> status: </td>
 	    <td> 
-	        <select name=status>
+	        <select name="status">
 	        <?=$statusOpt?>
             </select>
 	    </td>
 	</tr>
 	<tr>
-	    <td>Use HTML File? </td>
+	    <td>UseHTMLFile? </td>
 	    <td>
-	        <input type=checkbox class="activeField" name=useHTMLFile <?=$useHTMLChecked?> />
+	        <input type="checkbox" class="activeField" name="useHTMLFile" <?=$useHTMLChecked?> />
+	    </td>
+	</tr>
+	<tr>
+		<td>HTMLFileName </td>
+	    <td>
+	        <input type="text" class="activeField" name="HTMLFileName" 
+			value="<?=$p['HTMLFileName'] ?>" size="50" />
 	    </td>
 	</tr>
 </table>
-
-
-<!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
-<div>
-    <textarea id="elm1" name="elm1" rows="20" cols="80">
-        <?=$p[post]?>
-    </textarea>
-</div>
-
-<a href="javascript:;" onmousedown="tinyMCE.get('elm1').show();">[Show]</a>
-<a href="javascript:;" onmousedown="tinyMCE.get('elm1').hide();">[Hide]</a>
-<a href="javascript:;" onmousedown="tinyMCE.get('elm1').execCommand('Bold');">[Bold]</a>
-<a href="javascript:;" onmousedown="alert(tinyMCE.get('elm1').getContent());">[Get contents]</a>
-<a href="javascript:;" onmousedown="alert(tinyMCE.get('elm1').selection.getContent());">[Get selected HTML]</a>
-<a href="javascript:;" onmousedown="alert(tinyMCE.get('elm1').selection.getContent({format : 'text'}));">[Get selected text]</a>
-<a href="javascript:;" onmousedown="alert(tinyMCE.get('elm1').selection.getNode().nodeName);">[Get selected element]</a>
-<a href="javascript:;" onmousedown="tinyMCE.execCommand('mceInsertContent',false,'<b>Hello world!!</b>');">[Insert HTML]</a>
 
 <br /><br />
 <center>
@@ -230,6 +180,5 @@ if (document.location.protocol == 'file:') {
 </center><br />
 </div></div>
 </form>
-
 <?
 include('adminFooter.php');  ?>
