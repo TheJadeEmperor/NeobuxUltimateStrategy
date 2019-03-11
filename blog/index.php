@@ -16,7 +16,7 @@ if($firstPost < 0)
     $firstPost = 0;
 
 $categories = 1; 
-echo '<h1>Latest Posts from NUS</h1>
+echo '<h1>Latest Posts from '.$businessName.'</h1>
 <p>Total in archives: '.$totalPosts.' posts in '.$categories.' category(s)</p>';
 
 //show the latest 10 active posts

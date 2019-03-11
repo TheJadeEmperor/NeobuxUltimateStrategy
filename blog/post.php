@@ -55,7 +55,13 @@ if(mysql_num_rows($res) > 0) {
 
 
     if($p['useHTMLFile'] == 'on') {
-        include('blog/'.$url.'.html');
+		
+		if(!empty($p['HTMLFileName'])){
+			echo 'true';
+			include('blog/'.$p['HTMLFileName']);
+		}
+		else
+			include('blog/'.$url.'.html');
     }
     else {
         echo $p['post']; 
@@ -80,7 +86,11 @@ if(mysql_num_rows($res) > 0) {
     echo $_SESSION['msg']; 
 }
 else {
-    echo 'No post by that title exists'; 
+    echo '<h1>No post by that title exists</h1>
+	<h3>You may have followed a broken link or outdated link</h3>
+	<p>&nbsp;</p>';
+
+	include('blog/index.php');	
 }
 
 ?>

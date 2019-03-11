@@ -123,7 +123,6 @@ while($p = mysql_fetch_assoc($resP)) {
 		</div>
 			</div>
 				</section>
-				
 					</div>
 
 					<!-- Footer -->
@@ -146,19 +145,22 @@ while($p = mysql_fetch_assoc($resP)) {
 									<a href="./?action=privacy" title="<?=$businessName?> Privacy">Privacy</a> &bull;				
 									<a href="./members" title="<?=$businessName?> Members Login">Members Login 
 								</dd>
+								
 								<dt>Links</dt>
 								<dd><a href="https://bestpayingsites.com/ppbooster" title="Paypal Booster">Paypal Booster</a> &bull; 
 								<a href="https://bestpayingsites.com/" title="Email Profit System">Email Profit System</a>
 								</dd>
+								
 								<dt>Email</dt>
 								<dd><a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></dd>
+								
+								<dt>Disclaimer</dt>
+								<dd><a href="?action=terms" target="_BLANK">Terms</a> &bull; <a href="?action=privacy" target="_BLANK">Privacy</a></dd>
 							</dl>
 							<ul class="icons">
-								<li><a href="https://www.facebook.com/NeobuxUltimateStrategy" class="icon fa-facebook alt" target="_BLANK"><span class="label">Facebook</span></a></li>
-								
+							 
 								<li><a href="https://www.instagram.com/confucius.philosopher/" class="icon fa-instagram alt" target="_BLANK"><span class="label">Instagram</span></a></li>
 								
-								<li><a href="https://plus.google.com/u/0/+NeobuxUltimateStrategy" class="icon fa-google-plus alt" target="_BLANK"><span class="label">Google+</span></a></li>
 								
 								<li><a href="https://extremetracking.com/open?login=richptc" class="icon fa-globe alt" target="_BLANK"></a></li>
 								
@@ -166,7 +168,6 @@ while($p = mysql_fetch_assoc($resP)) {
 						</section>
 						<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com">BL Web Solutions</a>.</p>
 					</footer>
-
 			</div>
 
 	
@@ -191,6 +192,5 @@ while($p = mysql_fetch_assoc($resP)) {
 			src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
 			</div></noscript></div>
 			
-	</body>
-	
+	</body>	
 </html>

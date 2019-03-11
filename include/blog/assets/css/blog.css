@@ -3804,6 +3804,10 @@
 	justify-content: center;
 }
 
+.leftContent {
+	max-width: 100%;
+}
+
 .leftContent, .sidebar {
 	display: inline-block;
 }
