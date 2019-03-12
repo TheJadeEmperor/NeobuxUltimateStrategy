@@ -1649,20 +1649,19 @@
 		font-weight: 300;
 		line-height: 1.65;
 	}
-
 	
 	.checkList {
 		margin-left: 2px;
-		list-style-image: url(../../../../images/sales/check.png);
-	
+		list-style-image: url(../../../../images/sales/check.png); 
 	}
 
 	.crossList {
 		list-style-image:url(../../../../images/sales/X.jpg);
-	
 	}
 
-
+	.clear {
+		clear: both;
+	}
 	
 		@media screen and (max-width: 1680px) {
 
