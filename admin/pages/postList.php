@@ -15,13 +15,13 @@ from posts p left join users u on p.postedBy = u.id order by postedOn asc';
 $res = mysql_query($sel, $conn) or die(mysql_error());
 
 while($p = mysql_fetch_assoc($res)) {
-    $pID = $p[id];
+    $pID = $p['id'];
 
     $subject = stripslashes($p['subject']); 
 	
     $theList .= '<tr valign="top" title="'.$subject.'">
         <td><a href="postNew.php?id='.$pID.'">'.$pID.'</a>
-        </td><td><a href="postNew.php?id='.$pID.'">'.shortenText($subject, 30).'</a></td>
+        </td><td><a href="postNew.php?id='.$pID.'">'.shortenText($subject, 50).'</a></td>
         <td>'.$p['postedTime'].'</td>
         <td><a href="'.$dir.'?p='.$p['url'].'" target="_blank" >View</a></td>
         <td><input type=checkbox name="id[]" value="'.$pID.'"> </td>
