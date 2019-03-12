@@ -57,7 +57,6 @@ if(mysql_num_rows($res) > 0) {
     if($p['useHTMLFile'] == 'on') {
 		
 		if(!empty($p['HTMLFileName'])){
-			echo 'true';
 			include('blog/'.$p['HTMLFileName']);
 		}
 		else

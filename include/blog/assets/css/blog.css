@@ -42,7 +42,7 @@
 	body {
 		-webkit-text-size-adjust: none;
 	}
-
+	
 /* Box Model */
 
 	*, *:before, *:after {
@@ -1640,7 +1640,7 @@
 
 	body {
 		background-color: #935d8c;
-		color: rgba(255, 255, 255, 0.65);
+		color: rgba(255, 255, 255, 1);
 	}
 
 	body, input, select, textarea {
@@ -1650,6 +1650,20 @@
 		line-height: 1.65;
 	}
 
+	
+	.checkList {
+		margin-left: 2px;
+		list-style-image: url(../../../../images/sales/check.png);
+	
+	}
+
+	.crossList {
+		list-style-image:url(../../../../images/sales/X.jpg);
+	
+	}
+
+
+	
 		@media screen and (max-width: 1680px) {
 
 			body, input, select, textarea {
@@ -2523,7 +2537,7 @@
 
 			ul.actions li {
 				display: inline-block;
-				padding: 0 1em 0 0;
+				padding: 0 1em 2px 0;
 				vertical-align: middle;
 			}
 
@@ -3351,7 +3365,7 @@
 
 	#main {
 		background-color: #ffffff;
-		color: #636363;
+		color: #080808;
 		border-radius: 0.25em;
 	}
 
