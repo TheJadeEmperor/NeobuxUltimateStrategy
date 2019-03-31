@@ -124,7 +124,7 @@ while($p = mysql_fetch_assoc($resP)) {
 	<p>&nbsp;</p><p>&nbsp;</p>
 	
 	<!-- Facebook Comments -->
-	<div id="fb-container">
+	<div id="fbContainer">
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -136,15 +136,6 @@ while($p = mysql_fetch_assoc($resP)) {
 	<div class="fb-comments" data-href="https://neobuxultimatestrategy.com/?p=clixsense-team-clixsense.com-free-referrals" data-num-posts="10" data-width="720"></div>
 	</div>
 
-	<style>
-	#fb-container {
-		text-align: center;
-		margin-left: 10%;	
-		display: flex;
-	}
-	</style>
-
-		
 		</div>
 			</div>
 				</section>

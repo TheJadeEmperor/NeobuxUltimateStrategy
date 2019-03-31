@@ -77,6 +77,7 @@ $confirmLandingURL = $redirLink.'clixsense';
 			echo popUpWindow($dir); 
 		$_SESSION['popUp'] = 1;
 	}
+	
 	?>
 	</script>
 	<script type="text/javascript">var switchTo5x=true;</script>
