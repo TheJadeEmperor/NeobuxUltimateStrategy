@@ -1650,6 +1650,12 @@
 		line-height: 1.65;
 	}
 	
+	#fbContainer {
+		text-align: center;
+		margin-left: 10%;	
+		display: flex;
+	}
+	
 	.checkList {
 		margin-left: 2px;
 		list-style-image: url(../../../../images/sales/check.png); 
@@ -2224,28 +2230,6 @@
 
 	label {
 		color: #ffffff;
-	}
-
-	input[type="text"],
-	input[type="password"],
-	input[type="email"],
-	select,
-	textarea {
-		background: rgba(255, 255, 255, 0.075);
-		/*border-color: rgba(255, 255, 255, 0.35);*/
-	}
-
-		input[type="text"]:focus,
-		input[type="password"]:focus,
-		input[type="email"]:focus,
-		select:focus,
-		textarea:focus {
-			border-color: #8cc9f0;
-			box-shadow: 0 0 0 1px #8cc9f0;
-		}
-
-	.select-wrapper:before {
-		color: rgba(255, 255, 255, 0.35);
 	}
 
 	input[type="checkbox"] + label,
@@ -3417,6 +3401,7 @@
 			#main button:hover,
 			#main .button:hover {
 				background-color: rgba(222, 222, 222, 0.25);
+				height: 2.75em;
 			}
 
 			#main input[type="submit"]:active,
