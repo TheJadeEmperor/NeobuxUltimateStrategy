@@ -66,7 +66,13 @@ if(mysql_num_rows($res) > 0) {
         echo $p['post']; 
     }
     
-    echo '<p>&nbsp; </p>
+	echo '
+	<p>Benjamin Louie <br />
+    Neobux Ultimate Strategy<br />
+	<a href="https://neobuxultimatestrategy.com">https://neobuxultimatestrategy.com</a></p>';
+	
+    echo '
+	<p>&nbsp;</p>
     <span class="st_twitter_vcount" displayText="Tweet"></span>
     <span class="st_email_vcount" displayText="Email"></span>
     <span class="st_facebook_vcount" displayText="Facebook"></span>
