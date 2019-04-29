@@ -15,10 +15,7 @@ while($p = mysql_fetch_assoc($resP)) {
 		
 		<p>&nbsp;</p>
 		
-		<?php chitika_sidebar(); ?>
-		
-		<p>&nbsp;</p>
-		
+
 	
 		<h1>Recent Posts</h1>
 		<?=$recentPosts?>
