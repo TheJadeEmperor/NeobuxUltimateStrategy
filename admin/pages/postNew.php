@@ -4,7 +4,7 @@ include($adir.'adminCode.php');
 
 if($_POST['save']) { //insert into db 
 
-    $url = addslashes($_POST[url]);
+    $url = addslashes($_POST['url']);
     
     //error checking
     if($_POST['subject'] == '') {
@@ -33,8 +33,7 @@ if($_POST['save']) { //insert into db
     
         $fields = $values = array();
     
-        foreach($dbFields as $fld => $val)
-        {
+        foreach($dbFields as $fld => $val) {
             array_push($fields, $fld);
             array_push($values, $val); 
         }
@@ -43,7 +42,7 @@ if($_POST['save']) { //insert into db
         $theValues = implode(',', $values); 
     
         //add post
-        $ins = 'insert into posts ('.$theFields.') values ('.$theValues.') ';
+        $ins = 'INSERT INTO posts ('.$theFields.') VALUES ('.$theValues.') ';
         $res = mysql_query($ins, $conn) or die(mysql_error()); 
         $postID = mysql_insert_id();
         
@@ -86,7 +85,7 @@ else if($_POST['update']) {
 if($_GET['id']) {
 	$opt = array(
 	'tableName' => 'posts',
-	'cond' => 'where id="'.$_GET[id].'"'); 
+	'cond' => 'where id="'.$_GET['id'].'"'); 
 	
 	$allPosts = dbSelect($opt); 	
 	$p = $allPosts[0]; 
@@ -103,7 +102,7 @@ $statusChoice = array(
 
 foreach($statusChoice as $sta => $dis) {
     $pick = '';
-    if($p[status] == $sta)
+    if($p['status'] == $sta)
         $pick = 'selected';
     $statusOpt .= '<option '.$pick.' value="'.$sta.'">'.$dis.'</option>';
 }
@@ -119,7 +118,8 @@ $postURL = $dir.'?p='.$p['url'];
 <a href="postList.php"><input type="button" class="btn btn-warning addSaleButton" value="Back to All Posts" /></button></a>
 </center>
 <p>&nbsp;</p>
-<form method="post">
+
+<form method="POST">
 <div class="moduleBlue" style="width: 720px;"><h1>Add or Update Post</h1>
 <div class="moduleBody">
     <?=$msg?>
@@ -264,5 +264,6 @@ if (document.location.protocol == 'file:') {
 	alert("The examples might not work properly on the local file system due to security settings in your browser. Please use a real webserver.");
 }
 </script>
+
 <?
-include('adminFooter.php');  ?>
+include($adir.'adminFooter.php');  ?>

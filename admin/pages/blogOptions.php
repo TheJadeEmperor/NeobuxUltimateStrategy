@@ -2,7 +2,7 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_POST[update])
+if($_POST['update'])
 {
     $dbOpt = array(
         'blogHeader' => $_POST['blogHeader'],
@@ -14,12 +14,12 @@ if($_POST[update])
     {
         $setting = addslashes(trim($setting)); 
         
-        $updS = 'update settings set setting="'.$setting.'" where opt="'.$opt.'"';
+        $updS = 'UPDATE settings SET setting="'.$setting.'" WHERE opt="'.$opt.'"';
         mysql_query($updS) or print(mysql_error()); 
     }
 }
 
-$selB = 'select * from settings order by opt';
+$selB = 'SELECT * FROM settings ORDER BY opt';
 $resB = mysql_query($selB, $conn); 
 
 while($m = mysql_fetch_assoc($resB))
@@ -30,7 +30,7 @@ while($m = mysql_fetch_assoc($resB))
 } 
 
 ?>
-<form method=post>
+<form method="POST">
 <div class="moduleBlue"><h1>Blog Template</h1>
 <div class="moduleBody">
     <p><?=$msg?></p>
@@ -40,7 +40,7 @@ while($m = mysql_fetch_assoc($resB))
         <td>            
             <div title="header=[Header File] body=[File to be included as the header of the blog] ">
             <img src="<?=$helpImg?>" />
-<input type=text class=activeField name=blogHeader size="30" value="<?=$blogOptions['blogHeader']?>"/>
+<input type="text" class="activeField" name="blogHeader" size="30" value="<?=$blogOptions['blogHeader']?>"/>
             </div>
         </td>
     </tr>
@@ -49,11 +49,11 @@ while($m = mysql_fetch_assoc($resB))
         <td>
             <div title="header=[Footer File] body=[File to be included as the footer of the blog] ">
             <img src="<?=$helpImg?>" />
-            <input type=text class=activeField name=blogFooter size="30" value="<?=$blogOptions['blogFooter']?>" /></td>
+            <input type="text" class="activeField" name="blogFooter" size="30" value="<?=$blogOptions['blogFooter']?>" /></td>
     </tr>
     <tr>
-        <td colspan=2 align=center>
-            <input type=submit name=update value=" Update Blog " />
+        <td colspan="2" align="center">
+            <input type="submit" name="update" value=" Update Blog " />
         </td>
     </tr>
     </table>
@@ -64,9 +64,9 @@ while($m = mysql_fetch_assoc($resB))
 
 <div class="moduleBlue"><h1>Blog Custom Content </h1>
 <div class="moduleBody">
-    <textarea rows=15 cols=50 name=blogCustomContent><?=$blogOptions['blogCustomContent']?></textarea><br />
+    <textarea rows="15" cols="50" name="blogCustomContent"><?=$blogOptions['blogCustomContent']?></textarea><br />
     <center>
-        <input type=submit name=update value=" Update Blog " />
+        <input type="submit" name="update" value=" Update Blog " />
     </center>
 </div>
 </div>
@@ -74,4 +74,4 @@ while($m = mysql_fetch_assoc($resB))
 
 <p>&nbsp;</p>
 <?
-include('adminFooter.php');  ?>
+include($adir.'adminFooter.php');  ?>

@@ -173,5 +173,6 @@ $properties = 'type="text" class="activeField"';
 </div>
 </div>
 
+
 <?
-include('adminFooter.php');  ?>
+include($adir.'adminFooter.php');  ?>

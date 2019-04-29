@@ -4,18 +4,18 @@ include($adir.'adminCode.php');
 
 if($_POST['reset'])
 { 
-    echo $reset = 'update pageviews set rawViews=0, uniqueViews=0 where page="'.$_POST[page].'" limit 1' ;
+    echo $reset = 'UPDATE pageviews SET rawViews=0, uniqueViews=0 WHERE page="'.$_POST['page'].'" limit 1' ;
     mysql_query($reset, $conn) or die(mysql_error());
 }
 
-$selV = 'select * from pageviews where page<>"" order by page';
+$selV = 'SELECT * FROM pageviews WHERE page<>"" ORDER BY page';
 $resV = mysql_query($selV) or die(mysql_error()); 
 
 while($v = mysql_fetch_assoc($resV))
 {
-    $rawViews = $v[rawViews];
-    $uniqueViews = $v[uniqueViews];
-    $page = $v[page];
+    $rawViews = $v['rawViews'];
+    $uniqueViews = $v['uniqueViews'];
+    $page = $v['page'];
     
     //put everything into an array
     $views[$page] = array(
@@ -25,7 +25,7 @@ while($v = mysql_fetch_assoc($resV))
 }
 
 //get products
-$selP = 'select * from products order by id';
+$selP = 'SELECT * FROM products ORDER BY id';
 $resP = mysql_query($selP) or die(mysql_error()); 
 
 while($p = mysql_fetch_assoc($resP))
@@ -33,24 +33,24 @@ while($p = mysql_fetch_assoc($resP))
     $folder = $p['folder'];
     $url = '/'.$folder;
     
-    $uniqueViews = $views[$url][uniqueViews];
-    $rawViews = $views[$url][rawViews];
+    $uniqueViews = $views[$url]['uniqueViews'];
+    $rawViews = $views[$url]['rawViews'];
     
     $productViews .= '<tr>
     <td>'.$p['itemName'].'</td>
-    <td><a href="../'.$folder.'" target=_blank>'.$url.'</a></td>
+    <td><a href="../'.$folder.'" target="_BLANK">'.$url.'</a></td>
     <td>'.$uniqueViews.'</td>
     <td>'.$rawViews.'</td>
     <td>
-        <form method=post>
-        <input type=hidden name=page value="'.$url.'">
-        <input type=submit class="btn info" name=reset onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
+        <form method="POST">
+        <input type="hidden" name="page" value="'.$url.'">
+        <input type="submit" class="btn info" name="reset" onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
         </form>
     </td>
     </tr>';
 }
 
-$selB = 'select url, subject from posts order by url';
+$selB = 'SELECT url, subject FROM posts ORDER BY url';
 $resB = mysql_query($selB) or die(mysql_error()); 
 
 while($b = mysql_fetch_assoc($resB))
@@ -58,24 +58,24 @@ while($b = mysql_fetch_assoc($resB))
     $url = $b['url'];
     $postURL = '/?p='.$url;
     
-    $uniqueViews = $views[$postURL][uniqueViews];
-    $rawViews = $views[$postURL][rawViews];
+    $uniqueViews = $views[$postURL]['uniqueViews'];
+    $rawViews = $views[$postURL]['rawViews'];
         
     $blogViews .= '<tr>
-    <td>'.shortenText($b[subject], 35).'</td>
-    <td><a href="../?p='.$url.'" target=_blank>'.shortenText($postURL, 50).'</a></td>
+    <td>'.shortenText($b['subject'], 35).'</td>
+    <td><a href="../?p='.$url.'" target="_BLANK">'.shortenText($postURL, 50).'</a></td>
     <td>'.$uniqueViews.'</td>
     <td>'.$rawViews.'</td>
     <td>
-        <form method=post>
-        <input type=hidden name=page value="'.$postURL.'">
-        <input type=submit class="btn info" name=reset onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
+        <form method="POST">
+        <input type="hidden" name="page" value="'.$postURL.'">
+        <input type="submit" class="btn info" name="reset" onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
         </form>
     </td>    
     </tr>';
 }
 
-$selS = 'select url from memberpages order by url';
+$selS = 'SELECT url FROM memberpages ORDER BY url';
 $resS = mysql_query($selS) or die(mysql_error());
 
 while($s = mysql_fetch_assoc($resS))
@@ -90,9 +90,9 @@ while($s = mysql_fetch_assoc($resS))
     <td>'.$uniqueViews.'</td>
     <td>'.$rawViews.'</td>
     <td>
-        <form method=post>
-        <input type=hidden name=page value="'.$page.'">
-        <input type=submit class="btn info" name=reset onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
+        <form method="POST">
+        <input type="hidden" name="page" value="'.$page.'">
+        <input type="submit" class="btn info" name="reset" onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
         </form>
     </td>    
     </tr>';
@@ -102,7 +102,7 @@ while($s = mysql_fetch_assoc($resS))
 
 <div class="moduleBlue"><h1>Products</h1>    
 <div class="moduleBody">
-    <table cellspacing=0>
+    <table cellspacing="0">
     <tr>
         <th>Product </th><th>URL</th><th>Unique Views</th><th>Raw Views</th><th>Reset</th>
     </tr>
@@ -128,7 +128,7 @@ while($s = mysql_fetch_assoc($resS))
 
 <div class="moduleBlue"><h1>Site Pages Views</h1>    
 <div class="moduleBody">
-    <table cellspacing=0>
+    <table cellspacing="0">
     <tr>
         <th>URL</th><th>Unique Views</th><th>Raw Views</th><th>Reset</th>
     </tr>
@@ -137,5 +137,6 @@ while($s = mysql_fetch_assoc($resS))
 </div>
 </div>
 
+
 <?
-include('adminFooter.php'); ?>
+include($adir.'adminFooter.php');  ?>

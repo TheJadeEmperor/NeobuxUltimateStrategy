@@ -2,7 +2,7 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_POST[update])
+if($_POST['update'])
 {
     $dbOpt = array(
         'memHeader' => $_POST['memHeader'],
@@ -20,12 +20,12 @@ if($_POST[update])
     {
         $setting = addslashes(trim($setting)); 
         
-        $updS = 'update settings set setting="'.$setting.'" where opt="'.$opt.'"';
+        $updS = 'UPDATE settings SET setting="'.$setting.'" WHERE opt="'.$opt.'"';
         mysql_query($updS) or print(mysql_error()); 
     }
 }
 
-$selM = 'select * from settings order by opt';
+$selM = 'SELECT * FROM settings ORDER BY opt';
 $resM = mysql_query($selM, $conn); 
 
 while($m = mysql_fetch_assoc($resM))
@@ -35,7 +35,7 @@ while($m = mysql_fetch_assoc($resM))
 }
 
 //get product info 
-$selP = 'select * from products order by id'; 
+$selP = 'SELECT * FROM products ORDER BY id'; 
 $resP = mysql_query($selP, $conn) or die(mysql_error()); 
 
 while($p = mysql_fetch_assoc($resP))
@@ -43,18 +43,18 @@ while($p = mysql_fetch_assoc($resP))
     $p = formatFields($p); 
     
     $pick = '';
-    if($p[id] == $memOptions[memUpsellProductID]) {
+    if($p['id'] == $memOptions['memUpsellProductID']) {
         $pick = 'selected'; 
-        $itemName = $p[itemName]; 
+        $itemName = $p['itemName']; 
     }
-    $upsellProductOptions .= '<option value="'.$p[id].'" '.$pick.'>'.$p[itemName].'</option>';
+    $upsellProductOptions .= '<option value="'.$p['id'].'" '.$pick.'>'.$p['itemName'].'</option>';
 
     $backupPick = '';
-    if($p[id] == $memOptions[memUpsellBackupID]) {
+    if($p['id'] == $memOptions['memUpsellBackupID']) {
         $backupPick = 'selected';
     }
     
-    $backupProductOptions .= '<option value="'.$p[id].'" '.$backupPick.'>'.$p[itemName].'</option>';
+    $backupProductOptions .= '<option value="'.$p['id'].'" '.$backupPick.'>'.$p['itemName'].'</option>';
     
 }    
     
@@ -71,13 +71,13 @@ if($memOptions['memAreaUpsell'] == 'on')
     }
     
     $upsellOptions = '<tr>
-    <td colspan=2><p>&nbsp;</p> If member is already a customer of '.$itemName.' </td>
+    <td colspan="2"><p>&nbsp;</p> If member is already a customer of '.$itemName.' </td>
     </tr>
     <tr>
         <td>Skip upsell </td>
         <td>
             <div title="header=[Option to skip upsell] body=[If the user is already a customer of the upsell product, check this box to skip upsell. User will log in and not see upsell page] "><img src="'.$helpImg.'" />
-            <input type=checkbox name=skipUpsell '.$skipUpsellCheck.' />
+            <input type="checkbox" name="skipUpsell" '.$skipUpsellCheck.' />
             </div>
             </td>
     </tr>
@@ -85,13 +85,13 @@ if($memOptions['memAreaUpsell'] == 'on')
         <td>Use another product </td>
         <td>
             <div title="header=[User Another Upsell Product] body=[If the user is already a customer of the upsell product, check this box to use another upsell in place of the above product] "><img src="'.$helpImg.'" /> 
-         <input type=checkbox name=memUpsellBackup '.$memUpsellBackupCheck.' /></td>
+         <input type="checkbox" name="memUpsellBackup" '.$memUpsellBackupCheck.' /></td>
     </tr>
     <tr>
         <td>Use this product </td>
         <td>
               <div title="header=[Upsell Product] body=[This is the 2nd upsell product] "><img src="'.$helpImg.'" />
-            <select '.$upsellBackupDis.' name=memUpsellBackupID>
+            <select '.$upsellBackupDis.' name="memUpsellBackupID">
             '.$backupProductOptions.'</select>
             </div>
         </td>
@@ -101,7 +101,7 @@ if($memOptions['memAreaUpsell'] == 'on')
         <td>
               <div title="header=[Option to skip upsell] body=[Location of the upsell sales page to use. This file is relative to the members area - for example, if the file is in members/upsell2.html, 
                     put in upsell2.html] "><img src="'.$helpImg.'" />
-            <input '.$upsellBackupDis.' type=text name=memUpsellBackupFile value="'.$memOptions['memUpsellBackupFile'].'" /></td>
+            <input '.$upsellBackupDis.' type="text" name="memUpsellBackupFile" value="'.$memOptions['memUpsellBackupFile'].'" /></td>
     </tr>';
 }
 else {      //upsell is disabled 
@@ -109,9 +109,9 @@ else {      //upsell is disabled
 }
 
 ?>
-<form method=post>
+<form method="POST">
 <table>
-<tr valign=top>
+<tr valign="top">
     <td>
         <div class="moduleBlue"><h1>Members Area Template</h1>
         <div class="moduleBody">
@@ -121,17 +121,17 @@ else {      //upsell is disabled
                 <td>Header File</td>
                 <td>
                     <div title="header=[Header File] body=[File to be included as the header, leave blank if you don't want to use a header] "><img src="<?=$helpImg?>" />
-                        <input type=text class=activeField name=memHeader size="30" value="<?=$memOptions['memHeader']?>"/></td>
+                        <input type="text" class="activeField" name="memHeader" size="30" value="<?=$memOptions['memHeader']?>"/></td>
             </tr>
             <tr>
                 <td>Footer File</td>
                 <td>
                     <div title="header=[Footer File] body=[File to be included as the footer, leave blank if you don't want to use a footer] "><img src="<?=$helpImg?>" />
-                        <input type=text class=activeField name=memFooter size="30" value="<?=$memOptions['memFooter']?>" /></td>
+                        <input type="text" class="activeField" name="memFooter" size="30" value="<?=$memOptions['memFooter']?>" /></td>
             </tr>
             <tr>
-                <td colspan=2 align=center>
-                    <input type=submit name=update value=" Update Members Area " />
+                <td colspan="2" align="center">
+                    <input type="submit" name="update" value=" Update Members Area " />
                 </td>
             </tr>
             </table>
@@ -147,7 +147,7 @@ else {      //upsell is disabled
                 <td>Use Upsell?</td>
                 <td>
                     <div title="header=[Option to Upsell the User] body=[Check this box if you want to use an upsell product, the upsell is shown after the user logs into the members area] "><img src="<?=$helpImg?>" />
-                    <input type=checkbox name=memAreaUpsell <?=$upsellCheck?> />
+                    <input type="checkbox" name="memAreaUpsell" <?=$upsellCheck?> />
                     </div>
                 </td>
             </tr>
@@ -155,7 +155,7 @@ else {      //upsell is disabled
                 <td>Use this product</td>
                 <td>
                     <div title="header=[Which product to upsell] body=[If you checked the upsell option, which product do you want to use for the upsell?] "><img src="<?=$helpImg?>" />
-                        <select <?=$productDis?> name=memUpsellProductID>
+                        <select <?=$productDis?> name="memUpsellProductID">
                         <?=$upsellProductOptions ?>
                         </select>
                     </div>
@@ -165,14 +165,14 @@ else {      //upsell is disabled
                 <td>
                     <div title="header=[Upsell sales page] body=[Location of the upsell sales page to use. This file is relative to the members area - for example, if the file is in members/upsell.html, 
                     put in upsell.html] "><img src="<?=$helpImg?>" />
-                    <input <?=$productDis?> type=text name=memUpsellFile value="<?=$memOptions['memUpsellFile']?>" /></div>
+                    <input <?=$productDis?> type="text" name="memUpsellFile" value="<?=$memOptions['memUpsellFile']?>" /></div>
                 </td>
             <tr>
             </tr>
                 <?=$upsellOptions?>
             <tr>
-                <td colspan=2 align=center>
-                    <input type=submit name=update value=" Update Members Area " />
+                <td colspan="2" align="center">
+                    <input type="submit" name="update" value=" Update Members Area " />
                 </td>
             </tr>
             </table>
@@ -188,5 +188,6 @@ else {      //upsell is disabled
 
 <p>&nbsp;</p>
 
+
 <?
-include('adminFooter.php');  ?>
+include($adir.'adminFooter.php');  ?>
