@@ -96,9 +96,9 @@ while($mp = mysql_fetch_assoc($res))
         $m = $mp;
     
     $mList .= '<tr>
-    <td><a href="memberPages.php?id='.$mp['id'].'">'.$mp['url'].'</a></td>
+    <td><a href="sitePages.php?id='.$mp['id'].'">'.$mp['url'].'</a></td>
     <td>'.$mp['file'].'</td>
-    <td><a href="../?action='.$mp['url'].'" target="_BLANK">Link</a></td>
+    <td><a href="'.$dir.'?action='.$mp['url'].'" target="_BLANK">Link</a></td>
     </tr>';
 }
 
