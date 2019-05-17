@@ -50,7 +50,7 @@ echo $postContent;
         <tr>
             <td>
                 <ul>
-                    <li><a>Page >> </a></li>
+                    <li><a href>Page >> </a></li>
 <?
 for($n = 1; $n <= $numPages; $n++) {
     echo '<li><a href="./?action=posts&page='.$n.'">'.$n.'</a></li>';
