@@ -16,9 +16,10 @@ $popUp = 1;
 $imgBlog = $imgDir = $dir.'images/guide/';  
 $X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
 $useHTMLFile = true; 
+
 $referralLink = 'https://www.clixsense.com/?3373459&blog'; 
 $redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
-$subscrLandingURL = $redirLink.'clixsense';
+$subscrLandingURL = $redirLink.'clixsense'; 
 $confirmLandingURL = $redirLink.'clixsense'; 
 ?>
 <!DOCTYPE HTML>
@@ -74,10 +75,10 @@ $confirmLandingURL = $redirLink.'clixsense';
 			height: 29px !important;
 		}
 		
-		#chitika_leaderboard {
-			text-align: center;
-			margin-bottom: 40px;
-		}
+		.infoBox {
+			border: 1px dashed;
+			padding: 5px; 
+		}	
 	</style>
 </head>
 <body>

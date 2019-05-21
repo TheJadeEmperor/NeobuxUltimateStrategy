@@ -54,7 +54,7 @@ while($p = mysql_fetch_assoc($resP)) {
         <div class="moduleBlue"><h2>NUS Video Course</h2>
 		<div>
         <center>
-            <p><a href="./"><img src="./images/guide/cd.jpg" title="NUS Video Course" width="180px" /></a> </p>
+            <p><a href="./"><img src="<?=$imgDir?>banners/cd.jpg" title="NUS Video Course" width="180px" /></a> </p>
             <p>The Neobux Ultimate Strategy <br />in video format</p>
         </center>
         </div>
