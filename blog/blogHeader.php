@@ -1,6 +1,5 @@
 <?php
 
-
 function popUpWindow($dir) {
     return '
     var seconds = 15; 
@@ -14,8 +13,7 @@ $postLink = $websiteURL.'/'.$url;
 
 //blog options
 $popUp = 1;
-$imgDir = 'images/blog/'; 
-$imgBlog = $dir.'images/guide/';  
+$imgBlog = $imgDir = $dir.'images/guide/';  
 $X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
 $useHTMLFile = true; 
 $referralLink = 'https://www.clixsense.com/?3373459&blog'; 
