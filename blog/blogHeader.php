@@ -79,6 +79,16 @@ $confirmLandingURL = $redirLink.'clixsense';
 			border: 1px dashed;
 			padding: 5px; 
 		}	
+		
+		.borderImg {
+			border: 1px solid black;
+			padding: 5px; 
+		}	
+		
+		.borderImg:hover {
+			border: 1px solid gray;
+			padding: 5px; 
+		}
 	</style>
 </head>
 <body>
