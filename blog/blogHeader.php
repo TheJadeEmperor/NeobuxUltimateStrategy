@@ -75,9 +75,19 @@ $confirmLandingURL = $redirLink.'clixsense';
 			height: 29px !important;
 		}
 		
+		.imgBox {
+			display: inline-block;
+			vertical-align: top;
+			width: 40%;
+		}
+		
 		.infoBox {
+			display: inline-block;
+			vertical-align: top;
+			width: 45%;
 			border: 1px dashed;
-			padding: 5px; 
+			padding: 5px;
+			margin-bottom: 50px;			
 		}	
 		
 		.borderImg {
@@ -110,7 +120,7 @@ $confirmLandingURL = $redirLink.'clixsense';
 				<li><a href="./?action=posts" title="NUS Posts">All Posts</a></li>
 				<li><a href="./?p=neobux-tips-make-money-neobux" title="Neobux Tips">Basic Tips</a></li>
 				<li><a href="./?p=neobux-direct-referrals" title="Neobux Direct Referrals">Neobux Referrals</a></li>
-				<li><a href="./?p=recycling-strategy" title="Neobux Recycling Strategy">Recycling Strategy</a></li>
+				<li><a href="./?p=recycling-strategy-auto-recycle" title="Neobux Recycling Strategy">Recycling Strategy</a></li>
 				<li><a href="./?p=best-paying-ptc-sites" title="Best PTC Sites">PTC Sites</a></li>	
 			</ul>
 		</nav>
