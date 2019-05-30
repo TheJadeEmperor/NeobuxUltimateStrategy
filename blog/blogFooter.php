@@ -8,7 +8,7 @@ while($p = mysql_fetch_assoc($resP)) {
 ?>
 
 	</section><!--leftContent-->
-	<section class="sidebar">
+	<section class="blogSidebar">
 		
 		<!-- ebook cover -->
 		<a href="#optin"><img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" /></a>
@@ -206,6 +206,7 @@ while($p = mysql_fetch_assoc($resP)) {
 			</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
 			src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
 			</div></noscript></div>
+
 			
 	</body>	
 </html>
