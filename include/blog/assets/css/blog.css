@@ -3806,7 +3806,7 @@
 	max-width: 100%;
 }
 
-.leftContent, .sidebar {
+.leftContent, .blogSidebar {
 	display: inline-block;
 }
 
@@ -3814,7 +3814,7 @@
 	text-align: left;
 }
 
-.sidebar {
+.blogSidebar {
 	text-align: center;
 	margin-left: 35px;
 	max-width: 360px;
