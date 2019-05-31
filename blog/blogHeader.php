@@ -150,7 +150,7 @@ $confirmLandingURL = $redirLink.'clixsense';
 				<li><a href="./?action=posts" title="NUS Posts">All Posts</a></li>
 				<li><a href="./?p=neobux-tips-make-money-neobux" title="Neobux Tips">Basic Tips</a></li>
 				<li><a href="./?p=neobux-direct-referrals" title="Neobux Direct Referrals">Neobux Referrals</a></li>
-				<li><a href="./?p=recycling-strategy-auto-recycle" title="Neobux Recycling Strategy">Recycling Strategy</a></li>
+				<li><a href="./?p=recycle-strategy-auto-recycle" title="Neobux Recycling Strategy">Recycling Strategy</a></li>
 				<li><a href="./?p=best-paying-ptc-sites" title="Best PTC Sites">PTC Sites</a></li>	
 			</ul>
 		</nav>
