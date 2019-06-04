@@ -4,7 +4,7 @@ function popUpWindow($dir) {
     return '
     var seconds = 15; 
     var milliseconds = seconds * 1000; 
-setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:525,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
+	setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:525,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
 }
 
 $url = $_GET['p']; 
@@ -44,14 +44,19 @@ $confirmLandingURL = $redirLink.'clixsense';
 	function linkTo(url) {
 		window.open(url);
 	}
-	<?php
-	if($popUp) {
-		if($_SESSION['popUp'] < 1)
-			echo popUpWindow($dir); 
-		$_SESSION['popUp'] = 1;
-	}
 	
-	?>
+	var windowSize = $(window).width();
+	
+	
+	if(windowSize >= 420) { //no popUp on mobile 
+		<?php
+		if($popUp) { //is popUp enabled
+			if($_SESSION['popUp'] < 1)
+				echo popUpWindow($dir); 
+			$_SESSION['popUp'] = 1;
+		}
+		?>	
+	}
 	</script>
 	<script type="text/javascript">var switchTo5x=true;</script>
 	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
@@ -67,7 +72,11 @@ $confirmLandingURL = $redirLink.'clixsense';
 	</script>
 	
 	<style>
-		img, img.referralProof {
+		img {
+			max-width: 100%;	
+		}
+		
+		img.referralProof {
 			max-width: 600px;
 		}
 		
@@ -100,36 +109,20 @@ $confirmLandingURL = $redirLink.'clixsense';
 			padding: 5px; 
 		}
 				
-		.sidebar {
-			left: 0;
-			top: 25%;
-			height: 320px;
-			width: 75px;
-			position: fixed;
-			padding: 5px 10px 5px 5px;
-			background:#fff;
-			box-shadow:0 0 25px #000;-moz-box-shadow:0 0 25px #000;
-			-webkit-box-shadow:0 0 25px #000;
-			-moz-border-radius:10px;
-			-khtml-border-radius:10px;
-			-webkit-border-radius:10px;
-			border-radius:10px;
-			display:block;
-			text-align: center; 
-		}
 
 	</style>
 </head>
 <body>
 
-			 <div class="sidebar"><br />
-    <center>
+	<div class="sidebar"><br />
+    
+	<center>
         <span class="st_twitter_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Tweet"></span>
         <span class="st_email_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Email"></span>
         <span class="st_facebook_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Facebook"></span>
         <span class="st_fblike_vcount" st_url="http://neobuxultimatestrategy.com" st_title="Neobux Ultimate Strategy" st_url="http://neobuxultimatestrategy.com" displayText="share"></span>
     </center>
-</div>
+	</div>
 
 
 	<!-- Wrapper -->

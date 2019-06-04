@@ -3851,7 +3851,7 @@
 		}
 	}
 	
-
+/* Pagination Styles */
 .pagination {
     float: none; 
     height: 36px;
@@ -3894,4 +3894,73 @@
 
 .tinner h3 {
 	color: black;
+}
+
+/* Social media buttons */
+.stButton .stBubble {
+	height: 29px !important;
+}
+
+/* Img Styles */
+img {
+	max-width: 100%;	
+}
+		
+	img.referralProof {
+		max-width: 600px;
+	}
+
+		
+	.imgBox {
+		display: inline-block;
+		vertical-align: top;
+		width: 40%;
+	}
+		
+	.infoBox {
+		display: inline-block;
+		vertical-align: top;
+		width: 45%;
+		border: 1px dashed;
+		padding: 5px;
+		margin-bottom: 50px;			
+	}	
+		
+.borderImg {
+	border: 1px solid black;
+	padding: 5px; 
+}	
+		
+	.borderImg:hover {
+		border: 1px solid gray;
+		padding: 5px; 
+	}
+	
+.sidebar {
+	z-index: 2;
+	left: 0;
+	top: 25%;
+	height: 320px;
+	width: 75px;
+	position: fixed;
+	padding: 5px 10px 5px 5px;
+	background:#fff;
+	box-shadow:0 0 25px #000;-moz-box-shadow:0 0 25px #000;
+	-webkit-box-shadow:0 0 25px #000;
+	-moz-border-radius:10px;
+	-khtml-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	display:block;
+	text-align: center; 
+}
+
+@media screen and (max-width: 420px) {
+	.sidebar, sidebar * {
+		display: none;
+	}
+}
+
+* {
+	word-wrap: break-word;
 }
