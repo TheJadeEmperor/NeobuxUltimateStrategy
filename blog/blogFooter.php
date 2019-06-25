@@ -181,7 +181,7 @@ while($p = mysql_fetch_assoc($resP)) {
 								
 							</ul>
 						</section>
-						<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com">BL Web Solutions</a>.</p>
+						<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com/websolutions">BL Web Solutions</a>.</p>
 					</footer>
 			</div>
 

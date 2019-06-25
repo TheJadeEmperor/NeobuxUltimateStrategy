@@ -2627,7 +2627,7 @@
 
 		dl.alt dt {
 			display: block;
-			width: 3em;
+			width: 5em;
 			margin: 0;
 			clear: left;
 			float: left;
@@ -3334,13 +3334,9 @@
 
 		@media screen and (max-width: 500px) {
 
-			#nav {
-				display: none;
+			#nav + #main {
+				padding-top: 0;
 			}
-
-				#nav + #main {
-					padding-top: 0;
-				}
 
 		}
 
@@ -3656,7 +3652,7 @@
 		@media screen and (max-width: 480px) {
 
 			#main > .main {
-				padding: 3em 1.5em 1em 1.5em ;
+				padding: 10em 1.5em 1em 1.5em ;
 			}
 
 				#main > .main > .image.main:first-child {

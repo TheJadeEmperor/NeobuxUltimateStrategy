@@ -109,7 +109,15 @@ $confirmLandingURL = $redirLink.'clixsense';
 			padding: 5px; 
 		}
 				
-
+		@media screen and (max-width: 420px) {
+			.imgBox {
+				width: 80%;
+			}
+		
+			.infoBox {
+				width: 80%;			
+			}	
+		}
 	</style>
 </head>
 <body>
