@@ -28,7 +28,7 @@ $updateRecord = 'UPDATE sales set
 WHERE id="'.$_REQUEST['id'].'"';
 
 if(mysql_query($updateRecord))
-    echo 'Successfully updated record #'.mysql_insert_id();
+    echo 'Successfully updated record #'.$_REQUEST['id'];
 else
     echo 'Failed to update record: '.mysql_error();
 ?>
