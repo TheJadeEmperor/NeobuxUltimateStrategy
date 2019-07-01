@@ -1,6 +1,40 @@
 <?
 include('adminCode.php'); 
 
+
+
+?>
+<script> 
+$(document).ready( function () {
+    $('#cust').dataTable({  
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "iDisplayLength": 50
+    });
+
+}); //document.ready
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="cust">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name </th>
+            <th>Is Customer?</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tfoot>
+    </tfoot>
+    <tbody>
+         <?=$custTable?>
+    </tbody>
+</table>
+
+<?
+
 $fieldList = array(
 'username',
 'fname',
