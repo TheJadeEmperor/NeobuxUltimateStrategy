@@ -3,6 +3,31 @@ include('adminCode.php');
 
 
 
+
+$selS = 'SELECT U.id, username, fname, lname, email, paypal, S.id as salesID FROM users U LEFT JOIN sales S ON U.paypal = S.payerEmail GROUP BY U.ID'; 
+
+
+$resS = mysql_query($selS, $conn) or die(mysql_error());
+
+while ($u = mysql_fetch_assoc($resS)) {
+	
+	$id = $u['id'];
+	$paypal = $u['paypal'];
+	$email = $u['email'];
+	if($email == $paypal) { $paypal = 'Same'; }
+	
+	$custTable .= '<tr>
+	<td>'.$id.'</td>
+	<td>'.$u['username'].'</td>
+	<td>'.$u['fname'].' '.$u['lname'].'</td>
+	<td>'.$email.'</td> 
+	<td>'.$paypal.'</td>
+	<td>'.$u['salesID'].'</td>
+	<td><a href="updateProfile.php?id='.$id.'" target="_BLANK">View</a></td>
+	</tr>';
+}
+
+
 ?>
 <script> 
 $(document).ready( function () {
@@ -20,10 +45,11 @@ $(document).ready( function () {
         <tr>
             <th>#</th>
             <th>Username</th>
-            <th>First Name</th>
-            <th>Last Name </th>
-            <th>Is Customer?</th>
-            <th>Edit</th>
+            <th>Full Name</th>
+            <th>Email Address</th>
+			<th>Paypal Address</th>
+			<th>Is Customer?</th>
+            <th>View</th>
         </tr>
     </thead>
     <tfoot>
@@ -34,6 +60,7 @@ $(document).ready( function () {
 </table>
 
 <?
+exit;
 
 $fieldList = array(
 'username',

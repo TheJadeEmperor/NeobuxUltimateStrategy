@@ -5,9 +5,8 @@ $sale_create = 'ajax/sale_create.php';
 $sale_read = 'ajax/sale_read.php';
 $sale_update = 'ajax/sale_update.php';
 
-if($_POST[id]) 
-{
-    $del = 'delete from sales where id="'.$_POST[id].'" limit 1';
+if($_POST['id']) {
+    $del = 'delete from sales where id="'.$_POST['id'].'" limit 1';
     
     if(mysql_query($del, $conn))
         $msg = 'Successfully deleted sales record';
@@ -17,13 +16,12 @@ if($_POST[id])
 $selP = 'select * from products order by id';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
-while($p = mysql_fetch_assoc($resP))
-{
-    $products[$p[id]] = $p; 
+while($p = mysql_fetch_assoc($resP)) {
+    $products[$p['id']] = $p; 
 }
 
-if($_GET[p])
-	$currentPage = $_GET[p];
+if($_GET['p'])
+	$currentPage = $_GET['p'];
 else
 	$currentPage = 1;
 
@@ -35,10 +33,8 @@ $fieldList = array(
 'transID',
 'payerEmail' );
 
-foreach($fieldList as $fld)
-{
-	if($_POST[$fld] != '')
-	{
+foreach($fieldList as $fld) {
+	if($_POST[$fld] != '') {
 		$searchFor .= $fld.'="'.$_POST[$fld].'" and ';
 	}
 }
@@ -46,13 +42,13 @@ foreach($fieldList as $fld)
 //1 day in seconds
 $oneDay = 60 * 60 * 24;
 
-if($_SESSION[before] == '')
-    $_SESSION[before] = date('Y-m-d', time() + $oneDay);
+if($_SESSION['before'] == '')
+    $_SESSION['before'] = date('Y-m-d', time() + $oneDay);
 	
-if($_SESSION[after] == '')
-    $_SESSION[after] = $val['installDate'];
+if($_SESSION['after'] == '')
+    $_SESSION['after'] = $val['installDate'];
 	
-    $searchFor .= ' purchased >= "'.$_SESSION[after].' 00:00:00" and purchased <= "'.$_SESSION[before].' 23:59:59"';
+    $searchFor .= ' purchased >= "'.$_SESSION['after'].' 00:00:00" and purchased <= "'.$_SESSION['before'].' 23:59:59"';
 
     $searchFor = ' id is not NULL';
     $selS = 'select *, date_format(purchased, "%m/%d/%Y") as transDate 
@@ -62,8 +58,8 @@ if($_SESSION[after] == '')
     $records = mysql_num_rows($resS);
 
     if ($records > 0) {
-    unset($_SESSION[sendTo]);
-    $_SESSION[sendTo] = array();
+    unset($_SESSION['sendTo']);
+    $_SESSION['sendTo'] = array();
 
     $total = $records; //total # of records
     $listCount = $count = 1;
@@ -73,26 +69,26 @@ if($_SESSION[after] == '')
         if ($count % $perPage == 0)
             $listCount++;
 
-        array_push($_SESSION[sendTo], $c[payerEmail]);
+        array_push($_SESSION['sendTo'], $c['payerEmail']);
         
         $salesID = $c['id'];
 
-        $prodName = $products[$c[productID]][itemName];
-        $folder = $products[$c[productID]][folder];
-        $custView = 'custView.php?id=' . $c[id];
+        $prodName = $products[$c['productID']]['itemName'];
+        $folder = $products[$c['productID']]['folder'];
+        $custView = 'custView.php?id=' . $c['id'];
 
-        $tableRow = '<tr title="Sales record #'.$c[id].'">
+        $tableRow = '<tr title="Sales record #'.$c['id'].'">
                     <td>'.$count.'</td>
-                    <td>'.$c[transDate].'</td>
-                    <td><a href="updateProfile.php?e='.$c[payerEmail].'">'.$c[payerEmail].'</a></td>
+                    <td>'.$c['transDate'].'</td>
+                    <td><a href="updateProfile.php?e='.$c['payerEmail'].'">'.$c['payerEmail'].'</a></td>
                     <td>'.$prodName.'</td>
-                    <td><a href="'.$custView.'" target="_blank">'.$c[transID].'</a> &nbsp;
+                    <td><a href="'.$custView.'" target="_blank">'.$c['transID'].'</a> &nbsp;
                         <a href="'.$custView.'" target="_blank">View</a></td>
                     <td><a href="javascript:updateSaleDialog(\''.$salesID.'\')">Edit</a></td>
                     <td align="center">
                 <form method="POST">
                 <input type=image src="' . $delImg . '" onclick="confirm(\'Deletions are irreversible! Are you sure?\');">
-                <input type=hidden name=id value="' . $c[id] . '"> 
+                <input type=hidden name=id value="' . $c['id'] . '"> 
                 </form>
             </td>
         </tr>';
@@ -326,7 +322,7 @@ function closeDialog () {
 <br />
 <div class="panel panel-info">
     <div class="panel-heading">
-        <p align="center"><a href="email/emailSend.php"><input type=button class="btn btn-warning" value="Email All"></a></p>
+        <p align="center"><a href="email/emailSend.php"><input type="button" class="btn btn-warning" value="Email All"></a></p>
     </div>
 </div>
 
@@ -421,23 +417,6 @@ $salesFields = array(
    
 </form>
 
-<!--
-<form method=POST>
-<div class="moduleBlue"><h1>Search Sales Records</h1>
-<div class="moduleBody">
-     <font color=red><?=$msg?></font>
-<table class=thelist>
-<tr>
-	<td>Purchased </td><td>
-	Before <input <?=$properties?> name=before value="<?=$_SESSION[before]?>"><br>
-	After &nbsp; <input <?=$properties?> name=after value="<?=$_SESSION[after]?>">
-	</td>
-</tr><tr>
-	<td align=center colspan=2><input type=submit name=search value="Search"></td>
-</tr>
-</div></div>
-</form>
-</table>-->
 
 <br /><br />
 <?
