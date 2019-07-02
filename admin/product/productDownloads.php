@@ -2,12 +2,10 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_GET['id']) 
-{
+if($_GET['id'])  {
     $pID = $_GET['id'];
     
-    if($_POST['add']) 
-    {
+    if($_POST['add']) {
         $ins = 'insert into downloads (
         productID, 
         name,
@@ -19,8 +17,7 @@ if($_GET['id'])
         
         mysql_query($ins, $conn) or die(mysql_error());
     }
-    else if($_POST['update'])
-    {
+    else if($_POST['update']) {
         $dbOptions = array(
         'tableName' => 'downloads',
         'dbFields' => array(
@@ -32,8 +29,7 @@ if($_GET['id'])
         dbUpdate($dbOptions);
     }
     
-    if($_POST['del']) 
-    {
+    if($_POST['del']) {
         $del = 'delete from downloads where id="'.$_POST['id'].'"';
         mysql_query($del, $conn) or die(mysql_error());
     }
@@ -45,21 +41,20 @@ if($_GET['id'])
     $res = mysql_query($sel, $conn) or die(mysql_error());
     
     $c = 1;
-    while($d = mysql_fetch_assoc($res)) 
-    {   
+    while($d = mysql_fetch_assoc($res)) {   
         $downloadsList .= '<form method=post>
         <tr valign=top>
         <td>'.$c.'</td>
         <td>
-            <input '.$properties.' name="name" value="'.$d[name].'" size="25"/><br>
+            <input '.$properties.' name="name" value="'.$d['name'].'" size="25"/><br>
             <input type="submit" name="update" value="Update" />
         </td>
         <td>
-            <input '.$properties.' name="url" value="'.$d[url].'" size="60"/><br>
+            <input '.$properties.' name="url" value="'.$d['url'].'" size="60"/><br>
             <input type="submit" name="dl" value="Test Download">
         </td>
         <td>
-            <input type=hidden name="id" value="'.$d[downloadID].'" /> 
+            <input type=hidden name="id" value="'.$d['downloadID'].'" /> 
             <input type=image name="del" value="del" src="'.$delImg.'" onclick="confirm(\'Are you sure?\');">
         </td>
         </tr>
@@ -77,7 +72,7 @@ if($_GET['id'])
 
 <p>&nbsp;</p>
 
-<table class="moduleBlue" cellspacing=0 cellpadding=2>    
+<table class="moduleBlue" cellspacing="0" cellpadding="2">    
     <tr>
         <th>#</th><th>Name</th><th>URL</th><th></th>
     </tr>
@@ -94,14 +89,14 @@ if($_GET['id'])
      <table>
          <tr>
              <td>Name of Download</td>
-             <td><input <?=$properties?> name=name value=""></td>
+             <td><input <?=$properties?> name="name" value=""></td>
          </tr>
          <tr>
              <td>URL of Download</td>
-             <td><input <?=$properties?> name=url value=""></td>
+             <td><input <?=$properties?> name="url" value=""></td>
          </tr>
          <tr>
-             <td><input type=submit name=add value="Add Download"/></td>
+             <td><input type="submit" name="add" value="Add Download"/></td>
          </tr>
      </table>   
 </div>

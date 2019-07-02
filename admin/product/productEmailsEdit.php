@@ -98,7 +98,7 @@ if (document.location.protocol == 'file:') {
 <div class="moduleBlue"><h1>Emails for Product "<?=$p['itemName']?>"</h1>
 <div class="moduleBody">
     <p><a href="?id=<?=$id?>&type=download">Download Email</a> &nbsp; 
-    <a href="?id=<?=$id?>&type=welcome">Welcome Affiliate</a> </p>
+    <a href="?id=<?=$id?>&type=fraud">Fraud Email</a> </p>
 </div></div>
 
 <br />

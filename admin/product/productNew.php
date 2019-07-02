@@ -123,10 +123,6 @@ if($_GET['id']) {
             $aff[ $p['affProgram'] ] = 'selected';
             $payment[ $p['payment'] ] = 'selected';
             $oto[ $p['oto'] ] = 'selected';
-            
-			//$aPercent[ $p['salesPercent'] ] = 'selected';
-            //$jPercent[ $p['jvPercent'] ] = 'selected';
-            //$affcenter[ $p[affcenter] ] = 'selected'; 
         }
     
         $products[] = $item; 
@@ -173,7 +169,7 @@ else {
 		<td>Item Name *</td>
 		<td>
 		    <div title="header=[Product Name or Item Name] body=[Name of the product, 100 characters max] "><img src="<?=$helpImg?>" />
-		    <input class="activeField" name=itemName value="<?=$p['itemName']?>" size="40">
+		    <input class="activeField" name="itemName" value="<?=$p['itemName']?>" size="40">
 	        </div>
 	    </td>
 	</tr>
@@ -212,7 +208,7 @@ else {
 	    	</div>	
 		</td>
 	</tr>
-	<tr valign=top>
+	<tr valign="top">
 		<td>Expiration (Download file) *</td>
 		<td>
 	        <div class=".left" title="header=[Download Expiration Date] body=[When will the download link expire, in hours] "><img src="<?=$helpImg?>" />
@@ -251,7 +247,7 @@ else {
 <div class="moduleBlue"><h1>Upsell Product</h1>
 <div class="moduleBody">
 <table>
-<tr valign=top>
+<tr valign="top">
 	<td>Use Upsell? *</td>
 	<td><select class="activeField" name="oto">
 	    <option <?=$oto['Y']?> value="Y">Yes</option>
@@ -297,13 +293,15 @@ else {
 <table>
 	<tr>
 		<td>Template Header: </td>
-		<td><input class="activeField" name=header value="<?=$p[header]?>"></td>
-	</tr><tr>
+		<td><input class="activeField" name="header" value="<?=$p['header']?>"></td>
+	</tr>
+	<tr>
 		<td>Template Footer: </td>
-		<td><input class="activeField" name=footer value="<?=$p[footer]?>"></td>
-	</tr><tr>
+		<td><input class="activeField" name="footer" value="<?=$p['footer']?>"></td>
+	</tr>
+	<tr>
 		<td>Sales Letter:</td>
-		<td><input class="activeField" name=salespage value="<?=$p[salespage]?>" /></td>
+		<td><input class="activeField" name="salespage" value="<?=$p['salespage']?>" /></td>
 	</tr>
 </table>
 </div></div>
@@ -313,7 +311,7 @@ else {
 <div class="moduleBlue"><h1>Product Emails</h1>
 <div class="moduleBody">
 	<p><a href="productEmailsEdit.php?id=<?=$id?>&type=download">Download Email</a> &nbsp; 
-    <a href="productEmailsEdit.php?id=<?=$id?>&type=welcome">Welcome Affiliate</a> &nbsp;
+    <a href="productEmailsEdit.php?id=<?=$id?>&type=fraud">Fraud Email</a> &nbsp;
     </p>
 </div>
 </div>

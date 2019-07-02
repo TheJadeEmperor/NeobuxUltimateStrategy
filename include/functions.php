@@ -1,9 +1,6 @@
 <?php
 /* ##############################################################
  * 
- * affstats($userID)
- *  show affiliate stats such as clicks and sales 
- * 
  * downloadLink($url)   
  *  create download link, given a url
  * 
@@ -289,7 +286,7 @@ function embedYoutubeVideo($options) {
 
 function shortenText($text, $limit) {
 	//$limit = number of characters you want to display
-	$new = $text.' ';
+	$new = $text;
 	$new = substr($new, 0, $limit);
 	
 	if(strlen($text) > $limit)
