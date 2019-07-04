@@ -6,9 +6,15 @@ $emailDownloadSubject = "";
 
 $emailDownloadTemplate = '<p>Hi $firstName, </p> <p>Thank you for your purchase of $itemName. Everybody wants to make money online but most of them are not willing to do what it takes. By getting this product you have shown that you are different than the others who do not take any action.</p> <p>You are on your way to profitting with PTC\'s. Only one more step left. Just go to the download link below to download your copy of $itemName.</p> <p>The following information are your purchase details, sent from paypal:</p> <p>Txn ID:  $transID <br />Paypal Email:  $payerEmail<br />Item Name:  $itemName<br />Item #:  $itemNumber<br />Payment Amount:  $itemPrice</p> <p>This is an automatically generated message from our system regarding your order from us. If the status is "Completed", that means your order went through, and you may download your the $itemName immediately. If not, then please wait for the payment to be completed.</p> <p>You can download the product through this link:</p> <p><strong>$downloadLink</strong></p> <p>Just go to the link to download the product. Enjoy!</p> <p> </p> <p>Sincerely,</p> <p>Your Name<br />Company Name <br /><a href="mailto:your@email.address">your@email.address</a></p>';
 
-$emailWelcomeSubject = "Welcome to the Affiliate Program";
 
-$emailWelcomeTemplate = '<p>Hi $firstName,</p> <p>Thank you for signing up to the $itemName affiliate program. There is no better time to get started than right now! With $itemName you get to make $salesPercent% commission of your sales.</p> <p>Here are your details from registration: <br />Username: $nickname<br />Password: $password<br />Paypal Email: $paypal<br />Contact Email: $email</p> <p>Our affiliate program is different than other ones you are used to, as it is unique in many ways. For starters, you will be paid directly from the customer on $salesPercent% of your sales. No waiting 30 to 60 days for payments - that\'s way too slow. This means the money will be sent to your Paypal account immediately.</p> <p>To log in to your account, just go to: <br />http://bestpayingsites.com/members <br />and put in your username and password.</p> <p>Welcome aboard.</p> <p>Your Name<br />Business Name<br />your@email.address<br />your@email.address</p>';
+$emailWelcomeSubject = "Transaction Error: $itemName";
+
+$emailWelcomeTemplate = '<p>Hi $firstName</p>
+<p>There was a problem with the transaction from paypal. Either the amount paid did not match the item\'s price or the transaction timed out. Then please go back to the website and order again.&nbsp;</p>
+<p>If this problem continues then please contact us so we can resolve the problem.</p>
+<p>Thank you for understanding.&nbsp;</p>
+<p>&nbsp;</p>
+<p>Neobux Ultimate Strategy<br /><a href="mailto:your@email.address">your@email.address</a><br />https://neobuxultimatestrategy.com</p>';
 
 
 
@@ -83,7 +89,7 @@ if($_POST['add']) {
             'tableName' => 'emails',
             'dbFields' => array(
                 'productID' => $newID,
-                'type' => 'welcome',
+                'type' => 'fraud',
                 'subject' => $emailWelcomeSubject,
                 'message' => $emailWelcomeTemplate)
         ); 
@@ -204,7 +210,9 @@ else {
 		<td>
 	        <div title="header=[Download link] body=[Location of file to be downloaded] "><img src="<?=$helpImg?>" />
 		    <input class="activeField" name="download" value="<?=$p['download']?>" size="50"> <br />
-			<a href="productDownloads.php?id=<?=$id?>" style="margin-left: 20px">Click here to Manage Downloads</a> 
+			
+			<a href="productDownloads.php?id=<?=$id?>" style="margin-left: 20px" class="btn btn-warning">Click here to Manage Downloads</a> 
+			
 	    	</div>	
 		</td>
 	</tr>
@@ -228,7 +236,7 @@ else {
 		<td>Description</td>
 		<td>
 		    <div title="header=[Product description] body=[Describe the product in a few sentences. Will be used for seo purposes and used in affiliate pages] "><img src="<?=$helpImg?>" class="help" style="float: left;" />
-		    <textarea class="activeField" name="description" cols="40"><?=$p[description]?></textarea>
+		    <textarea class="activeField" name="description" cols="40"><?=$p['description']?></textarea>
 		    </div>
 	    </td>
 	</tr>
@@ -237,8 +245,9 @@ else {
 </div>
 
 <center><br />
-<input type="submit" <?=$disAdd?> name="add" value=" Add Product ">
-<input type="submit" <?=$disUpd?> name="update" value=" Update Product "></center>
+<input type="submit" <?=$disAdd?> name="add" value=" Add Product " class="btn btn-success">
+<input type="submit" <?=$disUpd?> name="update" value=" Update Product " class="btn btn-info">
+</center>
 
 <p>&nbsp;</p>
 
@@ -304,24 +313,34 @@ else {
 		<td><input class="activeField" name="salespage" value="<?=$p['salespage']?>" /></td>
 	</tr>
 </table>
-</div></div>
+</div>
+</div>
 
+
+<center><br />
+<input type="submit" <?=$disAdd?> name="add" value=" Add Product " class="btn btn-success">
+<input type="submit" <?=$disUpd?> name="update" value=" Update Product " class="btn btn-info">
+<input type="submit" <?=$disUpd?> name="delete" value=" Delete Product " class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?')">
+</center>
+
+</form>
+
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 <div class="moduleBlue"><h1>Product Emails</h1>
 <div class="moduleBody">
-	<p><a href="productEmailsEdit.php?id=<?=$id?>&type=download">Download Email</a> &nbsp; 
-    <a href="productEmailsEdit.php?id=<?=$id?>&type=fraud">Fraud Email</a> &nbsp;
-    </p>
+	
+	<center>   
+	<br />
+	<p><a href="productEmailsEdit.php?id=<?=$id?>&type=download"><button class="btn btn-warning">Download Email</button></a>
+	 &nbsp; 
+    <a href="productEmailsEdit.php?id=<?=$id?>&type=fraud"><button class="btn btn-warning">Fraud Email</button></a>
+	</p>
+	
+	</center>
+
 </div>
 </div>
-
-<center><br />
-<input type="submit" <?=$disAdd?> name="add" value=" Add Product ">
-<input type="submit" <?=$disUpd?> name="update" value=" Update Product ">
-<input type="submit" <?=$disUpd?> name="delete" value=" Delete Product " onclick="return confirm('Are you sure you want to delete this product?')">
-</center>
-
-</form>
 <?
 include($adir.'adminFooter.php'); ?>

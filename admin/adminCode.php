@@ -180,8 +180,7 @@ while($p = mysql_fetch_assoc($resP)) {
 									<ul class="dropdown-menu">
 										<li>
 										<a href="'.$adir.'product/productDownloads.php?id='.$p['id'].'">Purchase Downloads</a></li>
-										<li><a href="'.$adir.'product/productEmailsEdit.php?id='.$p['id'].'&type=download"</a>Download Email</li>
-										<li><a href="'.$adir.'product/productEmailsEdit.php?id='.$p['id'].'&type=welcome">Welcome Email</a></li>
+										<li><a href="'.$adir.'product/productEmailsEdit.php?id='.$p['id'].'&type=download"</a>Download Email</li><li><a href="'.$adir.'product/productEmailsEdit.php?id='.$p['id'].'&type=fraud">Fraud Email</a></li>
 									</ul>
 								</li>';
 							}

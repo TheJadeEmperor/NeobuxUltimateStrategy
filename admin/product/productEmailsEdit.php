@@ -20,7 +20,7 @@ if($_POST['save']) {
 }
 
 //get product info
-$selP = 'SELECT * from products WHERE id="'.$id.'"';
+$selP = 'SELECT * FROM products WHERE id="'.$id.'"';
 $resP = mysql_query($selP, $conn) or die(mysql_error()); 
 
 $p = mysql_fetch_assoc($resP); 
@@ -35,8 +35,8 @@ $allEmails = dbSelect($opt);
 $e = $allEmails[0];
 
 $typeDisplay = array(
-	'download' => 'Download',
-	'welcome' => 'Welcome' 
+	'download' => 'Product Download',
+	'fraud' => 'Fraud' 
 ); 
 
 
@@ -97,32 +97,39 @@ if (document.location.protocol == 'file:') {
 
 <div class="moduleBlue"><h1>Emails for Product "<?=$p['itemName']?>"</h1>
 <div class="moduleBody">
-    <p><a href="?id=<?=$id?>&type=download">Download Email</a> &nbsp; 
-    <a href="?id=<?=$id?>&type=fraud">Fraud Email</a> </p>
-</div></div>
+
+	<br />
+	<center><p><a href="?id=<?=$id?>&type=download"><button class="btn btn-info">Download Email</button></a> &nbsp; 
+    <a href="?id=<?=$id?>&type=fraud"><button class="btn btn-warning">Fraud Email</button></a></p></center>
+</div>
+</div>
 
 <br />
  
-<div class="moduleBlue"><h1>Edit Email Template</h1><div>
+<div class="moduleBlue"><h1>Edit Email Template</h1>
+<div>
 <form method="POST">
-<table>
-<tr><tr>
-	<td colspan="2" align="center">
-		<h3><?php echo $typeDisplay[$type] ?> Email Template </h3>
-	</td>
-</tr>
-	<td>Subject Line</td>
-	<td><input <?=$properties?> name="subject" value="<?=$e['subject']?>"></td>
-</tr><tr>
-	<td>Message Body</td>
-</tr><tr>
-	<td colspan=2><textarea name="message" rows="25" cols="70" id="elm1"><?=$e['message']?></textarea></td>
-</tr><tr>
-	<td align="center" colspan="2"><input type="submit" name="save" value=" Save Changes ">
-	<a href="previewEmail.php?id=<?=$e['id']?>">
-		<input type="button" name="preview" value=" Preview Email "></a></td>
-</tr>
-</table>
+	<table>
+	<tr>
+		<td colspan="2" align="center">
+			<h3><?php echo $typeDisplay[$type] ?> Email Template </h3>
+		</td>
+	</tr>
+	<tr>
+		<td>Subject Line</td>
+		<td><input <?=$properties?> name="subject" value="<?=$e['subject']?>"></td>
+	</tr>
+	<tr>
+		<td>Message Body</td>
+	</tr>
+	<tr>
+		<td colspan="2"><textarea name="message" rows="25" cols="70" id="elm1"><?=$e['message']?></textarea></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2"><input type="submit" name="save" value=" Save Changes " class="btn btn-success">
+		</td>
+	</tr>
+	</table>
 </form>
 </div>	
 </div>
