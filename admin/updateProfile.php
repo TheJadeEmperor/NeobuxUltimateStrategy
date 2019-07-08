@@ -48,7 +48,7 @@ if($_POST[deleteUser])
     
     $msg = 'Deleted user from database ... redirecting to users list';
 	
-	echo '<meta http-equiv="refresh" content="3;URL=userList.php">';
+	echo '<meta http-equiv="refresh" content="3;URL=userSearch.php">';
 }
 
 //update db 

@@ -2,8 +2,6 @@
 include('adminCode.php'); 
 
 
-
-
 $selS = 'SELECT U.id, username, fname, lname, email, paypal, S.id as salesID FROM users U LEFT JOIN sales S ON U.paypal = S.payerEmail GROUP BY U.ID'; 
 
 
@@ -15,6 +13,11 @@ while ($u = mysql_fetch_assoc($resS)) {
 	$paypal = $u['paypal'];
 	$email = $u['email'];
 	if($email == $paypal) { $paypal = 'Same'; }
+	if($u['salesID']) { 
+		$isCustomer = 'Yes'; 
+	}
+	else 
+		$isCustomer = "";
 	
 	$custTable .= '<tr>
 	<td>'.$id.'</td>
@@ -22,7 +25,7 @@ while ($u = mysql_fetch_assoc($resS)) {
 	<td>'.$u['fname'].' '.$u['lname'].'</td>
 	<td>'.$email.'</td> 
 	<td>'.$paypal.'</td>
-	<td>'.$u['salesID'].'</td>
+	<td>'.$isCustomer.'</td>
 	<td><a href="updateProfile.php?id='.$id.'" target="_BLANK">View</a></td>
 	</tr>';
 }
@@ -34,7 +37,7 @@ $(document).ready( function () {
     $('#cust').dataTable({  
         "bJQueryUI": true,
         "sPaginationType": "full_numbers",
-        "iDisplayLength": 50
+        "iDisplayLength": 100
     });
 
 }); //document.ready
