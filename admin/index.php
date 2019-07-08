@@ -5,24 +5,22 @@ include($dir.'include/functions.php');
 include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 
-$getLogin = 'select * from settings where opt="adminUser" || opt="adminPass"';
+$getLogin = 'SELECT * FROM settings WHERE opt="adminUser" || opt="adminPass"';
 $resLogin = mysql_query($getLogin, $conn) or die(mysql_error());
 
-while($l = mysql_fetch_assoc($resLogin))
-{
+while($l = mysql_fetch_assoc($resLogin)) {
     if($l['opt'] == 'adminUser')
         $adminUser = $l['setting'];
     else
         $adminPass = $l['setting'];
 }
 
-if($_POST['login'])
-{
+if($_POST['login']) {
     if($_POST['username'] == $adminUser && $_POST['password'] == $adminPass) {
         $_SESSION['admin']['username'] = $adminUser;
         $_SESSION['admin']['id'] = 0;
         header('Location: salesMonthly.php');
-}
+	}
     else {
         $err = '<p><font color="red"><b>Wrong credentials</b></font></p>';
     }
@@ -44,7 +42,7 @@ $bootDir = $dir.'include/bootstrap/';
 <p>Admin Login</p>
 
 <?=$err ?>
-<form method=POST>
+<form method="POST">
     
     <div class="loginBox">
     <div class="panel panel-primary">
