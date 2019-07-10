@@ -78,14 +78,14 @@ if($_SESSION['after'] == '')
         $custView = 'custView.php?id=' . $c['id'];
 
         $tableRow = '<tr title="Sales record #'.$c['id'].'">
-                    <td>'.$count.'</td>
-                    <td>'.$c['transDate'].'</td>
-                    <td><a href="updateProfile.php?e='.$c['payerEmail'].'">'.$c['payerEmail'].'</a></td>
-                    <td>'.$prodName.'</td>
-                    <td><a href="'.$custView.'" target="_blank">'.$c['transID'].'</a> &nbsp;
-                        <a href="'.$custView.'" target="_blank">View</a></td>
-                    <td><a href="javascript:updateSaleDialog(\''.$salesID.'\')">Edit</a></td>
-                    <td align="center">
+			<td>'.$count.'</td>
+			<td>'.$c['transDate'].'</td>
+			<td><a href="updateProfile.php?e='.$c['payerEmail'].'">'.$c['payerEmail'].'</a></td>
+			<td>'.$prodName.'</td>
+			<td><a href="'.$custView.'" target="_blank">'.$c['transID'].'</a> &nbsp;
+				<a href="'.$custView.'" target="_blank">View</a></td>
+			<td><a href="javascript:updateSaleDialog(\''.$salesID.'\')">Edit</a></td>
+			<td align="center">
                 <form method="POST">
                 <input type=image src="' . $delImg . '" onclick="confirm(\'Deletions are irreversible! Are you sure?\');">
                 <input type=hidden name=id value="' . $c['id'] . '"> 
@@ -120,13 +120,13 @@ if($_SESSION['after'] == '')
     else
         $next = $currentPage + 1;
 
-    $emailButton = '<a href="email/emailSend.php"><input type=button class="btn btn-warning" value="Email All"></a>';
+    $emailButton = '<a href="email/emailSend.php"><input type="button" class="btn btn-warning" value="Email All"></a>';
 
-    $pages = '<tr><td colspan=5 align=center>
+    $pages = '<tr><td colspan="5" align="center">
         <a href="?p=' . $prev . '"><< Prev</a> ' . $pages . ' <a href="?p=' . $next . '">Next >></a>
         </td></tr>';
 
-    $salesTable = '<table class=moduleBlue cellspacing=0>
+    $salesTable = '<table class="moduleBlue" cellspacing="0">
         <tr>
             <th>#</th>
             <th>Purchased</th>
@@ -238,7 +238,6 @@ function insertSale () {
         });
         closeDialog();
     }
-//    else {}
 }
 
 function updateSaleDB () {
