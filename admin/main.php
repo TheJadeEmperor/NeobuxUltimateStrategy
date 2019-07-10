@@ -39,10 +39,10 @@ $properties = 'class="activeField" size="40"';
 
 ?>
 <form method="POST">
-<table>
-<tr valign="top">
-	<td>
-    <div class="moduleBlue"><h1>SMTP Email Settings (For mass emails)</h1>
+ 
+	
+<div class="left">
+	<div class="moduleBlue"><h1>SMTP Email Settings (For mass emails)</h1>
 	<div class="moduleBody">
     
     <table class="formField">
@@ -94,7 +94,8 @@ $properties = 'class="activeField" size="40"';
     </table>
     </div>
     </div>
-    <br /><br />
+    
+	<p>&nbsp;</p>
     
     <div class="moduleBlue"><h1>Email Addresses</h1>
 	<div class="moduleBody">
@@ -135,9 +136,14 @@ $properties = 'class="activeField" size="40"';
 	    </table>
     </div>
     </div>
-</td>
-<td>    
-    <div class="moduleBlue"><h1>Admin Account</h1>
+
+
+	<p>&nbsp;</p>
+</div>
+
+<div class="right">
+
+	<div class="moduleBlue"><h1>Admin Account</h1>
     <div class="moduleBody">
         <table>
 			<tr>
@@ -163,7 +169,8 @@ $properties = 'class="activeField" size="40"';
     </div>
 	    
     <br /><br />
-    <div class="moduleBlue"><h1>Website Settings</h1>
+    
+	<div class="moduleBlue"><h1>Website Settings</h1>
 	<div class="moduleBody">
 	    <table>
 	    <tr>
@@ -196,14 +203,16 @@ $properties = 'class="activeField" size="40"';
 	    </tr>
 	    </table>
     </div>
-</td>
-</tr>
-<tr>
-	<td colspan="2" align="center">
-		<input type="submit" name="update" value=" Save Settings " class="btn success" /></td>
-</tr>
-</table>
+</div>
+</div>
+
+<div class="clear"></div>
+
+<br />
+
+<center><input type="submit" name="update" value=" Save Settings " class="btn success" /></center>
+
 </form>
 
-<?
-include('adminFooter.php');  ?>
+<?php
+include('adminFooter.php'); ?>

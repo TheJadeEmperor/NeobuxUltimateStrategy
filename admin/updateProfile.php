@@ -80,15 +80,13 @@ while($p = mysql_fetch_assoc($resP)) {
 }
 
 
-
-
 if(!empty($msg)) {
-	$msg = '<fieldset><font color=red><b>'.$msg.'</b></font></fieldset>';
+	$msg = '<fieldset><font color="red"><b>'.$msg.'</b></font></fieldset>';
 }
 	
 echo $msg; 
 ?>
-<div class="moduleBlue"><h1>Update Affiliate</h1>
+<div class="moduleBlue"><h1>Update User</h1>
 <div class="moduleBody">
 
 
@@ -147,7 +145,8 @@ echo $msg;
 
 <p>&nbsp;</p>
 
-<div class="moduleBlue"><h1>Is Customer?</h1>
+<div class="moduleBlue">
+	<h1>Is Customer?</h1>
 	<div class="moduleBody">
 		<?=$sContent?>
 	</div>
@@ -164,13 +163,14 @@ echo $msg;
 		
 			<form method="post">
 			<img src="<?=$helpImg?>" />     
-			<input type="submit" name="deleteUser" <?=$disDel?> onclick="confirm ('Are you sure?')"/></div>
+			<input type="submit" name="deleteUser" <?=$disDel?> onclick="confirm ('Are you sure?')"/>
 			<input type="hidden" name="deleteID" value="<?=$userID?>" />
 			</form>
-
-		</center>
 		</div>
+		
+		</center>
 	</div>
+</div>
 </div>
 
 <p>&nbsp;</p>

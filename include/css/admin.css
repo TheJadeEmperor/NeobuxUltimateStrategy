@@ -106,7 +106,7 @@ body, container {
 div#menuh li:hover {
 	cursor:pointer;
 	z-index:100;
-	}
+}
 
 div#menuh li:hover ul ul,
 div#menuh li li:hover ul ul,
@@ -331,4 +331,12 @@ a:hover  {
 
 .adminBox a:hover {
 	text-decoration: none;	
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
 }
