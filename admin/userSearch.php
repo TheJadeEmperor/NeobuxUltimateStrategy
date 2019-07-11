@@ -7,6 +7,8 @@ $resS = mysql_query($selS, $conn) or die(mysql_error());
 
 while ($u = mysql_fetch_assoc($resS)) {
 	
+	array_push($_SESSION['sendTo'], $c['payerEmail']);
+
 	$id = $u['id'];
 	$paypal = $u['paypal'];
 	$email = $u['email'];
@@ -61,6 +63,12 @@ $(document).ready( function () {
          <?=$custTable?>
     </tbody>
 </table>
+<br />
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <p align="center"><a href="email/emailSend.php"><input type="button" class="btn btn-warning" value="Email All"></a></p>
+    </div>
+</div>
 
 <?
 include('adminFooter.php');  ?>

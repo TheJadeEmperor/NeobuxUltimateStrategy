@@ -36,8 +36,9 @@ if($_POST['update']) {
 	mysql_query($upd, $conn) or die(mysql_error());
 }
 
-if($_GET['id']) { //if user ID is passed to the page
-	$selU = 'SELECT * FROM users WHERE id="'.$_GET['id'].'"';
+$userID = $_GET['id'];
+if($userID) { //if user ID is passed to the page
+	$selU = 'SELECT * FROM users WHERE id="'.$userID.'"';
 }
 else if($_GET['e']) { //if email is passed to the page
     $selU = 'SELECT * FROM users WHERE email="'.$_GET['e'].'" || paypal="'.$_GET['e'].'"';
@@ -47,7 +48,6 @@ else if($_GET['e']) { //if email is passed to the page
 $resU = mysql_query($selU, $conn) or die(mysql_error());
 
 if($u = mysql_fetch_assoc($resU)) {  
-    $userID = $u['id'];
     $optoutPick[$u['optout']] = 'selected'; //optout?
     $statusPick[$u['status']] = 'selected'; //status
 }
@@ -136,7 +136,7 @@ echo $msg;
 		</select>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" class="activeField" name="update" value="Update Profile"></td>
+		<td colspan="2" align="center"><input type="submit" class="activeField btn btn-info" name="update" value="Update Profile"></td>
 	</tr>
 </table>
 </form>
@@ -163,7 +163,7 @@ echo $msg;
 		
 			<form method="post">
 			<img src="<?=$helpImg?>" />     
-			<input type="submit" name="deleteUser" <?=$disDel?> onclick="confirm ('Are you sure?')"/>
+			<input type="submit" class="btn btn-danger" name="deleteUser" <?=$disDel?> onclick="confirm ('Are you sure you want to delete user #<?=$userID?>?')"/>
 			<input type="hidden" name="deleteID" value="<?=$userID?>" />
 			</form>
 		</div>
