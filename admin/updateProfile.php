@@ -107,7 +107,7 @@ if(mysql_num_rows($resS) > 0)
     while($s = mysql_fetch_assoc($resS)) 
     {
         $sContent .= '<p>Bought the '.$s[itemName].' on 
-        <a href="custManage.php?id='.$s[id].'" title="'.$s[id].'">'.$s[bought].'</a></p>';
+        <a href="custView.php?id='.$s[id].'" title="'.$s[id].'">'.$s[bought].'</a></p>';
     }
 }
 else 
