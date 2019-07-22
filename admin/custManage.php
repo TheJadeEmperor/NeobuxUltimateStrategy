@@ -30,7 +30,9 @@ if($_POST) {
             $msg = 'Updated sales record';
     }
     else if($_POST['delete']) {
-        $del = 'DELETE FROM sales WHERE id="'.$_GET[id].'"';
+
+        $del = 'DELETE FROM sales WHERE id="'.$_GET['id'].'"';
+
         $res = mysql_query($del, $conn) or print(mysql_error());
     }
 }
@@ -84,10 +86,12 @@ if($msg) {
 
 <div class="moduleBlue"><h1>Delete Record</h1>
 <div class="moduleBody">
-<center>
-    <input type="submit" class="btn btn-danger" name="delete" value=" Delete Record " onclick="return confirm('Warning: You are about to delete this record permanently')" />
-</center>
-</div>
+
+	<center>
+		<input type="submit" class="btn btn-danger" name="delete" value=" Delete Record " onclick="return confirm('Warning: You are about to delete this record permanently')" />
+	</center>
+		
+	</div>
 </div>
 </form>
 

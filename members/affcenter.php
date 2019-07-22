@@ -1,6 +1,6 @@
 <?php	
-if(!$_SESSION['login']['id'])
-    header('Location: index.php');
+//if(!$_SESSION['login']['id'])
+//    header('Location: index.php');
 
 $selP = 'select * from products where affcenter="Y" order by itemName';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
@@ -81,7 +81,6 @@ while($p = mysql_fetch_assoc($resP)) {
 $selS = 'select id from sales where payerEmail="'.$_SESSION['login']['paypal'].'"'; 
 $resS = mysql_query($selS) or die(mysql_error());
 
-//echo mysql_num_rows($resS);
 if(mysql_num_rows($resS) == 0) { // not a customer
 
     echo '<meta http-equiv="refresh" content="1;url=./?action=logout">';
