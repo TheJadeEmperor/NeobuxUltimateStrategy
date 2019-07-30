@@ -14,16 +14,13 @@ while($p = mysql_fetch_assoc($resP)) {
 		<a href="#optin"><img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" /></a>
 		
 		<p>&nbsp;</p>
-		
-
-	
+			
 		<h1>Recent Posts</h1>
 		<?=$recentPosts?>
 		<center><p><a href="./?action=posts">Show all posts</a></p></center>
 	
 		<p>&nbsp;</p>
 		
-	
 		<h1>Current Products </h1>
 		
 		<div style="text-align: left">
@@ -118,7 +115,8 @@ while($p = mysql_fetch_assoc($resP)) {
 	
 </footer>
 
-	<p>&nbsp;</p><p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
 	
 	<!-- Facebook Comments -->
 	<!--<div id="fbContainer">
@@ -134,55 +132,56 @@ while($p = mysql_fetch_assoc($resP)) {
 	</div>
 	-->
 
+	</div>
 		</div>
-			</div>
-				</section>
-					</div>
+			</section>
+				</div>
 
-					<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<h2>About the Neobux Ultimate Strategy</h2>
-							<p>The NUS is the ultimate strategy that will help earn an income from Neobux and all PTC sites. You will get unlimited direct referrals and never be frustrated again!</p>
-							<ul class="actions">
-								<li><a href="./" class="button">Learn More</a></li>
-							</ul>
-						</section>
-						<section>
-							<h2>NUS Contact Info</h2> 
+				<!-- Footer -->
+				<footer id="footer">
+				<section>
+					<h2>About the Neobux Ultimate Strategy</h2>
+					<p>The NUS is the ultimate strategy that will help earn an income from Neobux and all PTC sites. You will get unlimited direct referrals and never be frustrated again!</p>
+					<ul class="actions">
+						<li><a href="./" class="button">Learn More</a></li>
+					</ul>
+				</section>
+				<section>
+					<h2>NUS Contact Info</h2> 
+					
+						<dl class="alt">
+							<dt>URL </dt>
+							<dd><a href="./?action=posts" title="<?=$businessName?> Blog">Home</a> &bull; 
+								<a href="./?action=faq" title="<?=$businessName?> FAQ">FAQ</a> &bull; 
+								<a href="./?action=terms" title="<?=$businessName?> Terms">Terms</a> &bull;
+								<a href="./?action=privacy" title="<?=$businessName?> Privacy">Privacy</a> &bull;				
+								<a href="./members" title="<?=$businessName?> Members Login">Members Login 
+							</dd>
 							
-							<dl class="alt">
-								<dt>URL </dt>
-								<dd><a href="./?action=posts" title="<?=$businessName?> Blog">Home</a> &bull; 
-									<a href="./?action=faq" title="<?=$businessName?> FAQ">FAQ</a> &bull; 
-									<a href="./?action=terms" title="<?=$businessName?> Terms">Terms</a> &bull;
-									<a href="./?action=privacy" title="<?=$businessName?> Privacy">Privacy</a> &bull;				
-									<a href="./members" title="<?=$businessName?> Members Login">Members Login 
-								</dd>
-								
-								<dt>Links</dt>
-								<dd><a href="https://bestpayingsites.com/ppbooster" title="Paypal Booster">Paypal Booster</a> &bull;
-								<a href="https://bestpayingsites.com/" title="Email Profit System">Email Profit System</a> &bull;
-								<a href="https://bestpayingsites.com/surveys" title="Best Paying Surveys">Best Paying Surveys</a>
-								</dd>
-								
-								<dt>Email</dt>
-								<dd><a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></dd>
-								
-								<dt>Disclaimer</dt>
-								<dd><a href="?action=terms" target="_BLANK">Terms</a> &bull; <a href="?action=privacy" target="_BLANK">Privacy</a></dd>
-							</dl>
-							<ul class="icons">
-							 
-								<li><a href="https://www.instagram.com/confucius.philosopher/" class="icon fa-instagram alt" target="_BLANK"><span class="label">Instagram</span></a></li>
-								
-								
-								<li><a href="https://extremetracking.com/open?login=richptc" class="icon fa-globe alt" target="_BLANK"></a></li>
-								
-							</ul>
-						</section>
-						<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com/websolutions">BL Web Solutions</a>.</p>
-					</footer>
+							<dt>Links</dt>
+							<dd><a href="https://bestpayingsites.com/ppbooster" title="Paypal Booster">Paypal Booster</a> &bull;
+							<a href="https://bestpayingsites.com/" title="Email Profit System">Email Profit System</a> &bull;
+							<a href="https://bestpayingsites.com/surveys" title="Best Paying Surveys">Best Paying Surveys</a>
+							</dd>
+							
+							<dt>Email</dt>
+							<dd><a href="mailto:<?=$supportEmail?>"><?=$supportEmail?></a></dd>
+							
+							<dt>Disclaimer</dt>
+							<dd><a href="?action=terms" target="_BLANK">Terms</a> &bull; <a href="?action=privacy" target="_BLANK">Privacy</a></dd>
+						</dl>
+						<ul class="icons">
+						 
+							<li><a href="https://www.instagram.com/confucius.philosopher/" class="icon fa-instagram alt" target="_BLANK"><span class="label">Instagram</span></a></li>
+							
+							<li><a href="https://extremetracking.com/open?login=richptc" class="icon fa-globe alt" target="_BLANK"></a></li>
+							
+							<li><a href="https://www.youtube.com/channel/UC00XFWxJbES4ZDXpnspVsEA" class="icon fa-youtube alt" target="_BLANK"><span class="label">Instagram</span></a></li>
+							
+						</ul>
+					</section>
+					<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com/websolutions">BL Web Solutions</a>.</p>
+				</footer>
 			</div>
 
 	
@@ -206,7 +205,6 @@ while($p = mysql_fetch_assoc($resP)) {
 			</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
 			src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
 			</div></noscript></div>
-
 			
 	</body>	
 </html>
