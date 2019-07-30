@@ -119,7 +119,7 @@ while($p = mysql_fetch_assoc($resP)) {
 	<p>&nbsp;</p>
 	
 	<!-- Facebook Comments -->
-	<!--<div id="fbContainer">
+	<div id="fbContainer">
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -130,7 +130,6 @@ while($p = mysql_fetch_assoc($resP)) {
 	}(document, 'script', 'facebook-jssdk'));</script>
 	<div class="fb-comments" data-href="https://neobuxultimatestrategy.com/?p=clixsense-team-clixsense.com-free-referrals" data-num-posts="10" data-width="720"></div>
 	</div>
-	-->
 
 	</div>
 		</div>
