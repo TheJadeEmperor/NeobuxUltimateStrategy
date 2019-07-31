@@ -16,15 +16,14 @@ $confirmLandingURL = $redirLink.'basics';
     </center>
 
     <table>
-        <tr valign="top">
+        <tr valign="middle">
             <td>
-				<video width="480" height="380" autoplay>
-				<source src="splash/mod1.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-				</video>
+				
+				<iframe width="480" height="315" src="https://www.youtube.com/embed/sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 		   </td>
-            <td align="center">
+		   <td width="15px"></td>
+           <td align="center">
                 <img src="<?=$imgDir?>redArrow.gif">
                 <form method="post" action="httpS://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
