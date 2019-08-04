@@ -2,7 +2,7 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_GET['id'])  {
+if($_GET['id']) {
     $pID = $_GET['id'];
     
     if($_POST['add']) {
@@ -18,12 +18,13 @@ if($_GET['id'])  {
         mysql_query($ins, $conn) or die(mysql_error());
     }
     else if($_POST['update']) {
-        $dbOptions = array(
+    	
+		$dbOptions = array(
         'tableName' => 'downloads',
         'dbFields' => array(
             'name' => $_POST['name'],
             'url' => $_POST['url']),
-        'cond' => 'where id="'.$_POST['id'].'"'
+        'cond' => 'where id="'.$_POST['downloadID'].'"'
         );
         
         dbUpdate($dbOptions);
