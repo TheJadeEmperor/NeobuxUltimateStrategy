@@ -7,20 +7,23 @@ function popUpWindow($dir) {
 	setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:525,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
 }
 
+
+//blog options
+$popUp = 1;
+$useHTMLFile = true; 
+$imgBlog = $imgDir = $dir.'images/guide/';  
+$X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
+
 $url = $_GET['p']; 
 $websiteURL = $val['websiteURL']; 
 $postLink = $websiteURL.'/'.$url;
 
-//blog options
-$popUp = 1;
-$imgBlog = $imgDir = $dir.'images/guide/';  
-$X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
-$useHTMLFile = true; 
+//referral links from links database
+$csReferralLink = $context['links']['clixsenseReferralLink']; 
+$clixsenseBannerImg = $context['links']['clixsenseBannerImg']; 
 
-$referralLink = 'https://www.clixsense.com/?3373459&blog'; 
 $redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
-$subscrLandingURL = $redirLink.'clixsense'; 
-$confirmLandingURL = $redirLink.'clixsense'; 
+$subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense'; 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -140,8 +143,7 @@ $confirmLandingURL = $redirLink.'clixsense';
 		<header id="header" class="alt">
 			<span class="logo"><img src="include/blog/images/logo.svg" alt="" /></span>
 			<h1>Neobux Ultimate Strategy 3.0</h1>
-			<p>The ultimate strategy to make money from Neobux and PTC sites<br />
-				Contact us at our <a href="mailto:<?=$supportEmail?>">support email address</a>
+			<p>The ultimate strategy to make money from Neobux and PTC sites<br />Contact us at our <a href="mailto:<?=$supportEmail?>">support email address</a>
 			</p>
 		</header>
 

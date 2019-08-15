@@ -2,7 +2,7 @@
 
 switch($_GET['url']) {
 	case 'clixsense':
-		$url = 'http://www.clixsense.com/?3373459';
+		$url = 'https://www.ysense.com/?rb=59699205';
 		break;
 	case 'nus':
 		$url = 'http://neobuxultimatestrategy.com/';
