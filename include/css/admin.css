@@ -139,6 +139,10 @@ a:hover  {
 	text-decoration: underline;	
 }
 
+.moduleBlue th a {
+	color: #FFFFFF;
+}
+
 .moduleBlue {
 	border: 1px solid #AF89E8; 
 }

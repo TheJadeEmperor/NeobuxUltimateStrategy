@@ -155,6 +155,7 @@ while($p = mysql_fetch_assoc($resP)) {
                             <li><a href="<?=$adir?>pages/memberArea.php">Members Area</a></li>
                             <li><a href="<?=$adir?>pages/sitePages.php">Site Pages</a></li>
                             <li><a href="<?=$adir?>pages/pageviews.php">Pageviews</a></li>
+							<li><a href="<?=$adir?>links.php">Links</a></li>
 							
 							<li class="divider"></li>
 							
