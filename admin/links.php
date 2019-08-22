@@ -53,9 +53,15 @@ $resL = mysql_query($selL, $conn) or die(mysql_error());
 
 while($l = mysql_fetch_assoc($resL)) {
     $id = $l['id'];
+	$thisURL = $l['url'];
+	$name = $l['name'];
+	
+	$redirectURL = $websiteURL.'/redirect.php?url='.$name;
     
-    $linkList .= '<tr><td><a href="?id='.$id.'">'.$l['name'].'</a></td>
-    <td><a href="'.$l['url'].'" target=_blank>'.shortenText($l['url'], 40).'</a></td></tr>';
+    $linkList .= '<tr><td><a href="?id='.$id.'">'.$name.'</a></td>
+    <td><a href="'.$thisURL.'" target="_BLANK">'.shortenText($thisURL, 40).'</a></td>
+	<td><a href="'.$redirectURL.'" target="_BLANK">'.shortenText($redirectURL, 40).'</a></td>
+	</tr>';
     
     if($_GET['id'] == $id) {
         $u = $l;
@@ -103,8 +109,9 @@ else {
 
 <table class="moduleBlue">
     <tr><th><a href="links.php">Name</a></th>
-	<th><a href="links.php">URL</a></th></tr>
-<?=$linkList?>
+	<th><a href="links.php">URL</a></th>
+	<th><a href="links.php">Redirect URL</a></th></tr>
+	<?=$linkList?>
 </table>
 
 <?
