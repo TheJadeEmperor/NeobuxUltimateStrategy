@@ -14,7 +14,8 @@ if($_POST['add']) {
         'tableName' => 'links',
         'dbFields' => array(
             'name' => $_POST['name'],
-            'url' => $_POST['url'] 
+            'url' => $_POST['url'],
+			'notes' => $_POST['notes'],
             )
         );
 		
@@ -29,6 +30,7 @@ else if($_POST['upd']) {
     'dbFields' => array(
         'name' => $_POST['name'],
         'url' => $_POST['url'],
+		'notes' => $_POST['notes'],
         ),
     'cond' => 'where id="'.$_GET['id'].'"'
     );    
@@ -82,6 +84,10 @@ else {
 		<td><textarea class="activeField" name="url" cols="60" rows="2"><?=$u['url']?></textarea></td>
 	</tr>	
 	<tr>
+		<td>Notes</td>
+		<td><textarea class="activeField" name="notes" cols="60" rows="3"><?=$u['notes']?></textarea></td>
+	</tr>
+	<tr>
 		<td colspan="2" align="center">
 			<input type="submit" name="add" value=" Add " <?=$disAdd?> class="btn btn-success" />
 			<input type="submit" name="upd" value=" Update " <?=$disUpd?> class="btn btn-warning" />
@@ -102,4 +108,4 @@ else {
 </table>
 
 <?
-include('adminFooter.php');  ?>
+include('adminFooter.php'); ?>

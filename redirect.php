@@ -1,23 +1,23 @@
 <?php
+include($dir.'include/functions.php');
+include($dir.'include/mysql.php');
+include($dir.'include/config.php');
+include($dir.'include/spmSettings.php'); 
 
-switch($_GET['url']) {
-	case 'clixsense':
-		$url = 'https://www.ysense.com/?rb=59699205';
-		break;
-	case 'nus':
-		$url = 'http://neobuxultimatestrategy.com/';
-		break;
-	case 'basics':
-	default:
-		$url = 'http://neobuxultimatestrategy.com/basics';
-		break;
+$url = $_GET['url'];
+
+$urlRedirect = $context['links'][$url];
+
+if(empty($urlRedirect)) {
+	$urlRedirect = 'http://neobuxultimatestrategy.com/basics';
 }
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content="5;url=<?=$url?>">
+<meta http-equiv="refresh" content="5;url=<?=$urlRedirect?>">
 <style>
 body {
     font-family: verdana;
@@ -37,7 +37,7 @@ body {
         <td align="center">
 			<p>Thank you for subscribing to our newsletters</p>
 			<p>Remember to check your inbox for a confirmation email</p>
-			<p><b>** Now Redirecting You to "<?=$url?>" **</b></p>
+			<p><b>** Now Redirecting You to "<?=$urlRedirect?>" **</b></p>
 			
 			<p>Please wait...</p>
 	

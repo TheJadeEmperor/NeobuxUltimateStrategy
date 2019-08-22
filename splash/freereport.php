@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('America/New_York'); 
 $imgDir = 'images/splash/';
-$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=clixsense';
+$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=ysense';
 
 if($_GET['e']) { //email address passed in url
     $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET['e'].'" class="textField">';
