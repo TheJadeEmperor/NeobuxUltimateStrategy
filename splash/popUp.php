@@ -20,9 +20,7 @@ $confirmLandingURL = $redirLink.'basics';
             <td>
 			
 				<iframe width="480" height="315" src="https://www.youtube.com/embed/sHTRZ82K89E?rel=0;&autoplay=1&mute=1&loop=1&playlist=sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			
-				<!--<iframe width="480" height="315" src="https://www.youtube.com/embed/sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-
+				
 		   </td>
 		   <td width="15px"></td>
            <td align="center">

@@ -254,14 +254,14 @@ function ExitPage()
 	<?=$subscribeButton?>
     </div>
     
-    <input type=hidden class="input" id="da_name" name="da_name" value="PTC User">
-    <input type=hidden name="da_cust1" value="<?=$page?>" />
-    <input type=hidden name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
-    <input type=hidden name="da_cust3" value="<?=$_GET['campaign']?>" />
-    <input type=hidden name="trwvid" value="theemperor">
-    <input type=hidden name="series" value="nusnewsletter">
-    <input type=hidden name="subscrLandingURL" value="<?=$landingURL?>">
-    <input type=hidden name="confirmLandingURL" value="<?=$landingURL?>">
+    <input type="hidden" class="input" id="da_name" name="da_name" value="PTC User">
+    <input type="hidden" name="da_cust1" value="<?=$page?>" />
+    <input type="hidden" name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
+    <input type="hidden" name="da_cust3" value="<?=$_GET['campaign']?>" />
+    <input type="hidden" name="trwvid" value="theemperor">
+    <input type="hidden" name="series" value="nusnewsletter">
+    <input type="hidden" name="subscrLandingURL" value="<?=$landingURL?>">
+    <input type="hidden" name="confirmLandingURL" value="<?=$landingURL?>">
     </form>
 </div><!-- form -->
 
@@ -277,7 +277,14 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 <div id="contentWrap">
 <div id="contentTop"></div>
 <div id="content">
-<h1>Don't Close the Window!</h1>
+
+	<p>&nbsp;</p>
+	<center>
+		<iframe width="480" height="315" src="https://www.youtube.com/embed/L_YO4c3AzFw?rel=0;&autoplay=1&mute=1&loop=1&playlist=sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>				
+	</center>
+	<p>&nbsp;</p>
+
+<!--<h1>Don't Close the Window!</h1>
 <h3 class="red">See what some people are saying <br />about the PTC Newsletters</h3>
 
 <table>
@@ -295,7 +302,8 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 </table>
 
 <h4>Your fellow Neobux users have already stated they got a lot of value out of it. <br />
-    Scroll up and sign up to the newsletter and get your free ebook now!</h4>
+    Scroll up and sign up to the newsletter and get your free ebook now!</h4>-->
+	
 </div>
 <div id="contentBtm"></div>
 </div>
