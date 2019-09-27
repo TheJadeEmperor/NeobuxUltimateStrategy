@@ -280,7 +280,7 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 
 	<p>&nbsp;</p>
 	<center>
-		<iframe width="480" height="315" src="https://www.youtube.com/embed/L_YO4c3AzFw?rel=0;&autoplay=1&mute=1&loop=1&playlist=sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>				
+		<iframe width="480" height="315" src="https://www.youtube.com/embed/L_YO4c3AzFw?rel=0;&mute=1&loop=1&playlist=sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>				
 	</center>
 	<p>&nbsp;</p>
 
