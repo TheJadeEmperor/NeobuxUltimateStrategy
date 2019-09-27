@@ -53,14 +53,15 @@ if(mysql_num_rows($res) > 0) {
 	
     <p>&nbsp;</p>'; 
 
-
     if($p['useHTMLFile'] == 'on') {
 		
-		if(!empty($p['HTMLFileName'])){
+		//use file name in settings
+		if(!empty($p['HTMLFileName'])) {
 			include('blog/'.$p['HTMLFileName']);
 		}
-		else
+		else { //use URL as file name
 			include('blog/'.$url.'.html');
+		}
     }
     else {
         echo $p['post']; 
