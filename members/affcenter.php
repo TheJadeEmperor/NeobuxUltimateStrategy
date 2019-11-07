@@ -72,9 +72,10 @@ while($p = mysql_fetch_assoc($resP)) {
         }
     }
 
-    echo '<div class="moduleBlue"><h1>'.$p[itemName].'</h1><div>
-    '.$downloadContent .'
-    </div></div> <br />'; 
+    echo '<div class="moduleGradient"><h1>'.$p['itemName'].'</h1>
+	<div>
+    '.$downloadContent.'
+    </div></div><br />'; 
 }
 
 

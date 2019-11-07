@@ -1,0 +1,68 @@
+body {
+/*    background: url(https://www.neobux.com/imagens/bg.png); */
+    margin: 0;
+	background-color: #000;
+}
+
+#content {
+	width: 75%;
+    padding: 10px 20px;
+    -webkit-box-shadow: 0 0 5px 20px #fff;
+    -moz-box-shadow: 0 0 5px 20px #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 1px;
+    margin: 27px auto;
+    box-shadow: 0 0 5px 20px #fff;
+    background: #fff; 
+}
+
+
+@media (min-width: 1000px) {
+	#content {
+		width: 70%;	
+	}
+}
+
+
+.moduleGradient {
+    border: solid 1px #531d2a;
+    margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: left;
+    background: #EEEEEE;
+	width: 90%;
+}
+
+.moduleGradient h1 {
+    margin-top: 0px;
+	background: linear-gradient(to right,rgb(45,202,56) 0%,rgb(2,177,253) 75%,rgb(2,177,253) 100%);
+	padding: 10px;
+	color: #FFFFFF;
+	font-size: 16px;
+}
+
+.moduleGradient div {
+    padding: 15px 15px;
+}
+
+hr {
+	background: linear-gradient(to right,rgb(45,202,56) 0%,rgb(2,177,253) 75%,rgb(2,177,253) 100%);
+	
+}
+
+
+@media (max-width: 767px) {
+	#content {
+		width: 90%;	
+	}
+}
+
+
+@media (max-width: 420px) {
+	#content {
+		width: 99%;	
+	}
+}
+

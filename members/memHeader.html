@@ -13,6 +13,10 @@ $memberDir = $dir.'members/images/';
 <title><?=$businessName?> Members Area</title>
 <meta name="description" content="<?=$description?>" />
 <meta name="keywords" content="<?=$keywords?>" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="<?=$dir?>include/css/members.css" />
+
+
 <style type="text/css">
 p, li {
     font-size: 18px; 
@@ -205,28 +209,15 @@ text .activeField{
     padding: 5px 10px;
 }
 
+
+
+
 #language{
     margin: 0px 0px 20px 0px; 
 }
 
-body {
-    background-color: #000;
-    margin: 0;
-}
 
-#content {
-    width: 800px;
-    padding: 10px 20px;
-    -webkit-box-shadow: 0 0 5px 20px #fff;
-    -moz-box-shadow: 0 0 5px 20px #fff;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -khtml-border-radius: 5px;
-    border-radius: 1px;
-    margin: 27px auto;
-    box-shadow: 0 0 5px 20px #fff;
-    background: #fff; 
-}
+
 
 .bonusBox {
     border: 1px solid gray;
@@ -265,8 +256,7 @@ button {
 #menuContainer {
     text-align: center;
     top: 0;
-    width: 100%;
-/*    position: fixed; */
+/*    width: 100%;*/
     background-color: #0000A0;
     padding: 5px;
     margin: 0px; 
@@ -368,6 +358,7 @@ div#menuh li li li:hover ul,
 div#menuh li li li li:hover ul {
     display: block;
 }
+
 /* End CSS Drop Down Menu */
 #eXTReMe {
     display: none; 
