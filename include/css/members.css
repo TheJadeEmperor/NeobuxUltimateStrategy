@@ -6,7 +6,7 @@ body {
 
 #content {
 	width: 75%;
-    padding: 10px 20px;
+	padding: 10px 30px;
     -webkit-box-shadow: 0 0 5px 20px #fff;
     -moz-box-shadow: 0 0 5px 20px #fff;
     -moz-border-radius: 5px;
@@ -18,6 +18,11 @@ body {
     background: #fff; 
 }
 
+.contentWrapper {
+	width: 90%;
+	margin: 27px auto;
+}
+
 
 @media (min-width: 1000px) {
 	#content {
@@ -27,11 +32,11 @@ body {
 
 
 .moduleGradient {
-    border: solid 1px #531d2a;
-    margin: 0 auto;
-    font-family: Tahoma, Geneva, sans-serif;
-    text-align: left;
-    background: #EEEEEE;
+	border: solid 1px #531d2a;
+	margin: 0 auto;
+	font-family: Tahoma, Geneva, sans-serif;
+	text-align: left;
+	background: #EEEEEE;
 	width: 90%;
 }
 
@@ -52,6 +57,19 @@ hr {
 	
 }
 
+a {
+    text-decoration: none;
+    color: blue; 
+}
+
+a:hover {
+	border-bottom: 2px solid #EA215A;
+}
+
+#chapterTitles {
+	margin: 0 auto; 
+	width: 300px;
+}
 
 @media (max-width: 767px) {
 	#content {
