@@ -29,7 +29,7 @@ while($p = mysql_fetch_assoc($resP)) {
         Click below to download the latest version of '.$itemName.' <br />
         <center>
         <form method="POST">
-        <p><input type="submit" name="dl" value=" Download Now "></p>
+        <p><input type="submit" name="dl" class="downloadNow" value=" Download Now "></p>
         <input type="hidden" name="id" value="'.$p['id'].'">
         <input type="hidden" name="url" value="'.$p['download'].'">
         </form></center>';
@@ -53,7 +53,7 @@ while($p = mysql_fetch_assoc($resP)) {
                 $downloadContent .= '<tr>
                 <td>'.$d['name'].'</td>
                 <td>
-                    <form method="POST"><input type="submit" name="dl" value=" Download "/>
+                    <form method="POST"><input type="submit" name="dl" class="downloadNow" value=" Download "/>
                     <input type="hidden" name="url" value="'.$d['url'].'" /></form>
                 </td>';
             }    
@@ -65,7 +65,7 @@ while($p = mysql_fetch_assoc($resP)) {
             Click below to download the latest version of '.$itemName.' <br />
             <center>
             <form method="post">
-            <p><input type="submit" name="dl" value=" Download Now "></p>
+            <p><input type="submit" name="dl" class="downloadNow"  value=" Download Now "></p>
             <input type="hidden" name="id" value="'.$p['id'].'">
             <input type="hidden" name="url" value="'.$p['download'].'">
             </form></center>';
