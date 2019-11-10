@@ -169,7 +169,7 @@ to make your link look prettier. </p>
 
 http://www.tinyurl.com/subscribe-ptc-newsletter</p>
 
-<p>Once you have this new URL, save it with your other URLs. Then you can put this link in traffic exchanges, DownlineRefs, and everywhere else you do your promotions. </p>
+<p>Once you have this new URL, save it with your other URLs. Then you can put this link in traffic exchanges, referral exchanges and everywhere else you do your promotions. </p>
 
 <p><b>AutoReply Messages</b></p>
 

@@ -56,7 +56,7 @@ of your success. Direct referrals tend to be more reliable than rented referrals
 sites that he wants referrals for. The list is neat and organized and easy to read. </p>
 
 <p>Here's some general rules for posting: 
-<ul>
+<ul class="neobux">
     <li>Use a compelling subject line -- making it eye catching and unique from all the other posts. </li>
 
     <li>Be brief and straight to the point. State that your intention is to be active in any site you join. List all your sites one by one.</li>

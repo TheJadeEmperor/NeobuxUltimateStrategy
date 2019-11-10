@@ -1,6 +1,6 @@
 <h1>Content is Locked </h1>
 
-<hr color="#25569a" size="4" />
+<hr />
 
 <p>&nbsp;</p>
 

@@ -1,6 +1,7 @@
 
 <h1>Chapter 6: PTC Mini-Sites</h1>
-<hr color="#25569a" size="4" />
+<hr />
+<br /> 
 
 <p>The downside is that the average person, who has little HTML knowledge, will not be able to produce such a mini-site. There is still an answer for them, though. They can create a blogger site for free and never pay a dime. While still useful, blogs offer very little control over the layout and the content of the site, as well as dealing with messy editors. And most importantly, they will not give you exactly what you want.</p>
 
@@ -34,7 +35,8 @@
 <p>&nbsp;</p>
 
 <h1>Chapter 7: Conclusion</h1>
-<hr color="#25569a" size="4" />
+<hr />
+<br />
 
 <p>&nbsp;</p>
 
@@ -42,8 +44,7 @@
 
 <p>Tying it all together, you need to build a list and advertise to your list. First, join TrafficWave and get a 30-day free trial. Then make a campaign and write some newsletters. After that, you need to make a capture page. Once that is done, test your capture page and newsletters. </p>
 
-<p>Then you can begin advertising your capture page, and only your capture page, nothing else. Promote it using EasyHits4U and DownlineRefs. And make sure you use your list to get referrals into EasyHits4U and DownlineRefs to get tons of free credits. Those credits can be used to advertise your capture page. 
-</p>
+<p>Then you can begin advertising your capture page, and only your capture page, nothing else. Promote it using EasyHits4U and referral exchanges. And make sure you use your list to get referrals into EasyHits4U and referral exchanges to get tons of free credits. Those credits can be used to advertise your capture page. </p>
 
 <p>We have mentioned many ways to get direct referrals, some free, some expensive. We will list them here for your reference. </p>
 
@@ -66,7 +67,7 @@
 <p>When you first join a new PTC, get as many direct referrals as you can by promoting it within your list. Once you do that you will be earning $$$ from them everyday. Then use that money to rent referrals and renew referrals. In addition to gaining tons of direct referrals and management of rented referrals, you need daily action in order to profit from the referrals’ clicks. As mentioned earlier, you need to commit to clicking everyday, otherwise you are going to lose money.</p>
 
 <p>Also, please keep in mind the following: 
-<ul>
+<ul class="neobux">
 	<li>Your strategy must include both direct referrals and rented referrals </li>
  	<li>If you have a lot of referrals, you should click everyday</li>
  	<li>Do NOT spend money you cannot afford to lose </li>
@@ -80,4 +81,6 @@
 <p>Good luck and happy earnings! </p>
 
 <p>Sincerely, </p>
-<p>Benjamin Louie<br />Neobux Ultimate Strategy</p>
+<p>Benjamin Louie<br />Neobux Ultimate Strategy<br />
+<a href="mailto:<?=$adminEmail ?>"><?=$adminEmail ?></a>
+</p>

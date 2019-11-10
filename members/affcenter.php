@@ -88,7 +88,8 @@ if(mysql_num_rows($resS) == 0) { // not a customer
 }
 
 ?>
-<div class="contentWrapper">
+
+
 <h1>Members Home</h1>
 <hr color="#25569a" size="4" />
 
@@ -159,8 +160,7 @@ else {
 	}
 }
 ?>
-</div>
+
  
 <p>&nbsp;</p>
-
 <p>&nbsp;</p>

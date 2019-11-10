@@ -81,8 +81,8 @@ if($_POST['skipUpsell']) {
     $_SESSION['login']['skipUpsell'] = true;
 }
 
-if(isset($u['id'])) //logged in
-{	
+if(isset($u['id'])) {	//logged in
+
     switch($_GET['action']) {
         //==========================
         case 'download-bonus':
@@ -114,14 +114,10 @@ if(isset($u['id'])) //logged in
         case 'details': //update profile details 
             $fileName = 'details.php';
             $affmenu = true;
-            break;
-        case 'tools':   //affiliate tools 
-            $fileName = 'afftools.php';
-            $affmenu = true;
-            break;
-        case 'sale':    //transaction details
-            $fileName = 'salesDetail.php';
-            $affmenu = true; 
+            break; 
+        case 'comingSoon': //coming soon page
+			$fileName = 'content/comingSoon.php';
+			$affmenu = true;
             break;
         case 'logout':
             $fileName = 'logout.html';

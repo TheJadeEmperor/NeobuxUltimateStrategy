@@ -3,6 +3,8 @@ $fileName = 'affcenter.php';
 $fileDir = 'content/';
 $action = $_GET['action'];
 
+$numDays = 0;
+
 switch($action) {
     case 'download-bonus':
         $fileName = 'content/bonus.php';
