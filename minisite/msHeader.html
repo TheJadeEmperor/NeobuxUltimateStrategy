@@ -1,5 +1,5 @@
 <?
-$url = $_SERVER[PHP_SELF];
+$url = $_SERVER['PHP_SELF'];
 $url = str_replace('/', '%2F', $url);
 
 $msDir = $dir.'images/ms/';
@@ -11,7 +11,7 @@ $imgDir = $dir.'images/sales/';
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?=$itemName?> | How to Make A PTC Website</title>
 <style type="text/css">
-<!--
+
 p, li {
 	font-family: Georgia;
 	font-size: 18px;
@@ -166,8 +166,28 @@ img {
     display:block;
     text-align: center; 
 }
--->
+.cover {
+    border: 2px dashed black; 
+    background-color: #0099FF;
+    color: #FFF;
+    width: 600px; 
+}
+
+.cover h2 {
+    font-size: 26px;
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cover p {
+    color: #FFF;
+    text-align: left;
+}
 </style>
+
+
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>

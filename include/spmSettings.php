@@ -1,7 +1,7 @@
 <?php
 global $context; 
 
-$selS = 'select * from settings order by opt';
+$selS = 'SELECT * FROM settings ORDER BY opt';
 $resS = mysql_query($selS, $conn) or die(mysql_error());
 
 while($s = mysql_fetch_assoc($resS)) {
@@ -9,7 +9,7 @@ while($s = mysql_fetch_assoc($resS)) {
     $val[$s['opt']] = $s['setting'];     
 }
 
-$selL = 'select * from links order by name';
+$selL = 'SELECT * FROM links ORDER BY name';
 $resL = mysql_query($selL, $conn) or die(mysql_error());
 
 while($l = mysql_fetch_assoc($resL)) {
@@ -43,15 +43,17 @@ $businessName = $val['businessName'];
 
 $ipnURL = $val['ipnURL'];
 
-//affiliate registration
-$affLink = $websiteURL.'/members/?action=register';
 
 //members area
 $affLogin = $websiteURL.'/members/';
 
+//is paypal enabled? If not show backup payment option
+///////////////////
+$paypalEnabled = 0;
+///////////////////
 
-//weekly backups
-//backup options
+
+//weekly backups of database
 $dayOfWeek = '0'; //day of week to backup 
 $backupDir = '.backup';
 $backupFile = date('Y-m-d', time()).'.sql';
