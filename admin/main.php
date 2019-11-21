@@ -8,7 +8,9 @@ $dbFields = array(
 	'smtpPass' => $_POST['smtpPass'],
 	'adminEmail' => $_POST['adminEmail'],
 	'adminFrom' => $_POST['adminFrom'], 
-	'paypalEmail' => $_POST['paypalEmail'], 
+	'paypalEmail' => $_POST['paypalEmail'],
+	'paypalOrderLink' => $_POST['paypalOrderLink'], 
+	'usePaypalOrderLink' => $_POST['usePaypalOrderLink'], 
 	'websiteURL' => $_POST['websiteURL'], 
 	'websiteName' => $_POST['websiteName'], 
 	'businessName' => $_POST['businessName']
@@ -114,6 +116,37 @@ $properties = 'class="activeField" size="40"';
 	        	<div title="header=[Paypal Email Account] body=[Very important! This is where you will be receiving payments, make sure this is correct]">
 	        		<img src="<?=$helpImg?>" />
 	        		<input <?=$properties?> name="paypalEmail" value="<?=$val['paypalEmail']?>">
+	    	</td>
+	    </tr>
+	    <tr>
+	        <td> Paypal Order Link: </td>
+	        <td>
+	        	<div title="header=[Paypal Email Account] body=[Very important! This is where you will be receiving payments, make sure this is correct]">
+	        		<img src="<?=$helpImg?>" />
+	        		<input <?=$properties?> name="paypalOrderLink" value="<?=$val['paypalOrderLink']?>">
+	    	</td>
+	    </tr>
+	    <tr>
+	        <td> Use Paypal Order Link: </td>
+	        <td>
+				<?
+				$select[ $val['usePaypalOrderLink'] ] = 'selected';
+				
+				$allOptions = array(
+					'1' => 'Yes', 
+					'0' => 'No');
+				
+				foreach ($allOptions as $thisVal => $thisOpt) {
+					$displayOptions .= '<option value="'.$thisVal.'" '.$select[$thisVal].'>'.$thisOpt.'</option>';
+				}
+				?>
+							
+	        	<div title="header=[Use Paypal Order Link?] body=[If this is turned off, you need to set the order links for all products]">
+	        		<img src="<?=$helpImg?>" />
+	        		
+					<select name="usePaypalOrderLink">
+						 <?=$displayOptions?>
+					</select>
 	    	</td>
 	    </tr>
 	    </table>

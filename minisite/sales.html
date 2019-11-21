@@ -403,7 +403,7 @@ to you as a customer the Neobux Ultimate Strategy. </p>
             <td>		
             <p class="note">Yes, I understand that by ordering this product, I also get the classic Neobux Ultimate Strategy guide absolutely free!</p></td>
         </tr>
-         <tr>
+        <tr>
             <td><input type="checkbox" checked></td>
             <td>		
             <p class="note">Yes, I understand that I also get access to the NUS Video Course, absolutely free just for being a customer!</p></td>
@@ -413,10 +413,10 @@ to you as a customer the Neobux Ultimate Strategy. </p>
     <br />
 	
 	<?
-	$btcLink = 'mailto:'.$adminEmail.'?subject=I want to buy the PTC-MS with Bitcoins&body=I want to purchase the PTC Mini-Sites, please give me your Bitcoin address.'; 
-	$btcText = 'Contact us for instructions on paying with Bitcoin';
+	$btcLink = 'https://shoppy.gg/product/dsxWYiw';
+	$btcText = 'Pay through Bitcoins';
 	
-	if(false) {
+	if($usePaypalOrderLink) {
 		$orderLink = '?action=order';
 		$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
 	}
@@ -424,7 +424,6 @@ to you as a customer the Neobux Ultimate Strategy. </p>
 		$orderLink = $btcLink;
 		$orderText = $btcText;
 	}
-	
 	?>
 	
 	<center>

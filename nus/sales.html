@@ -656,11 +656,12 @@ building strategies. You're paying once and receiving forever - another reason t
 
         <h2>Get Your Copy Now For Only <big>$<?=$itemPrice?></h2></big>
 		
+		<div onclick="NoExitPage=true;">
 		<?
-		$btcLink = 'mailto:'.$adminEmail.'?subject=I want to buy the NUS with Bitcoins&body=I want to purchase the Neobux Ultimate Strategy, please give me your Bitcoin address.'; 
+		$btcLink = 'https://shoppy.gg/product/flVQQBP'; 
 		$btcText = 'Contact us for instructions on paying with Bitcoin';
 		
-		if($paypalEnabled) {
+		if($usePaypalOrderLink) {
 			$orderLink = '?action=order';
 			$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
 		}
@@ -676,6 +677,7 @@ building strategies. You're paying once and receiving forever - another reason t
 
 			<i><font size="2" color="grey"><?=$orderText?></font></i>	
 		</center>
+		</div>
     </td>
 </tr>
 </table>
@@ -686,7 +688,7 @@ building strategies. You're paying once and receiving forever - another reason t
 
 <?
 
-echo '<center><a href="'.$btcLink.'">
+echo '<center onclick="NoExitPage=true;"><a href="'.$btcLink.'">
 	<img src="https://bitpay.com/img/button-large.png" border="0" name="submit" /></a>
 	<br />
 	<i><font size="2" color="grey">'.$btcText.'</font></i>	
