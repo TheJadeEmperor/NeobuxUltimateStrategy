@@ -71,23 +71,25 @@ include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 
-$selP = 'select * from products where folder="'.$path.'"';
+$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
 $resP = mysql_query($selP, $conn) or die(mysql_error());
 
 if($p = mysql_fetch_assoc($resP)) {
     //product vars
-    $productID = $p['id'];
+	$productID = $p['id'];
     $itemName = $p['itemName'];
     $itemPrice = $p['itemPrice'];
     $itemNumber = $p['itemNumber'];
     $keywords = $p['keywords'];
     $description = $p['description']; 
-    
+	$productOrderLink = $p['productOrderLink']; 
+ 	$productOrderText = $p['productOrderText'];
+	
     //download vars
     $expires = $p['expires'];
     $oto = $p['oto']; 
     $otoName = $p['otoName'];
-    $otoPrice = $p['otoPrice'];
+	$otoPrice = $p['otoPrice'];
     $otoNumber = $p['otoNumber'];
     $download = $p['download']; 
     $upsellID = $p['upsellID'];
@@ -102,29 +104,29 @@ if($p = mysql_fetch_assoc($resP)) {
     $salespage = $p['salespage']; 
     
     //paypal vars 
-    $ipnURL = $val[websiteURL].'/ipn.php';
-    $cancelURL = $val[websiteURL];
+    $ipnURL = $val['websiteURL'].'/ipn.php';
+    $cancelURL = $val['websiteURL'];
    
     if($oto == 'Y') { //one time offer
     
-        $selO = 'select * from products where id="'.$upsellID.'"';
+        $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
         $resO = mysql_query($selO, $conn) or die(mysql_error());
         $o = mysql_fetch_assoc($resO);
         
-        if($p[otoName])
-            $otoName = $p[otoName];
+        if($p['otoName'])
+            $otoName = $p['otoName'];
         else
-            $otoName = $o[itemName];
+            $otoName = $o['itemName'];
         
-        if($p[otoPrice]) 
-            $otoPrice = $p[otoPrice];
+        if($p['otoPrice']) 
+            $otoPrice = $p['otoPrice'];
         else
-            $otoPrice = $o[itemPrice];
+            $otoPrice = $o['itemPrice'];
         
-        if($p[otoNumber])
-            $otoNumber = $p[otoNumber];
+        if($p['otoNumber'])
+            $otoNumber = $p['otoNumber'];
         else
-            $otoNumber = $o[itemNumber]; 
+            $otoNumber = $o['itemNumber']; 
     }
 }
 
@@ -172,7 +174,7 @@ switch($action) {
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
         $meta = postMetaTags($_GET['p']);     
-    break;  
+    break;
 default:
     $keywords = $p['keywords'];
     $description = $p['description']; 
@@ -190,7 +192,7 @@ default:
     }    
     
     //custom site pages 
-    $selM = 'select * from memberpages order by url';
+    $selM = 'SELECT * FROM memberpages ORDER BY url';
     $resM = mysql_query($selM, $conn) or die(mysql_error());
     
     while($m = mysql_fetch_assoc($resM)) {
@@ -220,7 +222,7 @@ if($pageView) {
     else { //unique views
         $upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
         $res = mysql_query($upd) or die(mysql_error());      
-    }
+    } 
     setcookie('lastView', date('m/d/Y', time()));
 }
 

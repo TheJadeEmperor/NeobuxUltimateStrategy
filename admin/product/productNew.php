@@ -49,7 +49,9 @@ $dbFields = array(
 	'otoPrice' => $_POST['otoPrice'], 
 	'header' => $_POST['header'], 
 	'footer' => $_POST['footer'],
-	'salespage' => $_POST['salespage']
+	'salespage' => $_POST['salespage'],
+	'productOrderLink' => $_POST['productOrderLink'],
+	'productOrderText' => $_POST['productOrderText']
 	);
 
 $opt = array(
@@ -192,7 +194,7 @@ else {
 		<td>Item #</td>
 		<td>       
 		    <div title="header=[Item number] body=[Optional, item # is for tracking purposes] "><img src="<?=$helpImg?>" />
-		        <input class="activeField" name="itemNumber" value="<?=$p[itemNumber]?>">
+		        <input class="activeField" name="itemNumber" value="<?=$p['itemNumber']?>">
 		    </div>
 	    </td>
 	</tr>
@@ -201,7 +203,7 @@ else {
 		<td>
 	        <div title="header=[Product Folder] body=[Folder where product files are located in the website server, no slashes <br />If the folder is www.website.com/product1 <br /> Put in product1]"><img src="<?=$helpImg?>" />
 	            <input class="activeField" name="folder" value="<?=$p['folder']?>">
-	            <a href="../../<?=$p['folder']?>" target="_blank">Visit Link</a>
+	            <a href="../../<?=$p['folder']?>" target="_BLANK">Visit Link</a>
 	        </div>        
 	    </td>
 	</tr>
@@ -224,6 +226,28 @@ else {
 	    	</div>
 	    </td>
 	</tr>
+	
+	<tr valign="top">
+		<td>Product Order Link</td>
+		<td>
+	        <div class=".left" title="header=Order link for product] body=[This is used in place of the default Paypal link]"><img src="<?=$helpImg?>" />
+		    
+			<input class="activeField" name="productOrderLink" value="<?=$p['productOrderLink']?>" size="40" />
+	    	</div>
+	    </td>
+	</tr>
+	
+	<tr valign="top">
+		<td>Product Order Text</td>
+		<td>
+	        <div class=".left" title="header=Product order text] body=[What text to show with the order link]"><img src="<?=$helpImg?>" />
+		    
+			<input class="activeField" name="productOrderText" value="<?=$p['productOrderText']?>" size="40" />
+	    	</div>
+	    </td>
+	</tr>
+	
+	
 	<tr valign="top">
 		<td>SEO Keywords</td>
 		<td>
