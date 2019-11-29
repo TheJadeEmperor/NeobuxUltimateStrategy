@@ -1,28 +1,33 @@
-
 <center>
 
-<img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border=0><br>
-<img border="0" src="<?=$dir?>images/transition.gif" width="186" height="42"><br><br>
+<img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border="0"><br />
+<img border="0" src="<?=$dir?>images/transition.gif" width="186" height="42"><br /><br />
 
-<table width=420px cellpadding=5 style="border: 1px solid black; font-size: 12px;">
-<tr><td align="center">
-	<font face=verdana>
-	<b>** FOR YOUR PROTECTION **</b><br />
-	You are being transferred to our <img src="<?=$dir?>images/lock.png" border="0" alt="paypal">
-	<b>SECURE PAYMENT PAGE</b>
-	<br><br>
-	<b>** IMPORTANT ** </b><br>
-	Remember to click <b>RETURN TO MERCHANT</b> after checkout to receive your 
-	download. </font>
-</td></tr>
+<table width="420px" cellpadding="5" style="border: 1px solid black; font-size: 12px;">
+<tr>
+	<td align="center">
+		<font face="verdana">
+		<b>** FOR YOUR PROTECTION **</b><br />
+	
+		You are being transferred to our <img src="<?=$dir?>images/splash/lock.png" border="0" alt="paypal">
+		<b>SECURE PAYMENT PAGE</b>
+		<br /><br />
+		
+		<b>** IMPORTANT ** </b><br />
+		Remember to click <b>RETURN TO MERCHANT</b> after checkout to receive your 
+		download. </font>
+	</td>
+</tr>
 </table>
 
 <p>&nbsp;</p>
 
-<table width=420px cellpadding=5 style='border: 1px solid black; font-size: 12px;'>
-<tr><td align="center">
-	<font face=verdana><b>** DOWNLOAD EMAIL **</b><br>Look for your download email in your inbox.</font>
-</td></tr>
+<table width="420px" cellpadding="5" style="border: 1px solid black; font-size: 12px;">
+<tr>
+	<td align="center">
+		<font face="verdana"><b>** DOWNLOAD EMAIL **</b><br />Look for your download email in your inbox.</font>
+	</td>
+</tr>
 </table>
 </center>
 
@@ -30,14 +35,12 @@
 
 <br /><br />
 <center>
-<div style='width: 200px; font-size: 10px; align: center;'>
-	<font face=verdana>Your sponsor is [<?=$paidToEmail?>]</font>
-</div>
-
+	<div style="width: 200px; font-size: 10px; align: center;">
+		<font face=verdana>Your sponsor is [<?=$paidToEmail?>]</font>
+	</div>
 </center>
 <?
-if($_GET['pay'] == 'M')
-{
+if($_GET['pay'] == 'M') {
 ?>	
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paymentform">
 	<input type="hidden" name="cmd" value="_xclick-subscriptions">
@@ -58,12 +61,7 @@ if($_GET['pay'] == 'M')
 		
 	<!--	Paypal Payment Page variables	-->
 	<input type="hidden" name="cbt" value="Click Here to Download <?=$itemName?>">
-<!--<input type="hidden" name="cpp_header_image" value="https://www.e-junkie.com/sslpic/7891.b4238789d412bd1a03f0818bf4fedcad.jpg">
-	<input type="hidden" name="cpp_headerborder_color" value="000000">
-	<input type="hidden" name="cpp_headerback_color" value="000000">
-	<input type="hidden" name="cpp_payflow_color" value="000000">
-	<input type="hidden" name="image_url" value="">-->
-
+	
 	<!-- Subscription variables -->
 	<input type="hidden" name="a3" value="<?=$itemPrice?>">
 	<input type="hidden" name="p3" value="1">
@@ -79,8 +77,7 @@ if($_GET['pay'] == 'M')
 	</form>
 <?
 }
-else
-{
+else {
 ?>
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paymentform">
 	<input type="hidden" name="cmd" value="_xclick">
@@ -98,13 +95,6 @@ else
 	<input type="hidden" name="notify_url" value="<?=$ipnURL?>">
 	<input type="hidden" name="return" value="<?=$ipnURL?>">
 	<input type="hidden" name="cancel_return" value="<?=$cancelURL?>">
-
-	<!--	Paypal Payment Page variables	-->
-	<input type="hidden" name="cbt" value="Click Here to Download <?=$itemName?>">
-	<input type="hidden" name="cpp_header_image" value="https://www.e-junkie.com/sslpic/7891.b4238789d412bd1a03f0818bf4fedcad.jpg">
-	<input type="hidden" name="cpp_headerborder_color" value="000000">
-	<input type="hidden" name="cpp_headerback_color" value="000000">
-	<input type="hidden" name="cpp_payflow_color" value="000000">
 
 	<!--	Paypal Custom Field		-->
 	<input type="hidden" name="custom" value="<?=$affiliateID?>">

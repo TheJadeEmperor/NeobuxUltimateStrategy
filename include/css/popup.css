@@ -33,14 +33,14 @@ input.button {
     background: #fff;
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
     background: -moz-linear-gradient(top,  #fff,  #ededed);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
 }
 
 input.button:hover {
     background: #ededed;
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
     background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
-    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
 }
 
 input.button:active {
@@ -60,28 +60,28 @@ input.button:active {
 .tinner {
     padding: 10px; 
     background: #fff url(../../images/admin/loadingBox.png) no-repeat 50% 50%;  
-    border:10px solid #e3e3e3;
+    border: 10px solid #e3e3e3;
 }
 
 .tmask {
     position: absolute; 
-    display:none; 
-    top:0px; 
-    left:0px; 
-    height:100%; 
-    width:100%; 
-    background:#000; 
-    z-index:800
+    display: none; 
+    top: 0px; 
+    left: 0px; 
+    height: 100%; 
+    width: 100%; 
+    background: #000; 
+    z-index: 800
 }
 
 .tclose  {
     position: absolute; 
-    top:0px; 
-    right:0px; 
-    width:30px; 
-    height:30px; 
-    cursor:pointer; 
-    background:url(../../images/admin/close.png) no-repeat;
+    top: 0px; 
+    right: 0px; 
+    width: 30px; 
+    height: 30px; 
+    cursor: pointer; 
+    background: url(../../images/admin/close.png) no-repeat;
 }
 
 .note {
