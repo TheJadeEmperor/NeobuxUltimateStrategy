@@ -428,6 +428,17 @@ hr {
 	color: lightgrey;
 }
 
+#galleria {
+    width: 700px;
+    height: 450px;
+}
+
+.note {
+    color:#767676;
+    font:normal 11px Arial, Helvetica, sans-serif;
+    margin:15px auto 0;
+}
+
 
 /*screen 1*/
 @media screen and (max-width:1024px) {
