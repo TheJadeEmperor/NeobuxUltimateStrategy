@@ -1,0 +1,76 @@
+<h1>Thank you for your purchase, <?=$firstName?> </h1>
+
+<p>Your payment has been successful. If you experience any problems, contact us below with your full name, and this Transaction ID: <b><?=$transID?></b></p>
+
+<p>To download your copy of <font color="#0000FF"><i>Neobux Ultimate Strategy</i></font>, click the link below: </p>
+
+<center>
+    <table title="<?=$itemName?>">
+        <tr valign="middle">
+            <td>
+                <img src="images/sales/arrowR.jpg" alt="Download">
+            </td>
+            <td>
+                <br />
+                <form method="post"><input type="image" name="download" src="images/sales/downloadNow.png" width="220px">
+                    <input type=hidden name="dl" value="DL" />
+                    <input type=hidden name="url" value="<?=$p['download']?>" />
+                </form>
+            </td>
+            <td><img src="images/sales/arrowL.jpg" alt="Download" /></td>
+        </tr>
+    </table>
+</center>
+
+<p>Don't forget that customers are entitled to <b>free</b> lifetime updates to the product, consider this thank you for trusting us and taking action. </p>
+
+<p>Now you can log into the members area at any time to access the Neobux Ultimate Strategy course and 
+    download your bonus materials. Your credentials are:</p>
+
+<p><font face="Tahoma">Username: <?=$payerEmail?><br />
+    Password: <?=$password?>
+    </font></p>
+
+<p>Members Area Link:<br />
+    <a href="<?=$websiteURL?>/members" target="_blank"><?=$websiteURL?>/members</a></p>
+
+<p>After you login, we recommend that you change your password to something easier to remember.</p>
+
+<p>Reminder: This download link expires in <?=$expires?> hours, so make sure you jot down your username and password.</p>
+
+<p>&nbsp;</p>
+
+<h3>In mean time, please check out some of our offers below...</h3>
+
+<p>&nbsp;</p>
+
+<center>
+
+
+
+	<?php
+		mysql_select_db('codegeas_cc');
+		
+		$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
+		$resA = mysql_query($selA, $conn) or die(mysql_error());
+
+		
+		if($ad = mysql_fetch_assoc($resA)) {
+			echo $ad['content'];
+		}
+	?>
+
+	
+	
+</center>
+
+<p>&nbsp;</p>
+
+<h3>One last thing...</h3>
+
+<p><font face="Verdana, Arial, Helvetica" size=3 color="#003399"><?= $itemName?></font> 
+    has a reseller program like no other!&nbsp; </font></p>
+
+<p>Please visit 
+    <a href="<?=$websiteURL?>/?action=faq#resellerLicense"><?=$websiteURL?>/?action=faq</a> for details</p>
+<p>&nbsp;</p>

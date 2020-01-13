@@ -2,7 +2,7 @@
 /*
 +---------------------------------------------------------------------
 | v2.0
-| Copyright 2012-2017 Sales Page Machine. 
+| Copyright 2012-2020 Sales Page Machine. 
 | Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
@@ -148,13 +148,6 @@ if($_POST['dl']) {
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
 
-if(false) { //debug
-    echo 'path: '.$path.'<br>
-    productID: '.$productID.'<br>
-    userID: '.$userID.' <br>
-    paidToEmail: '.$paidToEmail;
-    exit;
-}
 
 switch($action) {
     case 'order':
@@ -205,10 +198,21 @@ default:
     }       
 }
 
+
+if(false) { //debug
+    echo 'dir: '.$dir.'<br>
+	path: '.$path.'<br>
+    productID: '.$productID.'<br>
+    paidToEmail: '.$paidToEmail.'<br>
+	templateHeader: '.$templateHeader.'<br>
+	templateFooter: '.$templateFooter.'<br>
+	fileName: '.$fileName;
+}
+
 if(file_exists($templateHeader))
 include($templateHeader);
 
-include($fileName);
+include($fileName); 
 
 if(file_exists($templateFooter))
 include($templateFooter);   

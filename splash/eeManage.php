@@ -66,6 +66,7 @@ else  if ($_GET['unsub'] == 1) {
 	
 	//delete contact from list 
 	
+	
 }
 else { //no reason to be on this page
 	echo "You don't belong here"; 
