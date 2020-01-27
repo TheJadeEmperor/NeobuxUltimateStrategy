@@ -1,5 +1,9 @@
+<?
+$itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
+?>
+
 <div class="top-hd-wrp">
-	<p class="top-hd"><span class="p-bold p-red">Attention:</span><span class="p-under">Get 1000+</span> Downlines Using the Best Referral Strategy!</p>
+	<p class="top-hd"><span class="p-bold p-red">Attention: </span><span class="p-under">Get 1000+</span> Downlines Using the Ultimate Referral Strategy!</p>
 </div>
 
 <div class="headline">
@@ -70,7 +74,7 @@
 	<p align="center" class="note">*Javascript must be enabled to view gallery<br />Click on the "i" for more info</p><br />
 
 	<!-- load Galleria -->
-	<script src="<?=$dir?>include/galleria-1.2.9.min.js"></script>
+	<script src="<?=$dir?>include/galleria/galleria-1.2.9.min.js"></script>
 	<script>
 		// Load the classic theme
 		Galleria.loadTheme('<?=$dir?>include/galleria/galleria.classic.min.js');
@@ -353,7 +357,7 @@
 <p>Imagine never being frustrated with PTC's again! Imagine joining a new PTC with full confidence that you can succeed and come out a winner! Wouldn't that kind of system be worth at least $300 or $400?</p>
 <p>But you're not going to pay anywhere near that much.</p>
 
-<p>The Neobux Ultimate Strategy is available for $17.00 - but let's take a look at what you're actually getting for your money.</p>
+<p>The Neobux Ultimate Strategy is available for <?=$itemPriceDisplay?> - but let's take a look at what you're actually getting for your money.</p>
 
 <div class="table-wrp">
 	<table>
@@ -403,7 +407,7 @@
 
 <h4>Total retail value: <span class="p-bold">$679</span></h4>
 
-<h4>You pay: <span class="p-bold">$17.00</span></h4><br /><br /><br />
+<h4>You pay: <span class="p-bold"><?=$itemPriceDisplay?></span></h4><br /><br /><br />
 
 <h2>But let's stop here now....</h2><br />
 <p>Most people are just trying to make a sale off of you - once they get your money, you're on your own. But that's not the way we do business! We treat every customer as if they were a partner. We're not going to leave you high and dry. We'll help you succeed - take you by the hand and show you step by step how to set up a successful campaign.</p>
@@ -429,6 +433,7 @@
 <p>With our money back guarantee, we've essentially taken the risk from you, so you can order with confidence. Give the Neobux Ultimate Strategy a try today. Satisfaction guaranteed! <span class="p-italic">And one more thing...</span></p>
 
 <p>We update the members area often with new content. This isn't a one time deal - we update frequently - so you stay in the loop with the latest and greatest referral building strategies. You're paying once and receiving forever - another reason to order today.</p>
+
 <p>If you're tired of reading, then click the order button below!</p><br /><br />
 
 <h2 class="p-red">Get The Neobux Ultimate Strategy Now!</h2><br /><br />
@@ -437,18 +442,21 @@
 	<p><input type="checkbox" checked="checked"> Yes, I want access to the NUS Membership, available for download immediately after purchase!</p>
 	<p><input type="checkbox" checked="checked">Yes, please send me my bonus downloads, absolutely free when I order today!</p>
 
-	<h5>Get Your Copy Now For Only $17.00</h5>
+	<h5>Get Your Copy Now For Only <?=$itemPricePrice?></h5>
 
 	<div class="button">
-		<a href="?action=order"><img src="img/order.png"></a>
+		<a href="?action=order#orderForm"><img src="<?=$dir?>images/nus/order.png"></a>
 	</div>
 
 	<p class="p-small p-grey">Secure Payments Made Through PayPal</p>
-</div><br /><br /><br />
+</div>
+<br /><br /><br />
 
 <h2 class="p-red">Wait! Don't Leave Yet...</h2><br />
 
-<p>If you don't want to order, you can still be a part of our PTC Newsletter. It is completely free and you may unsubscribe at any time. Some of the major benefits include having access to our <span class="p-bold">free gift.</span> You will also receive periodic updates and tips on how to manage PTC's.</p><br /><br />
+<p>If you don't want to order, you can still be a part of our PTC Newsletter. It is completely free and you may unsubscribe at any time. Some of the major benefits include having access to our <span class="p-bold">free gift.</span> You will also receive periodic updates and tips on how to manage PTC's.</p>
+
+<br /><br />
 
 <div class="subs-box">
 	<h2><input type="checkbox" checked="checked">YES! Please subscribe me to the best PTC Newsletter in the industry, as well as my free copy of the Neobux Basics ebook!</h2><br /><br />
@@ -469,9 +477,10 @@
 <div class="signature cf">
 	<div class="photo"><img src="<?=$spImg?>signs.jpg" alt=""></div>
 </div>
+
 <br /><br />
 
-<p class="p-vsmall"><span class="p-bold">P.S.</span> Countless Neobux members have gotten their hands on this and are making a killing! $17.00 is a small price to pay if you are serious about earning money with Neobux.</p>
+<p class="p-vsmall"><span class="p-bold">P.S.</span> Countless Neobux members have gotten their hands on this and are making a killing! <?=$itemPriceDisplay?> is a small price to pay if you are serious about earning money with Neobux.</p>
 
 <p class="p-vsmall"><span class="p-bold">P.P.S. </span>Remember - this price is guaranteed for <span class="p-bold">today</span> only. We've increased the price before and will do it again. We'll keep it here at least until midnight tonight (EST), but make no promise about what it might cost you tomorrow.</p>
 
