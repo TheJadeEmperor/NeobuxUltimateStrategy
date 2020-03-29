@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+b, u, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -240,6 +240,11 @@ ul {
 }
 ul li {
 	font-size: 18px;
+	margin: 10px 0;
+}
+
+.checklist li {
+	font-size: 22px;
 }
 
 .gallery {
@@ -385,15 +390,36 @@ h5 {
 	text-align: center;
 }
 
-.button2 {
-	width: 400px;
-	margin: auto;
-}
+	.button2 {
+		width: 400px;
+		margin: auto;
+	}
 
-.button2 img {
-	width: 400px;
-}
+	.button2 img, .button2 input {
+		width: 400px;
+	}
 
+	.main { 
+		width: 100%;
+		margin: 0 auto;
+	}
+	
+	.label, .page-wrap {
+		height: 40px;
+	}
+	
+	.label   {
+		text-align: right;
+		width: 40%;
+		float: left;
+	}
+
+	.page-wrap  {
+		padding: 10px;
+		width: 50%;
+		margin-left: 200px;
+	}
+	
 .photo img {
 	width: 500px;
 }
@@ -547,9 +573,12 @@ hr {
 	.signature {
 		margin-left: 10px;
 	}
+	
+	#language {
+		margin: 37% 0px 0px 45%; 
+	}
 }
 /*end screen 1*/
-
 
 
 /*screen 2*/
@@ -635,9 +664,7 @@ hr {
 	.photo img {
 		width: 75%;
 	}
-}
-
-/*end screen 2*/
+} /*end screen 2*/
 
 /*screen 3*/
 @media screen and (max-width:600px) {
@@ -738,7 +765,6 @@ hr {
 
 	.signature {
 		width: 100%;
-
 	}
 	
 	.sign-info {
