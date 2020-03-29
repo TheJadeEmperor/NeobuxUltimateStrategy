@@ -399,25 +399,25 @@ h5 {
 		width: 400px;
 	}
 
-	.main { 
+	.form_div { 
 		width: 100%;
 		margin: 0 auto;
 	}
 	
-	.label, .page-wrap {
+	.form_label, .form_field{
 		height: 40px;
 	}
 	
-	.label   {
+	.form_label   {
 		text-align: right;
 		width: 40%;
 		float: left;
 	}
 
-	.page-wrap  {
+	.form_field  {
 		padding: 10px;
 		width: 50%;
-		margin-left: 200px;
+		margin-left: 40%;
 	}
 	
 .photo img {
