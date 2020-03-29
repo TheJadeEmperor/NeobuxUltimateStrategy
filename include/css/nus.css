@@ -128,7 +128,7 @@ footer {
 }
 
 .footer-wrp {
-	width: 1024px;
+	 
 	margin: auto;
 }
 
@@ -148,7 +148,6 @@ footer {
 	text-align: center;	
 
 }
-
 
 .headline {
 	width: 900px;
@@ -493,6 +492,19 @@ hr {
 	margin: 375px 0px 0px 45%; 
 }
 
+/* FAQ & terms page */
+h1 {
+	font-size: 40px
+}
+
+.checkList {
+    list-style-image: url(../../images/sales/check.png);
+    font-family: Georgia;
+}
+
+ol { 
+	margin-left: 10px;
+}
 
 /*screen 1*/
 @media screen and (max-width:1024px) {
