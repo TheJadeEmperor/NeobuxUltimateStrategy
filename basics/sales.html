@@ -1,3 +1,4 @@
+<p>&nbsp;</p>
 <h2 class="subheadline"><span class="strong red">Download Link:</span> Click below to download Neobux Basics</h2>
 <div class="line"></div>
 <p>&nbsp;</p>
@@ -11,47 +12,43 @@
 	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
 	$resA = mysql_query($selA, $conn) or die(mysql_error());
 
-	
 	if($ad = mysql_fetch_assoc($resA)) {
 		echo $ad['content'];
 	}
 	?>
 	
+	<p>&nbsp;</p>
 
-<p>&nbsp;</p>
+	<h1>Right click and select "Save As"</h1>
 
-<h1>Right click and select "Save As"</h1>
-
-<table title="<?=$itemName?>">
-<tr valign="middle">
-	<td><img src="<?=$dir?>images/sales/arrowR.jpg" alt="Download" width="200px"></td>
-	<td><form method=post>
+	<table title="<?=$itemName?>">
+	<tr valign="middle">
+		<td><img src="<?=$dir?>images/sales/arrowR.jpg" alt="Download" width="200px"></td>
+		<td><form method="post">
+			
+		<div class="buttonWrap">
+		<button type="submit" value="Submit" class="link button"></button>
+		</div>
 		
-	<div class="buttonWrap">
-	<button type="submit" value="Submit" class="link button"></button>
-	</div>
-	
-	<input type=hidden name="dl" value="dl">
-	<input type=hidden name="url" value="<?=$download?>" />
-	</form></td>
-	<td><img src="<?=$dir?>images/sales/arrowL.jpg" alt="Download" width="200px"></td>
-</tr>
-</table>
+		<input type="hidden" name="dl" value="dl">
+		<input type="hidden" name="url" value="<?=$download?>" />
+		</form></td>
+		<td><img src="<?=$dir?>images/sales/arrowL.jpg" alt="Download" width="200px"></td>
+	</tr>
+	</table>
 </center>
 
 <p>Problems downloading? Please make sure you use Firefox or Opera (don't use
 Internet Explorer), and have Adobe Reader installed on your system.</p>
 
 <div class="line"></div>
+
 <p>&nbsp;</p>
 <center><h3>Thank you for being a subscriber!</h3></center> 
 
 <p>We will send you newsletters periodically, so check your email often for updates. </p>
 
-<p>We appreciate the opportunity to be able to do business in the near future - hopefully sooner rather 
-than later. In addition to the this free ebook, you will be receiving tips and tricks 
-to turbo-boost your PTC business. So check your inbox daily for our emails - and 
-no matter what - <b>do NOT delete them</b>!</p>
+<p>We appreciate the opportunity to be able to do business in the near future - hopefully sooner rather than later. In addition to the this free ebook, you will be receiving tips and tricks to turbo-boost your PTC business. So check your inbox daily for our emails - and no matter what - <b>do NOT delete them</b>!</p>
 
 <p> ==> <a href="<?=$dir?>?action=freereport">Sign up to the newsletter</a></p>
 
@@ -64,9 +61,7 @@ no matter what - <b>do NOT delete them</b>!</p>
 
 <h3>The NUS System</h3>
 
-<p>The Neobux Ultimate Strategy is an online course that will teach PTC users how to get
-1000+ referrals for your PTC sites and build a huge dowline in your MLM programs. There are
-tutorials and videos that teach you how to set up a system to get referrals on auto-pilot.</p>
+<p>The Neobux Ultimate Strategy is an online course that will teach PTC users how to get 1000+ referrals for your PTC sites and build a huge dowline in your MLM programs. There are tutorials and videos that teach you how to set up a system to get referrals on auto-pilot.</p>
 
 <p> ==> <a href="http://neobuxultimatestrategy.com/">Get the Neobux Ultimate Strategy</a></p>
 

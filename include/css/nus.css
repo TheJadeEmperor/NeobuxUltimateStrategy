@@ -11,7 +11,7 @@ small, strike, strong, sub, sup, tt, var,
 b, u, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
+caption, tbody, tfoot, thead, th,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
@@ -156,8 +156,8 @@ footer {
 
 p {
 	padding: 10px;
-	font-size: 18px;
-	line-height: 26px;
+	font-size: 20px;
+	line-height: 30px;
 }
 
 .video {
@@ -215,7 +215,7 @@ p {
 }
 
 h2 {
-	font-size: 30px;
+	font-size: 32px;
 	font-weight: bold;
 	text-align: center;
 }
@@ -235,8 +235,9 @@ h3 {
 
 ul {
 	line-height: 40px;
-	margin-left: 50px;
+	margin-left: 12px;
 }
+
 ul li {
 	font-size: 18px;
 	margin: 10px 0;
@@ -306,7 +307,7 @@ h3 {
 	margin-bottom: 60px;
 }
 
-table {
+.table-wrp {
   border-collapse: collapse;
   border: 1px solid black;
   width: 600px;
@@ -382,12 +383,35 @@ h5 {
 	padding: 25px;
 	box-sizing: border-box;
 }
+	
+	input.checkbox_order {
+		width: 30px;
+		transform : scale(2); 
+	}
+	
+	.sub_checkbox {
+		display: inline-block; 
+		vertical-align: top;
+		width: 30px;
+		margin-right: 5px
+	}
+	
+	.sub_text {
+		display: inline-block; 
+		vertical-align: top;
+		width: 90%
+	}
+	
+	.sub_text h2 {
+		padding: 0;  
+		text-align: left;
+	}
 
-.optin {
-	width: 500px;
-	margin: auto;
-	text-align: center;
-}
+	.optin {
+		width: 500px;
+		margin: auto;
+		text-align: center;
+	}
 
 	.button2 {
 		width: 400px;
@@ -417,6 +441,10 @@ h5 {
 		padding: 10px;
 		width: 50%;
 		margin-left: 40%;
+	}
+	
+	input.input {
+		height: 25px
 	}
 	
 .photo img {
@@ -504,6 +532,31 @@ h1 {
 
 ol { 
 	margin-left: 10px;
+}
+
+
+.buttonWrap {
+    clear: both;
+    height: 68px;
+    margin: 27px auto 0;
+    width: 327px;
+}
+
+.buttonWrap button {
+    height: 68px;
+    overflow: visible;
+    width: 327px;
+}
+
+button.link {
+    background:url('../../images/sales/getInstantAccess.png') no-repeat left top;
+    border:none;
+    cursor:pointer;
+    display:block;
+    margin:0;
+    padding:0;
+    text-indent:-9999px;
+    -moz-user-select:text;
 }
 
 /*screen 1*/

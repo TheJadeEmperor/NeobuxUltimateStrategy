@@ -35,7 +35,9 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 
 <div class="image">
 	<img src="<?=$spImg?>frustrate.jpg">
-</div><br /><br />
+</div>
+
+<p>&nbsp;</p><p>&nbsp;</p>
 
 <h2 class="p-red">So why do most people fail in PTC's?</h2><br />
 <p>The answer is simple: they do not have a working strategy. They joined Neobux with unrealistic expectations, hoping to make it rich quick. But when they realize that it is not making money fast, they start to become frustrated and lose hope. <span class="p-italic">If this is you right now, then you are at the right place - keep reading and don't miss a word.</span></p>
@@ -436,6 +438,7 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 	<p class="p-smallg p-grey">Within 60 days of purchase, if you are not happy with the NUS Membership for any reason, we will give you a refund immediately. No questions asked, no hassles.</p>
 </div><br /><br />
 
+<p>&nbsp;</p>
 <h2 class="p-red">You Have Nothing to Lose!</h2><br />
 
 <p>With our money back guarantee, we've essentially taken the risk from you, so you can order with confidence. Give the Neobux Ultimate Strategy a try today. Satisfaction guaranteed! <span class="p-italic">And one more thing...</span></p>
@@ -447,10 +450,10 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 <h2 class="p-red">Get The Neobux Ultimate Strategy Now!</h2><br /><br />
 
 <div class="order">
-	<p><input type="checkbox" checked="checked"> Yes, I want access to the NUS Membership, available for download immediately after purchase!</p>
-	<p><input type="checkbox" checked="checked">Yes, please send me my bonus downloads, absolutely free when I order today!</p>
+	<p><input type="checkbox" checked="checked" class="checkbox_order"> Yes, I want access to the NUS Membership, available for download immediately after purchase!</p>
+	<p><input type="checkbox" checked="checked" class="checkbox_order">Yes, please send me my bonus downloads, absolutely free when I order today!</p>
 
-	<h5>Get Your Copy Now For Only <?=$itemPricePrice?></h5>
+	<h5>Get Your Copy Now For Only $<?=$itemPrice?></h5>
 
 	<div class="button">
 		<a href="?action=order#orderForm"><img src="<?=$dir?>images/nus/order.png"></a>
@@ -467,7 +470,17 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 <br /><br />
 
 <div class="subs-box">
-	<h2><input type="checkbox" checked="checked">YES! Please subscribe me to the best PTC Newsletter in the industry, as well as my free copy of the Neobux Basics ebook!</h2><br /><br />
+	<br /><br />
+	<div class="sub_checkbox">
+		<input type="checkbox" checked="checked" class="checkbox_order">
+	</div>
+	
+	<div class="sub_text">
+	<h2 class="p-red">YES! Please subscribe me to the best PTC Newsletter in the industry, as well as my free copy of the Neobux Basics ebook!</h2>
+	</div>
+	 
+	
+	<br /><br />
 	<p>The Ultimate Strategy Newsletter gives you tips on how to succeed with Neobux and other PTC's. Topics covered include, but are not limited to: how to increase the average of rented referrals, when to cash out, and when to upgrade your account.</p><br />
 	<h2 class="p-red">Subscribe to PTC Newsletter</h2><br />
 
