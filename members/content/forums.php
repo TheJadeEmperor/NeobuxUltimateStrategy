@@ -9,10 +9,6 @@ PTC websites or your other business websites. </p>
 <p>WarriorForum<br />
     <?=outsideLink('http://warriorforum.com'); ?></p>
 
-<p>Talk Gold<br />
-    <?=outsideLink('http://www.talkgold.com/forum'); ?>
-</p>
-
 <p>Dream Team Money<br />
     <?=outsideLink('http://www.dreamteammoney.com'); ?>
 </p>
@@ -25,14 +21,6 @@ PTC websites or your other business websites. </p>
      <?=outsideLink('http://www.emoneyspace.com/forum'); ?>
 </p>
 
-<p>Money Fan Club<br />
-     <?=outsideLink('http://www.moneyfanclub.com'); ?>
-</p>
-
 <p>Top Gold Forum<br />
      <?=outsideLink('http://topgoldforum.com'); ?>
-</p>
-
-<p>The Free Ad Forum <br />
-     <?=outsideLink('http://www.thefreeadforum.com'); ?>
 </p>
