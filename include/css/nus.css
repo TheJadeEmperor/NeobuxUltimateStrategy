@@ -69,8 +69,7 @@ table {
 }
 /*end css clear fix*/
 
-
-/* my CSS*/
+/* NUS CSS */
 
 html {
 	scroll-behavior: smooth;
@@ -85,7 +84,6 @@ body {
 	height: 20px;
 	background-color: #00c201;
 }
-
 
 .headerlogo {
 	width: 450px;
@@ -146,7 +144,6 @@ footer {
 	font-style: italic;
 	font-size: 20px;
 	text-align: center;	
-
 }
 
 .headline {
@@ -167,6 +164,7 @@ p {
 	margin-bottom: 40px;
 }
 
+/* paragraph text */
 .p-bold {
 	font-weight: bold;
 }
@@ -214,6 +212,7 @@ p {
 	font-size: 12px;
 }
 
+/* heading text */
 h2 {
 	font-size: 32px;
 	font-weight: bold;
@@ -223,12 +222,17 @@ h2 {
 h3 {
 	font-size: 25px;
 	text-align: center;
+	color: #c4002d;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .image {
 	width: 600px;
 	margin: auto;
 }
+
 .image img {
 	width: 600px;	
 }
@@ -238,27 +242,25 @@ ul {
 	margin-left: 12px;
 }
 
-ul li {
-	font-size: 18px;
-	margin: 10px 0;
-}
+	ul li {
+		font-size: 18px;
+		margin: 10px 0;
+	}
 
-.checklist li {
-	font-size: 22px;
-}
-
+	ul.checkList {
+		margin-left: 50px
+	}
+	
+	ul.benefits li {
+		font-size: 28px
+	}
+	
 .gallery {
 	width: 500px;
 	margin: auto;
 	text-align: center;
 }
 
-h3 {
-	color: #c4002d;
-	font-weight: bold;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
 
 .box {
 	width: 700px;
