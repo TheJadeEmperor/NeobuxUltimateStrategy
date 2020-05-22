@@ -449,6 +449,18 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 
 <h2 class="p-red">Get The Neobux Ultimate Strategy Now!</h2><br /><br />
 
+
+<?
+	if($usePaypalOrderLink) {
+		$orderLink = $paypalOrderLink;
+		$orderText = 'Secure Payments Made Through PayPal';
+	}
+	else {
+		$orderLink = $productOrderLink;
+		$orderText = $productOrderText;
+	}
+?>
+
 <div class="order">
 	<p><input type="checkbox" checked="checked" class="checkbox_order"> Yes, I want access to the NUS Membership, available for download immediately after purchase!</p>
 	<p><input type="checkbox" checked="checked" class="checkbox_order">Yes, please send me my bonus downloads, absolutely free when I order today!</p>
@@ -456,10 +468,10 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 	<h5>Get Your Copy Now For Only $<?=$itemPrice?></h5>
 
 	<div class="button">
-		<a href="?action=order#orderForm"><img src="<?=$dir?>images/nus/order.png"></a>
+		<a href="<?=$orderLink?>"><img src="<?=$dir?>images/nus/order.png"></a>
 	</div>
 
-	<p class="p-small p-grey">Secure Payments Made Through PayPal</p>
+	<p class="p-small p-grey"><?=$orderText?></p>
 </div>
 <br /><br /><br />
 
