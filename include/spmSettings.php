@@ -2,21 +2,23 @@
 global $context; 
 
 $selS = 'SELECT * FROM settings ORDER BY opt';
-$resS = mysql_query($selS, $conn) or die(mysql_error());
+$resS = $conn->query($selS);
 
-while($s = mysql_fetch_assoc($resS)) {
+while($s = $resS->fetch_array()) {
     $s['setting'] = stripslashes($s['setting']);
     $val[$s['opt']] = $s['setting'];     
 }
 
+   
 $selL = 'SELECT * FROM links ORDER BY name';
-$resL = mysql_query($selL, $conn) or die(mysql_error());
+$resL = $conn->query($selL);
 
-while($l = mysql_fetch_assoc($resL)) {
+
+while($l = $resL->fetch_array()) {
 	$l['url'] = stripslashes($l['url']);
 	$links[$l['name']] = $l['url'];
 }
- 
+
 $context = array(
     'dir' => $dir, 
     'links' => $links,
@@ -63,7 +65,6 @@ if( date('w', time()) == $dayOfWeek ) {
     system($dump); 
 } 
 
-error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
 
 //delete error logs
 if(file_exists('error_log')) {   

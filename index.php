@@ -2,7 +2,7 @@
 /*
 +---------------------------------------------------------------------
 | v2.0
-| Copyright 2012-2020 Sales Page Machine. 
+| Copyright 2012-2021 Sales Page Machine. 
 | Benjamin Louie
 |
 | The sale, duplication or transfer of the script to any 
@@ -58,7 +58,7 @@ else { //live website
     
     if(is_int(strrpos($path, '?')))
         $path = '';
-}
+} 
 
 //relative path to the root  
 if($path == '' || $_GET['p']) //already at the root
@@ -71,10 +71,13 @@ include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 
-$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
-$resP = mysql_query($selP, $conn) or die(mysql_error());
 
-if($p = mysql_fetch_assoc($resP)) {
+echo __LINE__.' ';
+
+$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
+$resP = $conn->query($selP);
+
+if( $p = $resP->fetch_array() ) {
     //product vars
 	$productID = $p['id'];
     $itemName = $p['itemName'];
@@ -104,14 +107,15 @@ if($p = mysql_fetch_assoc($resP)) {
     $salespage = $p['salespage']; 
     
     //paypal vars 
-    $ipnURL = $val['websiteURL'].'/ipn.php';
+	$ipnURL = $val['websiteURL'].'/ipn.php';
     $cancelURL = $val['websiteURL'];
    
     if($oto == 'Y') { //one time offer
     
         $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
-        $resO = mysql_query($selO, $conn) or die(mysql_error());
-        $o = mysql_fetch_assoc($resO);
+        $resO = $conn->query($selO);  //($selO, $conn) or die(mysql_error());
+		$o = $resO->fetch_array($resO);
+//        $o = mysql_fetch_assoc($resO);
         
         if($p['otoName'])
             $otoName = $p['otoName'];
@@ -148,7 +152,7 @@ if($_POST['dl']) {
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
 
-
+echo __LINE__.' ';
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -167,13 +171,13 @@ switch($action) {
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
         $meta = postMetaTags($_GET['p']);     
-    break;
-default:
-    $keywords = $p['keywords'];
-    $description = $p['description']; 
+		break;
+	default:
+		$keywords = $p['keywords'];
+		$description = $p['description']; 
 
-    $fileName = $salespage; //default action: show sales page  
-    $pageView = '/'.$path;
+		$fileName = $salespage; //default action: show sales page  
+		$pageView = '/'.$path;
     
     //blog post
     if($_GET['p']) {
@@ -183,12 +187,12 @@ default:
         $meta = postMetaTags($_GET['p']);     
         $pageView = '/?p='.$_GET['p'];
     }    
-    
+  
     //custom site pages 
     $selM = 'SELECT * FROM memberpages ORDER BY url';
-    $resM = mysql_query($selM, $conn) or die(mysql_error());
-    
-    while($m = mysql_fetch_assoc($resM)) {
+    $resM = $conn->query($selM);
+   
+    while($m = $resM->fetch_array()) {
         if($action == $m['url']) {
             $templateHeader = $m['header'];
             $templateFooter = $m['footer'];
@@ -221,11 +225,11 @@ include($templateFooter);
 if($pageView) {
     if(isset($_COOKIE['lastView'])) { //raw views
         $upd = 'update pageviews set rawViews=rawViews+1 where page="'.$pageView.'"';
-        $res = mysql_query($upd) or die(mysql_error());      
+        $res = $conn->query($upd);
     }
     else { //unique views
         $upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
-        $res = mysql_query($upd) or die(mysql_error());      
+        $res = $conn->query($upd);     
     } 
     setcookie('lastView', date('m/d/Y', time()));
 }
