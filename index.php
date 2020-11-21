@@ -18,7 +18,6 @@
 +---------------------------------------------------------------------
 */
 
-
 function curPageURL() {
     $pageURL = 'http';
     if ($_SERVER["HTTPS"] == "on") {
@@ -67,12 +66,8 @@ else  //not at the root
     $dir = '../'; 
 
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
-
-
-echo __LINE__.' ';
 
 $selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
 $resP = $conn->query($selP);
@@ -115,8 +110,7 @@ if( $p = $resP->fetch_array() ) {
         $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
         $resO = $conn->query($selO);  //($selO, $conn) or die(mysql_error());
 		$o = $resO->fetch_array($resO);
-//        $o = mysql_fetch_assoc($resO);
-        
+
         if($p['otoName'])
             $otoName = $p['otoName'];
         else
@@ -152,7 +146,6 @@ if($_POST['dl']) {
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
 
-
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -167,43 +160,40 @@ switch($action) {
         $fileName = $dir.'templates/download.php';
         break;      
     case 'posts':
-	 echo __LINE__.' ';
         $templateHeader = $val['blogHeader'];
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
         $meta = postMetaTags($_GET['p']);    
- echo __LINE__.' ';		
+
 		break;
 	default:
 		$keywords = $p['keywords'];
 		$description = $p['description']; 
 
 		$fileName = $salespage; //default action: show sales page  
-		$pageView = '/'.$path;
-    echo __LINE__.' ';
-    //blog post
-    if($_GET['p']) {
-        $templateHeader = $val['blogHeader'];
-        $templateFooter = $val['blogFooter'];   
-        $fileName = 'blog/post.php';
-        $meta = postMetaTags($_GET['p']);     
-        $pageView = '/?p='.$_GET['p'];
-    }    
-  echo __LINE__.' ';
-    //custom site pages 
-    $selM = 'SELECT * FROM memberpages ORDER BY url';
-    $resM = $conn->query($selM);
-   
-    while($m = $resM->fetch_array()) {
-        if($action == $m['url']) {
-            $templateHeader = $m['header'];
-            $templateFooter = $m['footer'];
-            $fileName = $m['file'];
-            $pageView = '/?action='.$m['url'];
-        }
-    }       
+        $pageView = '/'.$path;
+        //blog post
+        if($_GET['p']) {
+            $templateHeader = $val['blogHeader'];
+            $templateFooter = $val['blogFooter'];   
+            $fileName = 'blog/post.php';
+            $meta = postMetaTags($_GET['p']);     
+            $pageView = '/?p='.$_GET['p'];
+        }    
+    
+        //custom site pages 
+        $selM = 'SELECT * FROM memberpages ORDER BY url';
+        $resM = $conn->query($selM);
+    
+        while($m = $resM->fetch_array()) {
+            if($action == $m['url']) {
+                $templateHeader = $m['header'];
+                $templateFooter = $m['footer'];
+                $fileName = $m['file'];
+                $pageView = '/?action='.$m['url'];
+            }
+        }       
 }
-
 
 if(false) { //debug
     echo 'dir: '.$dir.'<br>
@@ -236,4 +226,4 @@ if($pageView) {
     setcookie('lastView', date('m/d/Y', time()));
 }
 
-mysql_close($conn); ?>
+?>

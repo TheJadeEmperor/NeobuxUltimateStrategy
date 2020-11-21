@@ -2,7 +2,6 @@
 $selP = 'SELECT * FROM posts WHERE status <> "I" ORDER BY postedOn DESC LIMIT 10';
 $resP = $conn->query($selP);
 
-echo 'footer';
 while($p = $resP->fetch_array()) {
     $recentPosts .= '<p align="left"><a href="./?p='.$p['url'].'">'.shortenText($p['subject'], 35).'</a></p>'; 
 }

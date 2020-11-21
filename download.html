@@ -45,23 +45,18 @@
 <p>&nbsp;</p>
 
 <center>
+    <?php
 
+        $conn->select_db('codegeas_cc');
 
+        $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
+        $resA = $conn->query($selA); 
 
-	<?php
-		mysql_select_db('codegeas_cc');
-		
-		$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-		$resA = mysql_query($selA, $conn) or die(mysql_error());
-
-		
-		if($ad = mysql_fetch_assoc($resA)) {
+		if($ad = $resA->fetch_array()) {
 			echo $ad['content'];
-		}
+        }
 	?>
 
-	
-	
 </center>
 
 <p>&nbsp;</p>
