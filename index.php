@@ -152,7 +152,7 @@ if($_POST['dl']) {
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
 
-echo __LINE__.' ';
+
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -167,10 +167,12 @@ switch($action) {
         $fileName = $dir.'templates/download.php';
         break;      
     case 'posts':
+	 echo __LINE__.' ';
         $templateHeader = $val['blogHeader'];
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
-        $meta = postMetaTags($_GET['p']);     
+        $meta = postMetaTags($_GET['p']);    
+ echo __LINE__.' ';		
 		break;
 	default:
 		$keywords = $p['keywords'];
@@ -178,7 +180,7 @@ switch($action) {
 
 		$fileName = $salespage; //default action: show sales page  
 		$pageView = '/'.$path;
-    
+    echo __LINE__.' ';
     //blog post
     if($_GET['p']) {
         $templateHeader = $val['blogHeader'];
@@ -187,7 +189,7 @@ switch($action) {
         $meta = postMetaTags($_GET['p']);     
         $pageView = '/?p='.$_GET['p'];
     }    
-  
+  echo __LINE__.' ';
     //custom site pages 
     $selM = 'SELECT * FROM memberpages ORDER BY url';
     $resM = $conn->query($selM);
