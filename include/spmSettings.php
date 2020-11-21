@@ -9,7 +9,7 @@ while($s = $resS->fetch_array()) {
     $val[$s['opt']] = $s['setting'];     
 }
 
-   
+
 $selL = 'SELECT * FROM links ORDER BY name';
 $resL = $conn->query($selL);
 
@@ -54,16 +54,6 @@ $paypalOrderLink = $val['paypalOrderLink'];
 $usePaypalOrderLink = $val['usePaypalOrderLink'];
 /////////////////// 
 
-
-//weekly backups of database
-$dayOfWeek = '0'; //day of week to backup 
-$backupDir = '.backup';
-$backupFile = date('Y-m-d', time()).'.sql';
-
-if( date('w', time()) == $dayOfWeek ) {
-    $dump = 'mysqldump -u'.$dbUser.' -p'.$dbPW.' '.$dbName.' > ./'.$backupDir.'/'.$backupFile;
-    system($dump); 
-} 
 
 
 //delete error logs
