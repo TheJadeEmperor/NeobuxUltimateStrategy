@@ -13,7 +13,6 @@ if(!isset($_SESSION['admin']))//if not logged in, redirect back to login page
     header('Location: '.$adir); 
 
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/class.phpmailer.php');
 include($dir.'include/class.smtp.php');
 include($dir.'include/config.php');

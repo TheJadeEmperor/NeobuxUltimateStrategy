@@ -1,6 +1,6 @@
 <?php
 include('include/functions.php');
-include('include/mysql.php');
+//include('include/mysql.php');
 include('include/config.php');
 include('include/spmSettings.php'); 
 

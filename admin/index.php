@@ -2,7 +2,6 @@
 $dir = '../';
 session_start();
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 
 $getLogin = 'SELECT * FROM settings WHERE opt="adminUser" || opt="adminPass"';
