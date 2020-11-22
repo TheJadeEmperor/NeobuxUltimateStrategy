@@ -6,25 +6,24 @@ function getProduct($productID) {
     global $conn; 
     
     $selP = 'select * from products where id="'.$productID.'"';
-    $resP = mysql_query($selP, $conn) or die(mysql_error());
-    
-    $p = mysql_fetch_assoc($resP);
-    
+   
+    $resP = $conn->query($selP);
+    $p = $resP->fetch_array();
     return $p; 
 }
 
 $skipButton = '
 <center>
-<form method=post>
-<input type=submit name="skipUpsell" value="No Thanks, Take Me to the Members Area"
-class="btn success" />
-</form>
+    <form method=post>
+        <input type=submit name="skipUpsell" value="No Thanks, Take Me to the Members Area"
+    class="btn success" />
+    </form>
 </center>'; 
 
 $transition = '<meta http-equiv="refresh" content="1;url=./?action=affcenter">
 <center>
-<h1>Logging you in</h1>
-<img src="../images/waiting.gif" /><p>&nbsp;</p><p>&nbsp;</p>
+    <h1>Logging you in</h1>
+    <img src="../images/waiting.gif" /><p>&nbsp;</p><p>&nbsp;</p>
 </center>';
 
 $val['upsellA'] = array(
@@ -35,12 +34,10 @@ $val['upsellA'] = array(
 
 if($val['memAreaUpsell'] == 'on') {
 
-    
+    $selUP = 'select id from sales where payerEmail="'.$u['paypal'].'" and productID="'.$val['memUpsellProductID'].'"';
+    $resUP = $conn->query($selUP);
 
-    $selBUP = 'select id from sales where payerEmail="'.$u['paypal'].'" and productID="'.$val['memUpsellProductID'].'"';
-    $resBUP = mysql_query($selBUP, $conn) or die(mysql_error()); 
-
-    if(mysql_num_rows($resBUP) == 0) { //if user is not a customer         
+    if(mysqli_num_rows($resUP) == 0) { //if user is not a customer         
 
         include('content/'.$val['memUpsellFile']);
     }

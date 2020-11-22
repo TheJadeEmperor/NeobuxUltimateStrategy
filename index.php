@@ -66,8 +66,10 @@ else  //not at the root
     $dir = '../'; 
 
 include($dir.'include/functions.php');
+include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
+echo __LINE__.' ';
 
 $selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
 $resP = $conn->query($selP);
@@ -127,7 +129,7 @@ if( $p = $resP->fetch_array() ) {
             $otoNumber = $o['itemNumber']; 
     }
 }
-
+echo __LINE__.' ';
 if($_POST['dl']) {
     $item =  $_POST['url'];
     
@@ -145,7 +147,7 @@ if($_POST['dl']) {
 
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
-
+echo __LINE__.' ';
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -169,7 +171,7 @@ switch($action) {
 	default:
 		$keywords = $p['keywords'];
 		$description = $p['description']; 
-
+        echo __LINE__.' ';
 		$fileName = $salespage; //default action: show sales page  
         $pageView = '/'.$path;
         //blog post
@@ -184,7 +186,7 @@ switch($action) {
         //custom site pages 
         $selM = 'SELECT * FROM memberpages ORDER BY url';
         $resM = $conn->query($selM);
-    
+        echo __LINE__.' ';
         while($m = $resM->fetch_array()) {
             if($action == $m['url']) {
                 $templateHeader = $m['header'];

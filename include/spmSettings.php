@@ -1,6 +1,7 @@
 <?php
 global $context; 
 
+//website settings
 $selS = 'SELECT * FROM settings ORDER BY opt';
 $resS = $conn->query($selS);
 
@@ -9,17 +10,15 @@ while($s = $resS->fetch_array()) {
     $val[$s['opt']] = $s['setting'];     
 }
 
-
 $selL = 'SELECT * FROM links ORDER BY name';
 $resL = $conn->query($selL);
-
 
 while($l = $resL->fetch_array()) {
 	$l['url'] = stripslashes($l['url']);
 	$links[$l['name']] = $l['url'];
 }
 
-$context = array(
+$context = array( //global variables 
     'dir' => $dir, 
     'links' => $links,
     'conn' => $conn, 
@@ -53,7 +52,6 @@ $affLogin = $websiteURL.'/members/';
 $paypalOrderLink = $val['paypalOrderLink'];
 $usePaypalOrderLink = $val['usePaypalOrderLink'];
 /////////////////// 
-
 
 
 //delete error logs

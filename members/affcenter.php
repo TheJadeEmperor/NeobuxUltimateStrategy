@@ -1,25 +1,25 @@
-<?php	
-
+<?php
+//get all products to display 
 $selP = 'SELECT * FROM products WHERE affcenter="Y" ORDER BY itemName';
-$resP = mysql_query($selP, $conn) or die(mysql_error());
+$resP = $conn->query($selP);
 
-$cust = 0;
-while($p = mysql_fetch_assoc($resP)) {
+$cust = 0; //# of products they bought
+while($p = $resP->fetch_array()) {
     $itemName = $p['itemName']; 
     $productID = $p['id'];
     
-	$selS = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") and productID="'.$p['id'].'"'; 
-    $resS = mysql_query($selS) or die(mysql_error());
-
+    $selS = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="'.$p['id'].'"'; 
+    $resS = $conn->query($selS);
+    
 	if($p['id'] == '3')
 		$isMiniSitesCustomer = 1;
 	
-    if(mysql_num_rows($resS) == 0) { // not a customer 
+    if(mysqli_num_rows($resS) == 0) { // not a customer 
         $downloadContent = 'You are not a customer of '.$itemName.'<br />
         <a href="'.$dir.$p['folder'].'" target="_BLANK">Click here to get it</a>';
     }
     else  {
-        $cust++; 
+        $cust++;  //# of products they bought
     }
 
     if($p['itemPrice'] == 0) { //free gift - download is available
@@ -34,15 +34,15 @@ while($p = mysql_fetch_assoc($resP)) {
         <input type="hidden" name="url" value="'.$p['download'].'">
         </form></center>';
     }
-    else if(mysql_num_rows($resS) > 0) { //sale
+    else if(mysqli_num_rows($resS) > 0) { //sale
     
         $sale = mysql_fetch_assoc($resS);
         
         //multiple downloads
         $selD = 'SELECT * FROM downloads WHERE productID="'.$productID.'" ORDER BY name';
-        $resD = mysql_query($selD) or die(mysql_error());
-        
-        if(mysql_num_rows($resD) > 0) { //multiple downloads
+        $resD = $conn->query($selD);
+
+        if(mysqli_num_rows($resD) > 0) { //multiple downloads
         
             $downloadContent = '<table>
                 <tr>
@@ -78,18 +78,7 @@ while($p = mysql_fetch_assoc($resP)) {
     </div></div><br />'; 
 }
 
-
-$selS = 'SELECT id FROM sales WHERE payerEmail="'.$_SESSION['login']['paypal'].'"'; 
-$resS = mysql_query($selS) or die(mysql_error());
-
-if(mysql_num_rows($resS) == 0) { // not a customer
-
-    echo '<meta http-equiv="refresh" content="1;url=./?action=logout">';
-}
-
 ?>
-
-
 <h1>Members Home</h1>
 <hr color="#25569a" size="4" />
 
@@ -108,7 +97,6 @@ if(mysql_num_rows($resS) == 0) { // not a customer
 	<p><img src="images/redArrow.png"> <a href="./?action=video2">Videos Part 2</a></p>
 </div>
 
-
 <p>&nbsp;</p>
 
 <p>As a valued customer of the NUS, we have some special offers for you. Please see below to access your bonus offers!</p>
@@ -122,9 +110,7 @@ if($isMiniSitesCustomer != 1) {
 <div class="moduleGradient">
 <h1>Special Limited Time Offer</h1>
 <div>
-
 	<p>Ever wanted to have your own website focused on PTC's but never had the time or could never afford it? Well throw those excuses away, because PTC Mini-Sites are here. It's an offer exclusive to only customers and affiliates of our products. </p>
-
 
 	<p>We'll make you a PTC website with your own domain name - so you can promote all your PTC's with one link. </p>
 
@@ -150,17 +136,8 @@ if($isMiniSitesCustomer != 1) {
 
 <?
 }
-else {
-	mysql_select_db('codegeas_cc');
-	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-	$resA = mysql_query($selA, $conn) or die(mysql_error());
 
-	if($ad = mysql_fetch_assoc($resA)) {
-		echo '<center>'.$ad['content'].'</center>';
-	}
-}
+echo '<p>&nbsp;</p><center>'.$adContent.'</center>';
 ?>
-
- 
 <p>&nbsp;</p>
 <p>&nbsp;</p>

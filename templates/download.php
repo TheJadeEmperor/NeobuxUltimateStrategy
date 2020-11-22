@@ -82,7 +82,7 @@ else {
                 }    
                 $downloadContent .= '</table>';
             }
-            echo __LINE__.' ';
+           
             $fileName = 'download.html';
         } 
         else {

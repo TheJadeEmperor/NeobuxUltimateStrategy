@@ -1,8 +1,7 @@
 <?php
 $dir = '../';
-include($dir.'include/mysql.php'); 
-include($dir.'include/config.php');
 include($dir.'include/functions.php');
+include($dir.'include/config.php');
 include($dir.'include/spmSettings.php');
 session_start();
 
@@ -11,7 +10,6 @@ if($_POST['dl']) {
     downloadLink($_POST['url']); exit;
 }
 
-
 if(is_int(strpos(__FILE__, 'C:\\'))) {//localhost
     error_reporting(E_ALL ^ E_NOTICE);
 }
@@ -19,8 +17,7 @@ else { //live website
     error_reporting(0);
 }
 
-
-
+//values from spmSettings
 $templateHeader = $val['memHeader'];
 $templateFooter = $val['memFooter'];
 $membersContent = $val['memAreaContent'];
@@ -40,10 +37,11 @@ if($_POST['login']) {
     }
 
     $selU = 'SELECT * FROM users where USERNAME="'.$username.'" || email="'.$username.'"';
-    $resU = mysql_query($selU, $conn) or print(mysql_error());
-    $u = mysql_fetch_assoc($resU);
+    $resU = $conn->query($selU);
 
-    if(mysql_num_rows($resU) == 0) { //no user found 
+    $u = $resU->fetch_array();
+
+    if(mysqli_num_rows($resU) == 0) { //no user found 
         $_SESSION['error'] = 'The username '.$username.' does not exist!';
     }
     else { //user is found 
