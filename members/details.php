@@ -44,7 +44,6 @@ if($_POST['update']) {
         else { 
             $updU = 'update users set username="'.$_POST['username'].'" where id="'.$u[id].'"';
             $resU = $conn->query($updU);
-//            mysql_query($upd, $conn) or die(mysql_error());
         }
     }
     $u = updateSession();    
