@@ -41,21 +41,21 @@ if($_POST['save']) { //insert into db
         $theFields = implode(',', $fields);
         $theValues = implode(',', $values); 
     
-        //add post
+        //add post and get the post id
         $ins = 'INSERT INTO posts ('.$theFields.') VALUES ('.$theValues.') ';
-        $res = mysql_query($ins, $conn) or die(mysql_error()); 
-        $postID = mysql_insert_id();
-        
-        //add view     
+        $res = $conn->query($ins);
+	   	$postID = $conn->insert_id;
+	   
+        //add page view to db     
         $dbOptions = array(
-        'tableName' => 'pageviews',
-        'dbFields' => array(
-            'page' => '?p='.$url,
-            'uniqueViews' => 0,
-            'rawViews' => 0,
-        ) 
+			'tableName' => 'pageviews',
+			'dbFields' => array(
+				'page' => '?p='.$url,
+				'uniqueViews' => 0,
+				'rawViews' => 0,
+			) 
         );
-        
+		
         dbInsert($dbOptions); 
     
         echo '<meta http-equiv="refresh" content="1;url=postNew.php?id='.$postID.'">';
@@ -75,21 +75,22 @@ else if($_POST['update']) {
 			'useHTMLFile' => $_POST['useHTMLFile'],
 			'HTMLFileName' => $_POST['HTMLFileName'],
 		),
-		'cond' => 'where id="'.$_GET[id].'"'
+		'cond' => 'WHERE id="'.$_GET['id'].'"'
 	);
-	
+
 	if(dbUpdate($opt))
-		$msg = 'Post has been updated.'; 
+		$msg = '<p><font color="red"><b>Post has been updated.</b></font></p>'; 
 }
 
 if($_GET['id']) {
-	$opt = array(
-	'tableName' => 'posts',
-	'cond' => 'where id="'.$_GET['id'].'"'); 
-	
-	$allPosts = dbSelect($opt); 	
-	$p = $allPosts[0]; 
 
+	$opt = array(
+		'tableName' => 'posts',
+		'cond' => 'WHERE id="'.$_GET['id'].'"');		
+		
+	$postData =	dbSelect($opt);
+	$p = $postData[0];
+	
 	$disAdd = 'disabled'; 
 }
 else

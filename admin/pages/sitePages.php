@@ -2,6 +2,9 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
+$conn = mysql_connect($dbHost, $dbUser, $dbPW, $dbName);
+mysql_select_db('codegeas_nus');
+
 if($_POST['delete']) {
     if($_GET['id']) {
         $delPage = 'DELETE FROM memberpages WHERE id="'.$_GET['id'].'"';

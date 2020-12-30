@@ -1,21 +1,11 @@
 <?php
 include('adminCode.php');
 
-function getSales($whichMonth) {
-    global $conn; 
-    $selR = 'SELECT SUM(amount) AS revenue, date_format(purchased, "%m/%Y") AS purchased FROM sales WHERE purchased LIKE "%'.$whichMonth.'%"';
-    
-    $resR = mysql_query($selR, $conn) or die(mysql_error()); 
-    $r = mysql_fetch_assoc($resR);
-    
-    $revenue = '$'.number_format($r['revenue'], 2);
-    return $revenue;
-}
 
 if($_POST['viewMonth']) {
     $pickYearMonth = $_POST['pickYear'].'-'.$_POST['pickMonth'];
     
-    $salesPickMonth = getSales($pickYearMonth);
+    $salesPickMonth = getRevenue($pickYearMonth);
 }
 
 
@@ -24,12 +14,10 @@ $lastMonth = date("m/Y",strtotime("-1 month"));
 $thisYear = date("Y", time()); 
 
 
-$selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased, 
-date_format(purchased, "%m/%Y") AS currentMonth, date_format(purchased, "%Y") AS thisYear
-FROM sales ORDER BY purchased';
-$resS = mysql_query($selS, $conn) or die(mysql_error());
 
-while($s = mysql_fetch_assoc($resS)) {
+$resS = getTotalSales ();
+
+while($s = $resS->fetch_array()) {
     //total sales 
     $grandTotal += $s['amount'];
     
@@ -115,7 +103,7 @@ $monthArray = array(
         <div class="moduleBody">
         <?
         foreach($monthArray as $mo => $month) {
-            echo $month.' '.$thisYear.': '.getSales($thisYear.'-'.$mo).'<br />';
+            echo $month.' '.$thisYear.': '.getRevenue($thisYear.'-'.$mo).'<br />';
         }
         
         ?>

@@ -2,32 +2,52 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_POST['update'])
-{
+if($_POST['update']) {
     $dbOpt = array(
         'blogHeader' => $_POST['blogHeader'],
         'blogFooter' => $_POST['blogFooter'],
         'blogCustomContent' => $_POST['blogCustomContent']
     );
+
+    $opt = array(
+        'tableName' => 'settings', 
+        'dbFields' => array(
+            'setting' => $_POST['blogHeader']),
+        'cond' => 'WHERE opt="blogHeader"'
+    );
+    $result = dbUpdate($opt);
+
+    $opt = array(
+        'tableName' => 'settings', 
+        'dbFields' => array(
+            'setting' => $_POST['blogFooter']),
+        'cond' => 'WHERE opt="blogFooter"'
+    );
+    $result = dbUpdate($opt);
+
+    $opt = array(
+        'tableName' => 'settings', 
+        'dbFields' => array(
+            'setting' => $_POST['blogCustomContent']),
+        'cond' => 'WHERE opt="blogCustomContent"'
+    );
+    $result = dbUpdate($opt);
     
-    foreach($dbOpt as $opt => $setting)
-    {
-        $setting = addslashes(trim($setting)); 
-        
-        $updS = 'UPDATE settings SET setting="'.$setting.'" WHERE opt="'.$opt.'"';
-        mysql_query($updS) or print(mysql_error()); 
-    }
+    $msg = '<font color="red"><b>Blog options are updated</b></font>';
 }
 
-$selB = 'SELECT * FROM settings ORDER BY opt';
-$resB = mysql_query($selB, $conn); 
 
-while($m = mysql_fetch_assoc($resB))
-{
-    $m['setting'] = stripslashes($m['setting']);
-    $blogOptions[$m['opt']] = $m['setting'];
-        
-} 
+$opt = array(
+    'tableName' => 'settings',
+    'cond' => 'WHERE opt="blogHeader" OR opt="blogFooter" OR opt="blogCustomContent"');
+
+$blogData = dbSelect($opt);
+
+foreach($blogData as $num => $bd) {
+    $blogOptions[$bd['opt']] = $bd['setting'];
+}
+
+
 
 ?>
 <form method="POST">
@@ -52,8 +72,8 @@ while($m = mysql_fetch_assoc($resB))
             <input type="text" class="activeField" name="blogFooter" size="30" value="<?=$blogOptions['blogFooter']?>" /></td>
     </tr>
     <tr>
-        <td colspan="2" align="center">
-            <input type="submit" name="update" value=" Update Blog " />
+        <td colspan="2" align="center"> 
+            <input type="submit" name="update" value=" Update Blog " class="btn success" />
         </td>
     </tr>
     </table>
@@ -64,9 +84,9 @@ while($m = mysql_fetch_assoc($resB))
 
 <div class="moduleBlue"><h1>Blog Custom Content </h1>
 <div class="moduleBody">
-    <textarea rows="15" cols="50" name="blogCustomContent"><?=$blogOptions['blogCustomContent']?></textarea><br />
+    <textarea rows="15" cols="50" name="blogCustomContent"><?=$blogOptions['blogCustomContent']?></textarea><br /><br />
     <center>
-        <input type="submit" name="update" value=" Update Blog " />
+    <input type="submit" name="update" value=" Update Blog " class="btn success" />
     </center>
 </div>
 </div>

@@ -2,6 +2,9 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
+$conn = mysql_connect($dbHost, $dbUser, $dbPW, $dbName);
+mysql_select_db('codegeas_nus');
+
 if($_POST['reset'])
 { 
     echo $reset = 'UPDATE pageviews SET rawViews=0, uniqueViews=0 WHERE page="'.$_POST['page'].'" limit 1' ;
