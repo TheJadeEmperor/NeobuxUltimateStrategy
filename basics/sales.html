@@ -1,20 +1,14 @@
 <p>&nbsp;</p>
 <h2 class="subheadline"><span class="strong red">Download Link:</span> Click below to download Neobux Basics</h2>
+
 <div class="line"></div>
 <p>&nbsp;</p>
+
 <h3>Before you download... check out these offers</h3>
 
-<center>
-	
+<center>	
 	<?php
-	mysql_select_db('codegeas_cc');
-	
-	$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-	$resA = mysql_query($selA, $conn) or die(mysql_error());
-
-	if($ad = mysql_fetch_assoc($resA)) {
-		echo $ad['content'];
-	}
+	echo  getAdContent ();
 	?>
 	
 	<p>&nbsp;</p>

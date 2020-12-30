@@ -2,21 +2,50 @@
 include($dir.'include/functions.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
+include($dir.'include/api_sendgrid.php'); 
 
 $url = $_GET['url'];
-
 $urlRedirect = $context['links'][$url];
 
 if(empty($urlRedirect)) {
 	$urlRedirect = 'http://neobuxultimatestrategy.com/basics';
 }
 
+
+echo $_POST['email']; 
+
+if($_POST['email']) {
+	//add email to sendgrid 
+	$subscriberEmail = $_POST['email'];
+
+	$sendgridMail = new \SendGrid\Mail\Mail(); 
+	$sendgridClass = new \SendGrid(SENDGRID_API_KEY);
+	$sendGridAPI = new sendGridAPI(SENDGRID_API_KEY);
+	
+	//add contact to list
+	$info = array(
+		'list_id' => $list_id,
+		'contact' => array(
+			'email' => $subscriberEmail, //contact's main email
+			'join_date' => date('Y-m-d'), //today's date
+			'origin' => $_POST['origin'] //page tracking 
+			)
+	);
+	echo $subscriberEmail. ' '; 
+
+	$sendGridAPI->contact_add($info);
+}
+else {
+	echo "You don't belong here"; exit; 
+}
+
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content="5;url=<?=$urlRedirect?>">
+<!--<meta http-equiv="refresh" content="5;url=<?=$urlRedirect?>">-->
 <style>
 body {
     font-family: verdana;
@@ -48,10 +77,10 @@ body {
 
 <p>&nbsp;</p>
 
-<p>Only 1 more step left - check your inbox and confirm</p>
-
+<p>Check your inbox to confirm receipt of our newsletters</p>
+<!--
 <p><img src="images/splash/confirm.jpg" alt="Confirm subscription" border="1"/></p>
-
+-->
 </center>
 </body>
 </html>
