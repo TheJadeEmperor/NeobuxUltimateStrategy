@@ -1,6 +1,45 @@
 <?php
 session_start();
 
+function getTotalSales () {
+    global $conn; 
+    
+    $selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased, 
+    date_format(purchased, "%m/%Y") AS currentMonth, date_format(purchased, "%Y") AS thisYear
+    FROM sales ORDER BY purchased'; 
+    
+    $resS = $conn->query($selS); 
+
+    return $resS;
+}
+
+
+function getRevenue($whichMonth) { //revenue for selected year & mont
+    global $conn; 
+
+    $selR = 'SELECT SUM(amount) AS revenue, date_format(purchased, "%m/%Y") AS purchased FROM sales WHERE purchased LIKE "%'.$whichMonth.'%"';
+    
+    $resR = $conn->query($selR); 
+    $rev = $resR->fetch_array();
+    
+    $revenueDisplay = '$'.number_format($rev['revenue'], 2);
+    return $revenueDisplay;
+}
+
+function getAllProducts () {
+    global $conn;
+    $selP = 'SELECT * FROM products ORDER BY id'; 
+    return $conn->query($selP);
+}
+
+
+function getSettings() {
+	global $conn; 
+	$selS = 'SELECT * FROM settings ORDER BY opt';
+	return $conn->query($selS);
+}
+
+
 if($adir == '') { //admin main directory
     $dir = '../'; //root directory
     $adir = './';
@@ -32,15 +71,35 @@ if($_POST['dl']) { //download files
     exit; 
 }
 
-
+$prodCount = 0; //total # of products 
 $prod = array(); 
 
 $selP = 'SELECT id, itemName FROM products'; 
-$resP = mysql_query($selP, $conn) or die(mysql_error());
+$resP = $conn->query($selP);
 
-while($p = mysql_fetch_assoc($resP)) {
-	$prod[] = $p;
+while($p = $resP->fetch_array()) {
+    $prod[] = $p;
+    $prodCount++; 
 }
+
+//show site stats
+$totalProducts = $prodCount;
+
+$selU = 'SELECT COUNT(*) AS totalUsers FROM users';
+$resU = $conn->query($selU);
+$stat = $resU->fetch_array(); 
+$totalUsers = $stat['totalUsers']; 
+
+$selS = 'SELECT COUNT(*) AS totalSales FROM sales'; 
+$resS = $conn->query($selS);
+$stat = $resS->fetch_array(); 
+$totalSales = $stat['totalSales']; 
+
+$selSP = 'SELECT COUNT(*) AS sitePages FROM memberpages';
+$resSP = $conn->query($selSP);
+$stat = $resSP->fetch_array(); 
+$sitePages = $stat['sitePages'];
+
 		
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -230,27 +289,7 @@ while($p = mysql_fetch_assoc($resP)) {
 <table>
 <tr valign="top">
     <td align="left">
-    	<?php
-        $selU = 'SELECT COUNT(*) AS totalUsers FROM users';
-        $resU = mysql_query($selU, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resU); 
-        $totalUsers = $stat['totalUsers']; 
-
-        $selS = 'SELECT COUNT(*) AS totalSales FROM sales'; 
-        $resS = mysql_query($selS, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resS); 
-        $totalSales = $stat['totalSales']; 
-
-        $selP = 'SELECT COUNT(*) AS totalProducts FROM products'; 
-        $resP = mysql_query($selP, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resP); 
-        $totalProducts = $stat['totalProducts']; 
-
-        $selSP = 'SELECT COUNT(*) AS sitePages FROM memberpages';
-        $resSP = mysql_query($selSP, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resSP);
-        $sitePages = $stat['sitePages'];
-        ?>
+    
     </td>
     <td align="left">
         <div class="adminBox"><a href="<?=$adir?>main.php"><h2>Site Stats</h2></a>
