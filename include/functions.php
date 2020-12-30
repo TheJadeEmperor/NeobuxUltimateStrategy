@@ -28,11 +28,17 @@
  * 
  * genString($number)
  *  generate a random string of $number digits
+ * 
+ * dbInsert($opt)
+ * 	inserts a new record into the db
+ * 
+ * dbSelect($opt)
+ * 
+ * dbUpdate($opt)
 
 ###############################################################*/
 
 // connect to database, returns resource 
-
 function database($host, $user, $pw, $dbName) {
 	global $conn; 
 	 
@@ -48,6 +54,48 @@ function database($host, $user, $pw, $dbName) {
 	}
 
 	return $conn;
+}
+
+
+function getAdContent () {
+    global $conn;
+ 
+	//get ad pages content from codegeas_cc db
+    $conn->select_db('codegeas_cc');
+
+    $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
+    $resA = $conn->query($selA); 
+
+    if($ad = $resA->fetch_array()) {
+        $adContent = $ad['content'];
+	}
+	
+    //switch back to main db
+	$conn->select_db('codegeas_nus');
+	
+	return $adContent;
+}
+  
+function getAdminUser () { //for admin login page
+	global $conn;
+	$getLogin = 'SELECT * FROM settings WHERE opt="adminUser" || opt="adminPass"';
+	$resLogin = $conn->query($getLogin); 
+	
+	return $resLogin;
+}
+
+function updateRawViews($pageView) { //update raw views
+	global $conn;
+	$upd = 'update pageviews set rawViews=rawViews+1 where page="'.$pageView.'"';
+	$res = $conn->query($upd);
+	return $res;
+}
+
+function updateUniqueViews($pageView) { //update unique views
+	global $conn;
+	$upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
+	$res = $conn->query($upd);     
+	return $res;
 }
 
 function downloadLink($url) {
@@ -280,6 +328,131 @@ function genString($number) {
 	    $hash = $hash.(randomChar());
 	}
 	return $hash;
+}
+
+
+function stripAllSlashes($array) {
+    foreach($array as $fld => $val) {
+        $newArray[$fld] = stripslashes($val);
+    }
+    return $newArray;
+}
+
+/*
+ * $opt = array(
+ * 	'tableName' => $tableName,
+ * 	'dbFields' => array(
+ * 		'fld' => $val)
+ * )
+ * */
+
+function dbInsert($opt) {
+	global $conn; 
+	
+	$fields = $values = array();
+	foreach($opt['dbFields'] as $fld => $val) {
+		array_push($fields, $fld);
+		
+		if($val == 'now()') //mysql timestamp
+			array_push($values, $val); 
+		else
+			array_push($values, '"'.addslashes($val).'"');
+	}
+	
+	$theFields = implode(',', $fields);
+	$theValues = implode(',', $values);
+	
+echo	$ins = 'INSERT INTO '.$opt['tableName'].' ('.$theFields.') VALUES ('.$theValues.')';
+	$res = $conn->query($ins);
+	return $res;
+}
+
+/*
+ * $opt = array(
+ * 	'tableName' => $tableName,
+ * 	'cond' => $cond)
+ * */
+
+function dbSelect($opt) {
+	global $conn; 
+	
+	$sel = 'SELECT * FROM '.$opt['tableName']; 
+	
+	if($opt['cond'])
+		$sel .= ' '.$opt['cond']; 
+	
+	$res = $conn->query($sel);
+
+	while($rows = $res->fetch_array()) {
+		foreach($rows as $fld => $val) {	//remove slashes 
+			$rows[$fld] = stripslashes($val);  
+		}
+		$mysql[] = $rows;		
+	}
+	
+	return $mysql;
+}
+
+
+/*
+ * $opt = array(
+ * 	'tableName' => $tableName,
+ * 	'cond' => $cond)
+ * */
+function dbSelectQuery($opt) {
+	global $conn; 
+	
+	$sel = 'SELECT * FROM '.$opt['tableName']; 
+	
+	if($opt['cond'])
+		$sel .= ' '.$opt['cond']; 
+	
+	$res = $conn->query($sel);
+	return $res;
+}
+
+
+function dbDeleteQuery ($opt) {
+	global $conn; 
+	$delQ = 'DELETE FROM '.$opt['tableName']; 
+
+	if($opt['cond']) 
+		$delQ .= ' '.$opt['cond'];
+	else 
+		$delQ .= ' LIMIT 1'; //do not delete everything
+echo $delQ;
+
+	$delR = $conn->query($delQ);
+
+	return $delR;
+}
+
+/*
+ * $opt = array(
+ * 	'tableName' => $tableName, 
+ * 	'dbFields' => array(
+ * 		'fld' => $val),
+ * 	'cond' => $cond
+ *  );
+ */
+function dbUpdate($opt) {
+	global $context; 
+	global $conn;
+	
+	if(!isset($opt['cond']))
+		$opt[cond] = 'limit 1'; //prevent updating of all entries 
+	
+	$set = array(); 
+	foreach($opt['dbFields'] as $fld => $val) {
+		array_push($set, $fld.'="'.addslashes($val).'"'); 
+	}
+	
+	$theSet = implode(',', $set); 
+	
+	$upd = 'update '.$opt['tableName'].' set '.$theSet.' '.$opt[cond]; 
+	$res = $conn->query($upd);
+	
+	return $res;  
 }
 
 ?>
