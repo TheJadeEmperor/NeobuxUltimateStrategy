@@ -22,8 +22,8 @@ $postLink = $websiteURL.'/'.$url;
 $csReferralLink = $context['links']['clixsenseReferralLink']; 
 $clixsenseBannerImg = $context['links']['clixsenseBannerImg']; 
 
-$redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
-$subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense'; 
+$redirLink = 'redirect.php?action='; 
+$subscribeLandingURL = $redirLink.'clixsense'; 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -65,7 +65,6 @@ $subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense';
 	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
-	
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<script>
 	  (adsbygoogle = window.adsbygoogle || []).push({
@@ -73,6 +72,7 @@ $subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense';
 		enable_page_level_ads: true
 	  });
 	</script>
+
 	
 	<style>
 		img {
@@ -127,14 +127,13 @@ $subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense';
 
 	<div class="sidebar"><br />
     
-	<center>
-        <span class="st_twitter_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Tweet"></span>
-        <span class="st_email_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Email"></span>
-        <span class="st_facebook_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Facebook"></span>
-        <span class="st_fblike_vcount" st_url="http://neobuxultimatestrategy.com" st_title="Neobux Ultimate Strategy" st_url="http://neobuxultimatestrategy.com" displayText="share"></span>
-    </center>
+		<center>
+			<span class="st_twitter_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Tweet"></span>
+			<span class="st_email_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Email"></span>
+			<span class="st_facebook_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Facebook"></span>
+			<span class="st_fblike_vcount" st_url="http://neobuxultimatestrategy.com" st_title="Neobux Ultimate Strategy" st_url="http://neobuxultimatestrategy.com" displayText="share"></span>
+		</center>
 	</div>
-
 
 	<!-- Wrapper -->
 	<div id="wrapper">
