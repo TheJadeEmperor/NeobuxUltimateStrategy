@@ -44,9 +44,6 @@ else if($_POST['delete']) {
 		'cond' => 'WHERE id="'.$_GET['id'].'"');
 
 	dbDeleteQuery ($opt);
-
-//	$delL = 'DELETE FROM links WHERE id="'.$_GET['id'].'"';
-//	mysql_query($delL, $conn) or die(mysql_error());
 		   
 	$error = 'Successfully deleted link '.$_GET['id'];
 }
