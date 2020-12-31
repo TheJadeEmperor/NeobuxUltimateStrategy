@@ -38,20 +38,15 @@ session_start();
 /* get the path of the product from url
  * if url is www.domain.com/prod
  * the path is "prod" */
-$url = curPageURL();  
+$curPageURL = curPageURL();  
 
 if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
-
-    list($crap, $path) = explode('//', $url);
-    list($crap, $crap, $path) = explode('/', $path); 
-    $path = str_replace('index.php', '', $path); 
-    
-    if(is_int(strrpos($path, '?')))
-        $path = '';
+    $path = $_SERVER['REQUEST_URI']; 
+    $path = str_replace('/', '', $path);
 }
 else { //live website
 
-    list($crap, $path) = explode('//', $url);    
+    list($crap, $path) = explode('//', $curPageURL);    
     list($crap, $path) = explode('/', $path); 
     $path = str_replace('index.php', '', $path); //get the current path
     
@@ -59,22 +54,25 @@ else { //live website
         $path = '';
 } 
 
-//relative path to the root  
-if($path == '' || $_GET['p']) //already at the root
-    $dir = '';    
-else  //not at the root
-    $dir = '../'; 
+//get relative path to the root  
+$pos = strpos($path, '?'); //?action=page or ?p=post pages
+
+if(is_int($pos) || $path == '') {
+    $dir = '';
+}
+else {
+    $dir = '../';
+} 
 
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
-echo __LINE__.' ';
 
 $selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
 $resP = $conn->query($selP);
 
 if( $p = $resP->fetch_array() ) {
+    
     //product vars
 	$productID = $p['id'];
     $itemName = $p['itemName'];
@@ -110,7 +108,7 @@ if( $p = $resP->fetch_array() ) {
     if($oto == 'Y') { //one time offer
     
         $selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
-        $resO = $conn->query($selO);  //($selO, $conn) or die(mysql_error());
+        $resO = $conn->query($selO);   
 		$o = $resO->fetch_array($resO);
 
         if($p['otoName'])
@@ -129,7 +127,7 @@ if( $p = $resP->fetch_array() ) {
             $otoNumber = $o['itemNumber']; 
     }
 }
-echo __LINE__.' ';
+
 if($_POST['dl']) {
     $item =  $_POST['url'];
     
@@ -147,7 +145,7 @@ if($_POST['dl']) {
 
 $paidToEmail = $paypalEmail;
 $action = $_GET['action'];
-echo __LINE__.' ';
+
 switch($action) {
     case 'order':
         if($itemPrice == 0) //free gift product
@@ -171,8 +169,8 @@ switch($action) {
 	default:
 		$keywords = $p['keywords'];
 		$description = $p['description']; 
-        echo __LINE__.' ';
-		$fileName = $salespage; //default action: show sales page  
+
+        $fileName = $salespage; //default action: show sales page  
         $pageView = '/'.$path;
         //blog post
         if($_GET['p']) {
@@ -185,8 +183,7 @@ switch($action) {
     
         //custom site pages 
         $selM = 'SELECT * FROM memberpages ORDER BY url';
-        $resM = $conn->query($selM);
-        echo __LINE__.' ';
+        $resM = $conn->query($selM); 
         while($m = $resM->fetch_array()) {
             if($action == $m['url']) {
                 $templateHeader = $m['header'];
@@ -218,12 +215,10 @@ include($templateFooter);
 //track pageviews
 if($pageView) {
     if(isset($_COOKIE['lastView'])) { //raw views
-        $upd = 'update pageviews set rawViews=rawViews+1 where page="'.$pageView.'"';
-        $res = $conn->query($upd);
+        $res = updateRawViews($pageView);
     }
     else { //unique views
-        $upd = 'update pageviews set uniqueViews=uniqueViews+1, rawViews=rawViews+1 where page="'.$pageView.'"';
-        $res = $conn->query($upd);     
+        $res = updateUniqueViews($pageView);  
     } 
     setcookie('lastView', date('m/d/Y', time()));
 }

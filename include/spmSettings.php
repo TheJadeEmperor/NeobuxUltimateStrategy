@@ -1,32 +1,43 @@
 <?php
 global $context; 
 
-//website settings
-$selS = 'SELECT * FROM settings ORDER BY opt';
-$resS = $conn->query($selS);
+//get data from settings table
+$opt = array(
+    'tableName' => 'settings',
+    'cond' => 'ORDER BY opt');
+
+$resS = dbSelectQuery($opt);
 
 while($s = $resS->fetch_array()) {
     $s['setting'] = stripslashes($s['setting']);
     $val[$s['opt']] = $s['setting'];     
 }
 
-$selL = 'SELECT * FROM links ORDER BY name';
-$resL = $conn->query($selL);
+
+//get all links from db
+$opt = array(
+    'tableName' => 'links',
+    'cond' => 'ORDER BY name');
+
+$resL = dbSelectQuery($opt);
 
 while($l = $resL->fetch_array()) {
 	$l['url'] = stripslashes($l['url']);
 	$links[$l['name']] = $l['url'];
 }
 
+
 $context = array( //global variables 
+    'conn' => $conn,
+    'newslConn' => $newslConn,
     'dir' => $dir, 
     'links' => $links,
-    'conn' => $conn, 
     'websiteURL' => $val['websiteURL'], 
-    'ipnURL' => $ipnURL,
     'adminEmail' => $val['adminEmail'],
     'supportEmail' => $val['fromEmail'],
-    'val' => $val ); 
+    'ipnURL' => $ipnURL,
+    'val' => $val 
+); 
 
 //admin email address 
 $adminEmail = $val['adminEmail'];

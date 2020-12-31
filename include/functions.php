@@ -40,8 +40,7 @@
 
 // connect to database, returns resource 
 function database($host, $user, $pw, $dbName) {
-	global $conn; 
-	 
+
 	if(!is_int(strpos(__FILE__, 'C:\\'))) { //connect to db remotely (local server)
 		$host = 'localhost';
 	}
@@ -56,26 +55,32 @@ function database($host, $user, $pw, $dbName) {
 	return $conn;
 }
 
+//code for popup in splash/popUp.php and popup.css
+function popUpWindow($dir) {
+    return '
+    var seconds = 12; 
+    var milliseconds = seconds * 1000; 
+	setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
+}
 
-function getAdContent () {
-    global $conn;
- 
-	//get ad pages content from codegeas_cc db
-    $conn->select_db('codegeas_cc');
-
+//get ad pages content from codegeas_cc db
+function getAdContent ($conn) { //call this function on ad pages
+	$conn->select_db('codegeas_cc'); 
+	
+	/////////////////////////////////
     $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-    $resA = $conn->query($selA); 
-
+	$resA = $conn->query($selA); 
     if($ad = $resA->fetch_array()) {
         $adContent = $ad['content'];
 	}
-	
+	/////////////////////////////////
+
     //switch back to main db
 	$conn->select_db('codegeas_nus');
 	
 	return $adContent;
 }
-  
+
 function getAdminUser () { //for admin login page
 	global $conn;
 	$getLogin = 'SELECT * FROM settings WHERE opt="adminUser" || opt="adminPass"';
@@ -195,7 +200,7 @@ function sendDownloadEmail($id, $conn) {
     $message = str_replace($var, $val, $message);
     $subject = str_replace($var, $val, $subject);   
 
-    $headers = "From: ".$context[adminEmail]."\n";
+    $headers = "From: ".$context['adminEmail']."\n";
     $headers .= "Content-type: text/html;";     
     
     mail($_POST['payer_email'], $subject, $message, $headers);
@@ -395,10 +400,10 @@ function dbSelect($opt) {
 
 
 /*
- * $opt = array(
- * 	'tableName' => $tableName,
- * 	'cond' => $cond)
- * */
+$opt = array(
+	'tableName' => $tableName,
+	'cond' => $cond)
+ */
 function dbSelectQuery($opt) {
 	global $conn; 
 	
@@ -411,7 +416,11 @@ function dbSelectQuery($opt) {
 	return $res;
 }
 
-
+/*
+$opt = array(
+	'tableName' => $tableName,
+	'cond' => $cond)
+ */
 function dbDeleteQuery ($opt) {
 	global $conn; 
 	$delQ = 'DELETE FROM '.$opt['tableName']; 
@@ -420,7 +429,6 @@ function dbDeleteQuery ($opt) {
 		$delQ .= ' '.$opt['cond'];
 	else 
 		$delQ .= ' LIMIT 1'; //do not delete everything
-echo $delQ;
 
 	$delR = $conn->query($delQ);
 
