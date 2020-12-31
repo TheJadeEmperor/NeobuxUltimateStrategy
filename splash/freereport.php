@@ -1,14 +1,8 @@
 <?php
 date_default_timezone_set('America/New_York'); 
-$imgDir = 'images/splash/';
-$landingURL = 'http://neobuxultimatestrategy.com/redirect.php?url=ysense';
 
-if($_GET['e']) { //email address passed in url
-    $emailField = '<input type=text id="da_email" name="da_email" value="'.$_GET['e'].'" class="textField">';
-}
-else {
-    $emailField = '<input type=text id="da_email" name="da_email" value="name@email.com" onclick="if(this.value==\'name@email.com\') this.value=\'\';" class="textField">';
-}
+$imgDir = 'images/splash/';
+$subscribeLandingURL = $links['subscribeLandingURL'];
 
 $timer = '
     <script language="JavaScript">
@@ -26,7 +20,6 @@ $timer = '
 $preHeadline = '<h2 class="subheadline"><span class="strong red">Warning: </span>
     This offer will expire in '.$timer.'... </h2>';
 
-$subscribeButton = '<button type="submit" value="Submit" id="submit" name="subscribe" class="link button"></button>';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -194,23 +187,11 @@ button.link:hover {
 </style>
 <script type="text/javascript" src="include/js/swfobject.js"></script>
 <script type="text/javascript" src="include/js/jquery.js"></script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-6094683-5']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 <script>
 <!-- 
 var NoExitPage = false; 
 
-function ExitPage() 
-{ 
+function ExitPage() { 
     if(NoExitPage == false) { 
     NoExitPage=true; 
     location.href='<?=$landingURL?>'; 
@@ -223,6 +204,17 @@ function ExitPage()
     } 
 } 
 // --> 
+
+function validateEmail(email) { /* validation for email field */
+    console.log('validateEmail ' + email);
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+        return true;
+    } else {
+        document.getElementById('error').innerHTML = 'You have entered an invalid email address!';
+        
+        return false;
+    }
+}
 </script>
 </head>
 <body onbeforeunload="return ExitPage();">
@@ -242,28 +234,21 @@ function ExitPage()
 
 <div id="form">
     <h3 class="red">Get Your Free Neobux Report</h3>
-    <h4>Your referrals are waiting for you!</h4>
-    
-    <form method="post" onsubmit="NoExitPage=true;" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+    <h4 id="error">Your referrals are waiting for you!</h4>
 
+    <form method="POST" onsubmit="NoExitPage=true;" action="<?=$subscribeLandingURL ?>">
+ 
     <div class="infoWrap">
-    <?=$emailField?>
+        <input type="text" id="email" name="email" placeholder="name@email.com"  class="textField">
     </div>
     
     <div class="buttonWrap">
-	<?=$subscribeButton?>
+        <button type="submit" value="Submit" id="submit" name="subscribe" class="link button" onclick="return validateEmail(document.getElementById('email').value);"></button>'; 
     </div>
     
-    <input type="hidden" class="input" id="da_name" name="da_name" value="PTC User">
-    <input type="hidden" name="da_cust1" value="<?=$page?>" />
-    <input type="hidden" name="da_cust2" value="<?=$_SERVER['HTTP_REFERER']?>" />
-    <input type="hidden" name="da_cust3" value="<?=$_GET['campaign']?>" />
-    <input type="hidden" name="trwvid" value="theemperor">
-    <input type="hidden" name="series" value="nusnewsletter">
-    <input type="hidden" name="subscrLandingURL" value="<?=$landingURL?>">
-    <input type="hidden" name="confirmLandingURL" value="<?=$landingURL?>">
     </form>
 </div><!-- form -->
+
 
 <p class="note"><img src="images/splash/lock.png" />
 We hate spam and will never sell your email address to others. All opt-ins are completely optional.</p>
@@ -284,25 +269,25 @@ We hate spam and will never sell your email address to others. All opt-ins are c
 	</center>
 	<p>&nbsp;</p>
 
-<!--<h1>Don't Close the Window!</h1>
+<h1>Don't Close the Window!</h1>
 <h3 class="red">See what some people are saying <br />about the PTC Newsletters</h3>
 
 <table>
-<tr valign="top">
-	<td width="160px"></td>
-	<td align="left">
+    <tr valign="top">
+        <td width="160px"></td>
+        <td align="left">
 
-<p><a href="#form"><img src="images/testimony/facebook1.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
-    
-<p><a href="#form"><img src="images/testimony/facebook2.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
+            <p><a href="#form"><img src="images/testimony/facebook1.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
+                
+            <p><a href="#form"><img src="images/testimony/facebook2.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
 
-<p><a href="#form"><img src="images/testimony/facebook3.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
-	</td>
-</tr>
+            <p><a href="#form"><img src="images/testimony/facebook3.jpg" alt="PTC Newsletter" title="PTC Newsletter" /></a></p>
+        </td>
+    </tr>
 </table>
 
 <h4>Your fellow Neobux users have already stated they got a lot of value out of it. <br />
-    Scroll up and sign up to the newsletter and get your free ebook now!</h4>-->
+    Scroll up and sign up to the newsletter and get your free ebook now!</h4>
 	
 </div>
 <div id="contentBtm"></div>
