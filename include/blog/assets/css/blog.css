@@ -3962,12 +3962,59 @@ img {
 	text-align: center; 
 }
 
+
+* {
+	word-wrap: break-word;
+}
+
+
+img {
+	max-width: 100%;	
+}
+
+img.referralProof {
+	max-width: 600px;
+}
+
+.stButton .stBubble {
+	height: 29px !important;
+}
+
+.imgBox {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+}
+
+.infoBox {
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+	border: 1px dashed;
+	padding: 5px;
+	margin-bottom: 50px;			
+}	
+
+.borderImg {
+	border: 1px solid black;
+	padding: 5px; 
+}	
+
+.borderImg:hover {
+	border: 1px solid gray;
+	padding: 5px; 
+}
+
 @media screen and (max-width: 420px) {
 	.sidebar, sidebar * {
 		display: none;
 	}
-}
 
-* {
-	word-wrap: break-word;
+	.imgBox {
+		width: 80%;
+	}
+
+	.infoBox {
+		width: 80%;			
+	}	
 }

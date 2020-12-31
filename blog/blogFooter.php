@@ -195,18 +195,6 @@ while($p = $resP->fetch_array()) {
 		src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
 		</div></noscript></div>
 		
-		<script>
-			function validateEmail(email) {
-				console.log(email);
-				if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
-					return true;
-				} else {
-					//alert("You have entered an invalid email address!");
-					document.getElementById('error').innerHTML = '<p>You have entered an invalid email address!</p>';
-					return false;
-				}
-			}
-		</script>
-
+	
 	</body>	
 </html>
