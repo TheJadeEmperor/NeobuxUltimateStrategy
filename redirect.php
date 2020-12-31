@@ -12,8 +12,6 @@ if(empty($urlRedirect)) {
 }
 
 
-echo $_POST['email']; 
-
 if($_POST['email']) {
 	//add email to sendgrid 
 	$subscriberEmail = $_POST['email'];
@@ -31,12 +29,51 @@ if($_POST['email']) {
 			'origin' => $_POST['origin'] //page tracking 
 			)
 	);
-	echo $subscriberEmail. ' '; 
-
+	
 	$sendGridAPI->contact_add($info);
+
+
+	function sendGridNewsletterFromDB ($newslData) {
+		global $context;
+
+		$newslConn = $newslData['newslConn'];
+		$sendgridClass = $newslData['sendgridClass'];
+		$sendgridMail = $newslData['sendgridMail'];
+
+		//get newsl day 0 from db 
+		$queryN = 'SELECT * FROM newsletters WHERE series="'.$newslData['series'].'" AND day = "'.$newslData['newslDay'].'" LIMIT 1';
+
+		$resultN = mysqli_query($newslConn, $queryN);
+		$news = $resultN->fetch_assoc(); //echo $news['html_code'];
+ 
+		$newsletterData = array(
+			'subject' => $news['subject'],
+			'senderName' => $newslData['senderName'],
+			'subscriberName' => $newslData['subscriberName'],
+			'subscriberEmail' => $newslData['subscriberEmail'],
+			'htmlContent' => $news['html_code'], 
+		);
+		
+		//send email using sendgridMail
+		sendEmail($sendgridClass, $sendgridMail, $newsletterData); 	
+	}
+
+	$newslData = array(
+		'newslConn' => $newslConn, 
+		'sendgridClass' => $sendgridClass, 
+		'sendgridMail' => $sendgridMail,
+		'newslDay' => '00',
+		'series' => 'NeobuxUltimateStrategy',
+		'senderName' => 'Neobux Ultimate Strategy',
+		'subscriberName' => 'PTC User',
+		'subscriberEmail' => $subscriberEmail
+	);
+
+	sendGridNewsletterFromDB($newslData); //send first newsletter 
+
 }
 else {
-	echo "You don't belong here"; exit; 
+	echo "You did not enter an email or your email was invalid. Please go back and try again."; exit; 
 }
 
 
@@ -59,6 +96,7 @@ body {
 </head>
 <body>
 
+<p>&nbsp;</p><p>&nbsp;</p>
 <center>
 <table width="450px" cellpadding="10" class="table">
     <tr valign="middle">
@@ -73,7 +111,6 @@ body {
         </td>
     </tr>
 </table>
-
 
 <p>&nbsp;</p>
 

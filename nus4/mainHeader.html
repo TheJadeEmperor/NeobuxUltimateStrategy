@@ -1,106 +1,126 @@
-<?
+<?php
 $spImg = '../images/nus/';
 
-if($dir == '') {
+//sales page image dir
+if($dir == '') { //root directory 
 	$spImg = 'images/nus/';
 }
 
 $refDir = $dir.'images/refs/';
 $popUp = 1;
 
-//unset($_SESSION['popUp']);
-//echo $_SESSION['popUp']; 
-
-function popUpWindow($dir) {
-	return '
-	var seconds = 10; 
-	var milliseconds = seconds * 1000; 
-	setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:480,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
-}
-
+$redirLink = 'redirect.php?action='; 
+$subscribeLandingURL = $redirLink.'clixsense';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-	<meta charset="UTF-8">
-	<title>Neobux Ultimate Strategy 4.0</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="<?=$dir?>include/css/nus.css">
-	<link href="<?=$dir?>include/css/popup.css" rel="stylesheet" type="text/css" media="screen" />
+    <head>
+        <meta charset="UTF-8">
+        <title>Neobux Ultimate Strategy 4.0</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="<?=$dir?>include/css/nus.css">
+        <link href="<?=$dir?>include/css/popup.css" rel="stylesheet" type="text/css" media="screen" />
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-	
-	<!-- pop up video opt-in form -->
-	<script type="text/javascript" src="<?=$dir?>include/js/popup.js"></script>
-	
-	<!-- share buttons for sidebar -->
-	<script type="text/javascript">var switchTo5x=true;</script>
-	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
-	
-	<script>
-	<?
-	if($popUp) {
-		if($_SESSION['popUp'] < 1)
-			echo popUpWindow($dir); 
-		$_SESSION['popUp'] = 1;
-	}
-	?>
-	</script>
-	<script>
-	<!-- 
-	var NoExitPage = false; 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
-	function ExitPage() { 
-			if(NoExitPage == false) { 
-			NoExitPage=true; 
-			location.href="http://neobuxultimatestrategy.com/basics"; 
-		
-			return"***********************************************\n\n"+ 
-			" WAIT! Sign up to get your FREE Neobux Report! \n\n"+ 
-			" Learn how to get 40+ Direct Referrals Overnight! \n\n"+ 
-			" Click the [Cancel] button to Download Your FREE GIFT!\n\n"+ 
-			"***********************************************"; 
+        <!-- pop up video opt-in form -->
+        <script type="text/javascript" src="<?=$dir?>include/js/popup.js"></script>
+
+        <!-- share buttons for sidebar -->
+        <script type="text/javascript">
+            var switchTo5x = true;
+        </script>
+        <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+        <script>
+            <?php
+        //unset($_SESSION['popUp']);
+        //echo $_SESSION['popUp']; 
+
+            if ($popUp) { //pop up is enabled 
+               // if ($_SESSION['popUp'] < 1) //pop up happens once per user session
+                    echo popUpWindow($dir);
+                $_SESSION['popUp'] = 1;
 			} 
-	} 
-	// --> 
-	</script>
-</head>
-<body>
+			?>
+        </script>
+        <script>
+            <!-- 
+            var NoExitPage = false;
 
-<div class="sidebar"><br />
-    <center>
-        <span class="st_twitter_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Tweet"></span>
-        <span class="st_email_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Email"></span>
-        <span class="st_facebook_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Facebook"></span>
-    </center>
-</div>
+            function ExitPage() {
+                if (NoExitPage == false) {
+                    NoExitPage = true;
+                    location.href = "http://neobuxultimatestrategy.com/basics";
 
-<div id="language"></div>
-<script type="text/javascript">
-	function googleTranslateElementInit() {
-		new google.translate.TranslateElement({
-			pageLanguage: 'en',
-			includedLanguages: 'es,de,fi,fr,el,id',
-			gaTrack: true,
-			gaId: 'UA-29416561-1',
-			layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-		}, 'language');
-	}
-	</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    return "***********************************************\n\n" +
+                        " WAIT! Sign up to get your FREE Neobux Report! \n\n" +
+                        " Learn how to get 40+ Direct Referrals Overnight! \n\n" +
+                        " Click the [Cancel] button to Download Your FREE GIFT!\n\n" +
+                        "***********************************************";
+                }
+            }
+            // -->
+        </script>
+        <script>
+            function validateEmailSP(email) { /* validation for email field */
+                console.log(email);
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+                    return true;
+                } else {
+                    document.getElementById('errorSP').innerHTML += '<br />You have entered an invalid email address!';
+                    
+                    return false;
+                }
+            }
+      
+            function validateEmailPopup(email) { /* validation for email field */
+                console.log(email); 
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+                    return true;
+                } else {
+                    document.getElementById('errorPopup').innerHTML = '<br />You have entered an invalid email address!';
+                    
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="sidebar"><br />
+            <center>
+                <span class="st_twitter_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Tweet"></span>
+                <span class="st_email_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Email"></span>
+                <span class="st_facebook_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Facebook"></span>
+            </center>
+        </div>
 
-	<div class="topbar"></div>
-	<div class="headerlogo">
-		<div class="headerlogobg">
-			<img src="<?=$spImg ?>logo.png">
-		</div>		
-	</div>
-	<div class="headerbg">
-		<div class="header-wrp">
-			<img src="<?=$spImg ?>header.jpg">
-		</div>
-	</div>	
-	
-	<div class="content-wrp">
-		<div class="content">
-			<p>&nbsp;</p>
+        <div id="language"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'es,de,fi,fr,el,id',
+                    gaTrack: true,
+                    gaId: 'UA-29416561-1',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'language');
+            }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+        <div class="topbar"></div>
+        <div class="headerlogo">
+            <div class="headerlogobg">
+                <img src="<?=$spImg ?>logo.png">
+            </div>
+        </div>
+        <div class="headerbg">
+            <div class="header-wrp">
+                <img src="<?=$spImg ?>header.jpg">
+            </div>
+        </div>
+
+        <div class="content-wrp">
+            <div class="content">
+                <p>&nbsp;</p>
