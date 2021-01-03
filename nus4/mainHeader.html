@@ -9,8 +9,8 @@ if($dir == '') { //root directory
 $refDir = $dir.'images/refs/';
 $popUp = 1;
 
-$redirLink = 'redirect.php?action='; 
-$subscribeLandingURL = $redirLink.'clixsense';
+$redirLink = 'redirect.php?url='; 
+$subscribeLandingURL = $redirLink.'ysense';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,14 +33,9 @@ $subscribeLandingURL = $redirLink.'clixsense';
         <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
         <script>
             <?php
-        //unset($_SESSION['popUp']);
-        //echo $_SESSION['popUp']; 
-
-            if ($popUp) { //pop up is enabled 
-               // if ($_SESSION['popUp'] < 1) //pop up happens once per user session
-                    echo popUpWindow($dir);
-                $_SESSION['popUp'] = 1;
-			} 
+            global $popUp;
+            $popUp = 1;
+            echo popUpWindow($dir);
 			?>
         </script>
         <script>

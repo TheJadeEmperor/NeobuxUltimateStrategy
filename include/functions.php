@@ -57,10 +57,23 @@ function database($host, $user, $pw, $dbName) {
 
 //code for popup in splash/popUp.php and popup.css
 function popUpWindow($dir) {
-    return '
-    var seconds = 12; 
-    var milliseconds = seconds * 1000; 
-	setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
+	global $popUp;
+
+	//echo 'popUp: '. $popUp;
+	//echo $_SESSION['popUp']; 
+
+	if ($popUp) { //popUp = 1: enabled 
+		if ($_SESSION['popUp'] < 1)  //pop up happens once per user session
+		return '
+		var windowSize = $(window).width();
+		if(windowSize >= 420) { //no popUp on mobile
+			var seconds = 12; 
+			var milliseconds = seconds * 1000; 
+			setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);
+		} '; //use JS tiny box to show pop up
+		
+		$_SESSION['popUp'] = 1; //track session
+	}
 }
 
 //get ad pages content from codegeas_cc db
@@ -344,13 +357,12 @@ function stripAllSlashes($array) {
 }
 
 /*
- * $opt = array(
- * 	'tableName' => $tableName,
- * 	'dbFields' => array(
- * 		'fld' => $val)
- * )
- * */
-
+$opt = array(
+ 	'tableName' => $tableName,
+ 	'dbFields' => array(
+ 		'fld' => $val)
+	 );
+*/
 function dbInsert($opt) {
 	global $conn; 
 	
@@ -367,8 +379,13 @@ function dbInsert($opt) {
 	$theFields = implode(',', $fields);
 	$theValues = implode(',', $values);
 	
-echo	$ins = 'INSERT INTO '.$opt['tableName'].' ('.$theFields.') VALUES ('.$theValues.')';
+	$ins = 'INSERT INTO '.$opt['tableName'].' ('.$theFields.') VALUES ('.$theValues.')';
 	$res = $conn->query($ins);
+
+	if($_GET['debug'] == 1) {
+		echo '<pre>'.$ins.'</pre>';
+	}
+	
 	return $res;
 }
 
@@ -377,7 +394,6 @@ echo	$ins = 'INSERT INTO '.$opt['tableName'].' ('.$theFields.') VALUES ('.$theVa
  * 	'tableName' => $tableName,
  * 	'cond' => $cond)
  * */
-
 function dbSelect($opt) {
 	global $conn; 
 	
@@ -393,6 +409,10 @@ function dbSelect($opt) {
 			$rows[$fld] = stripslashes($val);  
 		}
 		$mysql[] = $rows;		
+	}
+
+	if($_GET['debug'] == 1) {
+		echo '<pre>'.$sel.'</pre>';
 	}
 	
 	return $mysql;
@@ -411,8 +431,13 @@ function dbSelectQuery($opt) {
 	
 	if($opt['cond'])
 		$sel .= ' '.$opt['cond']; 
-	
+
 	$res = $conn->query($sel);
+
+	if($_GET['debug'] == 1) {
+		echo '<pre>'.$sel.'</pre>';
+	}
+
 	return $res;
 }
 
@@ -432,17 +457,20 @@ function dbDeleteQuery ($opt) {
 
 	$delR = $conn->query($delQ);
 
+	if($_GET['debug'] == 1) {
+		echo '<pre>'.$delQ.'</pre>';
+	}
 	return $delR;
 }
 
 /*
- * $opt = array(
- * 	'tableName' => $tableName, 
- * 	'dbFields' => array(
- * 		'fld' => $val),
- * 	'cond' => $cond
- *  );
- */
+$opt = array(
+ 	'tableName' => $tableName, 
+ 	'dbFields' => array(
+ 		'fld' => $val),
+ 	'cond' => $cond
+);
+*/
 function dbUpdate($opt) {
 	global $context; 
 	global $conn;
@@ -457,9 +485,12 @@ function dbUpdate($opt) {
 	
 	$theSet = implode(',', $set); 
 	
-	$upd = 'update '.$opt['tableName'].' set '.$theSet.' '.$opt[cond]; 
+	$upd = 'UPDATE '.$opt['tableName'].' SET '.$theSet.' '.$opt[cond]; 
 	$res = $conn->query($upd);
 	
+	if($_GET['debug'] == 1) {
+		echo '<pre>'.$upd.'</pre>';
+	}
 	return $res;  
 }
 

@@ -1,8 +1,7 @@
 <?php
-
 //blog options
-$popUp = 1;
-$useHTMLFile = true; 
+$popUp = 1; //popUp enabled
+$useHTMLFile = true; //use html files
 $imgBlog = $imgDir = $dir.'images/guide/';  
 $X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
 
@@ -14,8 +13,8 @@ $postLink = $websiteURL.'/'.$url;
 $csReferralLink = $context['links']['clixsenseReferralLink']; 
 $clixsenseBannerImg = $context['links']['clixsenseBannerImg']; 
 
-$redirLink = 'redirect.php?action='; 
-$subscribeLandingURL = $redirLink.'clixsense'; 
+//$redirLink = 'redirect.php?action='; 
+$subscribeLandingURL = 'redirect.php?url=ysense'; 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -40,19 +39,12 @@ $subscribeLandingURL = $redirLink.'clixsense';
 	function linkTo(url) {
 		window.open(url);
 	}
-	
-	var windowSize = $(window).width();
-	//console.log(windowSize);
-
-	if(windowSize >= 420) { //no popUp on mobile 
-		<?php
-		if($popUp) { //is popUp enabled
-		//	if($_SESSION['popUp'] < 1)
-				echo popUpWindow($dir); 
-			$_SESSION['popUp'] = 1;
-		}
-		?>	
-	}
+ 
+	<?php
+		global $popUp;
+		$popUp = 1;
+		echo popUpWindow($dir); 		
+	?>	
 
 	function validateEmail(email) {
 		console.log(email);

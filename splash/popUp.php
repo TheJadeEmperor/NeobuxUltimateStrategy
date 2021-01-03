@@ -10,7 +10,7 @@ else {
 } 
 
 $imgDir = $dir.'images/splash/'; 
-$subscribeLandingURL = $dir.'redirect.php?action=clixsense';  
+$subscribeLandingURL = $dir.'redirect.php?url=ysense';  
 ?>
 <!DOCTYPE html>
 <html>

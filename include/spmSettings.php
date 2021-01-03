@@ -28,6 +28,7 @@ while($l = $resL->fetch_array()) {
 
 
 $context = array( //global variables 
+    'links' => $links,
     'conn' => $conn,
     'newslConn' => $newslConn,
     'dir' => $dir, 

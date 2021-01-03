@@ -11,7 +11,6 @@ if(empty($urlRedirect)) {
 	$urlRedirect = 'http://neobuxultimatestrategy.com/basics';
 }
 
-
 if($_POST['email']) {
 	//add email to sendgrid 
 	$subscriberEmail = $_POST['email'];
@@ -40,7 +39,7 @@ if($_POST['email']) {
 		$sendgridClass = $newslData['sendgridClass'];
 		$sendgridMail = $newslData['sendgridMail'];
 
-		//get newsl day 0 from db 
+		//get newsl day 0 from db
 		$queryN = 'SELECT * FROM newsletters WHERE series="'.$newslData['series'].'" AND day = "'.$newslData['newslDay'].'" LIMIT 1';
 
 		$resultN = mysqli_query($newslConn, $queryN);
