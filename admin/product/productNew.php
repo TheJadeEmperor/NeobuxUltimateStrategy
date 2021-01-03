@@ -2,8 +2,6 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-$conn = mysql_connect($dbHost, $dbUser, $dbPW, $dbName);
-mysql_select_db('codegeas_nus');
 
 
 $emailDownloadSubject = "";
@@ -58,9 +56,6 @@ $dbFields = array(
 	'productOrderText' => $_POST['productOrderText']
 	);
 
-$opt = array(
-'tableName' => 'products',
-'dbFields' => $dbFields);
 
 	
 if($_POST['add']) {
@@ -77,9 +72,13 @@ if($_POST['add']) {
 		$p = $_POST; 
 	}
     else {
-        $res = dbInsert($opt); 
-        
-        $newID = mysql_insert_id();
+		$opt = array( 
+			'tableName' => 'products',
+			'dbFields' => $dbFields
+		); 
+			
+        $res = dbInsert($opt); //insert new product into table
+        $newID = $conn->insert_id; //ID 
         
         //purchase confirmation email / download email
         $emailDownloadOpt = array(
@@ -103,7 +102,7 @@ if($_POST['add']) {
         //add view
         dbInsert($viewOpt); 
         
-        //add emails
+        //add email templates
         dbInsert($emailDownloadOpt); 
         dbInsert($emailWelcomeOpt); 
 
@@ -118,17 +117,22 @@ else if($_POST['update']) {
 	} 
 	
 	$theSet = implode(',', $set);
-	
-	$upd = 'UPDATE products SET '.$theSet.' WHERE id="'.$_GET['id'].'"';
-	$res = mysql_query($upd) or die(mysql_error());
+
+	$queryOptions = array( //update settings table
+		'tableName' => 'products', 
+		'dbFields' => $dbFields,
+		'cond' => 'WHERE id="'.$_GET['id'].'"'
+	);
+
+	dbUpdate($queryOptions);  //'UPDATE products SET '.$theSet.' WHERE id="'.$_GET['id'].'"';
 }
 
 if($_GET['id']) {
-    $id = $_GET['id'];
-	$selP = 'SELECT * FROM products ORDER BY id';
-	$resP = mysql_query($selP) or die(mysql_error());
-    
-    while($item = mysql_fetch_assoc($resP)) {
+	$id = $_GET['id'];
+	
+	$resP = getAllProducts (); //get product info from DB
+
+    while($item = $resP->fetch_array()) {
             
         if($id == $item['id']) {
             $p = $item;
@@ -151,15 +155,31 @@ if($_GET['id']) {
     }
 
     if($_POST['delete']) {
-        $delP = 'DELETE FROM products where id="'.$id.'"';
-        mysql_query($delP, $conn) or die(mysql_error());
-        
-        $delV = 'DELETE FROM pageviews where page="/'.$p['itemName'].'"';
-        mysql_query($delV, $conn) or die(mysql_error());
-        
-        $delE = 'DELETE FROM emails where productID="'.$id.'"';
-        mysql_query($delE, $conn) or die(mysql_error());
-        
+
+		$opt = array(
+            'tableName' => 'products',
+            'cond' => 'WHERE id="'.$id.'"' 
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM products WHERE id="'.$id.'"'
+
+		$opt = array(
+            'tableName' => 'pageviews',
+            'cond' => 'WHERE page="/'.$p['itemName'].'"' 
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM pageviews WHERE page="/'.$p['itemName'].'"'
+
+		$opt = array(
+            'tableName' => 'emails',
+            'cond' => 'WHERE productID="'.$id.'"'
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM pageviews WHERE page="/'.$p['itemName'].'"'
+
+		$opt = array(
+            'tableName' => 'downloads',
+            'cond' => 'WHERE productID="'.$id.'"'
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM downloads WHERE id="'.$id.'"'
+
         $error = 'Successfully deleted product '.$p['itemName'];
     }
 

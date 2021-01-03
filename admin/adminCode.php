@@ -32,11 +32,14 @@ function getAllProducts () {
     return $conn->query($selP);
 }
 
-
 function getSettings() {
 	global $conn; 
 	$selS = 'SELECT * FROM settings ORDER BY opt';
 	return $conn->query($selS);
+}
+
+function showMessage ($msg) {
+    return '<pre><font color="red"><strong>'.$msg.'</strong></font></pre>';
 }
 
 
@@ -248,20 +251,16 @@ $sitePages = $stat['sitePages'];
                         </ul>
                     </li>                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Users<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users & Emails<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>userSearch.php">Search Users</a></li>
-                            <li><a href="<?=$adir?>custSearch.php">Search Customers</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Emails<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                            <li><a href="<?=$adir?>users/userSearch.php">Search Users</a></li>
+                            <li><a href="<?=$adir?>users/custSearch.php">Search Customers</a></li>
                             <li><a href="<?=$adir?>email/emailTest.php">Test Emails</a></li>
                             <li><a href="<?=$adir?>email/emailBroadcast.php">Email Broadcasts</a></li>
                             <li><a href="<?=$adir?>email/emailSend.php">Send Mass Emails</a></li>
                         </ul>
                     </li>
+                    
                     <? 
                     if($devSite) {
                     ?>
@@ -296,20 +295,20 @@ $sitePages = $stat['sitePages'];
         <div>
             <table>
             <tr>
-                <td>Total Users: </td>
-                <td><a href="<?=$adir?>userList.php"><?=$totalUsers?></a></td>
+                <td><a href="<?=$adir?>userList.php">Total Users</a>: </td>
+                <td><?=$totalUsers?></td>
             </tr>
             <tr>
-                <td>Total Sales: </td>
-                <td><a href="<?=$adir?>salesMonthly.php"><?=$totalSales?></a></td>
+                <td><a href="<?=$adir?>salesMonthly.php">Total Sales</a>: </td>
+                <td><?=$totalSales?></td>
             </tr>
             <tr>
-                <td>Total Products: </td>
-                <td><a href="<?=$adir?>product/productAll.php"><?=$totalProducts?></a></td>
+                <td><a href="<?=$adir?>product/productAll.php">Total Products</a>: </td>
+                <td><?=$totalProducts?></td>
             </tr>
             <tr>
-                <td>Site Pages: </td>
-                <td><a href="<?=$adir?>sitePages.php"><?=$sitePages?></a></td>
+                <td><a href="<?=$adir?>pages/sitePages.php">Site Pages</a>: </td>
+                <td><?=$sitePages?></td>
             </tr>
             </table>
 

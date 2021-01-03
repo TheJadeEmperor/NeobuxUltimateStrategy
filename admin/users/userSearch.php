@@ -1,11 +1,11 @@
-<?
-include('adminCode.php'); 
+<?php
+$adir = '../';
+include($adir.'adminCode.php');
 
 $selS = 'SELECT U.id, username, fname, lname, email, paypal, S.id as salesID FROM users U LEFT JOIN sales S ON U.paypal = S.payerEmail GROUP BY U.ID'; 
+$resS = $conn->query($selS); 
 
-$resS = mysql_query($selS, $conn) or die(mysql_error());
-
-while ($u = mysql_fetch_assoc($resS)) {
+while($u = $resS->fetch_array()) {
 	
 	array_push($_SESSION['sendTo'], $c['payerEmail']);
 

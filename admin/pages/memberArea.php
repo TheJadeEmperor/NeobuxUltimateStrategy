@@ -15,12 +15,20 @@ if($_POST['update']) {
         'memUpsellBackupFile' => $_POST['memUpsellBackupFile']
     );
     
-    foreach($dbOpt as $opt => $setting) {
+    foreach($dbOpt as $opt => $setting) { //go through each option
         $setting = addslashes(trim($setting)); 
+
+        $queryOptions = array( //update settings table
+            'tableName' => 'settings', 
+            'dbFields' => array(
+                'setting' => $setting
+            ),
+            'cond' => 'WHERE opt="'.$opt.'"' 
+        );
+
+        dbUpdate($queryOptions); 
         
-        $updS = 'UPDATE settings SET setting="'.$setting.'" WHERE opt="'.$opt.'"';
-        $conn->query($updS);
-    }
+    } //Upsell file = upsellPTCMinisite.html
 }
 
 $resM = getSettings(); //get settings from settings table 
@@ -124,7 +132,7 @@ else {      //upsell is disabled
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" name="update" value=" Update Members Area " />
+                    <input type="submit" name="update" value=" Update Members Area " class="btn info" />
                 </td>
             </tr>
             </table>
@@ -165,7 +173,7 @@ else {      //upsell is disabled
                 <?=$upsellOptions?>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" name="update" value=" Update Members Area " />
+                    <input type="submit" name="update" value=" Update Members Area " class="btn info" />
                 </td>
             </tr>
             </table>

@@ -176,14 +176,12 @@ $postURL = $dir.'?p='.$p['url'];
 
 <br /><br />
 <center>
-    <input type="submit" <?=$disAdd?> name="save" value="New Post" />
-    <input type="submit" <?=$disEdit?> name="update" value="Save" />
-    <input type="reset" name="reset" value="Reset" />
-
+<center>
+    <input type="submit" <?=$disAdd?> name="save" value="New Post" class="btn info" />
+    <input type="submit" <?=$disEdit?> name="update" value="Save" class="btn success" />
 </center><br />
 </div></div>
  
-
 
 <!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
 <div>
@@ -203,10 +201,9 @@ $postURL = $dir.'?p='.$p['url'];
 
 <br /><br />
 <center>
-    <input type="submit" <?=$disAdd?> name="save" value="New Post" />
-    <input type="submit" <?=$disEdit?> name="update" value="Save" />
-    <input type="reset" name="reset" value="Reset" />
-
+    <input type="submit" <?=$disAdd?> name="save" value="New Post" class="btn info" />
+    <input type="submit" <?=$disEdit?> name="update" value="Save" class="btn success" />
+    <input type="reset" name="reset" value="Reset" class="btn btn-warning"/>
 </center><br />
 </div></div>
 </form>

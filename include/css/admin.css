@@ -177,11 +177,11 @@ a:hover  {
 	color: blue;
 }
 
-.activeField {
+.activeField, input[type=text] {
 	background: #FFFFFF;
 }
 
-.activeField:hover  {
+.activeField:hover, input[type=text]:hover  {
 	background: #FFFF99;
 }
 

@@ -6,62 +6,61 @@ if($_GET['id']) {
     $pID = $_GET['id'];
     
     if($_POST['add']) {
-        $ins = 'INSERT INTO downloads (
-        productID, 
-        name,
-        url
-        ) values (
-        "'.$pID.'",
-        "'.$_POST['name'].'",
-        "'.$_POST['url'].'")';
-        
-        mysql_query($ins, $conn) or die(mysql_error());
+
+        $opt = array(
+            'tableName' => 'downloads',
+            'dbFields' => array(
+                'productID' => $pID,
+                'name' => $_POST['name'],
+                'url' => $_POST['url'],
+            )
+        );
+
+        dbInsert($opt); 
     }
     else if($_POST['update']) {
     	
 		$dbOptions = array(
-        'tableName' => 'downloads',
-        'dbFields' => array(
-            'name' => $_POST['name'],
-            'url' => $_POST['url']),
-        'cond' => 'where id="'.$_POST['downloadID'].'"'
+            'tableName' => 'downloads',
+            'dbFields' => array(
+                'name' => $_POST['name'],
+                'url' => $_POST['url']),
+            'cond' => 'where id="'.$_POST['downloadID'].'"'
         );
         
-        dbUpdate($dbOptions);
+        dbUpdate($dbOptions); 
     }
-	else if($_POST['delete_x'] && $_POST['delete_y']) {
-        $del = 'DELETE FROM downloads WHERE id="'.$_POST['downloadID'].'"';
-        mysql_query($del, $conn) or die(mysql_error());
+	else if($_POST['delete_x'] && $_POST['delete_y']) { 
+        
+        $opt = array(
+            'tableName' => 'downloads',
+            'cond' => 'WHERE id="'.$_POST['downloadID'].'"' 
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM downloads WHERE id="'.$_POST['downloadID'].'"'
     }
 
-	
-	if($_GET['debug'] == 1) {
-		echo $ins; echo $del;
-		echo '<pre>'; print_r($_POST); echo '</pre>';
-	}
-	
     
     $properties = 'type="text" class="activeField"';
         
     $sel = 'SELECT *, d.id AS downloadID FROM downloads d LEFT JOIN products p ON p.id = d.productID WHERE productID="'.$pID.'" ORDER BY name ASC';
-    $res = mysql_query($sel, $conn) or die(mysql_error());
+    $res = $conn->query($sel);  
     
     $c = 1;
-    while($d = mysql_fetch_assoc($res)) {   
+    while($d = $res->fetch_array()) {   
         $downloadsList .= '<form method="POST">
         <tr valign="top">
         <td>'.$c.'</td>
         <td>
             <input '.$properties.' name="name" value="'.$d['name'].'" size="25"/><br />
-            <input type="submit" name="update" value="Update" />
+            <input type="submit" name="update" value="Update" class="btn info" />
         </td>
         <td>
             <input '.$properties.' name="url" value="'.$d['url'].'" size="60"/><br />
-            <input type="submit" name="dl" value="Test Download">
+            <input type="submit" name="dl" value="Test Download" class="btn info">
         </td>
         <td>
             <input type="hidden" name="downloadID" value="'.$d['downloadID'].'" /> 
-            <input type="image" name="delete" value="" src="'.$delImg.'" onclick="confirm(\'Are you sure?\');">
+            <input type="image" name="delete" value="" src="'.$delImg.'" onclick="confirm(\'Are you sure you want to delete this record?\');">
         </td>
         </tr>
         </form>';
@@ -70,6 +69,14 @@ if($_GET['id']) {
         $c++; 
     }
 }
+
+if($_GET['debug'] == 1) {
+    echo '<pre>'; 
+    echo $sel.'<br />'; 
+    print_r('Post:'.$_POST); echo '</pre>';
+}
+
+
 ?>
 <div class="moduleBlue"><h1>Downloads for <?=$itemName?></h1><div>
 	<center>   
@@ -106,7 +113,7 @@ if($_GET['id']) {
              <td><input <?=$properties?> name="url" value="" /></td>
          </tr>
          <tr>
-             <td colspan="2" align="center"><input type="submit" name="add" value="Add Download" /></td>
+             <td colspan="2" align="center"><input type="submit" name="add" value="Add Download" class="btn success" /></td>
          </tr>
      </table>   
 </div>

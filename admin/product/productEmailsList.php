@@ -5,6 +5,7 @@ include($adir.'adminCode.php');
 
 //update download email options
 if($_POST['updateEmailOptions']) { 
+    
     $conn = mysql_connect($dbHost, $dbUser, $dbPW, $dbName);
     mysql_select_db('codegeas_nus');
     
