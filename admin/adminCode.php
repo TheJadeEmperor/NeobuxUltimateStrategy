@@ -1,6 +1,48 @@
 <?php
 session_start();
 
+function getTotalSales () {
+    global $conn; 
+    
+    $selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS purchased, 
+    date_format(purchased, "%m/%Y") AS currentMonth, date_format(purchased, "%Y") AS thisYear
+    FROM sales ORDER BY purchased'; 
+    
+    $resS = $conn->query($selS); 
+
+    return $resS;
+}
+
+
+function getRevenue($whichMonth) { //revenue for selected year & mont
+    global $conn; 
+
+    $selR = 'SELECT SUM(amount) AS revenue, date_format(purchased, "%m/%Y") AS purchased FROM sales WHERE purchased LIKE "%'.$whichMonth.'%"';
+    
+    $resR = $conn->query($selR); 
+    $rev = $resR->fetch_array();
+    
+    $revenueDisplay = '$'.number_format($rev['revenue'], 2);
+    return $revenueDisplay;
+}
+
+function getAllProducts () {
+    global $conn;
+    $selP = 'SELECT * FROM products ORDER BY id'; 
+    return $conn->query($selP);
+}
+
+function getSettings() {
+	global $conn; 
+	$selS = 'SELECT * FROM settings ORDER BY opt';
+	return $conn->query($selS);
+}
+
+function showMessage ($msg) {
+    return '<pre><font color="red"><strong>'.$msg.'</strong></font></pre>';
+}
+
+
 if($adir == '') { //admin main directory
     $dir = '../'; //root directory
     $adir = './';
@@ -13,7 +55,6 @@ if(!isset($_SESSION['admin']))//if not logged in, redirect back to login page
     header('Location: '.$adir); 
 
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/class.phpmailer.php');
 include($dir.'include/class.smtp.php');
 include($dir.'include/config.php');
@@ -33,15 +74,35 @@ if($_POST['dl']) { //download files
     exit; 
 }
 
-
+$prodCount = 0; //total # of products 
 $prod = array(); 
 
 $selP = 'SELECT id, itemName FROM products'; 
-$resP = mysql_query($selP, $conn) or die(mysql_error());
+$resP = $conn->query($selP);
 
-while($p = mysql_fetch_assoc($resP)) {
-	$prod[] = $p;
+while($p = $resP->fetch_array()) {
+    $prod[] = $p;
+    $prodCount++; 
 }
+
+//show site stats
+$totalProducts = $prodCount;
+
+$selU = 'SELECT COUNT(*) AS totalUsers FROM users';
+$resU = $conn->query($selU);
+$stat = $resU->fetch_array(); 
+$totalUsers = $stat['totalUsers']; 
+
+$selS = 'SELECT COUNT(*) AS totalSales FROM sales'; 
+$resS = $conn->query($selS);
+$stat = $resS->fetch_array(); 
+$totalSales = $stat['totalSales']; 
+
+$selSP = 'SELECT COUNT(*) AS sitePages FROM memberpages';
+$resSP = $conn->query($selSP);
+$stat = $resSP->fetch_array(); 
+$sitePages = $stat['sitePages'];
+
 		
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -190,20 +251,16 @@ while($p = mysql_fetch_assoc($resP)) {
                         </ul>
                     </li>                    
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Users<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users & Emails<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>userSearch.php">Search Users</a></li>
-                            <li><a href="<?=$adir?>custSearch.php">Search Customers</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Emails<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                            <li><a href="<?=$adir?>users/userSearch.php">Search Users</a></li>
+                            <li><a href="<?=$adir?>users/custSearch.php">Search Customers</a></li>
                             <li><a href="<?=$adir?>email/emailTest.php">Test Emails</a></li>
                             <li><a href="<?=$adir?>email/emailBroadcast.php">Email Broadcasts</a></li>
                             <li><a href="<?=$adir?>email/emailSend.php">Send Mass Emails</a></li>
                         </ul>
                     </li>
+                    
                     <? 
                     if($devSite) {
                     ?>
@@ -231,47 +288,27 @@ while($p = mysql_fetch_assoc($resP)) {
 <table>
 <tr valign="top">
     <td align="left">
-    	<?php
-        $selU = 'SELECT COUNT(*) AS totalUsers FROM users';
-        $resU = mysql_query($selU, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resU); 
-        $totalUsers = $stat['totalUsers']; 
-
-        $selS = 'SELECT COUNT(*) AS totalSales FROM sales'; 
-        $resS = mysql_query($selS, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resS); 
-        $totalSales = $stat['totalSales']; 
-
-        $selP = 'SELECT COUNT(*) AS totalProducts FROM products'; 
-        $resP = mysql_query($selP, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resP); 
-        $totalProducts = $stat['totalProducts']; 
-
-        $selSP = 'SELECT COUNT(*) AS sitePages FROM memberpages';
-        $resSP = mysql_query($selSP, $conn) or die(mysql_error());
-        $stat = mysql_fetch_assoc($resSP);
-        $sitePages = $stat['sitePages'];
-        ?>
+    
     </td>
     <td align="left">
         <div class="adminBox"><a href="<?=$adir?>main.php"><h2>Site Stats</h2></a>
         <div>
             <table>
             <tr>
-                <td>Total Users: </td>
-                <td><a href="<?=$adir?>userList.php"><?=$totalUsers?></a></td>
+                <td><a href="<?=$adir?>userList.php">Total Users</a>: </td>
+                <td><?=$totalUsers?></td>
             </tr>
             <tr>
-                <td>Total Sales: </td>
-                <td><a href="<?=$adir?>salesMonthly.php"><?=$totalSales?></a></td>
+                <td><a href="<?=$adir?>salesMonthly.php">Total Sales</a>: </td>
+                <td><?=$totalSales?></td>
             </tr>
             <tr>
-                <td>Total Products: </td>
-                <td><a href="<?=$adir?>product/productAll.php"><?=$totalProducts?></a></td>
+                <td><a href="<?=$adir?>product/productAll.php">Total Products</a>: </td>
+                <td><?=$totalProducts?></td>
             </tr>
             <tr>
-                <td>Site Pages: </td>
-                <td><a href="<?=$adir?>sitePages.php"><?=$sitePages?></a></td>
+                <td><a href="<?=$adir?>pages/sitePages.php">Site Pages</a>: </td>
+                <td><?=$sitePages?></td>
             </tr>
             </table>
 

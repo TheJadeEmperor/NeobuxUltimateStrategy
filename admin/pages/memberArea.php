@@ -2,8 +2,7 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_POST['update'])
-{
+if($_POST['update']) {
     $dbOpt = array(
         'memHeader' => $_POST['memHeader'],
         'memFooter' => $_POST['memFooter'],
@@ -16,30 +15,33 @@ if($_POST['update'])
         'memUpsellBackupFile' => $_POST['memUpsellBackupFile']
     );
     
-    foreach($dbOpt as $opt => $setting)
-    {
+    foreach($dbOpt as $opt => $setting) { //go through each option
         $setting = addslashes(trim($setting)); 
+
+        $queryOptions = array( //update settings table
+            'tableName' => 'settings', 
+            'dbFields' => array(
+                'setting' => $setting
+            ),
+            'cond' => 'WHERE opt="'.$opt.'"' 
+        );
+
+        dbUpdate($queryOptions); 
         
-        $updS = 'UPDATE settings SET setting="'.$setting.'" WHERE opt="'.$opt.'"';
-        mysql_query($updS) or print(mysql_error()); 
-    }
+    } //Upsell file = upsellPTCMinisite.html
 }
 
-$selM = 'SELECT * FROM settings ORDER BY opt';
-$resM = mysql_query($selM, $conn); 
+$resM = getSettings(); //get settings from settings table 
 
-while($m = mysql_fetch_assoc($resM))
-{
+while($m = $resM->fetch_array()) {
     $m['setting'] = stripslashes($m['setting']);
     $memOptions[$m['opt']] = $m['setting'];  
 }
 
-//get product info 
-$selP = 'SELECT * FROM products ORDER BY id'; 
-$resP = mysql_query($selP, $conn) or die(mysql_error()); 
 
-while($p = mysql_fetch_assoc($resP))
-{
+$resP = getAllProducts (); //get product info from DB
+
+while($p = $resP->fetch_array()) {
     $p = formatFields($p); 
     
     $pick = '';
@@ -59,8 +61,7 @@ while($p = mysql_fetch_assoc($resP))
 }    
     
 //upsell is enabled 
-if($memOptions['memAreaUpsell'] == 'on')
-{
+if($memOptions['memAreaUpsell'] == 'on') {
     $upsellCheck = 'checked';  //upsell product 
     
     if($memOptions['memUpsellBackup'] == 'on') //2nd upsell product
@@ -131,7 +132,7 @@ else {      //upsell is disabled
             </tr>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" name="update" value=" Update Members Area " />
+                    <input type="submit" name="update" value=" Update Members Area " class="btn info" />
                 </td>
             </tr>
             </table>
@@ -172,7 +173,7 @@ else {      //upsell is disabled
                 <?=$upsellOptions?>
             <tr>
                 <td colspan="2" align="center">
-                    <input type="submit" name="update" value=" Update Members Area " />
+                    <input type="submit" name="update" value=" Update Members Area " class="btn info" />
                 </td>
             </tr>
             </table>

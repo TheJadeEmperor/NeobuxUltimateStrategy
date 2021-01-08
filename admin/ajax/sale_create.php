@@ -1,7 +1,6 @@
 <?
 $dir = '../../';
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 
 //sanitize arguments
@@ -25,7 +24,7 @@ $insertRecord = 'INSERT INTO sales (
     status,
     notes,
     optout
-    ) values (
+    ) VALUES (
     "'.$_REQUEST['productID'].'",
     "'.$_REQUEST['transID'].'",
     "'.$_REQUEST['itemName'].'",
@@ -43,7 +42,8 @@ $insertRecord = 'INSERT INTO sales (
     "'.$_REQUEST['optout'].'"
 )';
 
-if(mysql_query($insertRecord))
+
+if(is_object ($conn->query($insertRecord)))
     echo 'Successfully inserted record #'.mysql_insert_id();
 else
     echo 'Failed to insert record: '.mysql_error();

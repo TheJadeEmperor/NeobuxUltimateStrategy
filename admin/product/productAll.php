@@ -2,10 +2,15 @@
 $adir = '../';
 include($adir.'adminCode.php'); 
 
-$sel = 'SELECT * FROM products ORDER BY id DESC';
-$res = mysql_query($sel, $conn) or die(mysql_error());
 
-while($p = mysql_fetch_assoc($res)) {
+$opt = array(
+ 	'tableName' => 'products',
+	 'cond' => 'ORDER BY id DESC'
+);
+ 
+$productsData = dbSelect($opt);
+
+foreach($productsData as $p) {
 	
 	$id = $p['id'];
 	

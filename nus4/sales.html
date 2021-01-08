@@ -425,10 +425,10 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 
 <div class="guarantee cf"><br />
 	<div class="guaranteeheadline">
-		<h2>60 Money Back Guarantee</h2>
+		<h2>60 Day Money Back Guarantee</h2>
 	</div><br />
 	<div class="g-icon">
-		<img src="<?=$spImg?>guarantee.png">
+		<img src="<?=$spImg?>guarantee.png" />
 	</div>
 	<div class="g-info">
 		<p class="p-small3">We have seen a lot of products that have a lot of hype and promise you to make millions. But none of these products actually provides a total solution.</p>
@@ -462,6 +462,8 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 ?>
 
 <div class="order">
+	<img src="<?=$spImg?>bookB.png" width="85%" />
+
 	<p><input type="checkbox" checked="checked" class="checkbox_order"> Yes, I want access to the NUS Membership, available for download immediately after purchase!</p>
 	<p><input type="checkbox" checked="checked" class="checkbox_order">Yes, please send me my bonus downloads, absolutely free when I order today!</p>
 
@@ -481,52 +483,38 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 
 <br /><br />
 
+
 <div class="subs-box">
-	<br /><br />
-	<div class="sub_checkbox">
-		<input type="checkbox" checked="checked" class="checkbox_order">
-	</div>
-	
-	<div class="sub_text">
-	<h2 class="p-red">YES! Please subscribe me to the best PTC Newsletter in the industry, as well as my free copy of the Neobux Basics ebook!</h2>
-	</div>
-	 
-	
-	<br /><br />
-	<p>The Ultimate Strategy Newsletter gives you tips on how to succeed with Neobux and other PTC's. Topics covered include, but are not limited to: how to increase the average of rented referrals, when to cash out, and when to upgrade your account.</p><br />
-	<h2 class="p-red">Subscribe to PTC Newsletter</h2><br />
+    <br /><br />
+    <div class="sub_checkbox">
+        <input type="checkbox" checked="checked" class="checkbox_order">
+    </div>
 
-	<div class="optin">
-	<form method="post" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
-	
-		<div class="form_div">
-			<div class="form_label"><p>Full Name</p></div>
-			<div class="form_field">
-				<input type="text" id="da_name" name="da_name" class="input" size="27" />
-			</div>
-		</div>
-		
-		<div class="form_div">
-			<div class="form_label"><p>Email Address</p></div>
-			<div class="form_field">
-				<input type="text" id="da_email" name="da_email" class="input" size="27">
-			</div>
-		</div>
-				
-		<div class="button2">
-			<input type="image" src="<?=$spImg?>btn-ace.png" />
-		</div>
-					
-		<input type="hidden" name="da_cust1" value="salespage">
-		<input type="hidden" name="trwvid" value="theemperor">
-		<input type="hidden" name="series" value="nusnewsletter">
-		<input type="hidden" name="subscrLandingURL" value="<?=$subscrLandingURL?>">
-		<input type="hidden" name="confirmLandingURL" value="<?=$confirmLandingURL?>">
-		</form>
+    <div class="sub_text">
+        <h2 class="p-red">YES! Please subscribe me to the <u>Best</u> PTC Newsletter in the industry, as well as my free copy of the Neobux Basics ebook!</h2>
+    </div>
 
-	</div>
+    <br /><br />
+    <p>The Ultimate Strategy Newsletter gives you tips on how to succeed with Neobux and other PTC's. Topics covered include, but are not limited to: how to increase the average of rented referrals, when to cash out, and when to upgrade your account.</p><br />
+    <h2 class="p-red">Subscribe to the PTC Newsletter</h2><br />
 
-	<p class="p-small p-grey">We hate spam and will never sell your email address to others. All opt-ins are completely optional.</p>
+    <div class="optin">
+
+        <form method="POST" action="<?=$subscribeLandingURL?>">
+
+            <div id="errorSP"></div>
+
+            <input type="text" id="emailSP" name="email" class="email" value="Your Best Email" onclick="if(this.value=='Your Best Email') this.value=''; " />
+        
+            <div class="button2">
+                <input type="image" src="<?=$spImg?>btn-ace.png" title="Subscribe Now!" onclick="return validateEmailSP(document.getElementById('emailSP').value);" />
+            </div>
+          
+        </form>
+    </div>
+    </div>
+
+    <p class="p-small p-grey">We hate spam and will never sell your email address to others. All opt-ins are completely optional.</p>
 </div><br /><br />
 
 <p>Another reason to sign up ... from time to time we will announce discounts on our products, up to 50% off. We don't run these special offers often, but when we do we announce them through our newsletters.</p>

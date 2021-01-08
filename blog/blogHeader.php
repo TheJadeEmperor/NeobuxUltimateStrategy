@@ -1,16 +1,7 @@
 <?php
-
-function popUpWindow($dir) {
-    return '
-    var seconds = 15; 
-    var milliseconds = seconds * 1000; 
-	setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:525,openjs:\'initPopupLogin\',opacity:30});", milliseconds);'; 
-}
-
-
 //blog options
-$popUp = 1;
-$useHTMLFile = true; 
+$popUp = 1; //popUp enabled
+$useHTMLFile = true; //use html files
 $imgBlog = $imgDir = $dir.'images/guide/';  
 $X_img = '<img src="images/newsletter/X.jpg" alt="Neobux X" width="25px" />';
 
@@ -22,8 +13,8 @@ $postLink = $websiteURL.'/'.$url;
 $csReferralLink = $context['links']['clixsenseReferralLink']; 
 $clixsenseBannerImg = $context['links']['clixsenseBannerImg']; 
 
-$redirLink = 'https://neobuxultimatestrategy.com/redirect.php?action='; 
-$subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense'; 
+//$redirLink = 'redirect.php?action='; 
+$subscribeLandingURL = 'redirect.php?url=ysense'; 
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -44,97 +35,53 @@ $subscrLandingURL = $confirmLandingURL = $redirLink.'clixsense';
 	<script type="text/javascript" src="include/js/jquery.js"></script>
 	<script type="text/javascript" src="include/js/popup.js"></script>
 	<script type="text/javascript">
+	
 	function linkTo(url) {
 		window.open(url);
 	}
-	
-	var windowSize = $(window).width();
-	
-	
-	if(windowSize >= 420) { //no popUp on mobile 
-		<?php
-		if($popUp) { //is popUp enabled
-			if($_SESSION['popUp'] < 1)
-				echo popUpWindow($dir); 
-			$_SESSION['popUp'] = 1;
+ 
+	<?php
+		global $popUp;
+		$popUp = 1;
+		echo popUpWindow($dir); 		
+	?>	
+
+	function validateEmail(email) {
+		console.log(email);
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+			return true;
+		} else {
+			//alert("You have entered an invalid email address!");
+			document.getElementById('error').innerHTML = '<p>You have entered an invalid email address!</p>';
+			return false;
 		}
-		?>	
+	}
+
+	function validateEmailPopup(email) { /* validation for email field */
+		console.log(email); 
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
+			return true; 
+		} else {
+			document.getElementById('errorPopup').innerHTML = '<br />You have entered an invalid email address!';
+			
+			return false;
+		}
 	}
 	</script>
 	<script type="text/javascript">var switchTo5x=true;</script>
 	<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
 
-	
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<script>
-	  (adsbygoogle = window.adsbygoogle || []).push({
-		google_ad_client: "ca-pub-9979225970120201",
-		enable_page_level_ads: true
-	  });
-	</script>
-	
-	<style>
-		img {
-			max-width: 100%;	
-		}
-		
-		img.referralProof {
-			max-width: 600px;
-		}
-		
-		.stButton .stBubble {
-			height: 29px !important;
-		}
-		
-		.imgBox {
-			display: inline-block;
-			vertical-align: top;
-			width: 40%;
-		}
-		
-		.infoBox {
-			display: inline-block;
-			vertical-align: top;
-			width: 45%;
-			border: 1px dashed;
-			padding: 5px;
-			margin-bottom: 50px;			
-		}	
-		
-		.borderImg {
-			border: 1px solid black;
-			padding: 5px; 
-		}	
-		
-		.borderImg:hover {
-			border: 1px solid gray;
-			padding: 5px; 
-		}
-				
-		@media screen and (max-width: 420px) {
-			.imgBox {
-				width: 80%;
-			}
-		
-			.infoBox {
-				width: 80%;			
-			}	
-		}
-	</style>
 </head>
 <body>
-
-	<div class="sidebar"><br />
-    
-	<center>
-        <span class="st_twitter_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Tweet"></span>
-        <span class="st_email_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Email"></span>
-        <span class="st_facebook_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Facebook"></span>
-        <span class="st_fblike_vcount" st_url="http://neobuxultimatestrategy.com" st_title="Neobux Ultimate Strategy" st_url="http://neobuxultimatestrategy.com" displayText="share"></span>
-    </center>
-	</div>
-
+	<!--<div class="sidebar"><br />
+		<center>
+			<span class="st_twitter_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Tweet"></span>
+			<span class="st_email_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Email"></span>
+			<span class="st_facebook_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Facebook"></span>
+			<span class="st_fblike_vcount" st_url="http://neobuxultimatestrategy.com" st_title="Neobux Ultimate Strategy" st_url="http://neobuxultimatestrategy.com" displayText="share"></span>
+		</center>
+	</div>-->
 
 	<!-- Wrapper -->
 	<div id="wrapper">

@@ -1,31 +1,44 @@
 <?php
 global $context; 
 
-$selS = 'SELECT * FROM settings ORDER BY opt';
-$resS = mysql_query($selS, $conn) or die(mysql_error());
+//get data from settings table
+$opt = array(
+    'tableName' => 'settings',
+    'cond' => 'ORDER BY opt');
 
-while($s = mysql_fetch_assoc($resS)) {
+$resS = dbSelectQuery($opt);
+
+while($s = $resS->fetch_array()) {
     $s['setting'] = stripslashes($s['setting']);
     $val[$s['opt']] = $s['setting'];     
 }
 
-$selL = 'SELECT * FROM links ORDER BY name';
-$resL = mysql_query($selL, $conn) or die(mysql_error());
 
-while($l = mysql_fetch_assoc($resL)) {
+//get all links from db
+$opt = array(
+    'tableName' => 'links',
+    'cond' => 'ORDER BY name');
+
+$resL = dbSelectQuery($opt);
+
+while($l = $resL->fetch_array()) {
 	$l['url'] = stripslashes($l['url']);
 	$links[$l['name']] = $l['url'];
 }
- 
-$context = array(
+
+
+$context = array( //global variables 
+    'links' => $links,
+    'conn' => $conn,
+    'newslConn' => $newslConn,
     'dir' => $dir, 
     'links' => $links,
-    'conn' => $conn, 
     'websiteURL' => $val['websiteURL'], 
-    'ipnURL' => $ipnURL,
     'adminEmail' => $val['adminEmail'],
     'supportEmail' => $val['fromEmail'],
-    'val' => $val ); 
+    'ipnURL' => $ipnURL,
+    'val' => $val 
+); 
 
 //admin email address 
 $adminEmail = $val['adminEmail'];
@@ -52,18 +65,6 @@ $paypalOrderLink = $val['paypalOrderLink'];
 $usePaypalOrderLink = $val['usePaypalOrderLink'];
 /////////////////// 
 
-
-//weekly backups of database
-$dayOfWeek = '0'; //day of week to backup 
-$backupDir = '.backup';
-$backupFile = date('Y-m-d', time()).'.sql';
-
-if( date('w', time()) == $dayOfWeek ) {
-    $dump = 'mysqldump -u'.$dbUser.' -p'.$dbPW.' '.$dbName.' > ./'.$backupDir.'/'.$backupFile;
-    system($dump); 
-} 
-
-error_reporting(E_ALL ^ E_WARNING ^ E_NOTICE);
 
 //delete error logs
 if(file_exists('error_log')) {   

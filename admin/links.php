@@ -39,8 +39,11 @@ else if($_POST['upd']) {
 }
 else if($_POST['delete']) {
 
-	$delL = 'DELETE FROM links WHERE id="'.$_GET['id'].'"';
-	mysql_query($delL, $conn) or die(mysql_error());
+	$opt = array(
+		'tableName' => 'links',
+		'cond' => 'WHERE id="'.$_GET['id'].'"');
+
+	dbDeleteQuery ($opt);
 		   
 	$error = 'Successfully deleted link '.$_GET['id'];
 }
@@ -48,10 +51,15 @@ else if($_POST['delete']) {
 
 $error = '<p><font color="red"><b>'.$error.'</b></font></p>';
 
-$selL = 'SELECT * FROM links ORDER BY name';
-$resL = mysql_query($selL, $conn) or die(mysql_error());
 
-while($l = mysql_fetch_assoc($resL)) {
+
+$opt = array(
+ 	'tableName' => 'links',
+	'cond' => 'ORDER BY name');
+
+$res = dbSelectQuery($opt);	
+
+while($l = $res->fetch_array()) {
     $id = $l['id'];
 	$thisURL = $l['url'];
 	$name = $l['name'];

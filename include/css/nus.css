@@ -448,6 +448,19 @@ h5 {
 	input.input {
 		height: 25px
 	}
+
+	.email {
+		font-size: 25px;
+		height: 55px;
+		padding: 10px;
+    	width: 366px;
+		border-radius: 10px;
+	}
+
+	#errorSP, #errorPopup {
+		color: red;
+		margin: 20px;
+	}
 	
 .photo img {
 	width: 500px;

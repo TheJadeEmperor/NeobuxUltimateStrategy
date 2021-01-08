@@ -2,17 +2,15 @@
 $dir = '../';
 session_start();
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 
-$getLogin = 'SELECT * FROM settings WHERE opt="adminUser" || opt="adminPass"';
-$resLogin = mysql_query($getLogin, $conn) or die(mysql_error());
+$resLogin = getAdminUser ();
 
-while($l = mysql_fetch_assoc($resLogin)) {
-    if($l['opt'] == 'adminUser')
-        $adminUser = $l['setting'];
+while($log = $resLogin->fetch_array()) {
+    if($log['opt'] == 'adminUser')
+        $adminUser = $log['setting'];
     else
-        $adminPass = $l['setting'];
+        $adminPass = $log['setting'];
 }
 
 if($_POST['login']) {

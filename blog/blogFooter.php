@@ -1,8 +1,8 @@
 <?php
 $selP = 'SELECT * FROM posts WHERE status <> "I" ORDER BY postedOn DESC LIMIT 10';
-$resP = mysql_query($selP, $conn) or die(mysql_error());
+$resP = $conn->query($selP);
 
-while($p = mysql_fetch_assoc($resP)) {
+while($p = $resP->fetch_array()) {
     $recentPosts .= '<p align="left"><a href="./?p='.$p['url'].'">'.shortenText($p['subject'], 35).'</a></p>'; 
 }
 ?>
@@ -83,54 +83,31 @@ while($p = mysql_fetch_assoc($resP)) {
 	</section>
 	<section id="signUpForm">
 		<h1>Get Your Free Neobux Report!</h1>
-            <p>Just Enter Your Email Address Below </p>
-            <form method=post action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
+			<h2 align="center">Just Enter Your Email Address Below </h2>
+		
+            <form name="sendgrid" method="post" action="<?=$subscribeLandingURL?>">
             <table align="center" cellpadding="1">
             <tr>
                 <td align="left"></td>
-                <td><input type=text id="da_email" name="da_email" class="input" size="25" 
-                value="Enter your email" onclick="if(this.value=='Enter your email') this.value=''" />
-                </td>
-            </tr><tr>
-                <td colspan="2" align="center">
-                
-                    <input type="image" src="images/sales/getAccessNow.png" name="subscribe" width="200px"  
-                    title="Subscribe Now!"></td>
+                <td align="center">
+					<div id="error"></div>
+					<input type="text" id="email" name="email" class="input" size="25"  value="Your Best Email" onclick="if(this.value=='Your Best Email') this.value=''; " />
+				
+					<input type="image" src="images/sales/getAccessNow.png" name="subscribe" title="Subscribe Now!" onclick="return validateEmail(document.sendgrid.email.value);" />
+					
+					<p><span class="note">We hate spam and will never sell your email address to others. </span></p>
+				</td>
             </tr>
             </table>
-            
-            <input type=hidden id="da_name" name="da_name" value="PTC User">
-            <input type=hidden name="da_cust1" value="blog post" />
-            <input type=hidden name="da_cust2" value="">
-            <input type=hidden name="trwvid" value="theemperor">
-            <input type=hidden name="series" value="nusnewsletter">
-            <input type=hidden name="subscrLandingURL" value="https://neobuxultimatestrategy.com/redirect.php?url=basics">
-            <input type=hidden name="confirmLandingURL" value="https://neobuxultimatestrategy.com/redirect.php?url=basics">
             </form>
             
             <br />
-            <span class="note">We hate spam and will never sell your email address to others. </span>
 	</section>
-	
-	
 </footer>
 
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-	
-	<!-- Facebook Comments -->
-	<div id="fbContainer">
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=226820120704287";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<div class="fb-comments" data-href="https://neobuxultimatestrategy.com/?p=clixsense-team-clixsense.com-free-referrals" data-num-posts="10" data-width="720"></div>
-	</div>
-
+ 
 	</div>
 		</div>
 			</section>
@@ -184,26 +161,27 @@ while($p = mysql_fetch_assoc($resP)) {
 			</div>
 
 	
-			<div id="eXTReMe"><a href="https://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
-			<img src="https://t1.extreme-dm.com/i.gif" style="border: 0;"
-			height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
-			<script type="text/javascript"><!--
-			EXref="";top.document.referrer?EXref=top.document.referrer:EXref=document.referrer;//-->
-			</script><script type="text/javascript"><!--
-			var EXlogin='richptc' // Login
-			var EXvsrv='s10' // VServer
-			EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
-			EXb=EXs.colorDepth:EXb=EXs.pixelDepth;EXsrc="src";
-			navigator.javaEnabled()==1?EXjv="y":EXjv="n";
-			EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
-			EXref?EXref=EXref:EXref=EXd.referrer;
-			EXd.write("<img "+EXsrc+"=https://e1.extreme-dm.com",
-			"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
-			"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
-			"l="+escape(EXref)+" height=1 width=1>");//-->
-			</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
-			src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
-			</div></noscript></div>
-			
+		<div id="eXTReMe"><a href="https://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
+		<img src="https://t1.extreme-dm.com/i.gif" style="border: 0;"
+		height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
+		<script type="text/javascript"><!--
+		EXref="";top.document.referrer?EXref=top.document.referrer:EXref=document.referrer;//-->
+		</script><script type="text/javascript"><!--
+		var EXlogin='richptc' // Login
+		var EXvsrv='s10' // VServer
+		EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+		EXb=EXs.colorDepth:EXb=EXs.pixelDepth;EXsrc="src";
+		navigator.javaEnabled()==1?EXjv="y":EXjv="n";
+		EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+		EXref?EXref=EXref:EXref=EXd.referrer;
+		EXd.write("<img "+EXsrc+"=https://e1.extreme-dm.com",
+		"/"+EXvsrv+".g?login="+EXlogin+"&amp;",
+		"jv="+EXjv+"&amp;j=y&amp;srw="+EXw+"&amp;srb="+EXb+"&amp;",
+		"l="+escape(EXref)+" height=1 width=1>");//-->
+		</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
+		src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
+		</div></noscript></div>
+		
+	
 	</body>	
 </html>

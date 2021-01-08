@@ -1,8 +1,8 @@
 <?php
-include('adminCode.php');
+$adir = '../';
+include($adir.'adminCode.php');
 
-function getUser($userEmailOrID)
-{
+function getUser($userEmailOrID) {
     global $conn; 
     
     if(strrpos($userEmailOrID, '@'))
@@ -18,8 +18,7 @@ function getUser($userEmailOrID)
 $saleID = $_GET['id'];
 
 //extend the expiration date
-if($_POST[extendExpires])
-{
+if($_POST[extendExpires]) {
     $expireSeconds = $_POST['expiresHours'] * 60 * 60; //# of hours converted to seconds
     $newExpDate = time() + $expireSeconds; //new expiration date in seconds
     $newExpDate = date('Y-m-d h:m:i', $newExpDate); //new expiration date in sql format

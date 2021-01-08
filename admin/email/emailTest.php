@@ -4,9 +4,7 @@ include($adir.'adminCode.php');
 
 if($_POST[sendEmail]) {
     switch($_POST[type]) {
-        case 'welcome':
-            sendWelcomeEmail($_POST[id], $conn);           
-            break; 
+     
         default: 
             $_POST[payer_email] = $_POST[email]; 
             sendDownloadEmail($_POST[id], $conn);             

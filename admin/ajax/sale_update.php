@@ -1,7 +1,6 @@
 <?
 $dir = '../../';
 include($dir.'include/functions.php');
-include($dir.'include/mysql.php');
 include($dir.'include/config.php');
 
 //sanitize arguments
@@ -27,7 +26,8 @@ $updateRecord = 'UPDATE sales set
     optout="'.$_REQUEST['optout'].'"
 WHERE id="'.$_REQUEST['id'].'"';
 
-if(mysql_query($updateRecord))
+
+if(is_object ($conn->query($updateRecord)))
     echo 'Successfully updated record #'.$_REQUEST['id'];
 else
     echo 'Failed to update record: '.mysql_error();

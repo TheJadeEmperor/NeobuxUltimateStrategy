@@ -18,22 +18,20 @@ $dbFields = array(
 
 if($_POST['update']) {
     $updA = 'UPDATE settings SET setting="'.$_POST['adminUser'].'" WHERE opt="adminUser"';
-    mysql_query($updA, $conn) or die(mysql_error());
+    $conn->query($updA);
     
     $updB = 'UPDATE settings SET setting="'.$_POST['adminPass'].'" WHERE opt="adminPass"';
-    mysql_query($updB, $conn) or die(mysql_error());
+    $conn->query($updB);
 
     foreach($dbFields as $fld => $set) {
         $upd = 'UPDATE settings SET setting="'.$set.'" WHERE opt="'.$fld.'"';
-        mysql_query($upd, $conn) or die(mysql_error());
+        $conn->query($upd);
     }
 }
 
 
-$selS = 'SELECT * FROM settings ORDER BY opt';
-$resS = mysql_query($selS, $conn) or die(mysql_error());
-
-while($s = mysql_fetch_assoc($resS)) {
+$resS = getSettings();
+while($s = $resS->fetch_array()) {
     $val[$s['opt']] = $s['setting'];
 }
 

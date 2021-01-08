@@ -2,17 +2,32 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-if($_POST['reset'])
-{ 
-    echo $reset = 'UPDATE pageviews SET rawViews=0, uniqueViews=0 WHERE page="'.$_POST['page'].'" limit 1' ;
-    mysql_query($reset, $conn) or die(mysql_error());
+if($_POST['reset']) { 
+    
+    $queryOptions = array(
+        'tableName' => 'pageviews', 
+        'dbFields' => array(
+            'rawviews' => 0,
+            'uniqueViews' => 0
+        ),
+        'cond' => 'WHERE page="'.$_POST['page'].'" LIMIT 1'
+    );
+
+    dbUpdate($queryOptions);  //'UPDATE pageviews SET rawViews=0, uniqueViews=0 WHERE page="'.$_POST['page'].'" LIMIT 1' ;
 }
 
-$selV = 'SELECT * FROM pageviews WHERE page<>"" ORDER BY page';
-$resV = mysql_query($selV) or die(mysql_error()); 
+$opt = array(
+    'tableName' => 'pageviews',
+    'cond' => 'WHERE page<>"" ORDER BY page'
+);
 
-while($v = mysql_fetch_assoc($resV))
-{
+$resV = dbSelectQuery($opt);
+
+
+//$selV = 'SELECT * FROM pageviews WHERE page<>"" ORDER BY page';
+//$resV = mysql_query($selV) or die(mysql_error()); 
+
+while($v = $resV->fetch_array()) {
     $rawViews = $v['rawViews'];
     $uniqueViews = $v['uniqueViews'];
     $page = $v['page'];
@@ -24,12 +39,11 @@ while($v = mysql_fetch_assoc($resV))
     );  
 }
 
-//get products
-$selP = 'SELECT * FROM products ORDER BY id';
-$resP = mysql_query($selP) or die(mysql_error()); 
 
-while($p = mysql_fetch_assoc($resP))
-{
+$resP = getAllProducts (); //get product info from DB
+
+
+while($p = $resP->fetch_array()) {
     $folder = $p['folder'];
     $url = '/'.$folder;
     
@@ -50,11 +64,15 @@ while($p = mysql_fetch_assoc($resP))
     </tr>';
 }
 
-$selB = 'SELECT url, subject FROM posts ORDER BY url';
-$resB = mysql_query($selB) or die(mysql_error()); 
 
-while($b = mysql_fetch_assoc($resB))
-{
+$opt = array(
+    'tableName' => 'posts',
+    'cond' => ' ORDER BY url'
+);
+
+$resB = dbSelectQuery($opt);
+
+while($b = $resB->fetch_array()) {
     $url = $b['url'];
     $postURL = '/?p='.$url;
     
@@ -63,7 +81,7 @@ while($b = mysql_fetch_assoc($resB))
         
     $blogViews .= '<tr>
     <td>'.shortenText($b['subject'], 35).'</td>
-    <td><a href="../?p='.$url.'" target="_BLANK">'.shortenText($postURL, 50).'</a></td>
+    <td><a href="'.$dir.'?p='.$url.'" target="_BLANK">'.shortenText($postURL, 50).'</a></td>
     <td>'.$uniqueViews.'</td>
     <td>'.$rawViews.'</td>
     <td>
@@ -75,28 +93,7 @@ while($b = mysql_fetch_assoc($resB))
     </tr>';
 }
 
-$selS = 'SELECT url FROM memberpages ORDER BY url';
-$resS = mysql_query($selS) or die(mysql_error());
 
-while($s = mysql_fetch_assoc($resS))
-{
-    $url = $s['url'];
-    $page = '/?action='.$url;
-    $uniqueViews = $views[$page]['uniqueViews'];
-    $rawViews = $views[$page]['rawViews'];
-     
-    $siteViews .= '<tr>
-    <td><a href="../?action='.$url.'" target=_blank>'.$page.'</a></td>
-    <td>'.$uniqueViews.'</td>
-    <td>'.$rawViews.'</td>
-    <td>
-        <form method="POST">
-        <input type="hidden" name="page" value="'.$page.'">
-        <input type="submit" class="btn info" name="reset" onclick="confirm(\'Are you sure you want to reset the views for this page to 0?\')">
-        </form>
-    </td>    
-    </tr>';
-}
 
 ?>
 
@@ -126,16 +123,6 @@ while($s = mysql_fetch_assoc($resS))
 
 <p>&nbsp;</p>
 
-<div class="moduleBlue"><h1>Site Pages Views</h1>    
-<div class="moduleBody">
-    <table cellspacing="0">
-    <tr>
-        <th>URL</th><th>Unique Views</th><th>Raw Views</th><th>Reset</th>
-    </tr>
-    <?=$siteViews?>
-    </table>    
-</div>
-</div>
 
 
 <?

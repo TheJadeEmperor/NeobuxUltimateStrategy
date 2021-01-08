@@ -1,4 +1,4 @@
-<?
+<?php
 $fileName = 'affcenter.php';
 $fileDir = 'content/';
 $action = $_GET['action'];
@@ -53,15 +53,13 @@ if($action == 'forums' || $action == 'download-videos') {
     //PTC Mini-sites
     $productID = 3;
 
-    $selS = 'select *, date_format(purchased, "%m/%d/%y") as purchased from sales where
-        (payerEmail="'.$_SESSION['login']['paypal'].'") and productID="'.$productID.'";'; 
-    $resS = mysql_query($selS) or die(mysql_error());
-
-    if(mysql_num_rows($resS) == 0) { // not a customer 
+    $selS = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") and productID="'.$productID.'";'; 
+    $resS = $conn->query($selS);
+    
+    if(mysqli_num_rows($resS) == 0) { // not a customer 
         $fileName = $fileDir.'locked.php';
     }
 }
-
 
 //date of purchase in unix format
 $joinDate = strtotime($u['joinDate']);

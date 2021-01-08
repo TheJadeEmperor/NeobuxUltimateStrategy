@@ -4,16 +4,22 @@ include($adir.'adminCode.php');
 
 if($_POST['delete']) {
     if(sizeof($_POST['id']) > 0)
-    foreach($_POST['id'] as $deleteThis) {	
-        $del = 'DELETE FROM posts WHERE id="'.$deleteThis.'"';
-        $res = mysql_query($del, $conn); 	
+    foreach($_POST['id'] as $deleteThis) {
+        
+        $opt = array(
+            'tableName' => 'posts',
+            'cond' => 'WHERE id="'.$deleteThis.'"'
+        );
+ 
+        dbDeleteQuery ($opt);  //'DELETE FROM posts WHERE id="'.$deleteThis.'"'  
     }
 }
 
-$sel = 'SELECT *, date_format(postedOn, "%m/%d/%Y %h:%i %p") AS postedTime, p.id AS id, u.id AS uid FROM posts p LEFT JOIN users u ON p.postedBy = u.id ORDER BY postedOn ASC'; 
-$res = mysql_query($sel, $conn) or die(mysql_error());
 
-while($p = mysql_fetch_assoc($res)) {
+$sel = 'SELECT *, date_format(postedOn, "%m/%d/%Y %h:%i %p") AS postedTime, p.id AS id, u.id AS uid FROM posts p LEFT JOIN users u ON p.postedBy = u.id ORDER BY postedOn ASC'; 
+$res = $conn->query($sel);
+
+while($p = $res->fetch_array()) {
     $pID = $p['id'];
 
     $subject = stripslashes($p['subject']); 
@@ -27,7 +33,6 @@ while($p = mysql_fetch_assoc($res)) {
     </tr>';
 }
 ?>
-
 <form method="POST">
 <table class="moduleBlue" cellpadding="2">
     <tr>
@@ -40,14 +45,12 @@ while($p = mysql_fetch_assoc($res)) {
 	<?=$theList?>
     <tr>
         <td></td>
-        <td colspan="4"><input type="submit" name="delete" value="Delete Post" onclick="return confirm('** Deletions are irreversible. Are you sure you want to proceed? **');" />        
+        <td colspan="4" align="center"><input type="submit" name="delete" value="Delete Post" class="btn danger" onclick="return confirm('** Deletions are irreversible. Are you sure you want to proceed? **');" />        
         </td>
     </tr>
 </table>
 </form>
 
 <p>&nbsp;</p>
-
-
 <?
 include($adir.'adminFooter.php');  ?>

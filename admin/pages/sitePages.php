@@ -4,13 +4,19 @@ include($adir.'adminCode.php');
 
 if($_POST['delete']) {
     if($_GET['id']) {
-        $delPage = 'DELETE FROM memberpages WHERE id="'.$_GET['id'].'"';
-        mysql_query($delPage, $conn) or die(mysql_error());
-        
-        //delete pageview
-        $delView = 'DELETE FROM pageviews WHERE page="/?action='.$_POST['url'].'"';
-        mysql_query($delView, $conn) or die(mysql_error());
-        
+
+        $opt = array(
+            'tableName' => 'memberpages',
+            'cond' => 'WHERE id="'.$_GET['id'].'"'
+        );
+        dbDeleteQuery ($opt);
+
+        $opt = array(
+            'tableName' => 'pageviews',
+            'cond' => 'WHERE page="/?action='.$_POST['url'].'"'
+        );
+        dbDeleteQuery ($opt);
+
         $msg = 'Site page deleted';
         $_GET['id'] = ''; 
     }
@@ -67,7 +73,7 @@ else if($_POST['update']) {
     'dbFields' => array(
         'page' => '/?action='.$_POST['url'],
         ),
-    'cond' => 'where page="/?action='.$_POST[oldurl].'"'
+    'cond' => 'WHERE page="/?action='.$_POST['oldurl'].'"'
     );
     
     dbUpdate($pvOptions); //update pageview
@@ -84,16 +90,16 @@ else {
 	$disEdit = 'disabled';
 }
 
+$opt = array(
+    'tableName' => 'memberpages', 
+    'cond' => 'ORDER BY url');
+$resMP = dbSelectQuery($opt);	
 
-$sel = 'SELECT * FROM memberpages ORDER BY url';
-$res = mysql_query($sel, $conn) or die(mysql_error());
-
-while($mp = mysql_fetch_assoc($res))
-{
-    $mp = stripAllSlashes($mp);
+while($mp = $resMP->fetch_array()) {
+    $mp = stripAllSlashes($mp); //memberpages 
     
     if($_GET['id'] == $mp['id'])
-        $m = $mp;
+        $m = $mp; 
     
     $mList .= '<tr>
     <td><a href="sitePages.php?id='.$mp['id'].'">'.$mp['url'].'</a></td>
@@ -104,14 +110,13 @@ while($mp = mysql_fetch_assoc($res))
 
 $mList = '<table>'.$mList.'</table>';
 
-
 $properties = 'type="text" class="activeField"';
 ?>
 
 <form method="POST"> 
 <div class="moduleBlue"><h1>Add New Page</h1>
 <div class="moduleBody">
-    <font color="red"><?=$msg?></font>
+    <p><font color="red"><strong><?=$msg?></strong></font></p>
     <table>
     <tr>
         <td>URL</td>
@@ -149,9 +154,9 @@ $properties = 'type="text" class="activeField"';
     </tr>
     <tr>
         <td colspan="2" align="center">
-            <input type="submit" name="add" value="Add New Page" <?=$disAdd?> />
-            <input type="submit" name="update" value="Update Page" <?=$disEdit?> /> 
-            <input type="submit" name="delete" value="Delete Page" <?=$disEdit?> onclick="return confirm('Are you sure you want to delete this page?')"/>
+            <input type="submit" class="btn success" name="add" value="Add New Page" <?=$disAdd?> />
+            <input type="submit" class="btn info" name="update" value="Update Page" <?=$disEdit?> /> 
+            <input type="submit" class="btn danger" name="delete" value="Delete Page" <?=$disEdit?> onclick="return confirm('Are you sure you want to delete this page?')"/>
         </td>
     </tr>
     </table>

@@ -1,9 +1,9 @@
 <?php
-$selC = 'select count(*) as count from posts where status<>"I"';
-$resC = mysql_query($selC, $conn) or die(mysql_error()); 
+$selC = 'SELECT count(*) AS count FROM posts WHERE status<>"I"';
 
-$c = mysql_fetch_assoc($resC); 
-
+$resC = $conn->query($selC);
+$c = $resC->fetch_array();
+ 
 $totalPosts = $c['count'];
 $perPage = 10; 
 
@@ -20,13 +20,11 @@ echo '<h1>Latest Posts from '.$businessName.'</h1>
 <p>Total in archives: '.$totalPosts.' posts in '.$categories.' category(s)</p>';
 
 //show the latest 10 active posts
-$sel = 'select *, date_format(postedOn, "%m/%d/%Y %h:%i %p") as published, p.id as id, u.id as uid 
-from posts p left join users u on p.postedBy = u.id where (p.status<>"I" or p.status is null) 
-order by postedOn desc limit '.$firstPost.', 10';
+$selP = 'SELECT *, date_format(postedOn, "%m/%d/%Y %h:%i %p") AS published, p.id AS id, u.id as uid FROM posts p LEFT JOIN users u ON p.postedBy = u.id WHERE (p.status<>"I" OR p.status is null) ORDER BY postedOn DESC LIMIT '.$firstPost.', 10';
 
-$res = mysql_query($sel, $conn) or die(mysql_error());
+$resP = $conn->query($selP);
 
-while($p = mysql_fetch_assoc($res)) {
+while($p = $resP->fetch_array() ) {
     $id = $p['id']; 
     $subject = stripslashes($p['subject']); 
     $published = $p['published']; 

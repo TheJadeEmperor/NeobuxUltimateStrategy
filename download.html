@@ -45,31 +45,16 @@
 <p>&nbsp;</p>
 
 <center>
-
-
-
-	<?php
-		mysql_select_db('codegeas_cc');
-		
-		$selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-		$resA = mysql_query($selA, $conn) or die(mysql_error());
-
-		
-		if($ad = mysql_fetch_assoc($resA)) {
-			echo $ad['content'];
-		}
+    <?php
+    echo $adContent;
 	?>
-
-	
-	
 </center>
 
 <p>&nbsp;</p>
 
 <h3>One last thing...</h3>
 
-<p><font face="Verdana, Arial, Helvetica" size=3 color="#003399"><?= $itemName?></font> 
-    has a reseller program like no other!&nbsp; </font></p>
+<p><font face="Verdana, Arial, Helvetica" size=3 color="#003399"><?= $itemName?></font> has a reseller program like no other!&nbsp; </font></p>
 
 <p>Please visit 
     <a href="<?=$websiteURL?>/?action=faq#resellerLicense"><?=$websiteURL?>/?action=faq</a> for details</p>

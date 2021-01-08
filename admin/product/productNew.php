@@ -2,6 +2,8 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
+
+
 $emailDownloadSubject = "";
 
 $emailDownloadTemplate = '<p>Hi $firstName, </p> <p>Thank you for your purchase of $itemName. Everybody wants to make money online but most of them are not willing to do what it takes. By getting this product you have shown that you are different than the others who do not take any action.</p> <p>You are on your way to profitting with PTC\'s. Only one more step left. Just go to the download link below to download your copy of $itemName.</p> <p>The following information are your purchase details, sent from paypal:</p> <p>Txn ID:  $transID <br />Paypal Email:  $payerEmail<br />Item Name:  $itemName<br />Item #:  $itemNumber<br />Payment Amount:  $itemPrice</p> <p>This is an automatically generated message from our system regarding your order from us. If the status is "Completed", that means your order went through, and you may download your the $itemName immediately. If not, then please wait for the payment to be completed.</p> <p>You can download the product through this link:</p> <p><strong>$downloadLink</strong></p> <p>Just go to the link to download the product. Enjoy!</p> <p> </p> <p>Sincerely,</p> <p>Your Name<br />Company Name <br /><a href="mailto:your@email.address">your@email.address</a></p>';
@@ -54,9 +56,6 @@ $dbFields = array(
 	'productOrderText' => $_POST['productOrderText']
 	);
 
-$opt = array(
-'tableName' => 'products',
-'dbFields' => $dbFields);
 
 	
 if($_POST['add']) {
@@ -73,9 +72,13 @@ if($_POST['add']) {
 		$p = $_POST; 
 	}
     else {
-        $res = dbInsert($opt); 
-        
-        $newID = mysql_insert_id();
+		$opt = array( 
+			'tableName' => 'products',
+			'dbFields' => $dbFields
+		); 
+			
+        $res = dbInsert($opt); //insert new product into table
+        $newID = $conn->insert_id; //ID 
         
         //purchase confirmation email / download email
         $emailDownloadOpt = array(
@@ -99,7 +102,7 @@ if($_POST['add']) {
         //add view
         dbInsert($viewOpt); 
         
-        //add emails
+        //add email templates
         dbInsert($emailDownloadOpt); 
         dbInsert($emailWelcomeOpt); 
 
@@ -114,17 +117,22 @@ else if($_POST['update']) {
 	} 
 	
 	$theSet = implode(',', $set);
-	
-	$upd = 'UPDATE products SET '.$theSet.' WHERE id="'.$_GET['id'].'"';
-	$res = mysql_query($upd) or die(mysql_error());
+
+	$queryOptions = array( //update settings table
+		'tableName' => 'products', 
+		'dbFields' => $dbFields,
+		'cond' => 'WHERE id="'.$_GET['id'].'"'
+	);
+
+	dbUpdate($queryOptions);  //'UPDATE products SET '.$theSet.' WHERE id="'.$_GET['id'].'"';
 }
 
 if($_GET['id']) {
-    $id = $_GET['id'];
-	$selP = 'SELECT * FROM products ORDER BY id';
-	$resP = mysql_query($selP) or die(mysql_error());
-    
-    while($item = mysql_fetch_assoc($resP)) {
+	$id = $_GET['id'];
+	
+	$resP = getAllProducts (); //get product info from DB
+
+    while($item = $resP->fetch_array()) {
             
         if($id == $item['id']) {
             $p = $item;
@@ -147,15 +155,31 @@ if($_GET['id']) {
     }
 
     if($_POST['delete']) {
-        $delP = 'DELETE FROM products where id="'.$id.'"';
-        mysql_query($delP, $conn) or die(mysql_error());
-        
-        $delV = 'DELETE FROM pageviews where page="/'.$p['itemName'].'"';
-        mysql_query($delV, $conn) or die(mysql_error());
-        
-        $delE = 'DELETE FROM emails where productID="'.$id.'"';
-        mysql_query($delE, $conn) or die(mysql_error());
-        
+
+		$opt = array(
+            'tableName' => 'products',
+            'cond' => 'WHERE id="'.$id.'"' 
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM products WHERE id="'.$id.'"'
+
+		$opt = array(
+            'tableName' => 'pageviews',
+            'cond' => 'WHERE page="/'.$p['itemName'].'"' 
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM pageviews WHERE page="/'.$p['itemName'].'"'
+
+		$opt = array(
+            'tableName' => 'emails',
+            'cond' => 'WHERE productID="'.$id.'"'
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM pageviews WHERE page="/'.$p['itemName'].'"'
+
+		$opt = array(
+            'tableName' => 'downloads',
+            'cond' => 'WHERE productID="'.$id.'"'
+        ); 
+        dbDeleteQuery ($opt); //'DELETE FROM downloads WHERE id="'.$id.'"'
+
         $error = 'Successfully deleted product '.$p['itemName'];
     }
 

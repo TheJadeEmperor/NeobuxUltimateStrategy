@@ -2063,10 +2063,6 @@
 
 /* Form */
 
-	form {
-		margin: 0 0 2em 0;
-	}
-
 	label {
 		display: block;
 		font-size: 0.9em;
@@ -2274,6 +2270,12 @@
 
 	.formerize-placeholder {
 		color: rgba(255, 255, 255, 0.5) !important;
+	}
+
+	#error {
+		font-size: 18px; 
+		color: #ff0000;
+		font-weight: bold;
 	}
 
 /* Icon */
@@ -3364,6 +3366,11 @@
 			color: #000;
 		}
 
+		#main h3 { /* post titles on all posts page */
+			font-size: 28px;
+			font-weight: 500;
+		}
+
 		#main blockquote {
 			border-left-color: #dddddd;
 		}
@@ -3828,7 +3835,7 @@
 
 	#ebookCover {
 		display: inline-block;
-		margin-right: 15px;
+		margin: 10px 15px 0 0;
 	}
 	
 	#signUpForm {
@@ -3836,12 +3843,21 @@
 		margin-left: 15px;
 	}
 	
+	#signUpForm h1 {
+		margin-top: 30px;
+		text-align: center
+	}
+
 	@media screen and (max-width: 767px) {
 		.orderForm {
 			display: block;
 			text-align: center;
 		}
 		
+		#signUpForm {
+			margin-left: 0;
+		}
+
 		.bothSides {
 			display: block;
 		}
@@ -3951,12 +3967,59 @@ img {
 	text-align: center; 
 }
 
+
+* {
+	word-wrap: break-word;
+}
+
+
+img {
+	max-width: 100%;	
+}
+
+img.referralProof {
+	max-width: 600px;
+}
+
+.stButton .stBubble {
+	height: 29px !important;
+}
+
+.imgBox {
+	display: inline-block;
+	vertical-align: top;
+	width: 40%;
+}
+
+.infoBox {
+	display: inline-block;
+	vertical-align: top;
+	width: 45%;
+	border: 1px dashed;
+	padding: 5px;
+	margin-bottom: 50px;			
+}	
+
+.borderImg {
+	border: 1px solid black;
+	padding: 5px; 
+}	
+
+.borderImg:hover {
+	border: 1px solid gray;
+	padding: 5px; 
+}
+
 @media screen and (max-width: 420px) {
 	.sidebar, sidebar * {
 		display: none;
 	}
-}
 
-* {
-	word-wrap: break-word;
+	.imgBox {
+		width: 80%;
+	}
+
+	.infoBox {
+		width: 80%;			
+	}	
 }

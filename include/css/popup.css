@@ -84,8 +84,17 @@ input.button:active {
     background: url(../../images/admin/close.png) no-repeat;
 }
 
-.note {
-    color: #767676;
-    font: normal 11px Arial, Helvetica, sans-serif;
-    margin: 15px auto 0;
+.redArrow {
+    width: 260px;
+}
+
+.label {
+    margin-bottom: 5px;
+}
+
+#popup #email {
+    border-radius: 8px;
+    height: 30px; 
+    font-size: 16px;
+    width: 90%;
 }

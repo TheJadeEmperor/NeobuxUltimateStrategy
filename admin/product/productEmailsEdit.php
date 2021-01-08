@@ -8,38 +8,33 @@ $type = $_GET['type'];
 
 if($_POST['save']) {
 	$opt = array(
-	'tableName' => $tableName, 
-	'dbFields' => array(
-		'subject' => $_POST['subject'],
-		'message' => $_POST['message']
+        'tableName' => $tableName, 
+        'dbFields' => array(
+            'subject' => $_POST['subject'],
+            'message' => $_POST['message']
 	),
-	'cond' => ' where productID="'.$id.'" and type="'.$type.'"'
+	'cond' => ' WHERE productID="'.$id.'" AND type="'.$type.'"'
 	); 
 	
 	$u = dbUpdate($opt); 
 }
 
-//get product info
-$selP = 'SELECT * FROM products WHERE id="'.$id.'"';
-$resP = mysql_query($selP, $conn) or die(mysql_error()); 
 
-$p = mysql_fetch_assoc($resP); 
+$opt = array( //get product email
+    'tableName' => 'emails', 
+    'cond' => ' WHERE productID="'.$id.'" AND type="'.$type.'"'
+);
+$allEmails = dbSelectQuery($opt); 
+$e = $allEmails->fetch_array();
 
-
-$opt = array(
-'tableName' => 'emails', 
-'cond' => ' where productID="'.$id.'" and type="'.$type.'"');
-
-$allEmails = dbSelect($opt); 
-
-$e = $allEmails[0];
+if(!is_array($e)) { //if product & email doesn't exist
+    $dis = 'disabled'; 
+} 
 
 $typeDisplay = array(
 	'download' => 'Product Download',
 	'fraud' => 'Fraud' 
 ); 
-
-
  
 $properties = 'class="activeField" size=60'; 
 ?>
@@ -94,18 +89,15 @@ if (document.location.protocol == 'file:') {
 }
 </script> 
 
-
-<div class="moduleBlue"><h1>Emails for Product "<?=$p['itemName']?>"</h1>
+<div class="moduleBlue"><h1>Emails for Product #<?=$_GET['id']?></h1>
 <div class="moduleBody">
-
 	<br />
 	<center><p><a href="?id=<?=$id?>&type=download"><button class="btn btn-info">Download Email</button></a> &nbsp; 
     <a href="?id=<?=$id?>&type=fraud"><button class="btn btn-warning">Fraud Email</button></a></p></center>
 </div>
 </div>
 
-<br />
- 
+<br /> 
 <div class="moduleBlue"><h1>Edit Email Template</h1>
 <div>
 <form method="POST">
@@ -117,16 +109,16 @@ if (document.location.protocol == 'file:') {
 	</tr>
 	<tr>
 		<td>Subject Line</td>
-		<td><input <?=$properties?> name="subject" value="<?=$e['subject']?>"></td>
+		<td><input <?=$properties?> name="subject" value="<?=$e['subject']?>" <?=$dis ?> /></td>
 	</tr>
 	<tr>
 		<td>Message Body</td>
 	</tr>
 	<tr>
-		<td colspan="2"><textarea name="message" rows="25" cols="70" id="elm1"><?=$e['message']?></textarea></td>
+		<td colspan="2"><textarea name="message" rows="25" cols="70" id="elm1" <?=$dis ?> ><?=$e['message']?></textarea></td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><input type="submit" name="save" value=" Save Changes " class="btn btn-success">
+		<td align="center" colspan="2"><input type="submit" name="save" value=" Save Changes " class="btn success" <?=$dis ?> />
 		</td>
 	</tr>
 	</table>
