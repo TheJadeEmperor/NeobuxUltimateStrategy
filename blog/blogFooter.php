@@ -107,20 +107,7 @@ while($p = $resP->fetch_array()) {
 
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-	
-	<!-- Facebook Comments -->
-	<div id="fbContainer">
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=226820120704287";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	<div class="fb-comments" data-href="https://neobuxultimatestrategy.com/?p=clixsense-team-clixsense.com-free-referrals" data-num-posts="10" data-width="720"></div>
-	</div>
-
+ 
 	</div>
 		</div>
 			</section>
