@@ -3366,6 +3366,11 @@
 			color: #000;
 		}
 
+		#main h3 { /* post titles on all posts page */
+			font-size: 28px;
+			font-weight: 500;
+		}
+
 		#main blockquote {
 			border-left-color: #dddddd;
 		}
