@@ -59,20 +59,21 @@ function database($host, $user, $pw, $dbName) {
 function popUpWindow($dir) {
 	global $popUp;
 
-	//echo 'popUp: '. $popUp;
-	//echo $_SESSION['popUp']; 
+	//echo 'popUp: '. $popUp; echo $_SESSION['popUp']; 
 
 	if ($popUp) { //popUp = 1: enabled 
-		if ($_SESSION['popUp'] < 1)  //pop up happens once per user session
-		return '
-		var windowSize = $(window).width();
-		if(windowSize >= 420) { //no popUp on mobile
-			var seconds = 12; 
-			var milliseconds = seconds * 1000; 
-			setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);
-		} '; //use JS tiny box to show pop up
-		
-		$_SESSION['popUp'] = 1; //track session
+		if ($_SESSION['popUp'] < 1) {  //pop up happens once per user session
+			$_SESSION['popUp'] = 1; //track session
+
+			return '
+			var windowSize = $(window).width();
+			if(windowSize >= 420) { //no popUp on mobile
+				var seconds = 12; 
+				var milliseconds = seconds * 1000; 
+				setTimeout("javascript:TINY.box.show({url:\''.$dir.'splash/popUp.php\',width:780,height:490,openjs:\'initPopupLogin\',opacity:30});", milliseconds);
+			} 
+			'; //use JS tiny box to show pop up
+		}
 	}
 }
 
