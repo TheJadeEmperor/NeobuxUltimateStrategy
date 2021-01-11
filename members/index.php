@@ -56,12 +56,12 @@ if($_POST['login']) {
                 $u[paypal] = 'N / A';
                     
             $_SESSION['login'] = $u;
-            
+          
             if($u['status'] == 'B') { //check if user is banned
                 $_SESSION['error'] = 'Unable to login - You have been banned from our system <br />
                 If you feel this is in error, please contact our support desk';    
             }
-            else { //login successful            
+            else { //login successful
             	unset($_SESSION['error']); //remove the error message
                	header('Location: ./?action=affcenter');                
             }
@@ -83,22 +83,11 @@ if(isset($u['id'])) {	//logged in
 
     switch($_GET['action']) {
         //==========================
-        case 'download-bonus':
-        case 'video1':
-        case 'video2':
-        case 'chapter1':
-        case 'chapter2':
-        case 'chapter3':
-        case 'chapter4':
-        case 'chapter5':
-        case 'chapter6-7':
-        case 'forums':
-        case 'download-videos':
+        default:
             $fileName = 'timedContent.php';
             $affmenu = true;
             break;
         //==========================
-        default:
         case 'affcenter': //affiliate center 
             if($_SESSION['login']['skipUpsell']) {
                 $fileName = 'affcenter.php';
@@ -107,7 +96,7 @@ if(isset($u['id'])) {	//logged in
             else {
                 $fileName = 'upsell.php';
                 $templateHeader = $templateFooter = ''; //upsell has its own header and footer
-            } 
+            }
             break;
         case 'details': //update profile details 
             $fileName = 'details.php';
