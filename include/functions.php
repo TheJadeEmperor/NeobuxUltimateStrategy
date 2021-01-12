@@ -423,7 +423,8 @@ function dbSelect($opt) {
 /*
 $opt = array(
 	'tableName' => $tableName,
-	'cond' => $cond)
+	'cond' => $cond
+);
  */
 function dbSelectQuery($opt) {
 	global $conn; 

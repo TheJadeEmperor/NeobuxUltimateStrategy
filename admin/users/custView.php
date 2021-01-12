@@ -1,19 +1,8 @@
 <?php
 $adir = '../';
 include($adir.'adminCode.php');
+$tableName = 'sales';
 
-function getUser($userEmailOrID) {
-    global $conn; 
-    
-    if(strrpos($userEmailOrID, '@'))
-        $selU = 'select * from users where email="'.$userEmailOrID.'" or email="'.$userEmailOrID.'"';
-    else
-        $selU = 'select * from users where id="'.$userEmailOrID.'"';
-
-    $resU = mysql_query($selU, $conn) or print(mysql_error());
-    
-    return mysql_fetch_assoc($resU);
-}
 
 $saleID = $_GET['id'];
 
@@ -28,21 +17,23 @@ if($_POST[extendExpires]) {
 }
 
 
-//get info from this sale 
-$selS = 'select *, date_format(purchased, "%m/%d/%Y") as bought, date_format(expires, "%m/%d/%Y") as 
-expiresDate from sales where id="'.$saleID .'"';
-$resS = mysql_query($selS, $conn) or die(mysql_error());
 
-if($s = mysql_fetch_assoc($resS)) //sale array
-{
+//get info from this sale 
+$selS = 'select *, date_format(purchased, "%m/%d/%Y") as bought, date_format(expires, "%m/%d/%Y") as expiresDate from sales where id="'.$saleID .'"';
+$resS = $conn->query($selS);// or die(mysql_error());
+
+if($s = $resS->fetch_array()) {
     $s['notes'] = stripslashes($s['notes']);
     $amount = '$'.number_format($s['amount'], 2);
+
+    $opt = array(
+        'tableName' => 'products',
+        'cond' => 'where id="'.$s['productID'].'"'
+    );
     
-    //get the product
-    $selP = 'select * from products where id="'.$s['productID'].'"';
-    $resP = mysql_query($selP, $conn) or die(mysql_error());
+    $resP = dbSelectQuery($opt);
     
-    $p = mysql_fetch_assoc($resP); //product array
+    $p = $resP->fetch_array(); //product array
 }
 
 $salesDate = $s['bought'];
@@ -53,13 +44,11 @@ $today = time();
 $expiresDate = strtotime($s['expiresDate']);
 $expireSeconds = $p['expires'] * 60 * 60; 
 
-if(($today) <= ($expiresDate + $expireSeconds))
-{
+if(($today) <= ($expiresDate + $expireSeconds)) {
     $downloadLinkStatus = 'Active';
     $disExtend = 'disabled'; 
 }
-else 
-{
+else  {
     $downloadLinkStatus = 'Expired';
 }
 
@@ -67,12 +56,11 @@ else
 //get the download link
 $folder = $p['folder'];
 if($folder == '')
-    $downloadLink = '../?action=download&id='.$s[transID];
+    $downloadLink = $dir.'?action=download&id='.$s[transID];
 else
-    $downloadLink = '../'.$folder.'/?action=download&id='.$s[transID];
+    $downloadLink = $dir.$folder.'/?action=download&id='.$s[transID];
 
-if($_POST[makeAccount])
-{
+if($_POST[makeAccount]) {
     $dbOptions = array(
     'tableName' => 'users',
     'dbFields' => array(
@@ -93,8 +81,7 @@ if($_POST[makeAccount])
     }
 }
 
-if($_POST[updateNotes])
-{
+if($_POST['updateNotes']) {
     $dbOptions = array(
     'tableName' => 'sales', 
     'dbFields' => array(
@@ -107,25 +94,25 @@ if($_POST[updateNotes])
         $msg = 'Failed to update this sale';
 }
 
-//members account
-$selU = 'select * from users where paypal="'.$s[payerEmail].'" || email="'.$s[payerEmail].'"';
-$resU = mysql_query($selU, $conn) or die(mysql_error());
+//check for users account
+$opt = array(
+    'tableName' => 'users',
+    'cond' => 'where paypal="'.$s[payerEmail].'" || email="'.$s[payerEmail].'"'
+);
 
-$u = mysql_fetch_assoc($resU);
-$numAccounts = mysql_num_rows($resU);
+$resU = dbSelectQuery($opt);
 
-if($numAccounts == 0 || empty($s['payerEmail']))
-{
+$u = $resU->fetch_array();
+$numAccounts = $resU->num_rows;
+
+if($numAccounts == 0 || empty($s['payerEmail'])) {
     $membersAccount = 'No';
 }
-else 
-{
+else {
     $disAdd = 'disabled';
 	$membersAccount = '<a href="updateProfile.php?id='.$u[id].'">Yes</a>';
 }
 
-$affID = $s[affiliate];
-$affUser = getUser($affID);
 
 if($msg)
 	echo '<p><font color=red>'.$msg.'</font></p>';

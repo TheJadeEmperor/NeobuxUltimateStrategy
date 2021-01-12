@@ -2,10 +2,10 @@
 $transID = $_GET['id']; 
 
 //check for transaction in db
-$selS = 'select *, date_format(purchased, "%m/%d/%Y") as salesDate,
-date_format(expires, "%m/%d/%Y") as expiresDate from sales where transID = "'.$_GET['id'].'"
-and productID="'.$productID.'"';
-$conn->query($selS);
+$selS = 'SELECT *, date_format(purchased, "%m/%d/%Y") AS salesDate,
+date_format(expires, "%m/%d/%Y") AS expiresDate FROM sales WHERE transID = "'.$_GET['id'].'"
+AND productID="'.$productID.'"';
+$resS = $conn->query($selS);
 
 $sales = $resS->num_rows;
 
@@ -16,13 +16,12 @@ if($s = $resS->fetch_array()) {
     $expiresDate = $s['expiresDate'];
     $payerEmail = $s['payerEmail'];
     
-    if(!isset($expiresDate))
+    if(!isset($expiresDate)) //no expiration date set
         $expiresDate = $salesDate; 
 }
 
 if($oto == 'Y' && !$_POST['skipOTO']) { //upsell 
     $fileName = 'oto.html';
-
 }
 else {
     if($sales > 0) { //valid sale
@@ -43,7 +42,7 @@ else {
             );           
             $resU = dbSelectQuery($opt);
              
-            if($resU->num_rows == 0) { //no account exists
+            if($resU->num_rows == 0) { //no user account exists
            
                 //generate random password
                 $password = genString(8);
@@ -62,7 +61,6 @@ else {
                 dbInsert($opt);
             }
             else { //existing account 
-                //$u = mysql_fetch_assoc($resU); 
                 $u = $resU->fetch_assoc();
                 $password = $u['password'];
             } 
@@ -78,26 +76,24 @@ else {
                 $downloadContent = '<table>';
                 while($d = $resD->fetch_assoc()) {
                     $downloadContent .= '<tr>
-                    <td>'.$d[name].'</td>
+                    <td>'.$d['name'].'</td>
                     <td><form method="POST"><input type="submit" name="dl" value="Download" />
-                        <input type="hidden" name="url" value="'.$d[url].'" /></form>
+                        <input type="hidden" name="url" value="'.$d['url'].'" /></form>
                     </td>';
                 }    
                 $downloadContent .= '</table>';
             }
             
             $fileName = 'download.html';
-        } 
-        else {
+        }  
+        else { //past expiration date
             $fileName = 'expired.html';
-        }
-    }
+        } 
+    } //if($sales > 0)
     else { //invalid sale
         $fileName = 'invalid.html';
     }
 }  
-//echo __LINE__.' ';
 
-//echo $fileName;
 include($fileName); 
 ?>
