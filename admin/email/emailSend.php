@@ -59,13 +59,9 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
 
 	$attachments = array();
 	
-	foreach ($addresses as $emailTo)
-	{
-        //add un-subscribe link
-        $unsubText = '<p>********************** </p><p>Unsubscribe from further announcements: <br />
-        <a href="'.$websiteURL.'/members/optout.php?e='.$emailTo.'" target=_blank>'.$websiteURL.'/members/optout.php?e='.$emailTo.'</a></p>';
-    
-        $sendEmailBody = $emailBody.$unsubText;
+	foreach ($addresses as $emailTo) {
+        
+        $sendEmailBody = $emailBody;
 
         //check for optout - customer
         $selO = 'select optout from sales where payerEmail="'.$emailTo.'" and optout="Y"';
