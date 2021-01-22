@@ -1,6 +1,10 @@
 <?php
-$selP = 'SELECT * FROM posts WHERE status <> "I" ORDER BY postedOn DESC LIMIT 10';
-$resP = $conn->query($selP);
+$opt = array(
+	'tableName' => 'posts',
+	'cond' => 'WHERE status <> "I" ORDER BY postedOn DESC LIMIT 10'
+);
+
+$resP = dbSelectQuery($opt);
 
 while($p = $resP->fetch_array()) {
     $recentPosts .= '<p align="left"><a href="./?p='.$p['url'].'">'.shortenText($p['subject'], 35).'</a></p>'; 
@@ -11,7 +15,7 @@ while($p = $resP->fetch_array()) {
 	<section class="blogSidebar">
 		
 		<!-- ebook cover -->
-		<a href="#optin"><img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" /></a>
+		<a href="#optin"><img src="<?=$dir?>images/nus/book.png" alt="NUS Cover" title="NUS Cover" width="300px" /></a>
 		
 		<p>&nbsp;</p>
 			
@@ -40,7 +44,7 @@ while($p = $resP->fetch_array()) {
 		<div class="moduleBlue"><h2>Neobux Ultimate Strategy</h2>
 			<div>
 			<center>
-				<p><a href="./"><img src="./images/sales/nus.jpg" title="Neobux Ultimate Strategy" width="150px" /></a> </p>
+				<p><a href="./"><img src="<?=$dir?>images/sales/nus.jpg" title="Neobux Ultimate Strategy" width="150px" /></a> </p>
 				<p>Make $20 to $30 a day with Neobux </p>
 			</center>
 			</div>
@@ -79,7 +83,7 @@ while($p = $resP->fetch_array()) {
 
 <footer class="orderForm" id="optin">
 	<section id="ebookCover">
-		<img src="images/splash/thumb.jpg" alt="NUS Cover" title="NUS Cover" />
+		<img src="<?=$dir?>images/nus/book.png" alt="NUS Cover" title="NUS Cover" />
 	</section>
 	<section id="signUpForm">
 		<h1>Get Your Free Neobux Report!</h1>
@@ -93,7 +97,7 @@ while($p = $resP->fetch_array()) {
 					<div id="error"></div>
 					<input type="text" id="email" name="email" class="input" size="25"  value="Your Best Email" onclick="if(this.value=='Your Best Email') this.value=''; " />
 				
-					<input type="image" src="images/sales/getAccessNow.png" name="subscribe" title="Subscribe Now!" onclick="return validateEmail(document.sendgrid.email.value);" />
+					<input type="image" src="<?=$dir?>images/sales/getAccessNow.png" name="subscribe" title="Subscribe Now!" onclick="return validateEmail(document.sendgrid.email.value);" />
 					
 					<p><span class="note">We hate spam and will never sell your email address to others. </span></p>
 				</td>
@@ -160,7 +164,6 @@ while($p = $resP->fetch_array()) {
 				</footer>
 			</div>
 
-	
 		<div id="eXTReMe"><a href="https://extremetracking.com/open?login=richptc" target="_BLANK" rel="nofollow">
 		<img src="https://t1.extreme-dm.com/i.gif" style="border: 0;"
 		height="38" width="41" id="EXim" alt="eXTReMe Tracker" /></a>
@@ -181,7 +184,6 @@ while($p = $resP->fetch_array()) {
 		</script><noscript><div id="neXTReMe"><img height="1" width="1" alt=""
 		src="https://e1.extreme-dm.com/s10.g?login=richptc&amp;j=n&amp;jv=n" />
 		</div></noscript></div>
-		
-	
+
 	</body>	
 </html>

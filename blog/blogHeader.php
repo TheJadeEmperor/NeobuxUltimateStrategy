@@ -12,8 +12,6 @@ $postLink = $websiteURL.'/'.$url;
 //referral links from links database
 $csReferralLink = $context['links']['clixsenseReferralLink']; 
 $clixsenseBannerImg = $context['links']['clixsenseBannerImg']; 
-
-//$redirLink = 'redirect.php?action='; 
 $subscribeLandingURL = 'redirect.php?url=ysense'; 
 ?>
 <!DOCTYPE HTML>
@@ -88,7 +86,7 @@ $subscribeLandingURL = 'redirect.php?url=ysense';
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<span class="logo"><img src="include/blog/images/logo.svg" alt="" /></span>
+			<span class="logo"><img src="<?=$dir?>images/guide/logo.svg" alt="Neobux Ultimate Strategy" /></span>
 			<h1>Neobux Ultimate Strategy 3.0</h1>
 			<p>The ultimate strategy to make money from Neobux and PTC sites<br />Contact us at our <a href="mailto:<?=$supportEmail?>">support email address</a>
 			</p>
@@ -107,11 +105,9 @@ $subscribeLandingURL = 'redirect.php?url=ysense';
 
 		<!-- Main -->
 		<div id="main">
-
 			<!-- Introduction -->
 			<section id="intro" class="main">
 				<div class="spotlight">
-					
 					<div class="content">
 						<footer class="bothSides">
 							<section class="leftContent">
