@@ -2,6 +2,7 @@
 include/config.php
 nbproject/
 backup/
+error_log
 
 #################
 ## Eclipse
