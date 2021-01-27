@@ -84,7 +84,8 @@ else {
                 $downloadContent .= '</table>';
             }
             
-            $fileName = 'download.html';
+            //$fileName = 'download.html';
+            $fileName = $downloadPage;
         }  
         else { //past expiration date
             $fileName = 'expired.html';
@@ -94,6 +95,7 @@ else {
         $fileName = 'invalid.html';
     }
 }  
+//echo $fileName;
 
 include($fileName); 
 ?>

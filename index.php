@@ -118,6 +118,7 @@ if( $p = $resP->fetch_array() ) {
     $templateHeader = $p['header']; 
     $templateFooter = $p['footer']; 
     $salespage = $p['salespage']; 
+    $downloadPage = $p['downloadPage'];
     
     //paypal vars 
 	$ipnURL = $val['websiteURL'].'/ipn.php';
@@ -182,14 +183,17 @@ switch($action) {
         break;
     case 'download':
         $fileName = $dir.'templates/download.php';
-        break;      
+        break; 
+    case 'fraud':
+        $fileName = $dir.'templates/fraud.html';
+        break; 
     case 'posts':
         $templateHeader = $val['blogHeader'];
         $templateFooter = $val['blogFooter'];  
         $fileName = 'blog/index.php';
         $meta = postMetaTags($_GET['p']);    
 
-		break;
+        break;
 	default:
 		$keywords = $p['keywords'];
 		$description = $p['description']; 
@@ -218,14 +222,15 @@ switch($action) {
         }       
 }
 
-if(0) { //debug
+if(1) { //debug
     echo 'dir: '.$dir.'<br>
 	path: '.$path.'<br>
     productID: '.$productID.'<br>
     paidToEmail: '.$paidToEmail.'<br>
 	templateHeader: '.$templateHeader.'<br>
 	templateFooter: '.$templateFooter.'<br>
-	fileName: '.$fileName;
+    fileName: '.$fileName.'<br>
+    downloadPage: '.$downloadPage;
 }
 
 if(file_exists($templateHeader))

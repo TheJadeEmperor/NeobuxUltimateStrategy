@@ -1,27 +1,16 @@
 <?php
 
-if($path == 'basics')
-    $action = 'basics'; 
-
 switch($action) {
-    case 'basics': //free gift page
-        $optInForm = 0; 	
-        $popUp = 0; 
-        $freeGift = 1;
-        $imgDir = '../images/sales/';
-        break;	
     case 'faq':
     case 'disclaimer':
     case 'privacy': 
     case 'download': 
-        $imgDir = 'images/sales/';
-        $optInForm = 0; 	
-        $popUp = 1; 
+        $imgDir = $dir.'images/sales/';	
+        $popUp = 0; 
         break;
     default: //main sales page
-        $optInForm = 1; 
+        $imgDir = $dir.'images/sales/';
         $popUp = 1; 
-        $imgDir = 'images/sales/';
         break; 
 } 
 
@@ -374,40 +363,21 @@ if($popUp) {
 var NoExitPage = false; 
 
 function ExitPage() { 
-        if(NoExitPage == false) { 
-        NoExitPage=true; 
-        location.href="http://neobuxultimatestrategy.com/basics"; 
-	
-        return"***********************************************\n\n"+ 
-        " WAIT! Sign up to get your FREE Neobux Report! \n\n"+ 
-        " Learn how to get 40+ Direct Referrals Overnight! \n\n"+ 
-        " Click the [Cancel] button to Download Your FREE GIFT!\n\n"+ 
-        "***********************************************"; 
-        } 
+    if(NoExitPage == false) { 
+    NoExitPage=true; 
+    location.href="http://neobuxultimatestrategy.com/basics"; 
+
+    return"***********************************************\n\n"+ 
+    " WAIT! Sign up to get your FREE Neobux Report! \n\n"+ 
+    " Learn how to get 40+ Direct Referrals Overnight! \n\n"+ 
+    " Click the [Cancel] button to Download Your FREE GIFT!\n\n"+ 
+    "***********************************************"; 
+    } 
 } 
 // --> 
 </script>
-<script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
-
-<script type="text/javascript">stLight.options({publisher:'67a0d44d-0b79-44c1-bb19-7f31f475d6fe'});</script>
-
-</head>
 
 <body topmargin="0" marginwidth="0" marginheight="0">
-<?
-$salesURL = 'http://neobuxultimatestrategy.com'.$_SERVER[PHP_SELF]; 
-$salesURL = str_replace('index.php', '', $salesURL); 
-$salesURL = urlencode($salesURL); 
-?>
-<div class="sidebar"><br />
-    <center>
-        <span class="st_twitter_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Tweet"></span>
-        <span class="st_email_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Email"></span>
-        <span class="st_facebook_vcount" st_url="https://neobuxultimatestrategy.com" displayText="Facebook"></span>
-    </center>
-</div>
-
 <table width="100%" border="0" cellspacing="0" cellpadding="0" title="Neobux Ultimate Strategy">
     <tr>
         <td background="<?=$imgDir?>headerbg.jpg">

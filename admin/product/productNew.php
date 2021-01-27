@@ -52,6 +52,7 @@ $dbFields = array(
 	'header' => $_POST['header'], 
 	'footer' => $_POST['footer'],
 	'salespage' => $_POST['salespage'],
+	'downloadPage' => $_POST['downloadPage'],
 	'productOrderLink' => $_POST['productOrderLink'],
 	'productOrderText' => $_POST['productOrderText']
 	);
@@ -359,6 +360,10 @@ else {
 	<tr>
 		<td>Sales Letter:</td>
 		<td><input class="activeField" name="salespage" value="<?=$p['salespage']?>" /></td>
+	</tr>
+	<tr>
+		<td>Download Page</td>
+		<td><input class="activeField" name="downloadPage" value="<?=$p['downloadPage']?>" /></td>
 	</tr>
 </table>
 </div>
