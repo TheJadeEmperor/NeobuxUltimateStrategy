@@ -267,7 +267,6 @@ $sitePages = $stat['sitePages'];
                     <li class="dropdown">    
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dev & SEO<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>dev/sqlQuery.php">MySQL Query</a></li>
                             <li><a href="<?=$adir?>dev/sqlDatabase.php">View Database</a></li>
 							
 							<li class="divider"></li>

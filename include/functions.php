@@ -384,7 +384,7 @@ function dbInsert($opt) {
 	$res = $conn->query($ins);
 
 	if($_GET['debug'] == 1) {
-		echo '<pre>'.$ins.'</pre>';
+		echo '<pre>'.$ins.'<br />insert_id:'.$conn->insert_id.'</pre>';
 	}
 	
 	return $res;
