@@ -3197,7 +3197,7 @@
 				#header.alt {
 					padding: 4em 1.5em 1em 1.5em ;
 				}
-
+			 
 		}
 
 		@media screen and (max-width: 360px) {
@@ -4016,10 +4016,22 @@ img.referralProof {
 	}
 
 	.imgBox {
-		width: 80%;
+		width: 80%
 	}
 
 	.infoBox {
-		width: 80%;			
+		width: 80%			
 	}	
+	
+	.orderForm {
+		width: 95%
+	}
+	
+	#signUpForm {
+		width: 100%
+	}
+	
+	input[type="text"], input[type="image"] {
+		width: 100%
+	}
 }
