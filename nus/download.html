@@ -8,16 +8,16 @@
     <table title="<?=$itemName?>">
         <tr valign="middle">
             <td>
-                <img src="images/sales/arrowR.jpg" alt="Download">
+                <img src="<?=$dir?>images/sales/arrowR.jpg" alt="Download">
             </td>
             <td>
                 <br />
-                <form method="post"><input type="image" name="download" src="images/sales/downloadNow.png" width="220px">
-                    <input type=hidden name="dl" value="DL" />
-                    <input type=hidden name="url" value="<?=$p['download']?>" />
+                <form method="post"><input type="image" name="download" src="<?=$dir?>images/sales/downloadNow.png" width="220px">
+                    <input type="hidden" name="dl" value="DL" />
+                    <input type="hidden" name="url" value="<?=$p['download']?>" />
                 </form>
             </td>
-            <td><img src="images/sales/arrowL.jpg" alt="Download" /></td>
+            <td><img src="<?=$dir?>images/sales/arrowL.jpg" alt="Download" /></td>
         </tr>
     </table>
 </center>
@@ -54,7 +54,7 @@
 
 <h3>One last thing...</h3>
 
-<p><font face="Verdana, Arial, Helvetica" size=3 color="#003399"><?= $itemName?></font> has a reseller program like no other!&nbsp; </font></p>
+<p><font face="Verdana, Arial, Helvetica" size="3" color="#003399"><?= $itemName?></font> has a reseller program like no other!&nbsp; </font></p>
 
 <p>Please visit 
     <a href="<?=$websiteURL?>/?action=faq#resellerLicense"><?=$websiteURL?>/?action=faq</a> for details</p>

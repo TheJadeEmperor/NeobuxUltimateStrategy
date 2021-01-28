@@ -1,10 +1,11 @@
 <?php
 $adir = '../';
 include($adir.'adminCode.php');
+$tableName = 'sales';
 
 if($_POST) {
     $dbOptions = array(
-		'tableName' => 'sales', 
+		'tableName' => $tableName, 
 		'dbFields' => array(
 			'productID' => $_POST['productID'],
 			'transID' => $_POST['transID'], 
@@ -27,14 +28,20 @@ if($_POST) {
 	);
     
     if($_POST['update']) {
-        if(dbUpdate($dbOptions))
-            $msg = 'Updated sales record';
+    	$res = dbUpdate($dbOptions);
+		$msg = 'Updated sales record';
     }
     else if($_POST['delete']) {
 
-        $del = 'DELETE FROM sales WHERE id="'.$_GET['id'].'"';
+		$opt = array(
+			'tableName' => $tableName,
+			'cond' => 'WHERE id="'.$_GET['id'].'"'
+		); 
 
-        $res = mysql_query($del, $conn) or print(mysql_error());
+		dbDeleteQuery($opt);
+
+		$msg = 'Deleted database record ... redirecting to users list';
+		echo '<meta http-equiv="refresh" content="3;URL=userSearch.php">';
     }
 }
 
@@ -54,20 +61,23 @@ else {
 }
 
 $queryD = 'DESC sales'; //describe this table
-$resultD = mysql_query($queryD, $conn) or die(mysql_error());
+$resultD = $conn->query($queryD);
 
-$tableContent .= '<tr bgcolor="FFFFCC"><td colspan="3">Fields: '.mysql_num_rows($resultD).'</td>
+$tableContent .= '<tr bgcolor="FFFFCC"><td colspan="3">Fields: '.$resultD->num_rows.'</td>
 	</tr>
 	<tr>
 		<td>Field</td><td>Type</td><td>Value</td>
 	</tr>';
 
-    while($field = mysql_fetch_row($resultD)) {
-        $tableContent .= '<tr><td>'.$field[0].'</td><td>'.$field[1].'</td><td><input type="text" name="'.$field[0].'" value="'.$s[$field[0]].'"></td>';      
+    while($field = $resultD->fetch_array()) {
+		$tableContent .= '<tr>
+		<td>'.$field[0].'</td>
+		<td>'.$field[1].'</td>
+		<td><input type="text" name="'.$field[0].'" value="'.$s[$field[0]].'"></td>';      
     } 
 
 if($msg) {	
-	$msg = '<p><font color="red"><b>'.$msg.'</b></font></p>';
+	$msg = showMessage($msg );
 }
 ?>
 <form method="POST">

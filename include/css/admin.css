@@ -21,7 +21,7 @@ body, container {
 
 #menuh {
 	margin: 0px auto; 
-	font-size: small;
+	font-size: 14px;
 	font-family: arial, helvetica, sans-serif;
 	background-color: #0000A0; /* purple */
 	padding: 10px;
@@ -149,7 +149,7 @@ a:hover  {
 
 .moduleBlue h1 {
 	margin: 0px;
-	font-size: 90%;
+	font-size: 14px;
 	color: #FFFFFF;
 	text-align: center;
 	padding: 5px; 
@@ -158,7 +158,7 @@ a:hover  {
 
 .moduleBlue th {
 	margin: 0px; 	
-	font-size: 90%;
+	font-size: 14px;
 	color: #FFFFFF;
 	text-align: center;
 	background: #531D2A;
@@ -211,34 +211,35 @@ a:hover  {
 }
 
 .btn.success {
-		background-color: #57a957;
-		background-repeat: repeat-x;
-		background-image: -khtml-gradient(linear, left top, left bottom, from(#62c462), to(#57a957));
-		background-image: -moz-linear-gradient(top, #62c462, #57a957);
-		background-image: -ms-linear-gradient(top, #62c462, #57a957);
-		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #62c462), color-stop(100%, #57a957));
-		background-image: -webkit-linear-gradient(top, #62c462, #57a957);
-		background-image: -o-linear-gradient(top, #62c462, #57a957);
-		background-image: linear-gradient(top, #62c462, #57a957);
-		filter: progid :DXImageTransform.Microsoft.gradient(startColorstr='#62c462', endColorstr='#57a957', GradientType=0);
-		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-		border-color: #57a957 #57a957 #3d773d;
-		border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	}
-	.btn.info, .alert-message.info {
-		background-color: #339bb9;
-		background-repeat: repeat-x;
-		background-image: -moz-linear-gradient(top, #5bc0de, #339bb9);
-		background-image: -ms-linear-gradient(top, #5bc0de, #339bb9);
-		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5bc0de), color-stop(100%, #339bb9));
-		background-image: -webkit-linear-gradient(top, #5bc0de, #339bb9);
-		background-image: -o-linear-gradient(top, #5bc0de, #339bb9);
-		background-image: linear-gradient(top, #5bc0de, #339bb9);
-		filter: progid :DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#339bb9', GradientType=0);
-		text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-		border-color: #339bb9 #339bb9 #22697d;
-		border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-	}
+	background-color: #57a957;
+	background-repeat: repeat-x;
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#62c462), to(#57a957));
+	background-image: -moz-linear-gradient(top, #62c462, #57a957);
+	background-image: -ms-linear-gradient(top, #62c462, #57a957);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #62c462), color-stop(100%, #57a957));
+	background-image: -webkit-linear-gradient(top, #62c462, #57a957);
+	background-image: -o-linear-gradient(top, #62c462, #57a957);
+	background-image: linear-gradient(top, #62c462, #57a957);
+	filter: progid :DXImageTransform.Microsoft.gradient(startColorstr='#62c462', endColorstr='#57a957', GradientType=0);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	border-color: #57a957 #57a957 #3d773d;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.btn.info, .alert-message.info {
+	background-color: #339bb9;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #5bc0de, #339bb9);
+	background-image: -ms-linear-gradient(top, #5bc0de, #339bb9);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5bc0de), color-stop(100%, #339bb9));
+	background-image: -webkit-linear-gradient(top, #5bc0de, #339bb9);
+	background-image: -o-linear-gradient(top, #5bc0de, #339bb9);
+	background-image: linear-gradient(top, #5bc0de, #339bb9);
+	filter: progid :DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#339bb9', GradientType=0);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	border-color: #339bb9 #339bb9 #22697d;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
 
 .btn {
 	cursor: pointer;
@@ -305,7 +306,7 @@ a:hover  {
 .adminBox h2 {
 	margin-top: 0px;
 	margin-bottom: 0px;
-	font-size: 90%;
+	font-size: 14px;
 	text-align: center;
 	display: block;
 	padding: 0.5em 0;
