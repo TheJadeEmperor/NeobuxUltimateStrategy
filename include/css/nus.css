@@ -541,8 +541,8 @@ h1 {
 }
 
 .checkList {
-    list-style-image: url(../../images/sales/check.png);
-    font-family: Georgia;
+    /*list-style-image: url(../../images/sales/check.png);
+    font-family: Georgia;*/
 }
 
 ol { 
@@ -759,7 +759,7 @@ button.link {
 	}
 
 	.table-wrp {
-		width: 100%;
+		width: 90%;
 	}
 
 	table {
@@ -833,12 +833,24 @@ button.link {
 	.photo img {
 		width: 90%;
 	}
+
+	#galleria {
+		width: 100%
+	}
+
+	.button2, .button2 input {
+		width: 95%
+	}
 }
 /*end screen 3*/
 
 
 /*screen 4*/
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
+	.galleria-image img {
+		width: 100%;
+	}
+
 	#language {
 		margin: 11px 25%;
 	}
@@ -854,5 +866,30 @@ button.link {
 	.sign-info img {
 		width: 80%;
 	}	
+
+	.guarantee, .order {
+		width: 95%
+	}
+
+	.subs-box {
+		padding: 10px;
+		width: 95%;
+	}
+
+	.email { /* optin email field */
+		width: 90%
+	}
+
+	.sub_checkbox { /* optin checkbox */
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	.sub_text { /* optin text */
+		display: inline-block;
+		vertical-align: middle;
+		width: 90%;
+	}
+
 }
 /*end screen 4*/

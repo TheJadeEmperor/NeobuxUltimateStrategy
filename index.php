@@ -222,7 +222,7 @@ switch($action) {
         }       
 }
 
-if(1) { //debug
+if(0) { //debug
     echo 'dir: '.$dir.'<br>
 	path: '.$path.'<br>
     productID: '.$productID.'<br>
