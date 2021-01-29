@@ -265,15 +265,13 @@ $sitePages = $stat['sitePages'];
                     if($devSite) {
                     ?>
                     <li class="dropdown">    
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dev & SEO<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SEO<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?=$adir?>dev/sqlDatabase.php">View Database</a></li>
-							
-							<li class="divider"></li>
-							
 							<li><a href="<?=$adir?>dev/sitemap.php" target="_blank">Generate Sitemap</a></li>
                             <li><a href="<?=$adir?>dev/sitemap.xml" target="_blank">View Sitemap</a></li>
+
                             <li class="divider"></li>
+                            
                             <li><a href="https://www.google.com/webmasters/tools/" target="_blank">Webmaster Tools</a></li>
                             <li><a href="https://www.google.com/analytics/web/" target="_blank">Google Analytics</a></li>
                         </ul>
@@ -286,9 +284,6 @@ $sitePages = $stat['sitePages'];
     </nav>
 <table>
 <tr valign="top">
-    <td align="left">
-    
-    </td>
     <td align="left">
         <div class="adminBox"><a href="<?=$adir?>main.php"><h2>Site Stats</h2></a>
         <div>
@@ -314,4 +309,5 @@ $sitePages = $stat['sitePages'];
         </div>    
         </div>
     </td>
+    <td align="left" width="15px"></td>
     <td align="left">
