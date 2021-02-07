@@ -64,7 +64,7 @@ while($l = $res->fetch_array()) {
 	$thisURL = $l['url'];
 	$name = $l['name'];
 	
-	$redirectURL = $websiteURL.'/redirect.php?url='.$name;
+	$redirectURL = $websiteURL.'/?url='.$name;
     
     $linkList .= '<tr><td><a href="?id='.$id.'">'.$name.'</a></td>
     <td><a href="'.$thisURL.'" target="_BLANK">'.shortenText($thisURL, 40).'</a></td>

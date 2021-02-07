@@ -12,7 +12,7 @@ $postLink = $websiteURL.'/'.$url;
 //referral links from links database
 $csReferralLink = $context['links']['clixsenseReferralLink']; 
 $clixsenseBannerImg = $context['links']['clixsenseBannerImg']; 
-$subscribeLandingURL = 'redirect.php?url=ysense'; 
+$subscribeLandingURL = $dir.'templates/redirect.php?url=ysense'; 
 ?>
 <!DOCTYPE HTML>
 <html>

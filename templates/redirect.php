@@ -1,13 +1,14 @@
 <?php
+$dir = '../';
 include($dir.'include/functions.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 include($dir.'include/api_sendgrid.php'); 
 
-$url = $_GET['url'];
-$urlRedirect = $context['links'][$url];
+$url = $_GET['url']; //url nickname in parameter 
+$urlRedirect = $context['links'][$url]; //get url from links array
 
-if(empty($urlRedirect)) {
+if(empty($urlRedirect)) { //default url
 	$urlRedirect = 'http://neobuxultimatestrategy.com/basics';
 }
 
@@ -81,7 +82,7 @@ else {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--<meta http-equiv="refresh" content="5;url=<?=$urlRedirect?>">-->
+<meta http-equiv="refresh" content="5;url=<?=$urlRedirect?>">
 <style>
 body {
     font-family: verdana;
@@ -106,7 +107,7 @@ body {
 			
 			<p>Please wait...</p>
 	
-			<img src="images/waiting.gif" alt="Waiting">
+			<img src="<?=$dir?>images/waiting.gif" alt="Waiting">
         </td>
     </tr>
 </table>
@@ -114,9 +115,6 @@ body {
 <p>&nbsp;</p>
 
 <p>Check your inbox to confirm receipt of our newsletters</p>
-<!--
-<p><img src="images/splash/confirm.jpg" alt="Confirm subscription" border="1"/></p>
--->
 </center>
 </body>
 </html>
