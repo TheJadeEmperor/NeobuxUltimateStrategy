@@ -41,14 +41,7 @@ $dbFields = array(
 	'expires' => $_POST['expires'], 
 	'keywords' => $_POST['keywords'],
 	'description' => $_POST['description'],
-	'affProgram' => $_POST['affProgram'], 
-	'affcenter' => $_POST['affcenter'],
-	'salesPercent' => $_POST['salesPercent'],
     'upsellID' => $_POST['upsellID'],
-	'oto' => $_POST['oto'],
-	'otoName' => $_POST['otoName'],
-	'otoNumber' => $_POST['otoNumber'],
-	'otoPrice' => $_POST['otoPrice'], 
 	'header' => $_POST['header'], 
 	'footer' => $_POST['footer'],
 	'salespage' => $_POST['salespage'],
@@ -299,51 +292,6 @@ else {
 </center>
 
 <p>&nbsp;</p>
-
-<p>&nbsp;</p>
-
-<div class="moduleBlue"><h1>Upsell Product</h1>
-<div class="moduleBody">
-<table>
-<tr valign="top">
-	<td>Use Upsell? *</td>
-	<td><select class="activeField" name="oto">
-	    <option <?=$oto['Y']?> value="Y">Yes</option>
-	    <option <?=$oto['N']?> value="N">No</option>
-	</select>
-	</td>
-<tr>
-    <td>One time offer?</td>
-    <td></td>
-</tr>
-<tr>
-    <td>Use this product as upsell </td>
-    <td>
-        <select class="activeField" name="upsellID">
-            <?=$upsellDropDown?>
-        </select>
-    </td>
-</tr>
-<tr valign="top">
-	<td>Upsell Item Name</td>
-	<td><?=$u['itemName']?></td>
-</tr><tr valign="top">
-	<td>Upsell Price</td>
-	<td><?=$u['itemPrice']?></td>
-</tr>
-<tr valign="top">
-	<td>Upsell Item #</td>
-	<td><?=$u['itemNumber']?></td>
-</tr>
-<tr valign="top">
-    <td>Use Special Upsell Price: </td>
-    <td><input type="text" class="activeField" name="otoPrice" value="<?=$p['otoPrice']?>"><br>
-        Leave blank to use above price
-    </td>
-</tr>
-</table>
-</div></div>
-
 <p>&nbsp;</p>
 
 <div class="moduleBlue"><h1>Template Options</h1>

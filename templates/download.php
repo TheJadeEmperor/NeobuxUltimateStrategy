@@ -20,8 +20,8 @@ if($s = $resS->fetch_array()) {
         $expiresDate = $salesDate; 
 }
 
-if($oto == 'Y' && !$_POST['skipOTO']) { //upsell 
-    $fileName = 'oto.html';
+if($otoPage && !$_POST['skipOTO']) { //upsell 
+    $fileName = $otoPage;
 }
 else {
     if($sales > 0) { //valid sale

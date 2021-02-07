@@ -166,7 +166,6 @@ function sendDownloadEmail($id, $conn) {
     $itemName = $p['itemName'];
     $itemNumber = $p['itemNumber'];
     $itemPrice = $p['itemPrice']; 
-    $salesPercent = $p['salesPercent'];
     $expires = $p['expires']; 
     $folder = $p['folder'];
     
@@ -184,7 +183,6 @@ function sendDownloadEmail($id, $conn) {
     $var = array(
     '$itemName', 
     '$itemNumber', 
-    '$salesPercent',
     '$expires', 
     '$downloadLink',
     '$itemPrice', 
@@ -198,7 +196,6 @@ function sendDownloadEmail($id, $conn) {
     $val = array(
     $itemName, 
     $itemNumber, 
-    $salesPercent, 
     $expires, 
     $downloadLink,
     $_POST['mc_gross'], 

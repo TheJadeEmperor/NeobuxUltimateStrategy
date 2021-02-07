@@ -40,29 +40,6 @@ session_start();
  * the path is "prod" */
 $curPageURL = curPageURL();  
 
-/*
-if(is_int(strpos(__FILE__, 'C:\\'))) { //localhost
-    $path = $_SERVER['REQUEST_URI']; 
-    $path = str_replace('/', '', $path);
-   // echo $path;
-
-    list($path, $crap) = explode('?', $path);    
-
-    echo $path.' '; 
-    //echo $path.' ';
-
-}
-else { //live website
-
-    list($crap, $path) = explode('//', $curPageURL);    
-    list($crap, $path) = explode('/', $path); 
-    $path = str_replace('index.php', '', $path); //get the current path
-    
-    if(is_int(strrpos($path, '?')))
-        $path = '';
-}
-*/
-
 $path = $_SERVER['REQUEST_URI']; 
 $path = str_replace('/', '', $path); 
 // echo $path;
@@ -83,8 +60,6 @@ include($dir.'include/functions.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
 
-//$selP = 'SELECT * FROM products WHERE folder="'.$path.'"';
-//$resP = $conn->query($selP);
 $opt = array(
 	'tableName' => 'products',
 	'cond' => 'WHERE folder="'.$path.'"');
@@ -103,16 +78,9 @@ if( $p = $resP->fetch_array() ) {
 	
     //download vars
     $expires = $p['expires'];
-    $oto = $p['oto']; 
-    $otoName = $p['otoName'];
-	$otoPrice = $p['otoPrice'];
-    $otoNumber = $p['otoNumber'];
     $download = $p['download']; 
     $upsellID = $p['upsellID'];
-
-    //affiliate vars
-    $affProgram = $p['affProgram'];
-    $salesPercent = $p['salesPercent']; 
+    $otoPage = $p['otoPage'];
 
     //template vars 
     $templateHeader = $p['header']; 
@@ -121,36 +89,8 @@ if( $p = $resP->fetch_array() ) {
     $downloadPage = $p['downloadPage'];
     
     //paypal vars 
-	$ipnURL = $val['websiteURL'].'/ipn.php';
-    $cancelURL = $val['websiteURL'];
-   
-    if($oto == 'Y') { //one time offer
-    
-        //$selO = 'SELECT * FROM products WHERE id="'.$upsellID.'"';
-        //$resO = $conn->query($selO);   
-
-        $opt = array(
-            'tableName' => 'products',
-            'cond' => 'WHERE id="'.$upsellID.'"');
-        $resO = dbSelectQuery($opt);
-        
-		$o = $resO->fetch_array($resO);
-
-        if($p['otoName'])
-            $otoName = $p['otoName'];
-        else
-            $otoName = $o['itemName'];
-        
-        if($p['otoPrice']) 
-            $otoPrice = $p['otoPrice'];
-        else
-            $otoPrice = $o['itemPrice'];
-        
-        if($p['otoNumber'])
-            $otoNumber = $p['otoNumber'];
-        else
-            $otoNumber = $o['itemNumber']; 
-    }
+	$ipnURL = $val['websiteURL'].'/templates/ipn.php';
+    $cancelURL = $val['websiteURL'];    
 }
 
 if($_POST['dl']) {
@@ -223,14 +163,15 @@ switch($action) {
 }
 
 if(0) { //debug
-    echo 'dir: '.$dir.'<br>
-	path: '.$path.'<br>
-    productID: '.$productID.'<br>
-    paidToEmail: '.$paidToEmail.'<br>
-	templateHeader: '.$templateHeader.'<br>
-	templateFooter: '.$templateFooter.'<br>
-    fileName: '.$fileName.'<br>
-    downloadPage: '.$downloadPage;
+    echo 'dir: '.$dir.'<br />
+	path: '.$path.'<br />
+    productID: '.$productID.'<br />
+    paidToEmail: '.$paidToEmail.'<br />
+	templateHeader: '.$templateHeader.'<br />
+	templateFooter: '.$templateFooter.'<br />
+    fileName: '.$fileName.'<br />
+    downloadPage: '.$downloadPage.'<br />
+    otoPage: '.$otoPage;
 }
 
 if(file_exists($templateHeader))
