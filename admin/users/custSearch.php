@@ -2,9 +2,9 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
-$sale_create = 'ajax/sale_create.php';
-$sale_read = 'ajax/sale_read.php';
-$sale_update = 'ajax/sale_update.php';
+$sale_create = 'sale_ajax.php?action=create';
+$sale_read = 'sale_ajax.php?action=read';
+$sale_update = 'sale_ajax.php?action=update';
 
 if($_POST['id']) { 
   
@@ -168,7 +168,7 @@ $properties = 'type="text" class="activeField"';
 ?>
 <script> 
 $(document).ready( function () {
-    $('#cust').dataTable({  
+    var custTable = $('#cust').dataTable({  
         "bJQueryUI": true,
         "sPaginationType": "full_numbers",
         "iDisplayLength": 50
@@ -243,6 +243,7 @@ function insertSale () {
             success: function(msg) {
                 alert('Message: '+msg);
                 location.reload();
+                //custTable.ajax.reload( null, false );
             }
         });
         closeDialog();
@@ -258,7 +259,7 @@ function updateSaleDB () {
             data: $('#addSaleForm').serialize()+'&id='+id,
             success: function(msg) {
                 alert('Message: '+msg);
-                location.reload();
+                //location.reload();
             }
         });
     }
@@ -275,7 +276,7 @@ function fillSalesForm (salesID) {
 			data = $.parseJSON(data);
 			console.log('data'+data);
 			$.each(data, function(name, value) {
-				console.log(name+' '+value);
+				//console.log(name+' '+value);
 				
 				if(name == 'id') $('#sale_id').val(value);
 				
@@ -428,4 +429,4 @@ $salesFields = array(
 
 <br /><br />
 <?
-include('adminFooter.php');  ?>
+include($adir.'adminFooter.php');  ?>
