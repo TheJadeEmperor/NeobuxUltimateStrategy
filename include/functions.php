@@ -14,9 +14,6 @@
  * showPost($id)
  *  show the post contents, given the post's id
  * 
- * showMenu($menu)
- *  display the admin menu
- * 
  * embedYoutubeVideo($src, $width, $height)
  *  displays embedded youtube video
  * 
@@ -268,34 +265,9 @@ function showPost($url) {
 	
 	echo $p['post'].'<hr /> <p>&nbsp;</p>'; 
 
-	//$postContent = 'No post by that title exists'; 
- 	
 	return $postContent; 
 }
 
-
-function showMenu($menu) {
-	$extraMenu = '<div class="adminMenu" title="'.$menu[bar][title].'">
-	<a href="'.$menu[bar][link].'"><h2>'.$menu[bar][title].'</h2></a><ul id="menu">';
-	
-	foreach($menu[item] as $name => $value)
-	{
-		$extraMenu .= '<li><a href="'.$value[link].'" title="'.$value[title].'" '.$value[extra].'>'.$name.'</a>';
-
-		if(sizeof($value[sub_menu]) > 0)
-		{
-			$extraMenu .= '<ul>';
-			foreach($value[sub_menu] as $sub => $val)
-			{
-				$extraMenu .= '<li><a href="'.$val[link].'" title="'.$val[title].'" '.$val[extra].'>
-				:: '.$sub.' ::</a></li>';
-			}
-			$extraMenu .= '</ul>';
-		}
-		$extraMenu .= '</li>';
-	}
-	return $extraMenu.'</ul></div>';
-}
 
 /*
  * $options = array(
@@ -484,7 +456,7 @@ function dbUpdate($opt) {
 	
 	$theSet = implode(',', $set); 
 	
-	$upd = 'UPDATE '.$opt['tableName'].' SET '.$theSet.' '.$opt[cond]; 
+	$upd = 'UPDATE '.$opt['tableName'].' SET '.$theSet.' '.$opt['cond']; 
 	$res = $conn->query($upd);
 	
 	if($_GET['debug'] == 1) {

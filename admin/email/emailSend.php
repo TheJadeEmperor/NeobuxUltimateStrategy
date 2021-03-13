@@ -6,13 +6,10 @@ set_time_limit(120);
 
 //get emails from customer search 
 $eCount = 1;
-if(isset($_SESSION['sendTo']))
-{
+if(isset($_SESSION['sendTo'])) {
 	$sendToList = array_unique($_SESSION['sendTo']);
-	foreach($sendToList as $num => $st)
-	{
-		if($eCount == sizeof($sendToList)) //last email
-		{
+	foreach($sendToList as $num => $st) {
+		if($eCount == sizeof($sendToList)) { //last email
 	    	$allEmails .= $st;	//no newline after last email
         }
 		else //new line
@@ -24,20 +21,18 @@ if(isset($_SESSION['sendTo']))
 	}
 	unset($_SESSION['sendTo']);
 }
-else 
-{
+else {
 	$allEmails = $_POST['to'];
 }
 
 //send the emails
-if($_POST['sendEmail'] && $_POST['message'] != '')
-{
+if($_POST['sendEmail'] && $_POST['message'] != '') {
     //format the message properly
-    $_POST[message] = stripslashes($_POST[message]);
-    $_POST[message] = str_replace("\"", '&quot;', $_POST[message]);
-    $_POST[message] = str_replace('\'', '&#39;', $_POST[message]);
+    $_POST['message'] = stripslashes($_POST['message']);
+    $_POST['message'] = str_replace("\"", '&quot;', $_POST['message']);
+    $_POST['message'] = str_replace('\'', '&#39;', $_POST['message']);
     
-    echo '<fieldset>'.$_POST[message].'</fieldset> <br />
+    echo '<fieldset>'.$_POST['message'].'</fieldset> <br />
     <fieldset>';
     
     //handle file attachment
@@ -63,25 +58,6 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
         
         $sendEmailBody = $emailBody;
 
-        //check for optout - customer
-        $selO = 'select optout from sales where payerEmail="'.$emailTo.'" and optout="Y"';
-        $resO = mysql_query($selO, $conn) or die(mysql_error());
-        
-        if(mysql_num_rows($resO) == 0)
-        {
-            //check for optout - user
-            $queryO = 'select optout from users where (email="'.$emailTo.'" || paypal="'.$emailTo.'") and optout="Y"';
-            $resultO = mysql_query($queryO) or die(mysql_error());
-            
-            if(mysql_num_rows($resultO) == 0)
-                $isOptOut = false; 
-            else {
-                $isOptOut = true; 
-            }
-        }
-        else
-            $isOptOut = true;
-
 		$mail = new PHPMailer();
 		$mail->IsSMTP();         // send via SMTP
 		$mail->SMTPSecure = 'ssl';
@@ -103,8 +79,7 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
         if($isOptOut) {
             echo '<i>Message was <b>not</b> sent - user opted out of emails</i><br />';    
         }
-        else 
-        {
+        else {
             if(!$mail->Send())
                echo "Message was <b>not</b> sent - ".$mail->ErrorInfo.'<br />';
             else
@@ -116,20 +91,18 @@ if($_POST['sendEmail'] && $_POST['message'] != '')
 
 
 $opt = array(
-'tableName' => 'newsletter', 
-'cond' => ' order by category' );
+	'tableName' => 'newsletter', 
+	'cond' => ' order by category' );
 
 $allNewsletters = dbSelect($opt); 
 
-foreach($allNewsletters as $n) 
-{
+foreach($allNewsletters as $n)  {
     $pick = ''; 
-    if($_POST[newsletter] == $n[category])  //this template
-    {   
+    if($_POST['newsletter'] == $n['category']) {  //this template
         $pick = 'selected';
         $news = $n;
     }
-    $newsOpt .= '<option value="'.$n[category].'" '.$pick.'>'.$n[category].'</option>';
+    $newsOpt .= '<option value="'.$n['category'].'" '.$pick.'>'.$n['category'].'</option>';
 }
 
 $properties = 'class="activeField"';
@@ -138,28 +111,28 @@ $properties = 'class="activeField"';
 <table><tr><td>
 <div class="moduleBlue"><h1>Send Mass Mail</h1>
 <div>
-	<form method=post enctype="multipart/form-data">
+	<form method="POST" enctype="multipart/form-data">
 	<table>
 	<tr>
 		<td>From Email Address </td>
 		<td>
 		    <div title="header=[Website URL] body=[The email address to send from - default is the SMTP email address if you set it]"><img src="<?=$helpImg?>" /></div>
 	    </td>
-	    <td><input <?=$properties?> name=fromEmail size=30 maxlength=50 value="<?=$fromEmail?>" /> ex: email@domain.com</td>
+	    <td><input <?=$properties?> name="fromEmail" size="30" maxlength="50" value="<?=$fromEmail?>" /> ex: email@domain.com</td>
 	</tr>
 	<tr>
 		<td>From Name </td>
 		<td>
 	        <div title="header=[Website URL] body=[Name displayed for From Email Address, optional field] "><img src="<?=$helpImg?>" /></div>
 	    </td>
-		<td><input <?=$properties?> name=who size=30 maxlength=30 value="<?=$fromName?>"> ex: Administrator</td>
+		<td><input <?=$properties?> name="who" size="30" maxlength="30" value="<?=$fromName?>"> ex: Administrator</td>
 	</tr>
 	<tr>
 		<td>Email Template</td>
 		<td>
 	        <div title="header=[Email Template] body=[Choose a pre-written email to be sent, will auto-populate subject and message when selected <br />You can add and edit these templates] "><img src="<?=$helpImg?>" /></div>
 	    </td>
-	    <td><select <?=$properties?>  name=newsletter onchange="submit();">
+	    <td><select <?=$properties?> name="newsletter" onchange="submit();">
 	        <option></option><?=$newsOpt?></select> <a href="newsletter.php">Edit Templates</a></td>
 	</tr>
 	<tr>
@@ -167,7 +140,7 @@ $properties = 'class="activeField"';
 		<td>
 	        <div title="header=[Email Subject Line] body=[Subject line of the email, will auto-populate when you select a template] "><img src="<?=$helpImg?>" /></div>
 	    </td>
-	    <td><input <?=$properties?> name=subject size=60 maxlength=60 value="<?=$news[subject]?>"></td>
+	    <td><input <?=$properties?> name="subject" size="60" maxlength="60" value="<?=$news['subject']?>"></td>
 	</tr>
 	<tr valign="top">
 		<td>Send To Email(s)</td>
@@ -177,7 +150,7 @@ $properties = 'class="activeField"';
 	    <td style="padding:0; margin:0;">
 	    	<table>
 	    		<tr valign="top">
-	    			<td><textarea <?=$properties?> name="to" cols=47 rows=9><?=$allEmails?></textarea></td>
+	    			<td><textarea <?=$properties?> name="to" cols="47" rows="9"><?=$allEmails?></textarea></td>
 	    			<td align="left">ex: <br>1@1.com<br>2@2.com<br>3@3.com </td>
 	    		</tr>
 	    	</table>
@@ -188,24 +161,24 @@ $properties = 'class="activeField"';
 		<td>
 	        <div title="header=[Message Body] body=[The message to be sent, basic HTML is allowed] "><img src="<?=$helpImg?>" /></div>
 	    </td>
-	    <td><textarea name="message" cols=70 rows=15><?=$news[message]?></textarea></td>
+	    <td><textarea name="message" cols="70" rows="15"><?=$news['message']?></textarea></td>
 	</tr>
 	<tr valign="top">
 		<td>Attach a file</td>
 		<td>
 	        <div title="header=[File attachment] body=[You can attach a file to this email for the recipient to download, the limit is 4 MB] "><img src="<?=$helpImg?>" /></div>
 	    </td>
-	    <td><input type=file name="userfile[]" class="bginput" size="30" /> &nbsp;
+	    <td><input type="file" name="userfile[]" class="bginput" size="30" /> &nbsp;
 		   <br />Max file size: 4 MB
 	    </td>
 	</tr>
 	<tr>
 		<td colspan="3" align="center">	
-		    <input type=submit name=sendEmail value="Send Mail Now" class="btn success"/></td>
+		    <input type="submit" name="sendEmail" value="Send Mail Now" class="btn success"/></td>
 	</tr>
 	</table>
 	 
-	<input type=hidden name=from value="<?=$fromEmail?>">
+	<input type="hidden" name="from" value="<?=$fromEmail?>">
 	</form>
 </div>
 </div>
