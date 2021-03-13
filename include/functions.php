@@ -153,8 +153,12 @@ function postMetaTags($url) {
 }
  
 
-function sendDownloadEmail($id, $conn) {
+function sendDownloadEmail($data) {
     global $context; 
+	
+	$id = $data['productID'];
+	$type = $data['type'];
+	$conn = $context['conn'];
     
     $selP = 'SELECT * FROM products WHERE id="'.$id.'"';
 	$resP = $conn->query($selP);
@@ -167,15 +171,15 @@ function sendDownloadEmail($id, $conn) {
     $folder = $p['folder'];
     
     if($folder == '') {
-        $downloadLink = $context['websiteURL'].'/?action=download&id='.$_POST[txn_id];
+        $downloadLink = $context['websiteURL'].'/?action=download&id='.$_POST['txn_id'];
     }
     else {
         $downloadLink = $context['websiteURL'].'/'.$folder.'/?action=download&id='.$_POST['txn_id'];
     }
         
-    $selE = 'select * from emails where type="download" and productID="'.$id.'"';
+    $selE = 'SELECT * FROM emails WHERE type="'.$type.'" AND productID="'.$id.'"';
 	$resE = $conn->query($selE);
-	$p = $resE->fetch_array(); 
+	$e = $resE->fetch_array();
  
     $var = array(
     '$itemName', 
@@ -203,25 +207,30 @@ function sendDownloadEmail($id, $conn) {
     $_POST['payment_status'], 
     $_POST['receiver_email'] );
     
-    $message = stripslashes($e['message']);
-    $subject = stripslashes($e['subject']);
-    $message = str_replace($var, $val, $message);
-    $subject = str_replace($var, $val, $subject);   
+    $message = stripslashes($e['message']); 
+    $subject = stripslashes($e['subject']); 
+    $message = str_replace($var, $val, $message); //replace vars in message
+    $subject = str_replace($var, $val, $subject); //replace vars in subject line
 
     $headers = "From: ".$context['adminEmail']."\n";
     $headers .= "Content-type: text/html;";     
     
     mail($_POST['payer_email'], $subject, $message, $headers);
     
+	//// log for debugging
     $myFile = "sendDownloadEmail.txt";
     $fh = fopen($myFile, 'a') or die("can't open file");
     $stringData = "sendDownloadEmailAddress: ".$context['val']['sendDownloadEmailAddress']."\n"
-            . "headers: .$headers";
+            . "headers: .$headers"; 
     
     fwrite($fh, $stringData);
     fclose($fh);
-    
-    if($context['val']['sendDownloadEmailCopy'] == 'on')
+    //// log for debugging
+
+	if($_GET['debug'] == 1)
+		echo $selP.' '.$selE.' '.$message; 
+
+    if($context['val']['sendDownloadEmailCopy'] == 'on') //send copy of emails to self
         return mail($context['val']['sendDownloadEmailAddress'], $subject, $message, $headers); 
 }
 

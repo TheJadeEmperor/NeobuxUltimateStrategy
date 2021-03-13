@@ -3,18 +3,24 @@ $adir = '../';
 include($adir.'adminCode.php');
 
 if($_POST['sendEmail']) {
-    switch($_POST['type']) {     
-        default: 
-            $_POST['payer_email'] = $_POST['email']; 
-            sendDownloadEmail($_POST['id'], $conn);             
-    }
+    $productID = $_POST['productID'];
+
+    $data = array(
+        'productID' => $productID,
+        'type' => $_POST['type'],
+    );
+
+    $message = sendDownloadEmail($data);
+    echo $message; 
 }
 
-if($_POST['email'])
-    $email = $_POST['email'];
+//get payer_email or set default to adminEmail
+if($_POST['payer_email'])
+    $payer_email = $_POST['payer_email'];
 else
-    $email = $context['adminEmail'];
+    $payer_email = $context['adminEmail'];
 
+//get all products data
 $opt = array(
     'tableName' => 'products',
     'cond' => 'ORDER BY id');
@@ -29,6 +35,7 @@ while( $p = $resP->fetch_array() ) {
     $prodDropDown .= '<option value="'.$p['id'].'" '.$select.'>'.$p['itemName'].'</option>';
 }
 
+//a product is chosen from drop down menu
 if($_POST['productID']) {
 
     $id = $_POST['productID']; 
@@ -80,8 +87,8 @@ if($_POST['productID']) {
     <table>
         <tr>
             <td>Send to this email: </td>
-            <td><input type="text" name="email" value="<?=$email?>" size="30" /></td>
-        </tr>
+            <td><input type="text" name="payer_email" value="<?=$payer_email?>" size="30" /></td>
+        </tr> 
         <tr>
             <td>$firstName</td>
             <td><input type="text" name="first_name" value="<?=$_POST['first_name']?>" /></td>
@@ -102,7 +109,7 @@ if($_POST['productID']) {
             <td colspan="2" align="center">
 
                 <input type="hidden" name="id" value="<?=$_POST['productID']?>">
-                <input type="submit" name="sendEmail" value="Test Email"> Click only once
+                <input type="submit" name="sendEmail" value="Test Email" class="btn btn-warning"> Click only once
             </td>
         </tr>
     </table>
