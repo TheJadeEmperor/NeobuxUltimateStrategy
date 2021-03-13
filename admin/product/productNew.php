@@ -45,6 +45,7 @@ $dbFields = array(
 	'header' => $_POST['header'], 
 	'footer' => $_POST['footer'],
 	'salespage' => $_POST['salespage'],
+	'otoPage' => $_POST['otoPage'],
 	'downloadPage' => $_POST['downloadPage'],
 	'productOrderLink' => $_POST['productOrderLink'],
 	'productOrderText' => $_POST['productOrderText']
@@ -130,9 +131,6 @@ if($_GET['id']) {
             
         if($id == $item['id']) {
             $p = $item;
-            $aff[ $p['affProgram'] ] = 'selected';
-            $payment[ $p['payment'] ] = 'selected';
-            $oto[ $p['oto'] ] = 'selected';
         }
     
         $products[] = $item; 
@@ -265,7 +263,6 @@ else {
 	    </td>
 	</tr>
 	
-	
 	<tr valign="top">
 		<td>SEO Keywords</td>
 		<td>
@@ -312,6 +309,10 @@ else {
 	<tr>
 		<td>Download Page</td>
 		<td><input class="activeField" name="downloadPage" value="<?=$p['downloadPage']?>" /></td>
+	</tr>
+	<tr>
+		<td>OTO Page</td>
+		<td><input class="activeField" name="otoPage" value="<?=$p['otoPage']?>" /></td>
 	</tr>
 </table>
 </div>
