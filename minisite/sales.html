@@ -368,13 +368,12 @@ we are sending you our best selling product, in fact, the #1 product in the PTC 
 
 <p>&nbsp;</p>
 
-
 <h2>Get Your Own PTC Mini-Site Today! </h2>
 
 <center>
 <div class="cover">
     
-	<?
+	<?php
 	if($usePaypalOrderLink) {
 		$orderLink = $paypalOrderLink;
 		$orderText = 'Get Instant Access - Even at 2 AM - Guaranteed';
@@ -383,7 +382,7 @@ we are sending you our best selling product, in fact, the #1 product in the PTC 
 		$orderLink = $productOrderLink;
 		$orderText = $productOrderText;
 	}
-	$orderLink = 'https://codegeass.info/order/orderForm.php?db=nus&productID='.$productID;
+	//$orderLink = 'https://codegeass.info/order/orderForm.php?db=nus&productID='.$productID;
 	?>
 	
     <a href="<?=$orderLink?>"><img src="../images/ms/orderBox.jpg" width="600px" /></a>

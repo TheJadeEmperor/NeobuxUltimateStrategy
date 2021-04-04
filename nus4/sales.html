@@ -449,7 +449,7 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 
 <h2 class="p-red">Get The Neobux Ultimate Strategy Now!</h2><br /><br />
 
-<?
+<?php
 	if($usePaypalOrderLink) {
 		$orderLink = $paypalOrderLink;
 		$orderText = 'Secure Payments Made Through PayPal';
@@ -458,7 +458,7 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 		$orderLink = $productOrderLink;
 		$orderText = $productOrderText;
 	}
-	$orderLink = 'https://codegeass.info/order/orderForm.php?db=nus&productID='.$productID;
+	//$orderLink = 'https://codegeass.info/order/orderForm.php?db=nus&productID='.$productID;
 ?>
 
 <div class="order">
