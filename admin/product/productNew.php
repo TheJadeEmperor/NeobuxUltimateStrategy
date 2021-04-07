@@ -45,7 +45,6 @@ $dbFields = array(
 	'header' => $_POST['header'], 
 	'footer' => $_POST['footer'],
 	'salespage' => $_POST['salespage'],
-	'otoPage' => $_POST['otoPage'],
 	'downloadPage' => $_POST['downloadPage'],
 	'productOrderLink' => $_POST['productOrderLink'],
 	'productOrderText' => $_POST['productOrderText']
