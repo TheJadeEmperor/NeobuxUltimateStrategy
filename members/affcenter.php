@@ -1,15 +1,15 @@
 <?php
 //get all products to display 
-$selP = 'SELECT * FROM products WHERE affcenter="Y" ORDER BY itemName';
+$selP = 'SELECT * FROM products WHERE id in (2, 3, 5) ORDER BY itemName';
 $resP = $conn->query($selP);
 
 $cust = 0; //# of products they bought
 while($p = $resP->fetch_array()) {
     $itemName = $p['itemName']; 
     $productID = $p['id'];
-    
+
     $selS = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="'.$p['id'].'"'; 
-    $resS = $conn->query($selS);
+    $resS = $conn->query($selS); 
     
 	if($p['id'] == '3')
 		$isMiniSitesCustomer = 1;
@@ -18,9 +18,9 @@ while($p = $resP->fetch_array()) {
         $downloadContent = 'You are not a customer of '.$itemName.'<br />
         <a href="'.$dir.$p['folder'].'" target="_BLANK">Click here to get it</a>';
     }
-    else  {
+    else {
         $cust++;  //# of products they bought
-    }
+    } 
 
     if($p['itemPrice'] == 0) { //free gift - download is available
     
@@ -33,11 +33,10 @@ while($p = $resP->fetch_array()) {
         <input type="hidden" name="id" value="'.$p['id'].'">
         <input type="hidden" name="url" value="'.$p['download'].'">
         </form></center>';
-    }
+    } // if($p['itemPrice'] == 0)
     else if(mysqli_num_rows($resS) > 0) { //sale
-    
-        $sale = mysql_fetch_assoc($resS);
-        
+        $sale = $resS->fetch_array();
+
         //multiple downloads
         $selD = 'SELECT * FROM downloads WHERE productID="'.$productID.'" ORDER BY name';
         $resD = $conn->query($selD);
@@ -48,7 +47,7 @@ while($p = $resP->fetch_array()) {
                 <tr>
                     <td>You bought the product on '.$sale['purchased'].' </td>
                 </tr>';
-            while($d = mysql_fetch_assoc($resD)) {
+            while($d = $resD->fetch_array()) {
             
                 $downloadContent .= '<tr>
                 <td>'.$d['name'].'</td>
@@ -58,7 +57,7 @@ while($p = $resP->fetch_array()) {
                 </td>';
             }    
             $downloadContent .= '</table>';
-        }
+        } // if(mysqli_num_rows($resD) > 0)
         else { //single download 
             $downloadContent = 'You bought the product on '.$sale['purchased'].' <br />
             The product was last updated on '.date('m/d/Y', time()-2592000).' <br />
@@ -69,14 +68,14 @@ while($p = $resP->fetch_array()) {
             <input type="hidden" name="id" value="'.$p['id'].'">
             <input type="hidden" name="url" value="'.$p['download'].'">
             </form></center>';
-        }
-    }
+        } // else 
+    } // else if(mysqli_num_rows($resS) > 0)
 
     echo '<div class="moduleGradient"><h1>'.$p['itemName'].'</h1>
 	<div>
     '.$downloadContent.'
     </div></div><br />'; 
-}
+} //while($p = $resP->fetch_array()) 
 
 ?>
 <h1>Members Home</h1>
