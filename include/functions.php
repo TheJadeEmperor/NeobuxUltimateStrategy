@@ -141,7 +141,7 @@ function postMetaTags($url) {
 	$resP = $conn->query($selP);
 	$p = $resP->fetch_array();
     
-    if(mysql_num_rows($res) > 0) {	
+    if(mysqli_num_rows($res) > 0) {	
     	$meta = array(
             'title' => stripslashes($p['subject']), 
             'tags' => stripslashes($p['tags']), 
