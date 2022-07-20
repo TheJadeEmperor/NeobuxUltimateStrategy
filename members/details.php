@@ -42,7 +42,7 @@ if($_POST['update']) {
             $msg .= '<br />Username already is being used - please use another one';
         }
         else { 
-            $updU = 'update users set username="'.$_POST['username'].'" where id="'.$u[id].'"';
+            $updU = 'update users set username="'.$_POST['username'].'" where id="'.$u['id'].'"';
             $resU = $conn->query($updU);
         }
     }
