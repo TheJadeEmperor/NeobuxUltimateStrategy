@@ -1,5 +1,10 @@
-<?
+<?php
 $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
+
+$stripeOrderLink = 'https://buy.stripe.com/3cs02Cdoh4Y6fXadQQ';
+
+$btcOrderLink = 'https://commerce.coinbase.com/checkout/46425b7f-91da-4bca-8a3e-8ff8f47a9f60';
+
 ?>
 
 <div class="top-hd-wrp">
@@ -470,10 +475,11 @@ $itemPriceDisplay = '$'.number_format ( $itemPrice, 2 );
 	<h5>Get Your Copy Now For Only $<?=$itemPrice?></h5>
 
 	<div class="button">
-		<a href="<?=$orderLink?>"><img src="<?=$dir?>images/nus/order.png"></a>
+		<a href="<?=$stripeOrderLink?>"><img src="<?=$dir?>images/nus/order.png"></a>
 	</div>
 
-	<p class="p-small p-grey"><?=$orderText?></p>
+	<p class="p-small p-grey">Other payment options: <a href="<?=$btcOrderLink?>">Pay with Bitcoin</a></p>
+
 </div>
 <br /><br /><br />
 

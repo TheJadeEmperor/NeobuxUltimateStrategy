@@ -17,6 +17,11 @@ FinishMessage = "Special Discount Has Ended...";
 </script>
 <script language="JavaScript" src="http://scripts.hashemian.com/js/countdown.js"></script>
 </center>';
+
+$stripeOrderLink = 'https://buy.stripe.com/3cs02Cdoh4Y6fXadQQ';
+
+$btcOrderLink = 'https://commerce.coinbase.com/checkout/46425b7f-91da-4bca-8a3e-8ff8f47a9f60';
+
 ?>
 <body onbeforeunload="return ExitPage();">
 <center>
@@ -670,10 +675,10 @@ building strategies. You're paying once and receiving forever - another reason t
 		?>
 		
 		<center>
-			<a href="<?=$orderLink?>">
+			<a href="<?=$stripeOrderLink?>">
 				<img src="<?=$imgDir?>orderNow.png" alt="Order Now" title="Order Now"></a>
 
-			<i><font size="2" color="grey"><?=$orderText?></font></i>	
+			<i><font size="2" color="grey"><a href="$btcOrderLink"></a>Other payment options: Pay with Bitcoin</font></i>	
 		</center>
 		</div>
     </td>
