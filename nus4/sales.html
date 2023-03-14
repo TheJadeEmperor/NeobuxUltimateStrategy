@@ -506,15 +506,22 @@ $btcOrderLink = 'https://commerce.coinbase.com/checkout/46425b7f-91da-4bca-8a3e-
 
     <div class="optin">
 
-        <form method="POST" action="<?=$subscribeLandingURL?>">
+		<form method="POST" onsubmit="NoExitPage=true;" id="TRWVLCPForm" name="TRWVLCPForm" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
 
             <div id="errorSP"></div>
 
-            <input type="text" id="emailSP" name="email" class="email" value="Your Best Email" onclick="if(this.value=='Your Best Email') this.value=''; " />
+            <input type="text" id="da_email" name="da_email" class="email" value="Your Best Email" onclick="if(this.value=='Your Best Email') this.value=''; " />
         
             <div class="button2">
-                <input type="image" src="<?=$spImg?>btn-ace.png" title="Subscribe Now!" onclick="return validateEmailSP(document.getElementById('emailSP').value);" />
+                <input type="image" src="<?=$spImg?>btn-ace.png" title="Subscribe Now!" onclick="return validateEmailSP(document.getElementById('da_email').value);" />
             </div>
+
+			<input type="hidden" id="da_name" name="da_name" value="PTC User">
+			<input type="hidden" name="trwvid" value="neobux">
+			<input type="hidden" name="series" value="nusnewsletter">
+			<input type="hidden" name="subscrLandingURL" value="<?=$subscrLandingURL?>">
+			<input type="hidden" name="confirmLandingURL" value="<?=$subscrLandingURL?>">
+			<input type="hidden" name="langPref" value="en"><input type="hidden" name="lcpID" value=""><input type="hidden" name="lcpDE" value="0">
           
         </form>
     </div>

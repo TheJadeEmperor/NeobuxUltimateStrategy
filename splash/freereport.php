@@ -2,8 +2,8 @@
 date_default_timezone_set('America/New_York'); 
 
 $imgDir = 'images/splash/';
-$subscribeLandingURL = $links['subscribeLandingURL'];
-
+$subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site options - links
+ 
 $timer = '
     <script language="JavaScript">
     TargetDate =  "'.date('m/d/Y', time()+86400).' 12:00 AM";
@@ -29,161 +29,161 @@ $preHeadline = '<h2 class="subheadline"><span class="strong red">Warning: </span
 <meta name="description" content="Make $20 to $30 a day with our free neobux ebook - get the neobux ultimate strategy today!" />
 <link href="<?=$dir?>include/css/splash.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
-h1 {
-    letter-spacing: 0px; 
-    font-weight:bold; 
-    line-height: 48px; 
-    font: bold 42px Tahoma;
-    margin:0 0 25px;
-    text-align:center;
-}
+    h1 {
+        letter-spacing: 0px; 
+        font-weight:bold; 
+        line-height: 48px; 
+        font: bold 42px Tahoma;
+        margin:0 0 25px;
+        text-align:center;
+    }
 
-h1 .red {
-    letter-spacing: 1px; 
-    font-style: italic;
-    font-weight:bold; 
-    line-height: 48px; 
-    font: bold 44px "Tahoma";
-    margin:0 0 25px;
-}
+    h1 .red {
+        letter-spacing: 1px; 
+        font-style: italic;
+        font-weight:bold; 
+        line-height: 48px; 
+        font: bold 44px "Tahoma";
+        margin:0 0 25px;
+    }
 
-h2 {
-    letter-spacing: 0px; 
-    font-weight:bold; 
-    line-height: 42px; 
-    font: bold 36px Tahoma;
-    margin:0 0 25px;
-    text-align:center;
-}
+    h2 {
+        letter-spacing: 0px; 
+        font-weight:bold; 
+        line-height: 42px; 
+        font: bold 36px Tahoma;
+        margin:0 0 25px;
+        text-align:center;
+    }
 
-h3 {
-    font:normal bold 24px Arial, Helvetica, sans-serif;
-    margin:0 0 5px;
-}
-    
-h4 { 
-    letter-spacing:-.03em; 
-    font-size:18px; 
-    font-weight:bold; 
-    line-height:18px; 
-    margin-bottom:0px;
-}
+    h3 {
+        font:normal bold 24px Arial, Helvetica, sans-serif;
+        margin:0 0 5px;
+    }
+        
+    h4 { 
+        letter-spacing:-.03em; 
+        font-size:18px; 
+        font-weight:bold; 
+        line-height:18px; 
+        margin-bottom:0px;
+    }
 
-.center { text-align:center; margin:0 auto; }
-.strong { font-weight:bold; }
-.red { color:#c13100; }
-.em { font-style:italic; }
-.left { float:left; }
-.right { float:right; }
-a { color:inherit; margin:0; -moz-user-select:text; }
-a:hover { text-decoration:none; }
+    .center { text-align:center; margin:0 auto; }
+    .strong { font-weight:bold; }
+    .red { color:#c13100; }
+    .em { font-style:italic; }
+    .left { float:left; }
+    .right { float:right; }
+    a { color:inherit; margin:0; -moz-user-select:text; }
+    a:hover { text-decoration:none; }
 
-#wrapper {
-    margin:0 auto;
-    width:892px;
-}
+    #wrapper {
+        margin:0 auto;
+        width:892px;
+    }
 
-#contentWrap {
-    margin:5px 0 0;
-    width:892px;
-}
+    #contentWrap {
+        margin:5px 0 0;
+        width:892px;
+    }
 
-#contentTop {
-    background:url(<?=$imgDir?>contentTop.png) no-repeat;
-    height:36px;
-    width:892px
-}
+    #contentTop {
+        background:url(<?=$imgDir?>contentTop.png) no-repeat;
+        height:36px;
+        width:892px
+    }
 
-#content {
-    background:url(<?=$imgDir?>contentBG.png) repeat-y; 
-    padding: 30px 50px;
-}
+    #content {
+        background:url(<?=$imgDir?>contentBG.png) repeat-y; 
+        padding: 30px 50px;
+    }
 
-#content .subheadline {
-    background:url(<?=$imgDir?>highlight.png) repeat-y center top;
-    font:italic 20px Arial, Helvetica, sans-serif;
-    margin:0 0 20px;
-    text-align:center;
-    color: black;
-}
+    #content .subheadline {
+        background:url(<?=$imgDir?>highlight.png) repeat-y center top;
+        font:italic 20px Arial, Helvetica, sans-serif;
+        margin:0 0 20px;
+        text-align:center;
+        color: black;
+    }
 
-#contentBtm {
-    background:url(<?=$imgDir?>contentBtm.png) no-repeat;
-    height:36px;
-}
+    #contentBtm {
+        background:url(<?=$imgDir?>contentBtm.png) no-repeat;
+        height:36px;
+    }
 
-#form {
-    background:url(<?=$imgDir?>form.jpg) no-repeat;
-    height:225px;
-    margin:0 auto 13px;
-    padding:20px 55px 0;
-    width:414px;
-}
+    #form {
+        background:url(<?=$imgDir?>form.jpg) no-repeat;
+        height:225px;
+        margin:0 auto 13px;
+        padding:20px 55px 0;
+        width:414px;
+    }
 
-.note {
-    color:#767676;
-    font:normal 11px Arial, Helvetica, sans-serif;
-    margin:15px auto 0;
-    text-align:center;
-}
-.infoWrap {
-    height:25px;
-    margin:7px auto;
-    width:308px;
-}
-.infoWrap .textField {
-    background-color:#fff;
-    border:solid 1px transparent;
-    color:#c13100;
-    font:normal 20px Arial, Helvetica, sans-serif;
-    height: 20px;
-    margin: 10px 0px; 
-    padding: 6px 0;
-    text-align:center;
-    width:308px;
-}
-.buttonWrap {
-    clear:both;
-    height:68px;
-    margin:27px auto 0;
-    width:327px;
-}
-.buttonWrap button {
-    height:68px;
-    overflow:visible;
-    width:327px;
-}
-button.link, button.link {
-    background:url(<?=$imgDir?>btnSubmit.png) no-repeat left top;
-    border:none;
-    cursor:pointer;
-    display:block;
-    margin:0;
-    padding:0;
-    text-indent:-9999px;
-    -moz-user-select:text;
-}
-button.link:hover {
-    background:url(<?=$imgDir?>btnSubmit.png) no-repeat left bottom;
-}
-    
-#footer {
-    background:url(<?=$imgDir?>footerBG.png) no-repeat;
-    clear:both;
-    height:67px;
-    margin:0 auto 20px;
-    text-align:center;
-    width:820px;
-}
+    .note {
+        color:#767676;
+        font:normal 11px Arial, Helvetica, sans-serif;
+        margin:15px auto 0;
+        text-align:center;
+    }
+    .infoWrap {
+        height:25px;
+        margin:7px auto;
+        width:308px;
+    }
+    .infoWrap .textField {
+        background-color:#fff;
+        border:solid 1px transparent;
+        color:#c13100;
+        font:normal 20px Arial, Helvetica, sans-serif;
+        height: 20px;
+        margin: 10px 0px; 
+        padding: 6px 0;
+        text-align:center;
+        width:308px;
+    }
+    .buttonWrap {
+        clear:both;
+        height:68px;
+        margin:27px auto 0;
+        width:327px;
+    }
+    .buttonWrap button {
+        height:68px;
+        overflow:visible;
+        width:327px;
+    }
+    button.link, button.link {
+        background:url(<?=$imgDir?>btnSubmit.png) no-repeat left top;
+        border:none;
+        cursor:pointer;
+        display:block;
+        margin:0;
+        padding:0;
+        text-indent:-9999px;
+        -moz-user-select:text;
+    }
+    button.link:hover {
+        background:url(<?=$imgDir?>btnSubmit.png) no-repeat left bottom;
+    }
+        
+    #footer {
+        background:url(<?=$imgDir?>footerBG.png) no-repeat;
+        clear:both;
+        height:67px;
+        margin:0 auto 20px;
+        text-align:center;
+        width:820px;
+    }
 
-#footer p {
-    color:#b7b7b7;
-    font:normal 10px/14px Arial, Helvetica, sans-serif;
-    padding:12px 0 0;
-    text-align:center;
-}
-#eXTReMe { 
-    display: none; } 
+    #footer p {
+        color:#b7b7b7;
+        font:normal 10px/14px Arial, Helvetica, sans-serif;
+        padding:12px 0 0;
+        text-align:center;
+    }
+    #eXTReMe { 
+        display: none; } 
 </style>
 <script type="text/javascript" src="include/js/swfobject.js"></script>
 <script type="text/javascript" src="include/js/jquery.js"></script>
@@ -232,19 +232,28 @@ function validateEmail(email) { /* validation for email field */
 
 <div class="line"></div><br />
 
+ 
+
 <div id="form">
     <h3 class="red">Get Your Free Neobux Report</h3>
     <h4 id="error">Your referrals are waiting for you!</h4>
 
-    <form method="POST" onsubmit="NoExitPage=true;" action="<?=$subscribeLandingURL ?>">
+    <form method="POST" onsubmit="NoExitPage=true;" id="TRWVLCPForm" name="TRWVLCPForm" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
  
     <div class="infoWrap">
-        <input type="text" id="email" name="email" placeholder="name@email.com"  class="textField">
+        <input type="text" id="da_email" name="da_email" placeholder="name@email.com"  class="textField">
     </div>
     
     <div class="buttonWrap">
-        <button type="submit" value="Submit" id="submit" name="subscribe" class="link button" onclick="return validateEmail(document.getElementById('email').value);"></button>'; 
+        <button type="submit" value="Submit" id="submit" name="subscribe" class="link button" onclick="return validateEmail(document.getElementById('email').value);"></button>
     </div>
+
+    <input type="hidden" id="da_name" name="da_name" value="PTC User">
+    <input type="hidden" name="trwvid" value="neobux">
+    <input type="hidden" name="series" value="nusnewsletter">
+    <input type="hidden" name="subscrLandingURL" value="">
+    <input type="hidden" name="confirmLandingURL" value="">
+    <input type="hidden" name="langPref" value="en"><input type="hidden" name="lcpID" value=""><input type="hidden" name="lcpDE" value="0">
     
     </form>
 </div><!-- form -->
