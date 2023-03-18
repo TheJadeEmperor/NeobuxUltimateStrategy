@@ -21,7 +21,7 @@ if(mysqli_num_rows($resP) > 0) {
         if($p['post']=='')
             $p['post'] = '[No content]';
 
-        $keywords = explode(', ', $p[tags]);
+        $keywords = explode(', ', $p['tags']);
         $tagArray = array();
         
         foreach($keywords as $piece) {
@@ -64,7 +64,7 @@ if(mysqli_num_rows($resP) > 0) {
         echo '
         <p>Benjamin Louie <br />
         Neobux Ultimate Strategy<br />
-        <a href="https://neobuxultimatestrategy.com">https://neobuxultimatestrategy.com</a></p>';
+        <a href="https://ultimateneobuxstrategy.com">https://ultimateneobuxstrategy.com</a></p>';
         
         echo '
         <p>&nbsp;</p>

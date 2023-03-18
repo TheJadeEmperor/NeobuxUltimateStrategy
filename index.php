@@ -159,7 +159,7 @@ switch($action) {
                 $fileName = $m['file'];
                 $pageView = '/?action='.$m['url'];
             }
-        }       
+        }
 }
 
 if(0) { //debug
