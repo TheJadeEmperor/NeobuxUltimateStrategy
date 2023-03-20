@@ -2,6 +2,7 @@
 include/config.php
 nbproject/
 backup/
+vendor/
 error_log
 
 #################
