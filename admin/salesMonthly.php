@@ -13,11 +13,13 @@ $thisMonth = date('m/Y', time());
 $lastMonth = date("m/Y",strtotime("-1 month"));
 $thisYear = date("Y", time()); 
 
-
-
 $resS = getTotalSales ();
 
 while($s = $resS->fetch_array()) {
+    
+    if( !is_numeric($s['amount']) )
+        $s['amount'] = 0;
+        
     //total sales 
     $grandTotal += $s['amount'];
     

@@ -173,7 +173,7 @@ $properties = 'class="activeField" size="40"';
 	        <td>
 				<div title="header=[Admin Password] body=[This is what you use to log into the admin area]">
 					<img src="<?=$helpImg?>" />
-					<input type="password" <?=$properties?> name=adminPass value="<?=$val[adminPass]?>" size=30>
+					<input type="password" <?=$properties?> name="adminPass" value="<?=$val['adminPass']?>" size=30>
 				</div>
 			</td>
 	    </tr>
@@ -201,7 +201,7 @@ $properties = 'class="activeField" size="40"';
 	        <td>
 	        	<div title="header=[Name of website] body=[What is the name of your website?]">
 	                <img src="<?=$helpImg?>" />
-	        		<input <?=$properties?> name="websiteName" value="<?=$val[websiteName]?>">
+	        		<input <?=$properties?> name="websiteName" value="<?=$val['websiteName']?>">
         		</div>
         	</td>
 	    </tr>
