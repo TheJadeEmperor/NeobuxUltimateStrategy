@@ -1,12 +1,14 @@
 # Sensitive files
 include/config.php
-backup/
+templates/newfile.txt
 error_log
 
 #composer files
 vendor/
 composer.json
 composer.lock
+stripe.exe
+stripe.login.bat
 
 #################
 ## Eclipse
