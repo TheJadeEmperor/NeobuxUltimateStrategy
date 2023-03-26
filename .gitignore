@@ -1,9 +1,12 @@
 # Sensitive files
 include/config.php
-nbproject/
 backup/
-vendor/
 error_log
+
+#composer files
+vendor/
+composer.json
+compower.lock
 
 #################
 ## Eclipse
