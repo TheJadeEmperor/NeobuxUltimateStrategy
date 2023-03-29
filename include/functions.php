@@ -239,7 +239,7 @@ function showPost($url) {
 	global $conn; 
 	
 	//general settings
-	$websiteURL = 'http://neobuxultimatestrategy.com';
+	$websiteURL = 'http://ultimateneobuxstrategy.com';
 	
 	//get post details
 	$selP = 'select *, date_format(postedOn, "%m/%d/%Y %h:%i %p") as postedOn, p.id as id, u.id as uid 

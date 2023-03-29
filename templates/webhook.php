@@ -31,11 +31,6 @@ if(!is_int(strpos(__FILE__, 'C:\\'))) { //localhost
 
 
 \Stripe\Stripe::setApiKey($stripeSecretKey);
-// Replace this endpoint secret with your endpoint's unique secret
-// If you are testing with the CLI, find the secret by running 'stripe listen'
-// If you are using an endpoint defined with the API or dashboard, look in your webhook settings
-// at https://dashboard.stripe.com/webhooks
-$endpoint_secret = 'whsec_f158396edb4a3fe17bec5cdb3482cff9d9b4d9711b97f7c90561065a2b01ad08';
 
 $payload = @file_get_contents('php://input');
 $event = null;

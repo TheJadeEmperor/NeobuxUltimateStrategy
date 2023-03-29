@@ -9,7 +9,7 @@ $url = $_GET['url']; //url nickname in parameter
 $urlRedirect = $context['links'][$url]; //get url from links array
 
 if(empty($urlRedirect)) { //default url
-	$urlRedirect = 'http://neobuxultimatestrategy.com/basics';
+	$urlRedirect = '<?=$websiteURL?>basics';
 }
 
 if($_POST['email']) {

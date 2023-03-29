@@ -113,46 +113,7 @@ budgets of all sizes.
 
 <hr />
 
-<p>Clixsense <br />
-    <?=outsideLink('http://www.clixsense.com/?3373459'); ?>
-</p>
-
-
-<p>Clixsense was founded in 2007 and is still one of the best PTC’s to earn from, it is also a good 
-    place to advertise for Neobux referrals. </p>
-    
-
 <p>&nbsp;</p>
-
-<p align="center"><b>Buy Referrals</b></p>
-
-
-<p>New Paying Sites<br />
-<?=outsideLink('http://www.newpayingsites.com'); ?>
-</p>
-
-<p>New Paying Sites is a banner advertising site. Their rates are affordable, and you can pay
-	daily, weekly, or monthly.</p>
-
-<hr />
-
-<p>Top10 PTC<br />
-<?=outsideLink('http://top10-ptc.com'); ?>
-</p>
-
-<p>Top10 PTC is a banner advertising site. Their rates are affordable, and you can pay
-	daily, weekly, or monthly.</p>
-
-<hr />
-
-<p>Best PTC Paying<br />
-<?=outsideLink('http://www.bestptcpaying.com'); ?>
-</p>
-
-<p>Best PTC Paying is a banner advertising site. Their rates are affordable, and you can pay
-	daily, weekly, or monthly.</p>
-
-
 <p>&nbsp;</p>
 
 <p align="center"><b>Using Linkrand</b></p>
@@ -172,9 +133,9 @@ budgets of all sizes.
 
 <center><img src="images/linkgrandRefs.jpg" class="clickable" /></center>
 
+<p>&nbsp;</p>
 
-
-<p>Referrals on Steroids</p>
+<p align="center"><b>Referrals on Steroids</b></p>
 
 <p>
 This strategy is only for those who have a budget. If you want to get tons of referrals overnight, then used Neobux fixed advertisements. As you recall, there are several classes of ads in Neobux:  micro ads, standard exposure ads, and then there are ads you see everyday. </p>

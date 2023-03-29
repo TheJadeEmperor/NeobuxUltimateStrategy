@@ -17,7 +17,7 @@ switch($action) {
 $refDir = $dir.'images/refs/';
 $ttmDir = $dir.'images/testimony/';
 $redirLink = $dir.'templates/redirect.php?action='; 
-$subscrLandingURL = $confirmLandingURL = $redirLink.'http://neobuxultimatestrategy.com/minisite';
+$subscrLandingURL = $confirmLandingURL = $redirLink.$websiteRUL.'minisite';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -350,7 +350,7 @@ div.transbox p {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script type="text/javascript" src="include/js/popup.js"></script>
 <script>
-<?
+<?php
 if($popUp) {
 	if($_SESSION['popUp'] < 1)
 		echo popUpWindow(); 
@@ -365,7 +365,7 @@ var NoExitPage = false;
 function ExitPage() { 
     if(NoExitPage == false) { 
     NoExitPage=true; 
-    location.href="http://neobuxultimatestrategy.com/basics"; 
+    location.href="<?=$websiteURL?>basics"; 
 
     return"***********************************************\n\n"+ 
     " WAIT! Sign up to get your FREE Neobux Report! \n\n"+ 

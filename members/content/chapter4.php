@@ -42,7 +42,7 @@ Have you ever gotten a direct referral, but you don’t have their email address
 <p>In order to build a mailing list, you need to have an auto responder, a mailing service that sends out unlimited emails to your people on your behalf. The auto responder we recommend is Traffic Wave. Other services like Constant Contact, or iContact, or Aweber charge you by the size of your list. But with Traffic Wave, the price is the same no matter how big your list gets!</p>
 
 <p>For more info about Traffic Wave, and for a one month free-trial, please visit this link:<br />
-<?=outsideLink('http://www.trafficwave.net/members/theemperor'); ?></p>
+<?=outsideLink('http://www.trafficwave.net/members/neobux'); ?></p>
 
 <p>You must use the link above to get your free trial period. You can check it out before you decide to pay, so you have no reason not to do it. Who knows, maybe you will gain hundreds, even thousands of subscribers, and they will join whatever bux sites you mention!</p>
 

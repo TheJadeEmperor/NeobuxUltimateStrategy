@@ -57,7 +57,7 @@ $businessName = $val['businessName'];
 $ipnURL = $val['ipnURL'];
 
 //members area
-$affLogin = $websiteURL.'/members/';
+$affLogin = $websiteURL.'members/';
 
 //is paypal enabled? If not show backup payment option
 ///////////////////

@@ -20,7 +20,7 @@
 </p>
 
 <p>To get your own mini-site, please go to:<br />
-<a href="http://neobuxultimatestrategy.com/minisite">http://neobuxultimatestrategy.com/minisite</a></p>
+<a href="<?=$websiteURL?>minisite"><?=$websiteURL?>minisite</a></p>
 
 <p>Promotion Methods</p>
 

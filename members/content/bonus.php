@@ -134,7 +134,7 @@ else {
     foreach($premiumBonuses as $name => $val) {
     
         if($vipBonus == 0) {
-            $val['desc'] = '<a href="http://neobuxultimatestrategy.com/minisite">Click here to get PTC Mini-Sites</a>';
+            $val['desc'] = '<a href="'.$websiteURL.'minisite">Click here to get PTC Mini-Sites</a>';
             $thumb = '<img src="'.$dir.$val['img'].'" />';
         }
         else {

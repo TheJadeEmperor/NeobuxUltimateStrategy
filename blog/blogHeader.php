@@ -72,15 +72,6 @@ $subscribeLandingURL = $dir.'templates/redirect.php?url=ysense';
 
 </head>
 <body>
-	<!--<div class="sidebar"><br />
-		<center>
-			<span class="st_twitter_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Tweet"></span>
-			<span class="st_email_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Email"></span>
-			<span class="st_facebook_vcount" st_url="http://neobuxultimatestrategy.com" displayText="Facebook"></span>
-			<span class="st_fblike_vcount" st_url="http://neobuxultimatestrategy.com" st_title="Neobux Ultimate Strategy" st_url="http://neobuxultimatestrategy.com" displayText="share"></span>
-		</center>
-	</div>-->
-
 	<!-- Wrapper -->
 	<div id="wrapper">
 
