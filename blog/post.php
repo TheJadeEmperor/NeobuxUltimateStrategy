@@ -32,7 +32,7 @@ if(mysqli_num_rows($resP) > 0) {
 
         $subject = $p['subject']; 
         
-        $postLink = 'https://neobuxultimatestrategy.com/?p='.$url;
+        $postLink = $websiteURL.'?p='.$url;
         
         echo '<header class="major">
             <a href="'.$postLink.'" class="postTitle" title="'.$p['subject'].'"><h2>'.$p['subject'].'</h2></a>
@@ -64,7 +64,7 @@ if(mysqli_num_rows($resP) > 0) {
         echo '
         <p>Benjamin Louie <br />
         Neobux Ultimate Strategy<br />
-        <a href="https://ultimateneobuxstrategy.com">https://ultimateneobuxstrategy.com</a></p>';
+        <a href="'.$websiteURL.'">'.$websiteURL.'</a></p>';
         
         echo '
         <p>&nbsp;</p>

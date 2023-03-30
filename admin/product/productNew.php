@@ -16,7 +16,7 @@ $emailWelcomeTemplate = '<p>Hi $firstName</p>
 <p>If this problem continues then please contact us so we can resolve the problem.</p>
 <p>Thank you for understanding.&nbsp;</p>
 <p>&nbsp;</p>
-<p>Neobux Ultimate Strategy<br /><a href="mailto:your@email.address">your@email.address</a><br />https://neobuxultimatestrategy.com</p>';
+<p>Neobux Ultimate Strategy<br /><a href="mailto:your@email.address">your@email.address</a><br />'.$websiteURL.'</p>';
 
 
 

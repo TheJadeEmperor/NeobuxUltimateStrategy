@@ -180,17 +180,15 @@ to them. You have bought and benefited from the information, so why not let othe
 
 <center>
 	
-<img src="images/chapter4-1.jpg" />
+<img src="images/chapter4-1.jpg" class="clickable" />
 <br />
-<img src="images/chapter4-2.jpg" />
+<img src="images/chapter4-2.jpg" class="clickable" />
 <br />
-<img src="images/chapter4-3.jpg" />
+<img src="images/chapter4-3.jpg" class="clickable" />
 <br />
-<img src="images/chapter4-4.jpg" />
+<img src="images/chapter4-4.jpg" class="clickable" />
 <br />
-<img src="images/chapter4-5.jpg" />
-<br />
-<img src="images/chapter4-6.jpg" />
+<img src="images/chapter4-5.jpg" class="clickable" />
 </center>
 
 <h2>4d. How to Write Newsletters</h2>
@@ -200,7 +198,7 @@ to them. You have bought and benefited from the information, so why not let othe
 <p>Then you will be asked if you want to use a template or make a letter from scratch. Click on use a template and then follow the on-screen instructions. </p>
 
 <center>
-	<img src="images/chapter4-7.jpg" />
+	<img src="images/chapter4-7.jpg" class="clickable" />
 </center>
 
 <p>Now let’s get to the features of the editor. Please see screenshot below for reference. We are interested in only certain areas.</p>
@@ -216,7 +214,7 @@ They say that the subject line is the most important line in the whole email, an
 Click on this to select from a number of tokens available. Select the person’s name, the first name or the full name, to use in the subject line. When people see their own name, they will pay attention, thinking you are talking to them directly. </p>
 
 <center>
-	<img src="images/chapter4-8.jpg" />
+	<img src="images/chapter4-8.jpg" class="clickable" />
 </center>
 
 <p>Other ideas to make an engaging subject line:</p>

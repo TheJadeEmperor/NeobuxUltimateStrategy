@@ -129,7 +129,7 @@ if($isMiniSitesCustomer != 1) {
 		<li>And much, much, more!</li>
 	</ul>
 
-	<p>Interested? Curious? Want to find out more? Go on to our <a href="http://neobuxultimatestrategy.com/minisite">mini site page</a></p>
+	<p>Interested? Curious? Want to find out more? Go on to our <a href="<?=$websiteURL?>minisite">mini site page</a></p>
 </div>
 </div>
 
