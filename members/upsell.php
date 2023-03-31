@@ -43,14 +43,15 @@ fwrite($myfile, __LINE__.' ');
 
 if($val['memAreaUpsell'] == 'on') {
 
-    fwrite($myfile, __LINE__);
-
     $selUP = 'SELECT id from sales where payerEmail="'.$u['paypal'].'" and productID="'.$val['memUpsellProductID'].'"';
     $resUP = $conn->query($selUP);
 
     if(mysqli_num_rows($resUP) == 0) { //if user is not a customer         
 
         include('content/'.$val['memUpsellFile']);
+        include('content/upsellPTCMiniste.html');
+        
+        fwrite($myfile, __LINE__.' '.$val['memUpsellFile']);
     }
     else { //if user is a customer, skip upsell 
         $_SESSION['login']['skipUpsell'] = true;
