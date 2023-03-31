@@ -102,7 +102,7 @@ while($p = $resP->fetch_array()) {
 
 <p>&nbsp;</p>
 
-<?
+<?php
 if($isMiniSitesCustomer != 1) {
 ?>
 
@@ -133,7 +133,7 @@ if($isMiniSitesCustomer != 1) {
 </div>
 </div>
 
-<?
+<?php
 }
 
 echo '<p>&nbsp;</p><center>'.$adContent.'</center>';
