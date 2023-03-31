@@ -1,83 +1,64 @@
 <?php
-//get all products to display 
-$selP = 'SELECT * FROM products WHERE id in (2, 3, 5) ORDER BY itemName';
-$resP = $conn->query($selP);
 
-$cust = 0; //# of products they bought
-while($p = $resP->fetch_array()) {
-    $itemName = $p['itemName']; 
-    $productID = $p['id'];
+$selM = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="3"'; 
+$resM = $conn->query($selM); 
 
-    $selS = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="'.$p['id'].'"'; 
-    $resS = $conn->query($selS); 
+$m = $resM->fetch_array();
+
+if(mysqli_num_rows($resM) > 0) { 
+    $isMiniSitesCustomer = 1;
+    $mPurchase = $m['purchased'];
+}
+ 
+$selN = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="5"'; 
+$resN = $conn->query($selN); 
+
+$n = $resN->fetch_array();
+$nPurchase = $n['purchased']; 
+ 
     
-	if($p['id'] == '3')
-		$isMiniSitesCustomer = 1;
-	
-    if(mysqli_num_rows($resS) == 0) { // not a customer 
-        $downloadContent = 'You are not a customer of '.$itemName.'<br />
-        <a href="'.$dir.$p['folder'].'" target="_BLANK">Click here to get it</a>';
-    }
-    else {
-        $cust++;  //# of products they bought
-    } 
+$downloadContent = '<div class="moduleGradient"><h1>Neobux Basics</h1>
+<div>Neobux basics is a free product <br />
+The product was last updated on '.date('m/d/Y', time()-2592000).' <br />
+Click below to download the latest version of Neobux Basics <br />
+<center>
+<form method="POST">
+<p><input type="submit" name="dl" class="downloadNow" value=" Download Now "></p>
+<input type="hidden" name="id" value="2">
+<input type="hidden" name="url" value="'.$p['download'].'">
+</form></center></div></div><br />
 
-    if($p['itemPrice'] == 0) { //free gift - download is available
-    
-        $downloadContent  = $itemName.' is a free product <br />
-        The product was last updated on '.date('m/d/Y', time()-2592000).' <br />
-        Click below to download the latest version of '.$itemName.' <br />
-        <center>
-        <form method="POST">
-        <p><input type="submit" name="dl" class="downloadNow" value=" Download Now "></p>
-        <input type="hidden" name="id" value="'.$p['id'].'">
-        <input type="hidden" name="url" value="'.$p['download'].'">
-        </form></center>';
-    } // if($p['itemPrice'] == 0)
-    else if(mysqli_num_rows($resS) > 0) { //sale
-        $sale = $resS->fetch_array();
+<div class="moduleGradient"><h1>NUS Membership</h1>
+<div>You bought the NUS Membership on '.$nPurchase.'
+<table><tr>
+    <td>
+    Neobux Ultimate Strategy</td><td><a href="./?action=chapter1"><input type="button" name="dl" class="downloadNow" value=" View Now "></a></td>
+</tr><tr>
+<td>
+    NUS Video Course</td><td><a href="./?action=video1"><input type="button" name="dl" class="downloadNow" value=" View Now "></a>
+</td>
+</tr></table>
+</div></div><br />
 
-        //multiple downloads
-        $selD = 'SELECT * FROM downloads WHERE productID="'.$productID.'" ORDER BY name';
-        $resD = $conn->query($selD);
+<div class="moduleGradient"><h1>PTC Mini-Sites</h1>
+    <div>
+';
 
-        if(mysqli_num_rows($resD) > 0) { //multiple downloads
-        
-            $downloadContent = '<table>
-                <tr>
-                    <td>You bought the product on '.$sale['purchased'].' </td>
-                </tr>';
-            while($d = $resD->fetch_array()) {
-            
-                $downloadContent .= '<tr>
-                <td>'.$d['name'].'</td>
-                <td>
-                    <form method="POST"><input type="submit" name="dl" class="downloadNow" value=" Download "/>
-                    <input type="hidden" name="url" value="'.$d['url'].'" /></form>
-                </td>';
-            }    
-            $downloadContent .= '</table>';
-        } // if(mysqli_num_rows($resD) > 0)
-        else { //single download 
-            $downloadContent = 'You bought the product on '.$sale['purchased'].' <br />
-            The product was last updated on '.date('m/d/Y', time()-2592000).' <br />
-            Click below to download the latest version of '.$itemName.' <br />
-            <center>
-            <form method="post">
-            <p><input type="submit" name="dl" class="downloadNow"  value=" Download Now "></p>
-            <input type="hidden" name="id" value="'.$p['id'].'">
-            <input type="hidden" name="url" value="'.$p['download'].'">
-            </form></center>';
-        } // else 
-    } // else if(mysqli_num_rows($resS) > 0)
+if($isMiniSitesCustomer != 1) {
 
-    echo '<div class="moduleGradient"><h1>'.$p['itemName'].'</h1>
-	<div>
-    '.$downloadContent.'
-    </div></div><br />'; 
-} //while($p = $resP->fetch_array()) 
+    $downloadContent .= 'You are not a client of the PTC Mini-Sites';
+} 
+else {
+    $downloadContent .= 'You bought the PTC Mini-Sites on '.$mPurchase;
+}
 
+$downloadContent .= '</div></div>';
+
+echo $downloadContent;
+
+ 
 ?>
+<p>&nbsp;</p>
 <h1>Members Home</h1>
 <hr color="#25569a" size="4" />
 

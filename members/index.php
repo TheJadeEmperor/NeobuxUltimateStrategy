@@ -5,10 +5,9 @@ include($dir.'include/config.php');
 include($dir.'include/spmSettings.php');
 session_start();
 
-$myfile = fopen("testfile.txt", "w");
-
 if(isset($_POST['dl']))
     if($_POST['dl']) {
+        echo $_POST['url']; exit;
         downloadLink($_POST['url']); exit;
     }
 
@@ -52,10 +51,10 @@ if($_POST['login']) {
         }
         else {
             if(empty($u['email']))
-                $u[email] = 'N / A';
+                $u['email'] = 'N / A';
                 
             if(empty($u['paypal']))
-                $u[paypal] = 'N / A';
+                $u['paypal'] = 'N / A';
                     
             $_SESSION['login'] = $u;
           
@@ -116,31 +115,16 @@ if(isset($u['id'])) {	//logged in
 }
 else { //not logged in
     
-    if($_GET['action'] == '') {
-        $fileName = 'login.html';
-    }
-    else if ($_GET['action'] == 'forgot') {
-        $fileName = 'forgot.php';
-    }
-    else {
-        $fileName = 'content/repairs.php'; 
-    }
+    $fileName = 'login.html';
+
 }
-
-fwrite($myfile, ' '.__LINE__.' ');
-
-
+ 
 if(file_exists($templateHeader))
 include($templateHeader);
 
 include($fileName);
 
-fwrite($myfile, __LINE__.' ');
-
-
 if(file_exists($templateFooter))
 include($templateFooter);
 
-
-fwrite($myfile, __LINE__.' ');
 ?>
