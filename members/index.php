@@ -5,10 +5,10 @@ include($dir.'include/config.php');
 include($dir.'include/spmSettings.php');
 session_start();
 
-
-if($_POST['dl']) {
-    downloadLink($_POST['url']); exit;
-}
+if(isset($_POST['dl']))
+    if($_POST['dl']) {
+        downloadLink($_POST['url']); exit;
+    }
 
 if(is_int(strpos(__FILE__, 'C:\\'))) {//localhost
     error_reporting(E_ALL ^ E_NOTICE);
