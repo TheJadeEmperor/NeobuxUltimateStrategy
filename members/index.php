@@ -5,6 +5,8 @@ include($dir.'include/config.php');
 include($dir.'include/spmSettings.php');
 session_start();
 
+$myfile = fopen("testfile.txt", "w");
+
 if(isset($_POST['dl']))
     if($_POST['dl']) {
         downloadLink($_POST['url']); exit;
