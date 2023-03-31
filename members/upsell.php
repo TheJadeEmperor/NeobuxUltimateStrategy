@@ -2,12 +2,12 @@
 
 ////
 $myfile = fopen("testfile.txt", "w");
-fwrite($myfile, __LINE__);
+fwrite($myfile, __LINE__.' ');
 ///
 if(!$_SESSION['login']['id'])
     header('Location: index.php');
 //
-fwrite($myfile, __LINE__);
+fwrite($myfile, __LINE__.' ');
 
 function getProduct($productID) {
     global $conn; 
@@ -19,7 +19,7 @@ function getProduct($productID) {
     return $p; 
 }
 
-fwrite($myfile, __LINE__);
+fwrite($myfile, __LINE__.' ');
 
 $skipButton = '
 <center>
@@ -39,7 +39,7 @@ $val['upsellA'] = array(
     'upsellFile' => 'upsellPTCMiniSite.html'
 ); 
 
-fwrite($myfile, __LINE__);
+fwrite($myfile, __LINE__.' ');
 
 if($val['memAreaUpsell'] == 'on') {
 

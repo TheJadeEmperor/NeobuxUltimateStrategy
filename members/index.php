@@ -125,11 +125,20 @@ else { //not logged in
     }
 }
 
+fwrite($myfile, ' '.__LINE__.' ');
+
+
 if(file_exists($templateHeader))
 include($templateHeader);
 
 include($fileName);
 
+fwrite($myfile, __LINE__.' ');
+
+
 if(file_exists($templateFooter))
 include($templateFooter);
+
+
+fwrite($myfile, __LINE__.' ');
 ?>
