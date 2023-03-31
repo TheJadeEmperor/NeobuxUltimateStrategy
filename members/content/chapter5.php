@@ -148,7 +148,7 @@ http://tinyurl.com/superior-web-hosting</p>
 <p>People go on the internet primarily to do research, and they are suckers for free info. All you have to do is give a free ebook as an incentive to join your list. And on top of that, you already have the info to give them…you can use our Neobux Basics ebook!</p>
 
 <p>If you don’t have Neobux Basics yet, get it here:<br />
-<?=outsideLink($websiteURL.'/basics')?></p>
+<?=outsideLink($websiteURL.'basics')?></p>
 
 <p><b>Free Promotion Credits</b></p>
 

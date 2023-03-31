@@ -178,8 +178,8 @@ to them. You have bought and benefited from the information, so why not let othe
 
 <h2>Chapter 4c: How to Make a New Campaign</h2>
 
+<p>This part is pretty straightforward. Just follow the instructions on each screen and you will have created your first campaign.</p>
 <center>
-	
 <img src="images/chapter4-1.jpg" class="clickable" />
 <br />
 <img src="images/chapter4-2.jpg" class="clickable" />
@@ -188,7 +188,6 @@ to them. You have bought and benefited from the information, so why not let othe
 <br />
 <img src="images/chapter4-4.jpg" class="clickable" />
 <br />
-<img src="images/chapter4-5.jpg" class="clickable" />
 </center>
 
 <h2>4d. How to Write Newsletters</h2>
@@ -198,7 +197,7 @@ to them. You have bought and benefited from the information, so why not let othe
 <p>Then you will be asked if you want to use a template or make a letter from scratch. Click on use a template and then follow the on-screen instructions. </p>
 
 <center>
-	<img src="images/chapter4-7.jpg" class="clickable" />
+	<img src="images/chapter4-5.jpg" class="clickable" />
 </center>
 
 <p>Now let’s get to the features of the editor. Please see screenshot below for reference. We are interested in only certain areas.</p>
@@ -214,7 +213,7 @@ They say that the subject line is the most important line in the whole email, an
 Click on this to select from a number of tokens available. Select the person’s name, the first name or the full name, to use in the subject line. When people see their own name, they will pay attention, thinking you are talking to them directly. </p>
 
 <center>
-	<img src="images/chapter4-8.jpg" class="clickable" />
+	<img src="images/chapter4-6.jpg" class="clickable" />
 </center>
 
 <p>Other ideas to make an engaging subject line:</p>
@@ -227,28 +226,17 @@ Ex. “What are the top 3 mistakes people are making?”</p>
 
 <p>Mention a popular topic and ask for their opinion<br />
 Ex. “Is Neobux using bots or not? We want your opinion!”</p>
-
-<p>3. Maximize & Minimize button </p>
-
-<p>Click on the maximize button to make the editor full screen. You can switch back and forth at your convenience by clicking the same button. It will be easier for you to work on full screen instead of a tiny space in the editor. </p>
-
-<p>4. Tokens<br />
-Just like the subject line, you can add tokens to your newsletter. Remember the URL tokens you entered into the campaign? This is where you’d use them. </p>
-
-<p>5. Link button<br /> 
+  
+<p>3. Link button<br /> 
 To add a hyperlink to your newsletter, click on this button and just fill in the URL and other necessary fields. </p>
 
-<p>6. Headline<br />
+<p>4. Headline<br />
 The headline should reflect the topic discussed in the body text</p>
 
-<p>7. Email body <br />
+<p>5. Email body <br />
 You need to write engaging and interesting content. People are suckers for free information, so if you become the source for free information, people will like you and trust you. They will see you as an expert and will treat you like one.</p>
 
 <p>Once you have that kind of credibility, you can promote anything you want to them, and they will happily join your PTC sites. </p>
-
-<center>
-	<img src="images/chapter4-9.jpg" />
-</center>
 
 <p>Once you do this step, your newsletters are now live. Congratulations! </p>
 
