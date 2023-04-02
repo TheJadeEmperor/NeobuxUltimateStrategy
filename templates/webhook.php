@@ -77,7 +77,7 @@ $payload = $paymentIntent;
 $transID = $paymentIntent->payment_intent;
 $status = $paymentIntent->status;
 $payment_link = $paymentIntent->payment_link;
-$amount = $paymentIntent->amount_total; 
+$amount = $paymentIntent->amount_total/100; 
 $payerEmail = $paymentIntent->customer_details->email;
 $contactEmail = $paymentIntent->customer_email;
 
@@ -93,7 +93,7 @@ $productID = $productData->productID;
 $itemName = $productData->itemName;
 $itemNumber = $productData->itemNumber;
 
-$numRows =   checkDupeRows ($payerEmail, $productID);
+$numRows = checkDupeRows ($payerEmail, $productID);
 
 
 $opt = array(
@@ -154,6 +154,7 @@ switch ($event->type) {
       if($numRows == 0)
         dbInsert($opt); //add sales record into database
       
+        sendDownloadEmail($prodID, $conn);
       break;
   default:
     // Unexpected event type
