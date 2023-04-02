@@ -10,7 +10,7 @@ else {
 } 
 
 $imgDir = $dir.'images/splash/'; 
-$subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site options - links
+$subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site content - links
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,9 +37,9 @@ $subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site option
                         <td align="center">
                             
                         <div id="errorPopup">Sign Up Below</div>
-                        <input type="text" class="input" size="28" id="da_email" name="da_email" value="Your Best Email" onclick="if(this.value=='Your Best Email') this.value=''; " />
+                        <input type="text" class="input" size="28" id="da_email" name="da_email" />
 
-                        <input type="image" src="<?=$imgDir?>instantAccess.png" value="Submit" onclick="return validateEmailPopup(document.getElementById('da_email').value); ">
+                        <input type="image" src="<?=$imgDir?>instantAccess.png" value="Submit">
                
                         </td>
                     </tr>

@@ -7,7 +7,7 @@ if($dir == '') { //root directory
 }
 
 $refDir = $dir.'images/refs/';
-$subscribeLandingURL = 'templates/redirect.php?url=ysense';
+$subscrLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,11 +23,6 @@ $subscribeLandingURL = 'templates/redirect.php?url=ysense';
         <!-- pop up video opt-in form -->
         <script type="text/javascript" src="<?=$dir?>include/js/popup.js"></script>
 
-        <!-- share buttons for sidebar -->
-        <script type="text/javascript">
-            var switchTo5x = true;
-        </script>
-        <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
         <script>
             <?php
             global $popUp;
@@ -64,17 +59,7 @@ $subscribeLandingURL = 'templates/redirect.php?url=ysense';
                     return false;
                 }
             }
-      
-            function validateEmailPopup(email) { /* validation for email field */
-                console.log(email); 
-                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3,4})+$/.test(email)) {
-                    return true;
-                } else {
-                    document.getElementById('errorPopup').innerHTML = '<br />You have entered an invalid email address!';
-                    
-                    return false;
-                }
-            }
+
         </script>
     </head>
     <body>
