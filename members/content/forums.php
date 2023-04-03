@@ -5,16 +5,8 @@
 downline in exchange for them joining yours. You can also advertise your
 PTC websites or your other business websites. </p>
 
-
-<p>WarriorForum<br />
-    <?=outsideLink('http://warriorforum.com'); ?></p>
-
 <p>Dream Team Money<br />
     <?=outsideLink('http://www.dreamteammoney.com'); ?>
-</p>
-
-<p>Money Maker Group<br />
-     <?=outsideLink('http://www.moneymakergroup.com/forums.html'); ?>
 </p>
 
 <p>Emoney Space<br />
@@ -23,4 +15,24 @@ PTC websites or your other business websites. </p>
 
 <p>Top Gold Forum<br />
      <?=outsideLink('http://topgoldforum.com'); ?>
+</p>
+
+<p>Digital Money Talk<br />
+     <?=outsideLink('https://www.digitalmoneytalk.com/'); ?>
+</p>
+
+<p>Rolclub<br />
+     <?=outsideLink('https://www.rolclub.com/'); ?>
+</p>
+
+<p>Perfect Club (Russian)<br />
+     <?=outsideLink('https://perfectclub.org/'); ?>
+</p>
+
+<p>The HYIP Forum (Russian)<br />
+     <?=outsideLink('https://thehyipforum.ru/'); ?>
+</p>
+
+<p>The HYIP Forum (Russian)<br />
+     <?=outsideLink('https://thehyipforum.ru/'); ?>
 </p>

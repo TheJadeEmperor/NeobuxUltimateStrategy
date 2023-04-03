@@ -7,7 +7,7 @@ session_start();
 
 if(isset($_POST['dl']))
     if($_POST['dl']) {
-        echo $_POST['url']; exit;
+        echo $_POST['url']; 
         downloadLink($_POST['url']); exit;
     }
 

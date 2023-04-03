@@ -1,4 +1,4 @@
-<?
+<?php
 
 $downloadDir = '/home2/codegeas/ebooks/nus-video-course/';
 
@@ -28,7 +28,7 @@ $videoDownload = array(
 foreach($videoDownload as $vidTitle => $vidLink){
     echo $vidTitle.'<br /> 
         <form method="post">
-        <p><input type="submit" name="dl" value=" Download Now "></p>
+        <p><input type="submit" name="dl" value=" Download Video " class="btn success" /></p>
         <input type="hidden" name="id" value="3">
         <input type="hidden" name="url" value="'.$vidLink.'">
         </form>
