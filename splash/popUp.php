@@ -9,8 +9,9 @@ else {
     $dir = '../';
 } 
 
-$imgDir = $dir.'images/splash/'; 
-$subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site content - links
+$imgDir = $dir.'images/splash/';
+$websiteURL = 'https://ultimateneobuxstrategy.com/';
+$subscrLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL;
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,8 +49,8 @@ $subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site conten
                 <input type="hidden" id="da_name" name="da_name" value="PTC User">
                 <input type="hidden" name="trwvid" value="neobux">
                 <input type="hidden" name="series" value="nusnewsletter">
-                <input type="hidden" name="subscrLandingURL" value="<?=$subscribeLandingURL ?>">
-                <input type="hidden" name="confirmLandingURL" value="<?=$subscribeLandingURL ?>">
+                <input type="hidden" name="subscrLandingURL" value="<?=$subscrLandingURL ?>">
+                <input type="hidden" name="confirmLandingURL" value="<?=$subscrLandingURL ?>">
                 <input type="hidden" name="langPref" value="en"><input type="hidden" name="lcpID" value=""><input type="hidden" name="lcpDE" value="0">
                 
                 </form>
