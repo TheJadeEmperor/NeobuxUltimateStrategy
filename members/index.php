@@ -80,6 +80,20 @@ if($_POST['skipUpsell']) {
     $_SESSION['login']['skipUpsell'] = true;
 }
 
+
+//isMiniSitesCustomer?
+$selM = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="3"'; 
+$resM = $conn->query($selM); 
+
+$m = $resM->fetch_array();
+
+if(mysqli_num_rows($resM) > 0) { 
+    $isMiniSitesCustomer = 1;
+    $mPurchase = $m['purchased'];
+}
+ 
+
+
 if(isset($u['id'])) {	//logged in
 
     switch($_GET['action']) {
@@ -90,14 +104,17 @@ if(isset($u['id'])) {	//logged in
             break;
         //==========================
         case 'affcenter': //affiliate center 
-            if($_SESSION['login']['skipUpsell']) {
+            if($_SESSION['login']['skipUpsell'] || $isMiniSitesCustomer) {
                 $fileName = 'affcenter.php';
                 $affmenu = true;
             }
             else {
                 $fileName = 'upsell.php';
                 $templateHeader = $templateFooter = ''; //upsell has its own header and footer
+                $affmenu = false;
             }
+
+            echo $fileName;
             break;
         case 'details': //update profile details 
             $fileName = 'details.php';
@@ -109,7 +126,7 @@ if(isset($u['id'])) {	//logged in
             break;
         case 'logout':
             $fileName = 'logout.html';
-            $affmenu = false;
+            $affmenu = true;
             break;	 
     }
 }

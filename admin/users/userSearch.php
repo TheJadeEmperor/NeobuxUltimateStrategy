@@ -71,4 +71,4 @@ $(document).ready( function () {
 </div>
 
 <?
-include('adminFooter.php');  ?>
+include($dir.'adminFooter.php');  ?>

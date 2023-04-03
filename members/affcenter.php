@@ -1,14 +1,5 @@
 <?php
-
-$selM = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="3"'; 
-$resM = $conn->query($selM); 
-
-$m = $resM->fetch_array();
-
-if(mysqli_num_rows($resM) > 0) { 
-    $isMiniSitesCustomer = 1;
-    $mPurchase = $m['purchased'];
-}
+ 
  
 $selN = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="5"'; 
 $resN = $conn->query($selN); 
