@@ -2,6 +2,7 @@
 include/config.php
 templates/newfile.txt
 error_log
+*.lnk
 
 #composer files
 vendor/

@@ -2,8 +2,7 @@
 date_default_timezone_set('America/New_York'); 
 
 $imgDir = 'images/splash/';
-$subscribeLandingURL = $links['subscribeLandingURL']; //from admin - site options - links
- 
+
 $timer = '
     <script language="JavaScript">
     TargetDate =  "'.date('m/d/Y', time()+86400).' 12:00 AM";
@@ -20,6 +19,8 @@ $timer = '
 $preHeadline = '<h2 class="subheadline"><span class="strong red">Warning: </span>
     This offer will expire in '.$timer.'... </h2>';
 
+$subscrLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL;
+$confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL.'basics';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -188,7 +189,7 @@ $preHeadline = '<h2 class="subheadline"><span class="strong red">Warning: </span
 <script type="text/javascript" src="include/js/swfobject.js"></script>
 <script type="text/javascript" src="include/js/jquery.js"></script>
 <script>
-<!-- 
+
 var NoExitPage = false; 
 
 function ExitPage() { 
@@ -203,7 +204,7 @@ function ExitPage() {
     "***********************************************"; 
     } 
 } 
-// --> 
+
 
 function validateEmail(email) { /* validation for email field */
     console.log('validateEmail ' + email);
@@ -251,8 +252,8 @@ function validateEmail(email) { /* validation for email field */
     <input type="hidden" id="da_name" name="da_name" value="PTC User">
     <input type="hidden" name="trwvid" value="neobux">
     <input type="hidden" name="series" value="nusnewsletter">
-    <input type="hidden" name="subscrLandingURL" value="">
-    <input type="hidden" name="confirmLandingURL" value="">
+    <input type="hidden" name="subscrLandingURL" value="<?=$subscrLandingURL?>">
+    <input type="hidden" name="confirmLandingURL" value="<?=$confirmLandingURL?>">
     <input type="hidden" name="langPref" value="en"><input type="hidden" name="lcpID" value=""><input type="hidden" name="lcpDE" value="0">
     
     </form>
