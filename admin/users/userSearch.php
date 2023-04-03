@@ -2,6 +2,8 @@
 $adir = '../';
 include($adir.'adminCode.php');
 
+$_SESSION['sendTo'] = array();
+
 $selS = 'SELECT U.id, username, fname, lname, email, paypal, S.id as salesID FROM users U LEFT JOIN sales S ON U.paypal = S.payerEmail GROUP BY U.ID'; 
 $resS = $conn->query($selS); 
 
