@@ -8,7 +8,7 @@ include($dir.'include/api_sendgrid.php');
 $urlRedirect = $_GET['url']; //url nickname in parameter  
 
 if(empty($urlRedirect)) { //default url
-	$urlRedirect = '<?=$websiteURL?>basics';
+	$urlRedirect = $websiteURL.'basics';
 }
 
 ?>
