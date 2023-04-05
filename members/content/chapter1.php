@@ -4,7 +4,7 @@
 
 <p>Congratulations on getting this system, because by doing so, you have decided to take your PTC business to the next level. We will assume that you already know the basics of Neobux. If not, then please download the Neobux basics ebook here:</p>
 
-<p><a href="<?=$websiteURL?>/basics" target="_blank"><?=$websiteURL?>/basics</a>
+<p><a href="<?=$websiteURL?>basics" target="_blank"><?=$websiteURL?>basics</a>
 </p>
 
 <p>In the world of PTC’s, some succeed, but most don’t. Why is that? Because people join PTC’s without having a working strategy. They hope to make a lot of money by doing very little work. That is a mistake, and as a result of this way of thinking, most people will drop out. </p>
