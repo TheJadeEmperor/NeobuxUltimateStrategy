@@ -17,8 +17,8 @@ function checkDupeRows ($payerEmail, $productID) {
   $result = mysqli_query($conn, $query);
     
   //return number of rows in the table.
-  $numRows = $row = mysqli_num_rows($result);
-      
+  $numRows = mysqli_num_rows($result);
+    
   mysqli_free_result($result);// close the result.
   return $numRows;
 }
@@ -132,7 +132,8 @@ switch ($event->type) {
     productID:. '.$productID.'
     itemName: '.$itemName.'
     itemNumber: '.$itemNumber."\n";
-    fwrite($myfile, $txt); 
+    
+    //fwrite($myfile, $txt); 
 
     break;
 
@@ -149,12 +150,38 @@ switch ($event->type) {
       itemName: '.$itemName.'
       itemNumber: '.$itemNumber.' numRows:'.$numRows."\n";
       fwrite($myfile, $txt); 
+
+
+      
+
+//////////delete
+function testThis($data) {
+  global $conn; global $myfile;
+
+  $id = $data['productID'];
+
+  $selP = "SELECT * FROM products WHERE id='$id' LIMIT 1";
+  fwrite($myfile, '  '.$selP.' ');
+
+  // Execute the query and store the result set
+  $resP = mysqli_query($conn, $selP); 
+  $p = $resP->fetch_assoc();
+  fwrite($myfile, '  '.$p['itemName'].' ');
+}
+testThis($opt['dbFields']);
+//////////delete
+
     
       //check for existing record using transID
-      if($numRows == 0)
-        dbInsert($opt); //add sales record into database
+      //if($numRows == 0) 
+      {
+
+       // dbInsert($opt); //add sales record into database
       
-        sendDownloadEmail($prodID, $conn);
+        fwrite($myfile, ' '.$numRows.' before '); 
+        $result = sendDownloadEmail($opt['dbFields']);
+        fwrite($myfile, ' after '.$result); 
+      }
       break;
   default:
     // Unexpected event type

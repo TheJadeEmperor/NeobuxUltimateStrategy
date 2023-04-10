@@ -154,15 +154,24 @@ function postMetaTags($url) {
  
 
 function sendDownloadEmail($data) {
-    global $context; 
-	
+    global $context; global $conn;
+
+	//// log for debugging
+	$myFile = "sendDownloadEmail.txt";
+	$myfile = fopen($myFile, 'a') or die("can't open file");
+	fwrite($myfile, ' '.__LINE__.' ');
+
 	$id = $data['productID'];
-	$type = $data['type'];
-	$conn = $context['conn'];
+	$type = 'download';
+	//$conn = $context['conn'];
     
-    $selP = 'SELECT * FROM products WHERE id="'.$id.'"';
-	$resP = $conn->query($selP);
-	$p = $resP->fetch_array(); 
+	$selP = "SELECT * FROM products WHERE id='$id' LIMIT 1";
+	fwrite($myfile, '  '.$selP.' ');
+  
+	// Execute the query and store the result set
+	$resP = mysqli_query($conn, $selP); 
+	$p = $resP->fetch_assoc();
+	fwrite($myfile, ' '.__LINE__.' ');
     
     $itemName = $p['itemName'];
     $itemNumber = $p['itemNumber'];
@@ -171,15 +180,18 @@ function sendDownloadEmail($data) {
     $folder = $p['folder'];
     
     if($folder == '') {
-        $downloadLink = $context['websiteURL'].'/?action=download&id='.$_POST['txn_id'];
+        $downloadLink = $context['websiteURL'].'?action=download&id='.$data['transID'];
     }
     else {
-        $downloadLink = $context['websiteURL'].'/'.$folder.'/?action=download&id='.$_POST['txn_id'];
+        $downloadLink = $context['websiteURL'].''.$folder.'/?action=download&id='.$data['transID'];
     }
-        
+    
     $selE = 'SELECT * FROM emails WHERE type="'.$type.'" AND productID="'.$id.'"';
-	$resE = $conn->query($selE);
-	$e = $resE->fetch_array();
+	
+	$resE = mysqli_query($conn, $selE); 
+	$e = $resE->fetch_assoc();
+ 
+	fwrite($myfile, ' '.__LINE__.' ');
  
     $var = array(
     '$itemName', 
@@ -199,13 +211,13 @@ function sendDownloadEmail($data) {
     $itemNumber, 
     $expires, 
     $downloadLink,
-    $_POST['mc_gross'], 
-    $_POST['first_name'], 
-    $_POST['last_name'],
-    $_POST['payer_email'], 
-    $_POST['txn_id'],
-    $_POST['payment_status'], 
-    $_POST['receiver_email'] );
+    $data['amount'], 
+    $data['first_name'], 
+    $data['last_name'],
+    $data['payer_email'], 
+    $data['transID'],
+    $data['payment_status'], 
+    $data['receiver_email'] );
     
     $message = stripslashes($e['message']); 
     $subject = stripslashes($e['subject']); 
@@ -215,16 +227,15 @@ function sendDownloadEmail($data) {
     $headers = "From: ".$context['adminEmail']."\n";
     $headers .= "Content-type: text/html;";     
     
-    mail($_POST['payer_email'], $subject, $message, $headers);
+    mail($data['payer_email'], $subject, $message, $headers);
     
-	//// log for debugging
-    $myFile = "sendDownloadEmail.txt";
-    $fh = fopen($myFile, 'a') or die("can't open file");
+	fwrite($myfile, ' '.__LINE__.' ');
+
     $stringData = "sendDownloadEmailAddress: ".$context['val']['sendDownloadEmailAddress']."\n"
             . "headers: .$headers"; 
     
-    fwrite($fh, $stringData);
-    fclose($fh);
+    fwrite($myfile, $stringData);
+    fclose($myfile);
     //// log for debugging
 
 	if($_GET['debug'] == 1)
