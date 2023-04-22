@@ -212,9 +212,9 @@ function sendDownloadEmail($data) {
     $expires, 
     $downloadLink,
     $data['amount'], 
-    $data['first_name'], 
-    $data['last_name'],
-    $data['payer_email'], 
+    $data['firstName'], 
+    $data['lastName'],
+    $data['payerEmail'], 
     $data['transID'],
     $data['payment_status'], 
     $data['receiver_email'] );
@@ -227,6 +227,7 @@ function sendDownloadEmail($data) {
     $headers = "From: ".$context['adminEmail']."\n";
     $headers .= "Content-type: text/html;";     
     
+	//send email to payer_email
     mail($data['payer_email'], $subject, $message, $headers);
     
 	fwrite($myfile, ' '.__LINE__.' ');
@@ -237,9 +238,6 @@ function sendDownloadEmail($data) {
     fwrite($myfile, $stringData);
     fclose($myfile);
     //// log for debugging
-
-	if($_GET['debug'] == 1)
-		echo $selP.' '.$selE.' '.$message; 
 
     if($context['val']['sendDownloadEmailCopy'] == 'on') //send copy of emails to self
         return mail($context['val']['sendDownloadEmailAddress'], $subject, $message, $headers); 

@@ -3,6 +3,7 @@ $dir = '../';
 require_once $dir.'vendor/autoload.php';
 require_once $dir.'include/functions.php';
 require_once $dir.'include/config.php';
+require_once $dir.'include/spmSettings.php';
 
 
 function checkDupeRows ($payerEmail, $productID) {
@@ -18,7 +19,7 @@ function checkDupeRows ($payerEmail, $productID) {
     
   //return number of rows in the table.
   $numRows = mysqli_num_rows($result);
-    
+
   mysqli_free_result($result);// close the result.
   return $numRows;
 }
@@ -148,39 +149,18 @@ switch ($event->type) {
       payment_link: '.$payment_link.'
       productID:. '.$productID.'
       itemName: '.$itemName.'
-      itemNumber: '.$itemNumber.' numRows:'.$numRows."\n";
+      itemNumber: '.$itemNumber.' 
+      numRows: '.$numRows.'
+      downloadLink: '.$downloadLink."\n";
       fwrite($myfile, $txt); 
 
-
-      
-
-//////////delete
-function testThis($data) {
-  global $conn; global $myfile;
-
-  $id = $data['productID'];
-
-  $selP = "SELECT * FROM products WHERE id='$id' LIMIT 1";
-  fwrite($myfile, '  '.$selP.' ');
-
-  // Execute the query and store the result set
-  $resP = mysqli_query($conn, $selP); 
-  $p = $resP->fetch_assoc();
-  fwrite($myfile, '  '.$p['itemName'].' ');
-}
-testThis($opt['dbFields']);
-//////////delete
-
-    
       //check for existing record using transID
-      //if($numRows == 0) 
-      {
+      if($numRows == 0) {
 
-       // dbInsert($opt); //add sales record into database
+       dbInsert($opt); //add sales record into database
       
-        fwrite($myfile, ' '.$numRows.' before '); 
         $result = sendDownloadEmail($opt['dbFields']);
-        fwrite($myfile, ' after '.$result); 
+        //fwrite($myfile, ' after '.$result); 
       }
       break;
   default:
