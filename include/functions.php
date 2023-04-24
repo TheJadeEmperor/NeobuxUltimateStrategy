@@ -159,19 +159,19 @@ function sendDownloadEmail($data) {
 	//// log for debugging
 	$myFile = "sendDownloadEmail.txt";
 	$myfile = fopen($myFile, 'a') or die("can't open file");
-	fwrite($myfile, ' '.__LINE__.' ');
+	//fwrite($myfile, ' '.__LINE__.' ');
 
 	$id = $data['productID'];
 	$type = 'download';
 	//$conn = $context['conn'];
     
 	$selP = "SELECT * FROM products WHERE id='$id' LIMIT 1";
-	fwrite($myfile, '  '.$selP.' ');
+	//fwrite($myfile, '  '.$selP.' ');
   
 	// Execute the query and store the result set
 	$resP = mysqli_query($conn, $selP); 
 	$p = $resP->fetch_assoc();
-	fwrite($myfile, ' '.__LINE__.' ');
+	//fwrite($myfile, ' '.__LINE__.' ');
     
     $itemName = $p['itemName'];
     $itemNumber = $p['itemNumber'];
@@ -203,8 +203,7 @@ function sendDownloadEmail($data) {
     '$lastName',
     '$payerEmail',
     '$transID',
-    '$paymentStatus',
-    '$receiverEmail' );
+    '$contactEmail' );
     
     $val = array(
     $itemName, 
@@ -216,8 +215,7 @@ function sendDownloadEmail($data) {
     $data['lastName'],
     $data['payerEmail'], 
     $data['transID'],
-    $data['payment_status'], 
-    $data['receiver_email'] );
+    $data['contactEmail'] );
     
     $message = stripslashes($e['message']); 
     $subject = stripslashes($e['subject']); 
@@ -230,7 +228,7 @@ function sendDownloadEmail($data) {
 	//send email to payer_email
     mail($data['payer_email'], $subject, $message, $headers);
     
-	fwrite($myfile, ' '.__LINE__.' ');
+	//fwrite($myfile, ' '.__LINE__.' ');
 
     $stringData = "sendDownloadEmailAddress: ".$context['val']['sendDownloadEmailAddress']."\n"
             . "headers: .$headers"; 

@@ -119,23 +119,6 @@ $opt = array(
 switch ($event->type) { 
   case 'charge.succeeded':
   case 'payment_intent.completed':
-   
-    // Then define and call a method to handle the successful payment intent.
-    // handlePaymentIntentSucceeded($paymentIntent);
-
-    $txt = '
-    payment_intent: '.$payment_intent.'
-    amount: '.$amount.'
-    name: '.$name.'
-    emailAddr: '.$emailAddr.'
-    status: '.$status. '
-    payment_link: '.$payment_link.'
-    productID:. '.$productID.'
-    itemName: '.$itemName.'
-    itemNumber: '.$itemNumber."\n";
-    
-    //fwrite($myfile, $txt); 
-
     break;
 
     case 'checkout.session.completed':
@@ -150,14 +133,12 @@ switch ($event->type) {
       productID:. '.$productID.'
       itemName: '.$itemName.'
       itemNumber: '.$itemNumber.' 
-      numRows: '.$numRows.'
-      downloadLink: '.$downloadLink."\n";
+      numRows: '.$numRows."\n";
       fwrite($myfile, $txt); 
 
       //check for existing record using transID
       if($numRows == 0) {
-
-       dbInsert($opt); //add sales record into database
+        dbInsert($opt); //add sales record into database
       
         $result = sendDownloadEmail($opt['dbFields']);
         //fwrite($myfile, ' after '.$result); 
