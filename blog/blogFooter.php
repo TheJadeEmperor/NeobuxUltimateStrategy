@@ -65,8 +65,6 @@ while($p = $resP->fetch_array()) {
        
         <div class="moduleBlue"><h2>Recommended Sites</h2>
 		<div style="text-align: left;">
-            <p><a href="https://vector.me" title="Free Clipart" target="_blank">Free Clipart</a></p>
-
             <p><a href="https://bestpayingsites.com/ppbooster" target="_blank">Paypal Booster</a></p>
             
             <p><a href="https://bestpayingsites.com/" target="_blank">Email Profit System</a></p>
