@@ -92,7 +92,6 @@ if(mysqli_num_rows($resM) > 0) {
 }
  
 
-
 if(isset($u['id'])) {	//logged in
 
     switch($_GET['action']) {

@@ -223,7 +223,7 @@ function sendDownloadEmail($data) {
     $subject = str_replace($var, $val, $subject); //replace vars in subject line
 
     $headers = "From: ".$context['adminEmail']."\n";
-    $headers .= "Content-type: text/html;";     
+    $headers .= "Content-type: text/html;";
     
 	//send email to payer_email
     mail($data['payer_email'], $subject, $message, $headers);

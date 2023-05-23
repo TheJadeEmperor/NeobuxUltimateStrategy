@@ -1,13 +1,11 @@
 <?php
- 
- 
+
 $selN = 'SELECT *, date_format(purchased, "%m/%d/%y") AS purchased FROM sales WHERE (payerEmail="'.$_SESSION['login']['paypal'].'") AND productID="5"'; 
 $resN = $conn->query($selN); 
 
 $n = $resN->fetch_array();
 $nPurchase = $n['purchased']; 
- 
-    
+
 $downloadContent = '<div class="moduleGradient"><h1>Neobux Basics</h1>
 <div>Neobux basics is a free product <br />
 The product was last updated on '.date('m/d/Y', time()-2592000).' <br />
