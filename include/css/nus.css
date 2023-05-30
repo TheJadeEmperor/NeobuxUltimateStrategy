@@ -7,8 +7,8 @@ html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, center,
+small, strike, sub, sup, tt, var,
+u, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 caption, tbody, tfoot, thead, th,
@@ -525,8 +525,12 @@ hr {
     text-align: center; 
 }
 
-#orderForm {
-	border: 1px solid black; font-size: 12px;
+.orderForm {
+	border: 1px solid black; 
+	font-size: 14px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	width: 50%;
+	padding: 20px;
 }
 
 #language {
