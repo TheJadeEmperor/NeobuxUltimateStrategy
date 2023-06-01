@@ -96,7 +96,6 @@ $itemNumber = $productData->itemNumber;
 
 $numRows = checkDupeRows ($payerEmail, $productID);
 
-
 $opt = array(
   'tableName' => 'sales',
   'dbFields' => array(

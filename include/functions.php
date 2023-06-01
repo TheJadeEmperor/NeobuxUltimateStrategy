@@ -222,14 +222,15 @@ function sendDownloadEmail($data) {
     $message = str_replace($var, $val, $message); //replace vars in message
     $subject = str_replace($var, $val, $subject); //replace vars in subject line
 
-    $headers = "From: ".$context['adminEmail']."\n";
-    $headers .= "Content-type: text/html;";
+    $headers = "From: ".$context['adminEmail'] . "\r\n";
+	$headers .= "Reply-To: ".$context['adminEmail'] . "\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
     
-	//send email to payer_email
-    mail($data['payer_email'], $subject, $message, $headers);
+	//send email to payerEmail 
+    mail($data['payerEmail'], $subject, $message, $headers);
     
-	//fwrite($myfile, ' '.__LINE__.' ');
-
+	
     $stringData = "sendDownloadEmailAddress: ".$context['val']['sendDownloadEmailAddress']."\n"
             . "headers: .$headers"; 
     
