@@ -78,7 +78,7 @@ $subscribeLandingURL = $dir.'templates/redirect.php?url=ysense';
 		<!-- Header -->
 		<header id="header" class="alt">
 			<span class="logo"><img src="<?=$dir?>images/guide/logo.svg" alt="Neobux Ultimate Strategy" /></span>
-			<h1>Neobux Ultimate Strategy 3.0</h1>
+			<h1>Neobux Ultimate Strategy 4.0</h1>
 			<p>The ultimate strategy to make money from Neobux and PTC sites<br />Contact us at our <a href="mailto:<?=$supportEmail?>">support email address</a>
 			</p>
 		</header>

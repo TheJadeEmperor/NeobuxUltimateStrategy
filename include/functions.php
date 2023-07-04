@@ -132,9 +132,9 @@ function postMetaTags($url) {
     $conn = $context['conn']; 
 
     $meta = array(
-        'title' => 'NUS Blog',
-        'tags' => 'NUS blog',
-        'desc' => 'NUS blog'
+        'title' => 'Neobux Ultimate Stratey 4.0 Blog',
+        'tags' => 'Neobux Ultimate Stratey 4.0 Blog',
+        'desc' => 'Neobux Ultimate Stratey 4.0 Blog'
     );
     
     $selP = 'SELECT * FROM posts WHERE url="'.$url.'" LIMIT 1';
