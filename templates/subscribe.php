@@ -2,8 +2,7 @@
 $dir = '../';
 include($dir.'include/functions.php');
 include($dir.'include/config.php');
-include($dir.'include/spmSettings.php'); 
-include($dir.'include/api_sendgrid.php'); 
+include($dir.'include/spmSettings.php');
 
 $urlRedirect = $_GET['url']; //url nickname in parameter  
 
