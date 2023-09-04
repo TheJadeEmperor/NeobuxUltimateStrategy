@@ -557,7 +557,7 @@ ol {
 .buttonWrap {
     clear: both;
     height: 68px;
-    margin: 27px auto 0;
+    margin: 56px 0 0 0;
     width: 327px;
 }
 
@@ -577,6 +577,37 @@ button.link {
     text-indent:-9999px;
     -moz-user-select:text;
 }
+
+button.link:hover {
+    background:url(../../images/splash/btnSubmit.png) no-repeat left bottom;
+}
+
+.container {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto; /* horizontal scrolling on smaller screens */
+  }
+
+  .dlButton {
+	flex: 1;
+	box-sizing: border-box; 
+  }
+
+  .hidden img {
+	  max-width: 200px;
+  }
+ 
+  @media (max-width: 768px) {
+	.dlButton {
+	  display: none; /* Hide arrows | smaller screens */
+	}
+
+	.dlButton:nth-child(2) {
+	  display: block; /* Show the middle div | smaller screens */
+	}
+  }
+
+
 
 /*screen 1*/
 @media screen and (max-width:1024px) {
@@ -897,3 +928,8 @@ button.link {
 
 }
 /*end screen 4*/
+
+
+/* neobux basics DL page */
+
+/* neobux basics DL page */

@@ -26,28 +26,11 @@ $confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL.'bas
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Free Neobux Report | Make Money From Neobux | Neobux Strategy Guide</title>
+<title>Free Neobux Report | Neobux Strategy Guide | Make Money From Neobux in <?=date('Y', time());?> </title>
 <meta name="description" content="Make $20 to $30 a day with our free neobux ebook - get the neobux ultimate strategy today!" />
 <link href="<?=$dir?>include/css/splash.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
-    h1 {
-        letter-spacing: 0px; 
-        font-weight:bold; 
-        line-height: 48px; 
-        font: bold 42px Tahoma;
-        margin:0 0 25px;
-        text-align:center;
-    }
-
-    h1 .red {
-        letter-spacing: 1px; 
-        font-style: italic;
-        font-weight:bold; 
-        line-height: 48px; 
-        font: bold 44px "Tahoma";
-        margin:0 0 25px;
-    }
-
+    
     h2 {
         letter-spacing: 0px; 
         font-weight:bold; 
@@ -61,46 +44,14 @@ $confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL.'bas
         font:normal bold 24px Arial, Helvetica, sans-serif;
         margin:0 0 5px;
     }
-        
-    h4 { 
-        letter-spacing:-.03em; 
-        font-size:18px; 
-        font-weight:bold; 
-        line-height:18px; 
-        margin-bottom:0px;
-    }
-
+    
     .center { text-align:center; margin:0 auto; }
     .strong { font-weight:bold; }
-    .red { color:#c13100; }
     .em { font-style:italic; }
-    .left { float:left; }
-    .right { float:right; }
     a { color:inherit; margin:0; -moz-user-select:text; }
     a:hover { text-decoration:none; }
-
-    #wrapper {
-        margin:0 auto;
-        width:892px;
-    }
-
-    #contentWrap {
-        margin:5px 0 0;
-        width:892px;
-    }
-
-    #contentTop {
-        background:url(<?=$imgDir?>contentTop.png) no-repeat;
-        height:36px;
-        width:892px
-    }
-
-    #content {
-        background:url(<?=$imgDir?>contentBG.png) repeat-y; 
-        padding: 30px 50px;
-    }
-
-    #content .subheadline {
+  
+     #content .subheadline {
         background:url(<?=$imgDir?>highlight.png) repeat-y center top;
         font:italic 20px Arial, Helvetica, sans-serif;
         margin:0 0 20px;
@@ -143,31 +94,7 @@ $confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL.'bas
         text-align:center;
         width:308px;
     }
-    .buttonWrap {
-        clear:both;
-        height:68px;
-        margin:27px auto 0;
-        width:327px;
-    }
-    .buttonWrap button {
-        height:68px;
-        overflow:visible;
-        width:327px;
-    }
-    button.link, button.link {
-        background:url(<?=$imgDir?>btnSubmit.png) no-repeat left top;
-        border:none;
-        cursor:pointer;
-        display:block;
-        margin:0;
-        padding:0;
-        text-indent:-9999px;
-        -moz-user-select:text;
-    }
-    button.link:hover {
-        background:url(<?=$imgDir?>btnSubmit.png) no-repeat left bottom;
-    }
-        
+ 
     #footer {
         background:url(<?=$imgDir?>footerBG.png) no-repeat;
         clear:both;
@@ -183,8 +110,7 @@ $confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL.'bas
         padding:12px 0 0;
         text-align:center;
     }
-    #eXTReMe { 
-        display: none; } 
+
 </style>
 <script type="text/javascript" src="include/js/swfobject.js"></script>
 <script type="text/javascript" src="include/js/jquery.js"></script>
@@ -236,8 +162,8 @@ function validateEmail(email) { /* validation for email field */
  
 
 <div id="form">
-    <h3 class="red">Get Your Free Neobux Report</h3>
-    <h4 id="error">Your referrals are waiting for you!</h4>
+    <h3 class="red">Does Neobux still work in <?=date('Y', time());?>?</h3>
+    <h4 id="error">Find out with this free Neobux report!</h4>
 
     <form method="POST" onsubmit="NoExitPage=true;" id="TRWVLCPForm" name="TRWVLCPForm" action="https://www.trafficwave.net/cgi-bin/autoresp/inforeq.cgi">
  
@@ -246,7 +172,7 @@ function validateEmail(email) { /* validation for email field */
     </div>
     
     <div class="buttonWrap">
-        <button type="submit" value="Submit" id="submit" name="subscribe" class="link button" onclick="return validateEmail(document.getElementById('email').value);"></button>
+        <button type="submit" value="Submit" id="submit" name="subscribe" class="link" onclick="return validateEmail(document.getElementById('email').value);"></button>
     </div>
 
     <input type="hidden" id="da_name" name="da_name" value="PTC User">

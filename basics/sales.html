@@ -1,3 +1,4 @@
+
 <p>&nbsp;</p>
 <h2 class="subheadline"><span class="strong red">Download Link:</span> Click below to download Neobux Basics</h2>
 
@@ -15,23 +16,29 @@
 
 	<h1>Right click and select "Save As"</h1>
 
-	<table title="<?=$itemName?>">
-	<tr valign="middle">
-		<td><img src="<?=$dir?>images/sales/arrowR.jpg" alt="Download" width="200px"></td>
-		<td><form method="post">
-			
-		<div class="buttonWrap">
-		<button type="submit" value="Submit" class="link button"></button>
-		</div>
+	<form method="post" title="<?=$itemName?>">
 		
-		<input type="hidden" name="dl" value="dl">
-		<input type="hidden" name="url" value="<?=$download?>" />
-		</form></td>
-		<td><img src="<?=$dir?>images/sales/arrowL.jpg" alt="Download" width="200px"></td>
-	</tr>
-	</table>
+		<div class="container">
+			<div class="dlButton hidden">
+				<img src="<?=$dir?>images/sales/arrowR.jpg" alt="<?=$itemName?>"></div>
+			<div class="dlButton">
+				<div class="buttonWrap">
+					<button type="submit" value="Submit" class="link button"></button>
+ 
+					<input type="hidden" name="dl" value="dl">
+					<input type="hidden" name="url" value="<?=$download?>" />
+				</div>
+			</div>
+			<div class="dlButton hidden">
+				<img src="<?=$dir?>images/sales/arrowL.jpg" alt="<?=$itemName?>">
+			</div>
+		  </div>
+		 
+
+	</form> 
 </center>
 
+<p>&nbsp;</p>
 <p>Problems downloading? Please make sure you use Firefox or Opera (don't use
 Internet Explorer), and have Adobe Reader installed on your system.</p>
 

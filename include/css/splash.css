@@ -166,7 +166,7 @@ a:hover { text-decoration:none; }
     overflow:visible;
     width:327px;
 }
-button.link, button.link {
+button.link {
     background:url(../../images/splash/btnSubmit.png) no-repeat left top;
     border:none;
     cursor:pointer;
