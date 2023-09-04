@@ -9,45 +9,34 @@ h1,h2,h3,h4 {
 	text-align:center; 
 }
 
-h1 { 
-    letter-spacing: 0em; 
-    font-weight:bold; 
-    line-height: 42px; 
-    font: bold 40px Tahoma;
-    margin:0 0 25px;
-    text-align:center;
+h1 {
+    letter-spacing: 0;
+    font: bold 40px/42px Tahoma;
+    margin: 0 0 25px;
+    text-align: center;
 }
-
+  
 h1 .red {
-	letter-spacing: 1px; 
-	font-style: italic;
-    font-weight:bold; 
-    line-height: 48px; 
-    font: bold 44px "Tahoma";
-    margin:0 0 25px;
+    letter-spacing: 1px;
+    font: italic bold 44px/48px "Tahoma";
+    margin: 0 0 25px;
 }
-
+  
 h2 {
-    font:bold 1.4em Tahoma; 
-    font-size:30px; 
-    letter-spacing:-.04em; 
-	line-height:30px;
-    font-weight: bold; 
-    line-height:24px; 
-    color: #767676; 
+    font: bold 1.4em/1.2 Tahoma;
+    letter-spacing: -0.04em;
+    color: #767676;
 }
-
+  
 h3 {
     font:normal bold 24px Arial, Helvetica, sans-serif;
     margin:0 0 5px;
 }
     
-h4 { 
-    font-size:18px; 
-    font-weight:bold; 
-    letter-spacing:-.03em; 
-    line-height:18px; 
-    margin-bottom:0px;
+h4 {
+    font: bold 18px Tahoma;
+    letter-spacing: -0.03em;
+    margin-bottom: 0;
 }
 
 p, li, ol {
@@ -60,8 +49,6 @@ p, li, ol {
 .strong { font-weight:bold; }
 .red { color:#c13100; }
 .em { font-style:italic; }
-.left { float:left; }
-.right { float:right; }
 a { color:inherit; margin:0; -moz-user-select:text; }
 a:hover { text-decoration:none; }
 .line { 
