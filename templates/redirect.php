@@ -3,7 +3,6 @@ $dir = '../';
 include($dir.'include/functions.php');
 include($dir.'include/config.php');
 include($dir.'include/spmSettings.php'); 
-include($dir.'include/api_sendgrid.php'); 
 
 $url = $_GET['url']; //url nickname in parameter 
 $urlRedirect = $context['links'][$url]; //get url from links array
