@@ -157,7 +157,7 @@ while($p = $resP->fetch_array()) {
 							<li><a href="https://www.youtube.com/channel/UC00XFWxJbES4ZDXpnspVsEA" class="icon fa-youtube alt" target="_BLANK"><span class="label">Instagram</span></a></li>
 							
 						</ul>
-					</section>
+					</section> 
 					<p class="copyright">&copy; Benjamin Louie <a href="https://benjaminlouie.com/">BL Web Solutions</a>.</p>
 				</footer>
 			</div>
