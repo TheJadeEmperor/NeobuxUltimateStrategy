@@ -16,6 +16,33 @@
 
 	<h1>Right click and select "Save As"</h1>
 
+<style>
+.container {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto; /* horizontal scrolling on smaller screens */
+  }
+
+  .dlButton {
+	flex: 1;
+	box-sizing: border-box; 
+  }
+
+  .hidden img {
+	  max-width: 200px;
+  }
+ 
+  @media screen and (max-width: 768px) {
+	.dlButton {
+	  display: none; /* Hide arrows | smaller screens */
+	}
+
+	.dlButton:nth-child(2) {
+	  display: block; /* Show the middle div | smaller screens */
+	}
+  }
+</style>
+	
 	<form method="post" title="<?=$itemName?>">
 		
 		<div class="container">

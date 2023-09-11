@@ -544,11 +544,6 @@ h1 {
 	font-size: 40px
 }
 
-.checkList {
-    /*list-style-image: url(../../images/sales/check.png);
-    font-family: Georgia;*/
-}
-
 ol { 
 	margin-left: 10px;
 }
@@ -581,31 +576,6 @@ button.link {
 button.link:hover {
     background:url(../../images/splash/btnSubmit.png) no-repeat left bottom;
 }
-
-.container {
-	display: flex;
-	flex-wrap: nowrap;
-	overflow-x: auto; /* horizontal scrolling on smaller screens */
-  }
-
-  .dlButton {
-	flex: 1;
-	box-sizing: border-box; 
-  }
-
-  .hidden img {
-	  max-width: 200px;
-  }
- 
-  @media screen and (max-width: 768px) {
-	.dlButton {
-	  display: none; /* Hide arrows | smaller screens */
-	}
-
-	.dlButton:nth-child(2) {
-	  display: block; /* Show the middle div | smaller screens */
-	}
-  }
 
 
 
