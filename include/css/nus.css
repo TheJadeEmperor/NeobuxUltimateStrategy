@@ -597,7 +597,7 @@ button.link:hover {
 	  max-width: 200px;
   }
  
-  @media (max-width: 768px) {
+  @media screen and (max-width: 768px) {
 	.dlButton {
 	  display: none; /* Hide arrows | smaller screens */
 	}
