@@ -20,7 +20,7 @@ $preHeadline = '<h2 class="subheadline"><span class="strong red">Warning: </span
     This offer will expire in '.$timer.'... </h2>';
 
 $subscrLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL;
-$confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL.'basics';
+$confirmLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL;
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

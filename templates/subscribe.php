@@ -25,11 +25,15 @@ body {
 .table {
 	border: 1px solid black; font-size: 12px;
 }
+
+img {
+	max-width: 600px;
+}
 </style>
 </head>
 <body>
 
-<p>&nbsp;</p><p>&nbsp;</p>
+<p>&nbsp;</p>
 <center>
 <table width="450px" cellpadding="10" class="table">
     <tr valign="middle">
@@ -37,17 +41,20 @@ body {
 			<p>Thank you for subscribing to our newsletters</p>
 			<p>Remember to check your inbox for a confirmation email</p>
 			<p><b>** Now Redirecting You to "<?=$urlRedirect?>" **</b></p>
-			
+					
 			<p>Please wait...</p>
-	
-			<img src="<?=$dir?>images/waiting.gif" alt="Waiting">
-        </td>
-    </tr>
+			<img src="<?=$dir?>images/waiting.gif" alt="Neobux Ultimate Strategy" />
+
+			<p>&nbsp;</p>
+			<img src="<?=$dir?>images/splash/confirm.jpg" alt="Neobux Ultimate Strategy"  />
+		</td>
+	</tr>
 </table>
 
 <p>&nbsp;</p>
 
 <p>Check your inbox to confirm receipt of our newsletters</p>
+<p>&nbsp;</p>
 </center>
 </body>
 </html>
