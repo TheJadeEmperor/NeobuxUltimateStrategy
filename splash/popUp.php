@@ -27,7 +27,7 @@ $subscrLandingURL = $websiteURL.'templates/subscribe.php?url='.$websiteURL;
     <table>
         <tr valign="middle">
             <td>
-				<iframe width="480" height="315" src="https://www.youtube.com/embed/sHTRZ82K89E?rel=0;&mute=1&loop=1&playlist=sHTRZ82K89E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="480" height="315" src="https://www.youtube.com/embed/sHTRZ82K89E?si=Vs_NVgrPOrXIUgaV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 		   </td>
            <td align="center">
                 <img src="<?=$imgDir?>redArrow.gif" class="redArrow">
