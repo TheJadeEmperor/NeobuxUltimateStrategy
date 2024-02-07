@@ -56,8 +56,6 @@ function database($host, $user, $pw, $dbName) {
 function popUpWindow($dir) {
 	global $popUp;
 
-	//echo 'popUp: '. $popUp; echo $_SESSION['popUp']; 
-
 	if ($popUp) { //popUp = 1: enabled 
 		if ($_SESSION['popUp'] < 1) {  //pop up happens once per user session
 			$_SESSION['popUp'] = 1; //track session
@@ -75,19 +73,16 @@ function popUpWindow($dir) {
 }
 
 //get ad pages content from codegeas_cc db
-function getAdContent ($conn) { //call this function on ad pages
-	$conn->select_db('codegeas_cc'); 
+function getAdContent ($connA) { //call this function on ad pages
 	
+
 	/////////////////////////////////
     $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
-	$resA = $conn->query($selA); 
+	$resA = $connA->query($selA); 
     if($ad = $resA->fetch_array()) {
         $adContent = $ad['content'];
 	}
 	/////////////////////////////////
-
-    //switch back to main db
-	$conn->select_db('codegeas_nus');
 	
 	return $adContent;
 }
