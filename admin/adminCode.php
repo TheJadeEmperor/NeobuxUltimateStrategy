@@ -105,6 +105,7 @@ $sitePages = $stat['sitePages'];
 
 		
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -114,10 +115,10 @@ $sitePages = $stat['sitePages'];
     
     <!-- dataTable styles -->
     <style type="text/css" media="screen">
-         @import "<?= $srcDir ?>media/css/demo_table.css";
-         @import "<?= $srcDir ?>media/css/demo_table_jui.css";
-         @import "<?= $srcDir ?>media/css/themes/base/jquery-ui.css";
-         @import "<?= $srcDir ?>media/css/themes/smoothness/jquery-ui-1.7.2.custom.css";
+         @import "<?=$srcDir ?>media/css/demo_table.css";
+         @import "<?=$srcDir ?>media/css/demo_table_jui.css";
+         @import "<?=$srcDir ?>media/css/themes/base/jquery-ui.css";
+         @import "<?=$srcDir ?>media/css/themes/smoothness/jquery-ui-1.7.2.custom.css";
 
          .dataTables_info { padding-top: 0; }
          .dataTables_paginate { padding-top: 0; }
@@ -125,17 +126,17 @@ $sitePages = $stat['sitePages'];
          #example_wrapper .fg-toolbar { font-size: 0.8em }
          #theme_links span { float: left; padding: 2px 10px; }
      </style>
-     <link href="<?= $bootDir ?>css/bootstrap-theme.css" rel="stylesheet" />
-     <link href="<?= $bootDir ?>css/bootstrap.css" rel="stylesheet" />
+     <link href="<?=$bootDir ?>css/bootstrap-theme.css" rel="stylesheet" />
+     <link href="<?=$bootDir ?>css/bootstrap.css" rel="stylesheet" />
 
      <!--jquery scripts-->
-     <script src="<?= $srcDir ?>media/js/complete.js"></script>
-     <script src="<?= $srcDir ?>media/js/jquery.min.js" type="text/javascript"></script>
-     <script src="<?= $srcDir ?>media/js/jquery-ui.js" type="text/javascript"></script>
-     <script src="<?= $srcDir ?>media/js/jquery.validate.js" type="text/javascript"></script>
+     <script src="<?=$srcDir ?>media/js/complete.js"></script>
+     <script src="<?=$srcDir ?>media/js/jquery.min.js" type="text/javascript"></script>
+     <script src="<?=$srcDir ?>media/js/jquery-ui.js" type="text/javascript"></script>
+     <script src="<?=$srcDir ?>media/js/jquery.validate.js" type="text/javascript"></script>
      
-     <script src="<?= $bootDir ?>js/bootstrap.min.js"></script><!--bootstrap scripts-->
-     <script src="<?= $srcDir ?>media/js/jquery.dataTables.min.js" type="text/javascript"></script> <!--dataTable scripts-->
+     <script src="<?=$bootDir ?>js/bootstrap.min.js"></script><!--bootstrap scripts-->
+     <script src="<?=$srcDir ?>media/js/jquery.dataTables.min.js" type="text/javascript"></script> <!--dataTable scripts-->
      <style>
         .dropdown-submenu {
             position: relative;
@@ -276,7 +277,7 @@ $sitePages = $stat['sitePages'];
                             <li><a href="https://www.google.com/analytics/web/" target="_blank">Google Analytics</a></li>
                         </ul>
                     </li>
-                    <? } ?>
+                    <?php } ?>
                    
                 </ul>
             </div>
