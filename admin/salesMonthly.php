@@ -107,7 +107,6 @@ $monthArray = array(
         foreach($monthArray as $mo => $month) {
             echo $month.' '.$thisYear.': '.getRevenue($thisYear.'-'.$mo).'<br />';
         }
-        
         ?>
         
         </div></div>
@@ -149,5 +148,6 @@ $monthArray = array(
     </td>
 </tr>
 </table>
+
 <?php
-include('adminFooter.php');  ?>
+include('adminFooter.php'); ?>

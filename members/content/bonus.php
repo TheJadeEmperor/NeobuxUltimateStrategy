@@ -9,57 +9,57 @@ $bonusProducts = array(
     ), 
     'Paypal Booster' => array(
         'img' => $bonusDir.'bonus-ppbooster.jpg',
-        'dl' => '../../../products/bonus/Make-$18K-in-30-Days.pdf',
+        'dl' => '../../../../products/bonus/Make-$18K-in-30-Days.pdf',
         'desc' => 'Make money from Neobux & Clixsense using our turn-key system'
     ),
 	'Make Money Surveys' => array(
         'img' => $bonusDir.'bonus-mms.jpg',
-        'dl' => '../../../ebooks/bonus/MakeMoneySurveys.pdf',
+        'dl' => '../../../../ebooks/bonus/MakeMoneySurveys.pdf',
         'desc' => 'Make $5 to $75 per survey'
     ),
     'PTC Beginners Course' => array(
         'img' => $bonusDir.'bonus-ptc-beginners-course.jpg',
-        'dl' => '../../../products/bonus/PTC-Beginners-Course.pdf',
+        'dl' => '../../../../products/bonus/PTC-Beginners-Course.pdf',
         'desc' => 'The PTC Beginners Course shows you how to get started with PTCs'
     ),
 	'PTC Crash Course' => array(
         'img' => $bonusDir.'bonus-ptc-crash-course.jpg',
-        'dl' => '../../../products/bonus/PTCCrashCourse.zip',
+        'dl' => '../../../../products/bonus/PTCCrashCourse.zip',
         'desc' => 'This ebook shows you make money with PTCs fast and different ways to make money from PTCs without clicking on ads'
     ),
     'Clixsense Report' => array(
-        'dl' => '../../../products/bonus/The-Clixsense-Report.pdf',
+        'dl' => '../../../../products/bonus/The-Clixsense-Report.pdf',
         'img' => $bonusDir.'bonus-clixsense-report.jpg',
     ),
 	'Referral Blueprint' => array(
-        'dl' => '../../../products/bonus/Referral-Blueprint.pdf',
+        'dl' => '../../../../products/bonus/Referral-Blueprint.pdf',
         'img' => $bonusDir .'bonus-referral-blueprint.jpg',
     ),
 	'PTC Referral Secrets' => array(
-        'dl' => '../../../products/bonus/PTC-Referral-Secrets.pdf',
+        'dl' => '../../../../products/bonus/PTC-Referral-Secrets.pdf',
         'img' => $bonusDir.'bonus-ptc-referral-secrets.jpg',
     ),
 ); 
 
 $premiumBonuses = array(
     'Rich PTC Kid' => array(
-        'dl' => '../../../products/bonus/RichPTCKid.pdf',
+        'dl' => '../../../../products/bonus/RichPTCKid.pdf',
         'img' => $bonusDir.'bonus-rich-ptc-kid.jpg',
     ),
     'PTC Riches' => array(
-        'dl' => '../../../products/bonus/PTC-Riches.pdf',
+        'dl' => '../../../../products/bonus/PTC-Riches.pdf',
         'img' => $bonusDir.'bonus-ptc-riches.jpg',
     ),
     'PTC Income Today' => array(
-        'dl' => '../../../products/bonus/PTC-Income-Today.pdf',
+        'dl' => '../../../../products/bonus/PTC-Income-Today.pdf',
         'img' => $bonusDir.'bonus-ptc-income-today.jpg',
     ),
     'PTC Insider Secrets' => array(
-        'dl' => '../../../products/bonus/PTC-Insider-Secrets.pdf',
+        'dl' => '../../../../products/bonus/PTC-Insider-Secrets.pdf',
         'img' => $bonusDir.'bonus-ptc-insider-secrets.jpg',
     ),
 	'Ultimate Traffic Monster' => array(
-        'dl' => '../../../products/bonus/UltimateTrafficMonster.zip',
+        'dl' => '../../../../products/bonus/UltimateTrafficMonster.zip',
         'img' => $bonusDir.'bonus-ultimate-traffic-monster.jpg',
     ),
 );
