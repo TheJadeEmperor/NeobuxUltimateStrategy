@@ -85,7 +85,7 @@ else {
 <p>&nbsp;</p>
 
 <center>
-    <?
+    <?php
     $count = 0;
     foreach($bonusProducts as $name => $val) {
         
@@ -128,7 +128,7 @@ else {
         
     <p>&nbsp;</p>     
     
-    <?
+    <?php
     $tableRows = ''; 
     $count = 0;
     foreach($premiumBonuses as $name => $val) {
