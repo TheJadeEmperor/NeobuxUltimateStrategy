@@ -4,7 +4,7 @@ $bonusDir = 'images/members/';
 $bonusProducts = array(
     'Mr. S PTC Course' => array(
         'img' => $bonusDir.'bonus-ptc-course.jpg',
-        'dl' => '.../../../products/bonus/Santanderinos-PTC-Course.pdf',
+        'dl' => '../../../../products/bonus/Santanderinos-PTC-Course.pdf',
         'desc' => 'This PTC guide, written by Mr. S. It is a detailed step by step guide on how to find the right PTC to join and where to get referral sign ups.'
     ), 
     'Paypal Booster' => array(
