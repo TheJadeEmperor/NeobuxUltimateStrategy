@@ -10,6 +10,7 @@ if(isset($_POST['dl']))
         downloadLink($_POST['url']); exit;
     }
 
+   
 if(is_int(strpos(__FILE__, 'C:\\'))) {//localhost
     error_reporting(E_ALL ^ E_NOTICE);
 }

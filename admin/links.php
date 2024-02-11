@@ -1,4 +1,4 @@
-<?
+<?php
 include('adminCode.php');
 
 if($_POST['add']) {
@@ -122,5 +122,5 @@ else {
 	<?=$linkList?>
 </table>
 
-<?
+<?php
 include('adminFooter.php'); ?>

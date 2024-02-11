@@ -24,7 +24,7 @@ $videoDownload = array(
 <p>&nbsp;</p>
 
 <center>
-<?
+<?php
 foreach($videoDownload as $vidTitle => $vidLink){
     echo $vidTitle.'<br /> 
         <form method="post">

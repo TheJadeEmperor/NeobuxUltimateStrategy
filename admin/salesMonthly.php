@@ -103,7 +103,7 @@ $monthArray = array(
         
         <div class="moduleBlue"><h1>This Year's Sales (<?=$thisYear?>)</h1>
         <div class="moduleBody">
-        <?
+        <?php
         foreach($monthArray as $mo => $month) {
             echo $month.' '.$thisYear.': '.getRevenue($thisYear.'-'.$mo).'<br />';
         }

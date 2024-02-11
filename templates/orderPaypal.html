@@ -41,7 +41,7 @@
 		<font face="verdana">Your sponsor is [<?=$paidToEmail?>]</font>
 	</div>
 </center>
-<?
+<?php
 if($_GET['pay'] == 'M') {
 ?>	
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paymentform">
@@ -77,7 +77,7 @@ if($_GET['pay'] == 'M') {
 	<!--	Paypal Custom Field		-->
 	<input type="hidden" name="custom" value="<?=$affiliateID?>">
 	</form>
-<?
+<?php
 }
 else {
 ?>

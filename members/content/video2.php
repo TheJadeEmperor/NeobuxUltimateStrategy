@@ -7,7 +7,7 @@
 	<p>&nbsp;</p> 
 	
 	<h2>Module 4-A - EasyHits4U - Part 1</h2>
-	<? 
+	<?php
 		$options = array(
 			'src' => 'https://www.youtube.com/embed/6xC5rDNmiaA',
 			'width' => '560',
@@ -20,7 +20,7 @@
  
 
 	<h2>Module 4-B - EasyHits4U - Part 2</h2>
-	<? 
+	<?php 
 		$options = array(
 			'src' => 'https://www.youtube.com/embed/rBf9zU3M6-s',
 			'width' => '560',
@@ -33,7 +33,7 @@
 
 
 	<h2>Module 4-C - EasyHits4U - Part 3</h2>
-	<? 
+	<?php 
 		$options = array(
 			'src' => 'https://www.youtube.com/embed/nLUk9LaEGwk',
 			'width' => '560',
@@ -47,7 +47,7 @@
 	<p>&nbsp;</p>
 
 	<h2>Module 5-A - Traffic Exchanges - Part 1</h2>
-	<? 
+	<?php 
 		$options = array(
 			'src' => 'https://www.youtube.com/embed/NOFXS48iHVw',
 			'width' => '560',
@@ -59,7 +59,7 @@
 	<p>&nbsp;</p>
 
 	<h2>Module 5-B - Traffic Exchanges - Part 2</h2>
-	<? 
+	<?php
 		$options = array(
 			'src' => 'https://www.youtube.com/embed/uH51NuF5AN4',
 			'width' => '560',

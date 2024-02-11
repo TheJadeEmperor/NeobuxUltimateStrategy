@@ -10,7 +10,7 @@
 
 
 <h2>Module 1 - Intro - A</h2>
-<? 
+<?php
 $options = array(
     'src' => 'https://www.youtube.com/embed/DDZQ2b9Cg7E',
     'width' => '560',
@@ -22,7 +22,7 @@ echo embedYoutubeVideo($options); ?>
 <p>&nbsp;</p>
 
 <h2>Module 2-A - TrafficWave - Part 1</h2>
-<? 
+<?php
 $options = array(
     'src' => 'https://www.youtube.com/embed/F6WOx9-01Y4',
     'width' => '560',
@@ -34,7 +34,7 @@ echo embedYoutubeVideo($options);
 <p>&nbsp;</p>
 
 <h2>Module 2-B - TrafficWave - Part 2</h2>
-<? 
+<?php
 $options = array(
     'src' => 'https://www.youtube.com/embed/7v7M6f9CJfQ',
     'width' => '560',
@@ -46,7 +46,7 @@ echo embedYoutubeVideo($options);
 <p>&nbsp;</p>
 
 <h2>Module 2-C - TrafficWave - Part 3</h2>
-<? 
+<?php
 $options = array(
     'src' => 'https://www.youtube.com/embed/eSCLyI_3dJI',
     'width' => '560',
@@ -58,7 +58,7 @@ echo embedYoutubeVideo($options);
 <p>&nbsp;</p>
 
 <h2>Module 3-A - TrafficWave - Part 1</h2>
-<? 
+<?php
 $options = array(
     'src' => 'https://www.youtube.com/embed/2qlqyYaOY8s',
     'width' => '560',

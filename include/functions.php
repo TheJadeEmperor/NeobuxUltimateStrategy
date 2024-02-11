@@ -75,7 +75,6 @@ function popUpWindow($dir) {
 //get ad pages content from codegeas_cc db
 function getAdContent ($connA) { //call this function on ad pages
 	
-
 	/////////////////////////////////
     $selA = 'SELECT * FROM ad_pages_content WHERE id = 1';
 	$resA = $connA->query($selA); 
