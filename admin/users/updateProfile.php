@@ -163,5 +163,5 @@ echo $msg;
 
 <p>&nbsp;</p>
 
-<?
+<?php
 include('adminFooter.php');  ?>

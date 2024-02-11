@@ -125,5 +125,5 @@ while($b = $resB->fetch_array()) {
 
 
 
-<?
+<?php
 include($adir.'adminFooter.php');  ?>

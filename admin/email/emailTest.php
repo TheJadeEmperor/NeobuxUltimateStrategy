@@ -118,5 +118,5 @@ if($_POST['productID']) {
     </div>
 </form>
 
-<?
+<?php
 include($adir.'adminFooter.php'); ?>

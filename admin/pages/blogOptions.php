@@ -93,5 +93,5 @@ foreach($blogData as $num => $bd) {
 </form>
 
 <p>&nbsp;</p>
-<?
+<?php
 include($adir.'adminFooter.php');  ?>

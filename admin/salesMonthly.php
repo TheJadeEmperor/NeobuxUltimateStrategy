@@ -131,7 +131,7 @@ $monthArray = array(
         <div class="moduleBlue"><h1>Breakdown by Product</h1>
         <div class="moduleBody">
             <table>
-            <?
+            <?php
             foreach($product as $id => $amt) {
                 $productTotal = '$'.number_format($amt['total'], 2);
                 $productName = shortenText($amt['itemName'], 30);
@@ -149,5 +149,5 @@ $monthArray = array(
     </td>
 </tr>
 </table>
-<?
+<?php
 include('adminFooter.php');  ?>

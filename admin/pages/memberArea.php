@@ -190,5 +190,5 @@ else {      //upsell is disabled
 <p>&nbsp;</p>
 
 
-<?
+<?php
 include($adir.'adminFooter.php');  ?>

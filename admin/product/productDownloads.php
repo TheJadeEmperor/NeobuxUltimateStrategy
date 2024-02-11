@@ -120,5 +120,5 @@ if($_GET['debug'] == 1) {
 </div>
 </form>
 
-<?
+<?php
 include($adir.'adminFooter.php'); ?>

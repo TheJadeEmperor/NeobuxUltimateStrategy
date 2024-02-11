@@ -37,5 +37,5 @@ foreach($productsData as $p) {
 
 <p>&nbsp; </p>
 
-<?
+<?php
 include($adir.'adminFooter.php'); ?>

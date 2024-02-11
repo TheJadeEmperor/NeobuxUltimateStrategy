@@ -184,5 +184,5 @@ $properties = 'class="activeField"';
 </div>
 </td></tr></table> 
 
-<?
+<?php
 include($adir.'adminFooter.php'); ?>

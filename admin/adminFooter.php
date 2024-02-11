@@ -3,5 +3,5 @@
 </tr>
 </table>
 
-<? 
+<?php
 mysqli_close($conn); ?>

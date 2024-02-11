@@ -49,7 +49,7 @@ echo $postContent;
             <td>
                 <ul>
                     <li><a href>Page >> </a></li>
-<?
+<?php
 for($n = 1; $n <= $numPages; $n++) {
     echo '<li><a href="./?action=posts&page='.$n.'">'.$n.'</a></li>';
 }

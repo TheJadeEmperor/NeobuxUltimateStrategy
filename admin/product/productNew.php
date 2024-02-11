@@ -343,5 +343,5 @@ else {
 
 </div>
 </div>
-<?
+<?php
 include($adir.'adminFooter.php'); ?>

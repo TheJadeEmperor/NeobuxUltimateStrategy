@@ -261,7 +261,7 @@ $sitePages = $stat['sitePages'];
                         </ul>
                     </li>
                     
-                    <? 
+                    <?php
                     if($devSite) {
                     ?>
                     <li class="dropdown">    

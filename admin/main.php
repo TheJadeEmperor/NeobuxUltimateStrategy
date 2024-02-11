@@ -127,7 +127,7 @@ $properties = 'class="activeField" size="40"';
 	    <tr>
 	        <td> Use Paypal Order Link: </td>
 	        <td>
-				<?
+				<?php
 				$select[ $val['usePaypalOrderLink'] ] = 'selected';
 				
 				$allOptions = array(
@@ -230,5 +230,5 @@ $properties = 'class="activeField" size="40"';
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-<?
+<?php
 include('adminFooter.php');  ?>

@@ -335,7 +335,7 @@ function closeDialog () {
     </div>
 </div>
 
-<?
+<?php
 $salesFields = array(
     'Product ID' => array(
         'id' => 'productID',
@@ -408,7 +408,7 @@ $salesFields = array(
                 <td width="5px"></td>
                 <td align="left"><input type="button" id="sale_id" /><input type="hidden" id="id" /></td>
             </tr>
-            <?
+            <?php
             foreach($salesFields as $disp => $textBox) {
                 echo '<tr title="'.$textBox['id'].'">
                     <td align="right" width="120px">'.$disp.'</td><td></td>
@@ -428,5 +428,5 @@ $salesFields = array(
 
 
 <br /><br />
-<?
+<?php
 include($adir.'adminFooter.php');  ?>

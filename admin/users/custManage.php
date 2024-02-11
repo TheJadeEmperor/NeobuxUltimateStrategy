@@ -109,5 +109,5 @@ if($msg) {
 	</div>
 </form>
 
-<?
+<?php
 include('adminFooter.php');  ?>

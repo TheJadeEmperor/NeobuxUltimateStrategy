@@ -211,5 +211,5 @@ if($msg)
 
 <p>&nbsp; </p>
 <p>&nbsp; </p>
-<?
+<?php
 include('adminFooter.php');  ?> 

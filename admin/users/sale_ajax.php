@@ -1,4 +1,4 @@
-<?
+<?php
 $dir = '../../';
 include($dir.'include/functions.php');
 include($dir.'include/config.php');

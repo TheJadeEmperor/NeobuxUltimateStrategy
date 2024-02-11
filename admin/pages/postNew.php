@@ -263,5 +263,5 @@ if (document.location.protocol == 'file:') {
 }
 </script>
 
-<?
+<?php
 include($adir.'adminFooter.php');  ?>

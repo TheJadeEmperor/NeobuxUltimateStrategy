@@ -52,5 +52,5 @@ while($p = $res->fetch_array()) {
 </form>
 
 <p>&nbsp;</p>
-<?
+<?php
 include($adir.'adminFooter.php');  ?>

@@ -88,5 +88,5 @@ foreach($emailList as $e) {
 	<?=$theList?>
 </table>
 
-<?
+<?php
 include($adir.'adminFooter.php');  ?>
