@@ -72,7 +72,7 @@ echo embedYoutubeVideo($options);
 
 <h2>Module 3-B - TrafficWave - Part 2</h2>
 
-<? 
+<?php
 $options = array(
     'src' => 'https://www.youtube.com/embed/e4_LNcShQVc',
     'width' => '560',
