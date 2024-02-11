@@ -4,62 +4,62 @@ $bonusDir = 'images/members/';
 $bonusProducts = array(
     'Mr. S PTC Course' => array(
         'img' => $bonusDir.'bonus-ptc-course.jpg',
-        'dl' => '/home2/codegeas/ebooks/bonus/Santanderinos-PTC-Course.pdf',
+        'dl' => '.../../../products/bonus/Santanderinos-PTC-Course.pdf',
         'desc' => 'This PTC guide, written by Mr. S. It is a detailed step by step guide on how to find the right PTC to join and where to get referral sign ups.'
     ), 
     'Paypal Booster' => array(
         'img' => $bonusDir.'bonus-ppbooster.jpg',
-        'dl' => '/home2/codegeas/ebooks/bonus/Make-$18K-in-30-Days.pdf',
+        'dl' => '../../../products/bonus/Make-$18K-in-30-Days.pdf',
         'desc' => 'Make money from Neobux & Clixsense using our turn-key system'
     ),
 	'Make Money Surveys' => array(
         'img' => $bonusDir.'bonus-mms.jpg',
-        'dl' => '/home2/codegeas/ebooks/bonus/MakeMoneySurveys.pdf',
+        'dl' => '../../../ebooks/bonus/MakeMoneySurveys.pdf',
         'desc' => 'Make $5 to $75 per survey'
     ),
     'PTC Beginners Course' => array(
         'img' => $bonusDir.'bonus-ptc-beginners-course.jpg',
-        'dl' => '/home2/codegeas/ebooks/bonus/PTC-Beginners-Course.pdf',
+        'dl' => '../../../products/bonus/PTC-Beginners-Course.pdf',
         'desc' => 'The PTC Beginners Course shows you how to get started with PTCs'
     ),
 	'PTC Crash Course' => array(
         'img' => $bonusDir.'bonus-ptc-crash-course.jpg',
-        'dl' => '/home2/codegeas/ebooks/bonus/PTCCrashCourse.zip',
+        'dl' => '../../../products/bonus/PTCCrashCourse.zip',
         'desc' => 'This ebook shows you make money with PTCs fast and different ways to make money from PTCs without clicking on ads'
     ),
     'Clixsense Report' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/The-Clixsense-Report.pdf',
+        'dl' => '../../../products/bonus/The-Clixsense-Report.pdf',
         'img' => $bonusDir.'bonus-clixsense-report.jpg',
     ),
 	'Referral Blueprint' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/Referral-Blueprint.pdf',
+        'dl' => '../../../products/bonus/Referral-Blueprint.pdf',
         'img' => $bonusDir .'bonus-referral-blueprint.jpg',
     ),
 	'PTC Referral Secrets' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/PTC-Referral-Secrets.pdf',
+        'dl' => '../../../products/bonus/PTC-Referral-Secrets.pdf',
         'img' => $bonusDir.'bonus-ptc-referral-secrets.jpg',
     ),
 ); 
 
 $premiumBonuses = array(
     'Rich PTC Kid' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/RichPTCKid.pdf',
+        'dl' => '../../../products/bonus/RichPTCKid.pdf',
         'img' => $bonusDir.'bonus-rich-ptc-kid.jpg',
     ),
     'PTC Riches' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/PTC-Riches.pdf',
+        'dl' => '../../../products/bonus/PTC-Riches.pdf',
         'img' => $bonusDir.'bonus-ptc-riches.jpg',
     ),
     'PTC Income Today' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/PTC-Income-Today.pdf',
+        'dl' => '../../../products/bonus/PTC-Income-Today.pdf',
         'img' => $bonusDir.'bonus-ptc-income-today.jpg',
     ),
     'PTC Insider Secrets' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/PTC-Insider-Secrets.pdf',
+        'dl' => '../../../products/bonus/PTC-Insider-Secrets.pdf',
         'img' => $bonusDir.'bonus-ptc-insider-secrets.jpg',
     ),
 	'Ultimate Traffic Monster' => array(
-        'dl' => '/home2/codegeas/ebooks/bonus/UltimateTrafficMonster.zip',
+        'dl' => '../../../products/bonus/UltimateTrafficMonster.zip',
         'img' => $bonusDir.'bonus-ultimate-traffic-monster.jpg',
     ),
 );

@@ -1,6 +1,6 @@
 <?php
 
-$downloadDir = '/home2/codegeas/ebooks/nus-video-course/';
+$downloadDir = '../../../products/nus-video-course/';
 
 $videoDownload = array(
     '1-Intro-A' => $downloadDir.'1-Intro-A.zip',
